@@ -1,0 +1,65 @@
+﻿/*
+[df:title]
+アイテム情報(マトリクスの子アイテム数)を取得する
+
+[df:description]
+QCWeb管理IDを指定して検索します
+
+以下の条件値は必須です
+・QCWebID
+
+以下の条件値は任意です
+・STATUS
+・MATRIX_DIV
+・SOURCE_DIV
+・DATA_EDIT_ID
+・ITEM_NAME
+*/
+-- #TItemInfoFindByQCWebID#
+-- !TItemInfoFindByQCWebIDPmb!
+-- !!Decimal Qcwebid!!
+-- !!List<int> StatusList!!
+-- !!List<int> MatrixDivList!!
+-- !!List<String> SourceDivList!!
+-- !!Decimal CategoryEditId!!
+-- !!String ItemName!!
+-- !!List<String> AnswerTypeList!!
+
+SELECT
+	ITEM.ITEM_INFO_ID
+	,ITEM.QCWEBID
+	,ITEM.ITEM_NAME
+	,ITEM.ITEM_TYPE
+	,ITEM.ANSWER_TYPE
+	,ITEM.SORT_NUMBER
+	,ITEM.MATRIX_DIV
+	,ITEM.LV1TITLE
+	,ITEM.LV2TITLE
+	,ITEM.ORIGINAL_LV1TITLE
+	,ITEM.ORIGINAL_LV2TITLE
+	,ITEM.CATEGORY_EDIT_ID
+	,ITEM.DATA_EDIT_ID
+	,ITEM.STATUS
+	,ITEM.SORT_FLAG
+	,ITEM.SORT_RANGE
+	,NVL(MATRIX.ITEM_INFO_ID, ITEM.ITEM_INFO_ID) AS PARENT_ITEM_INFO_ID
+	,NVL(MATRIX_CHILD.CHILD_COUNT, 0) AS MATRIX_CHILD_COUNT
+FROM
+	T_ITEM_INFO ITEM LEFT JOIN T_MATRIX_INFO MATRIX ON
+		ITEM.ITEM_INFO_ID = MATRIX.CHILD_ITEM_INFO_ID
+	LEFT JOIN (SELECT COUNT(MATRIX_INFO_ID) AS CHILD_COUNT, ITEM_INFO_ID FROM T_MATRIX_INFO GROUP BY ITEM_INFO_ID) MATRIX_CHILD ON
+		ITEM.ITEM_INFO_ID = MATRIX_CHILD.ITEM_INFO_ID
+WHERE
+		ITEM.QCWEBID = /*pmb.Qcwebid*/1
+	/*IF pmb.StatusList != null*/AND ITEM.STATUS IN /*pmb.StatusList*/(0)/*END*/
+	/*IF pmb.MatrixDivList != null*/AND ITEM.MATRIX_DIV IN /*pmb.MatrixDivList*/(0)/*END*/
+	/*IF pmb.SourceDivList != null*/AND ITEM.SOURCE_DIV IN /*pmb.SourceDivList*/('0')/*END*/
+	/*IF pmb.CategoryEditId != 0*/AND (ITEM.CATEGORY_EDIT_ID = /*pmb.CategoryEditId*/1 OR ITEM.CATEGORY_EDIT_ID IS NULL)
+	-- ELSE AND ITEM.CATEGORY_EDIT_ID IS NULL
+	/*END*/
+	/*IF pmb.ItemName != null*/AND ITEM.ITEM_NAME <> /*pmb.ItemName*/'X'/*END*/
+	/*IF pmb.AnswerTypeList != null*/AND ITEM.ANSWER_TYPE IN /*pmb.AnswerTypeList*/('0')/*END*/
+ORDER BY
+	ITEM.SORT_NUMBER ASC
+	, ITEM.ITEM_INFO_ID ASC
+;

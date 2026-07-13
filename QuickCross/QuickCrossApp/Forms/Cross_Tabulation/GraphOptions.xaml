@@ -1,0 +1,247 @@
+﻿<UserControl x:Class="Qc4Launcher.Forms.Cross_Tabulation.GraphOptions"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Qc4Launcher.Forms.Cross_Tabulation"
+             mc:Ignorable="d" 
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             xmlns:res="clr-namespace:Qc4Launcher"
+             d:DesignHeight="300" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="myHeaderStyle" TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="Visibility" Value="Collapsed" />
+        </Style>
+        <Style TargetType="GroupBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="GroupBox">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Border Grid.Row="0"
+                          BorderThickness="1" BorderBrush="White"
+                          CornerRadius="0,0,0,0">
+                                <ContentPresenter 
+                          ContentSource="Header"
+                          RecognizesAccessKey="True" />
+                            </Border>
+                            <Border Grid.Row="1" BorderBrush="#D5DFE5"
+                                    BorderThickness="1"
+                                    CornerRadius="0,0,0,0">
+                                <ContentPresenter Margin="4" />
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <DataTemplate x:Key="QuestionVariabl">
+            <Grid Height="15" Width="auto" ShowGridLines="false">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock  Grid.Column="0" Background="{x:Null}" Text="{Binding Variable}"></TextBlock>
+            </Grid>
+        </DataTemplate>
+
+    </UserControl.Resources>
+    <Grid>
+        <GroupBox Margin="10 5 10 10">
+            <GroupBox.Header>
+                <TextBlock Text="{x:Static res:LocalResource.CROSS_LINE_GRAPH_HEADER}" Margin="10 0 0 0" HorizontalAlignment="Left" Style="{StaticResource TextBlockNormalWithCenterAligned}"/>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="65*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="35*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <DataGrid IsTabStop="True" TabIndex="1"   CurrentCellChanged="List_Source_CurrentCellChanged" PreviewKeyDown="List_Source_PreviewKeyDown" BeginningEdit="List_ReportOption_Show_ItemQuestion_BeginningEdit" BorderBrush="#FFE1E1E1" SelectionMode="Extended" HorizontalScrollBarVisibility="Hidden"  x:Name="List_ReportOption_Show_ItemQuestion" FontFamily="Arial" FontSize="12" Background="White" HeadersVisibility="None" GridLinesVisibility="None" Margin="5" ItemsSource="{Binding}"  AutoGenerateColumns="False" CanUserAddRows="False"  CanUserDeleteRows="False" >
+                     
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Width="150">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Padding="2 0 0 0" HorizontalAlignment="Left" Foreground="#FF333333" Margin="0 2 0 0" Text="{Binding Choice}" Width="118"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="100">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Foreground="#FF333333" Margin="0 2 0 0" Text="{Binding Variable}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Foreground="#FF333333" Margin="0 2 0 0" Text="{Binding AnswerType}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell" >
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="true" >
+                                        <Setter Property="Foreground" Value="Black" />
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                                <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.Resources>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#F6F6F6"/>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#CBE8F6"/>
+                        </DataGrid.Resources>
+
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=Selectable}" Value="False">
+                                        <DataTrigger.Setters>
+                                            <Setter Property="Background" Value="#F6F6F6" />
+                                            <Setter Property="BorderBrush" Value="#F1F1F1"/>
+                                        </DataTrigger.Setters>
+                                    </DataTrigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#e5f3fb" />
+                                        <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <!--<Setter Property="Background" Value="#CBE8F6"/>-->
+                                        <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+
+                    </DataGrid>
+                    <ListView IsTabStop="False" Style="{StaticResource ListBoxCommon1}" x:Name="List_ReportOption_Show_ItemQuestion1" Margin="5" SelectionMode="Extended" IsSynchronizedWithCurrentItem="False" ItemTemplate="{StaticResource QuestionVariabl}" ItemsSource="{Binding}" MouseDown="List_Source_MouseDown" MouseUp="List_Source_MouseUp" ScrollViewer.ScrollChanged="List_Source_ScrollChanged">
+                        <ListView.View>
+                            <GridView AllowsColumnReorder="False"  ColumnHeaderContainerStyle="{StaticResource myHeaderStyle}">
+                                <GridViewColumn  Width="150" DisplayMemberBinding="{Binding Choice}" />
+                                <GridViewColumn  Width="100" DisplayMemberBinding="{Binding Variable}">
+                                </GridViewColumn>
+                                <GridViewColumn Width="100" DisplayMemberBinding="{Binding AnswerType}"/>
+                            </GridView>
+                        </ListView.View>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Foreground" Value=" #FF333333"></Setter>
+                                <EventSetter Event="MouseEnter" Handler="ListBoxItem_MouseEnter"/>
+
+                                    <Style.Triggers>
+                                        <Trigger Property="IsHitTestVisible" Value="false" >
+                                            <Setter Property="Foreground" Value="LightGray" />
+                                        </Trigger>
+                                    </Style.Triggers>
+
+                            </Style>
+                            
+                        </ListView.ItemContainerStyle> 
+                    </ListView>
+                  
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="1">
+                        <Button IsTabStop="True" TabIndex="2" Style="{StaticResource SmallButton}" Margin="0 0 0 0" x:Name="Btn_Right_dbl_arrow"  Content="{x:Static res:LocalResource.LABEL_DBL_RIGHT_ARROW}"  Width="25" Height="25" Click="Btn_Right_dbl_arrow_Click"/>
+                        <Button IsTabStop="True" TabIndex="3" Style="{StaticResource SmallButton}" Margin="0 0 0 0" x:Name="Btn_Right_Single_Arrow"  Content="{x:Static res:LocalResource.LABEL_SINGLE_RIGHT_ARROW}" Width="25" Height="25" Click="Btn_Right_Single_Arrow_Click"/>
+                       
+                    </StackPanel>
+                    <StackPanel Grid.Row="3">
+                        <Button IsTabStop="True" TabIndex="4" Style="{StaticResource SmallButton}" Margin="0 0 0 0" x:Name="Btn_left_single_arrow"  Content="{x:Static res:LocalResource.LABEL_SINGLE_LEFT_ARROW}" Width="25" Height="25" Click="Btn_left_single_arrow_Click"/>
+                        <Button IsTabStop="True" TabIndex="5" Style="{StaticResource SmallButton}" x:Name="Btn_left_dbl_arrow"  Content="{x:Static res:LocalResource.LABEL_DBL_LEFT_ARROW}" Width="25" Height="25" Click="Btn_left_dbl_arrow_Click"></Button>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="2">
+                    <DataGrid IsTabStop="True" TabIndex="6"  CurrentCellChanged="List_Source_CurrentCellChanged" PreviewKeyDown="List_Source_PreviewKeyDown" BeginningEdit="List_ReportOption_Show_ItemQuestion2_BeginningEdit" BorderBrush="#FFE1E1E1" SelectionMode="Extended" HorizontalScrollBarVisibility="Hidden"  x:Name="List_ReportOption_Show_ItemQuestion2" Width="200" FontFamily="Arial" FontSize="12" Background="White" HeadersVisibility="None" GridLinesVisibility="None" Margin="5" ItemsSource="{Binding}"  AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell" >
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="true" >
+                                        <Setter Property="Foreground" Value="Black" />
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                                <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.Resources>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#F6F6F6"/>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#CBE8F6"/>
+                        </DataGrid.Resources>
+
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=Selectable}" Value="False">
+                                        <DataTrigger.Setters>
+                                            <Setter Property="Background" Value="#F6F6F6" />
+                                            <Setter Property="BorderBrush" Value="#F1F1F1"/>
+                                        </DataTrigger.Setters>
+                                    </DataTrigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#e5f3fb" />
+                                        <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <!--<Setter Property="Background" Value="#CBE8F6"/>-->
+                                        <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Width="300">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Padding="2 0 0 0"  Foreground="#FF333333" Margin="2 2 0 0" Text="{Binding Choice}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                           
+
+                        </DataGrid.Columns>
+                       
+                    </DataGrid>
+                    <ListView IsTabStop="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Style="{StaticResource ListBoxCommon1}" Width="200"  x:Name="List_ReportOption_Show_ItemQuestion21" Margin="5" SelectionMode="Extended" IsSynchronizedWithCurrentItem="False" ItemTemplate="{StaticResource QuestionVariabl}" ItemsSource="{Binding}"  MouseUp="List_Source_MouseUp" ScrollViewer.ScrollChanged="List_Source_ScrollChanged1">
+                        <ListView.View>
+                            <GridView AllowsColumnReorder="False"  ColumnHeaderContainerStyle="{StaticResource myHeaderStyle}">
+                                <GridViewColumn  Width="300" DisplayMemberBinding="{Binding Choice}" />
+                            </GridView>
+                        </ListView.View>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Foreground" Value=" #FF333333"></Setter>
+                                <EventSetter Event="MouseEnter" Handler="ListViewItem_MouseEnter"/>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsHitTestVisible" Value="false" >
+                                        <Setter Property="Foreground" Value="LightGray" />
+                                    </Trigger>
+                                </Style.Triggers>
+
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                    
+                </Grid>
+            </Grid>
+        </GroupBox>  
+    </Grid>
+</UserControl>

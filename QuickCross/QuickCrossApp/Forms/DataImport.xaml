@@ -1,0 +1,416 @@
+﻿<Window x:Class="Qc4Launcher.DataImport"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Qc4Launcher"
+        mc:Ignorable="d"  
+        Title="{x:Static local:LocalResource.TITLE_DATA_IMPORT}"  Height="480" Width="700" ResizeMode="NoResize" WindowStyle="None"
+			WindowStartupLocation="CenterScreen"  Closing="Window_Closing" BorderBrush="#ADADAD" BorderThickness="1" >
+
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Paste" Executed="CommandBinding_Executed" />
+    </Window.CommandBindings>
+
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="5" BorderThickness="0" Padding="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="true">
+                    <Setter Property="Background" Value="#aeaeae"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="HeaderText" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Text" Value="{x:Static local:LocalResource.LBL_DATA_IMPORT_TITILE}"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+        <Style x:Key="Header" TargetType="{x:Type Grid}">
+            <Setter Property="Background" Value="#3467b0"/>
+        </Style>
+
+    </Window.Resources>
+
+
+    <Grid>
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="385*"/>
+                <RowDefinition Height="75*"/>
+            </Grid.RowDefinitions>
+            <Grid  Grid.Row="0"  MouseDown="DragableGridMouseDown" Style="{StaticResource Header}">
+                <TextBlock Style="{StaticResource HeaderText}"/>
+            </Grid>
+            <Grid  Grid.Row="1" Margin="24,0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="357*"/>
+                    <ColumnDefinition Width="295*"/>
+                </Grid.ColumnDefinitions>
+                <Border CornerRadius="10" Background="#f5f5f5" Grid.ColumnSpan="2" Margin="0,18,0,-18">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height=".4*"/>
+                            <RowDefinition Height="1.0*"/>
+                            <RowDefinition Height=".4*"/>
+                            <RowDefinition Height="2*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="327.5*"/>
+                                <ColumnDefinition Width="327.5*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!--1st Block-->
+
+                            <TextBlock Text="{x:Static local:LocalResource.LBL_FILE1}" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                            <TextBox  x:Name="txt_FileName" IsReadOnly="True"  Margin="45,15,90,15" VerticalAlignment="Center" Height="30" Grid.Column="0" VerticalContentAlignment="Center" Text="" >
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="BorderBrush" Value="#aeaeae"/>
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                        <Setter Property="BorderThickness" Value="1"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <Button  x:Name="btn_Open" Style="{StaticResource Button}" Background="#3467b0" Grid.Column="0" Height="30" Width="75" HorizontalAlignment="Right" Margin="10,0" Content="{x:Static local:LocalResource.BTN_OPEN}"  Click="Btn_Open_Click"/>
+
+                            <!--2nd Block-->
+
+                            <TextBlock Text="{x:Static local:LocalResource.LBL_FILE2}" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                            <TextBox  x:Name="txt_FileName2" IsReadOnly="True" Margin="45,15,90,15" VerticalAlignment="Center" Height="30" Grid.Column="1" VerticalContentAlignment="Center" Text="">
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="BorderBrush" Value="#aeaeae"/>
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                        <Setter Property="BorderThickness" Value="1"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <Button  x:Name="btn_Open2" Style="{StaticResource Button}" Background="#3467b0" Grid.Column="1" Height="30" Width="75" HorizontalAlignment="Right" Margin="10,0" Content="{x:Static local:LocalResource.BTN_OPEN}"  Click="Btn_Open2_Click"/>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="655*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="lblDelimitterSpecify" Visibility="Hidden" Text="{x:Static local:LocalResource.LBL_DELIMITTER_SPECIFY}" Grid.Column="0" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" Height="20" Margin="5">
+                            </TextBlock>
+                        </Grid>
+                        <Grid x:Name="rowTextFileDetails" Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="632*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!--Column 1-->
+                            <TextBlock x:Name="lblCharCodeDesc" Visibility="Hidden" Text="{x:Static local:LocalResource.LBL_SELECT_CHARCODE}" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,29" Height="16" Width="80"/>
+
+                            <ComboBox x:Name="ddlEncodingChar" Visibility="Hidden" VerticalAlignment="Center" Height="20" Grid.Column="0" VerticalContentAlignment="Center" HorizontalAlignment="Left" Text="" Width="100"  Margin="90,28,10,26" SelectedIndex="0" SelectionChanged="DdlEncodingChar_SelectionChanged" >
+                                <ComboBoxItem Content = "SJIS"/>
+                                <ComboBoxItem Content = "UTF-8"/>
+                            </ComboBox>
+
+                            <!--Key1-->
+                            <TextBlock x:Name="lblFile1Key1" Visibility="Hidden" Margin="50,-40,0,47" Text="{x:Static local:LocalResource.LBL_FILE1_KEY1}" Grid.Column="0" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" Width="29"/>
+
+                            <ComboBox x:Name="ddlFile1Key1" Visibility="Hidden" Margin="90,-90,0,47" VerticalAlignment="Center" Height="21" Grid.Column="0" VerticalContentAlignment="Center" HorizontalAlignment="Left" Text="" Width="130" ItemsSource="{Binding}" SelectedIndex="0" SelectionChanged="DdlFile1Key1_SelectionChanged">
+                            </ComboBox>
+
+                            <!--Key2-->
+                            <TextBlock x:Name="lblFile1Key2" Visibility="Hidden" Margin="50,0,0,7" Text="{x:Static local:LocalResource.LBL_FILE1_KEY2}" Grid.Column="0" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" Width="29"/>
+
+                            <ComboBox x:Name="ddlFile1Key2" Visibility="Hidden"  Margin="90,-50,0,7" VerticalAlignment="Center" Height="21" Grid.Column="0" VerticalContentAlignment="Center" HorizontalAlignment="Left" Text="" Width="130" ItemsSource="{Binding}" SelectedIndex="0" SelectionChanged="DdlFile1Key2_SelectionChanged">
+                            </ComboBox>
+
+
+                            <!--Column 2-->
+
+                            <TextBlock x:Name="lblDelimitterDesc" Visibility="Hidden"  Text="{x:Static local:LocalResource.LBL_SELECT_DELIMITTER}" Margin = "205,0,0,0" Grid.Column="0" />
+                            <StackPanel x:Name="radGroupDelimitter" Visibility="Hidden" Margin = "30,28,0,0" Grid.Column="0" Orientation="Horizontal" Width="260">
+                                <RadioButton x:Name = "radComma" Margin = "2" IsChecked="True"
+            GroupName = "colDelimitter" Content = "{x:Static local:LocalResource.LBL_COMMA}" Checked="RadComma_Checked" />
+                                <RadioButton x:Name = "radTab" Margin = "2"  IsChecked="False"
+            GroupName = "colDelimitter" Content = "{x:Static local:LocalResource.LBL_TAB}" Checked="RadTab_Checked" />
+                                <RadioButton x:Name = "radSpace" Margin = "2"  IsChecked="False"
+            GroupName = "colDelimitter" Content = "{x:Static local:LocalResource.LBL_SPACE}" Checked="RadSpace_Checked" />
+                                <RadioButton x:Name = "radOther" Margin = "2"  IsChecked="False"
+            GroupName = "colDelimitter" Content = "{x:Static local:LocalResource.LBL_OTHER}" Checked="RadOther_Checked" />
+                            </StackPanel>
+
+                            <TextBox  x:Name="txt_CustomDelimitter" Visibility="Hidden" Width="50"  Margin="260,26,3,27" VerticalAlignment="Center" Height="20" Grid.Column="0" VerticalContentAlignment="Center" Text="" IsEnabled="False" TextChanged="Txt_CustomDelimitter_TextChanged">
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="BorderBrush" Value="#aeaeae"/>
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                        <Setter Property="BorderThickness" Value="1"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+
+
+                            <!--Key1-->
+                            <TextBlock x:Name="lblFile2Key1" Visibility="Hidden" Margin="370,-40,0,96" Text="{x:Static local:LocalResource.LBL_FILE1_KEY1}" Grid.Column="0" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" Height="20">
+                            </TextBlock>
+
+                            <ComboBox Panel.ZIndex="1" x:Name="ddlFile2Key1" Visibility="Hidden" Margin="0,-43,94,95" VerticalAlignment="Center" Height="22" Grid.Column="0" VerticalContentAlignment="Center" HorizontalAlignment="Right" Text="" Width="130" SelectedIndex="0" ItemsSource="{Binding}" SelectionChanged="DdlFile2Key1_SelectionChanged">
+                            </ComboBox>
+
+                            <!--Key2-->
+                            <TextBlock x:Name="lblFile2Key2" Visibility="Hidden" Margin="370,0,0,60" Text="{x:Static local:LocalResource.LBL_FILE1_KEY2}" Grid.Column="0" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" Height="20">
+                            </TextBlock>
+
+                            <ComboBox Panel.ZIndex="1" x:Name="ddlFile2Key2" Visibility="Hidden" Margin="0,-3,94,55" VerticalAlignment="Center" Height="22" Grid.Column="0" VerticalContentAlignment="Center" HorizontalAlignment="Right" Text="" Width="130" SelectedIndex="0" ItemsSource="{Binding}" SelectionChanged="DdlFile2Key2_SelectionChanged">
+                            </ComboBox>
+
+
+                            <!--Column 3-->
+                            <TextBlock x:Name="lblStringQuotesDesc" Visibility="Hidden" Text="{x:Static local:LocalResource.LBL_SELECT_STRINGQUOTES}" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="478,30,0,28" Height="16" Width="85"/>
+                            <ComboBox x:Name="ddlEnclosedChars" Visibility="Hidden" VerticalAlignment="Center" Height="20" Grid.Column="0" VerticalContentAlignment="Center" HorizontalAlignment="Right" Text="" Width="60" Margin="0,27,10,27" SelectedIndex="0" SelectionChanged="DdlEnclosedChar_SelectionChanged"  >
+                                <ComboBoxItem Content = '"'/>
+                                <ComboBoxItem Content = "'"/>
+                                <ComboBoxItem Content = "None"/>
+                            </ComboBox>
+
+                            <!--Column Selection Screen-->
+                            <TextBlock x:Name="lblColumnSelectionSpecify" Visibility="Hidden" Text="{x:Static local:LocalResource.LBL_COLUMN_SELECTION_SPECIFY}" Grid.Column="0" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" Height="20" Margin="0,-120,0,0">
+                            </TextBlock>
+
+                            <TextBlock x:Name="lblMaFormatSpecify" Visibility="Hidden" Text="{x:Static local:LocalResource.LBL_MA_FORMAT}" Grid.Column="0" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" Height="20" Margin="0,-40,0,0">
+                            </TextBlock>
+
+                            <ComboBox x:Name="ddlMaFormat" Visibility="Hidden" VerticalAlignment="Center" Height="22" Grid.Column="0" VerticalContentAlignment="Center" HorizontalAlignment="Left" Text="" Width="200" Margin="70,-40,0,0" SelectedIndex="0"  SelectionChanged="DdlMaFormat_SelectionChanged" >
+                                <ComboBoxItem Content = "{x:Static local:LocalResource.COMBO_VALUE_FLAGFORMAT}"/>
+                                <ComboBoxItem Content = "{x:Static local:LocalResource.COMBO_VALUE_INCELLCOMMASEPERATOR}"/>
+                            </ComboBox>
+
+                            <TextBlock x:Name="lblNotApplicableChar" Visibility="Hidden" Text="{x:Static local:LocalResource.LBL_NOT_APPLICABLE_CHAR}" Grid.Column="0" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" Height="20" Margin="365,-40,0,0">
+                            </TextBlock>
+
+                            <TextBox  x:Name="txt_NotApplicableChar" Visibility="Hidden" Width="80"  Margin="445,-40,0,0" VerticalAlignment="Center" Height="20" Grid.Column="0" VerticalContentAlignment="Center" Text="" IsEnabled="True" TextChanged="Txt_NotApplicableChar_TextChanged">
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="BorderBrush" Value="#aeaeae"/>
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                        <Setter Property="BorderThickness" Value="1"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+
+                            <TextBlock x:Name="lblFile2PreviewColSelection" Visibility="Hidden" Text="{x:Static local:LocalResource.LBL_FILE2_PREVIEW}" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,30,0,0"/>
+
+                            <!--Column Selection Screen-->
+
+                            <!--Information Screen-->
+                            <TextBlock x:Name="lblImportedInformationSpecify" Visibility="Hidden" Text="{x:Static local:LocalResource.LBL_COLUMN_SELECTION_SPECIFY}" Grid.Column="0" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" Height="20" Margin="0,-120,0,0">
+                            </TextBlock>
+                            <!--Information Screen-->
+
+                        </Grid>
+                        <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="255*"/>
+                                <ColumnDefinition Width="377*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="lblFile2Preview" Visibility="Hidden" Text="{x:Static local:LocalResource.LBL_FILE2_PREVIEW}" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,7"/>
+
+                            <!--Column Selection Screen-->
+                            <CheckBox x:Name = "chkSelectAll" Visibility="Hidden" Margin="0,10,0,0" Checked="ChkSelectAll_Changed"  Unchecked="ChkSelectAll_Changed"/>
+                            <TextBlock x:Name="lblSelectAll" Visibility="Hidden" Text="{x:Static local:LocalResource.LBL_SELECT_ALL}" Grid.Column="0" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" Height="20" Margin="20,6,0,0">
+                            </TextBlock>
+                            <!--Column Selection Screen-->
+                        </Grid>
+                        <Grid Grid.Row="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="579*"/>
+                                <ColumnDefinition Width="53*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox  x:Name="txt_PreviewData" Visibility="Hidden"  Margin="0,0,0,-1" VerticalAlignment="Center" Height="150" Grid.Column="0" VerticalContentAlignment="Center" Text="" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" IsReadOnly="True" Grid.ColumnSpan="2">
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="BorderBrush" Value="#aeaeae"/>
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                        <Setter Property="BorderThickness" Value="1"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+
+                            <DataGrid Name="gridFile2Contents"  CanUserReorderColumns="False" CanUserSortColumns="False" Visibility="Hidden" CanUserAddRows="False" ItemsSource="{Binding}" Grid.ColumnSpan="2" AutoGeneratingColumn="GridFile2Contents_AutoGeneratingColumn" IsReadOnly="True">
+                            </DataGrid>
+
+                            <!--Column Selection Screen-->
+                            <DataGrid Name="gridColumnSelection"  CanUserReorderColumns="False" CanUserSortColumns="False" Visibility="Hidden" CanUserAddRows="False" ItemsSource="{Binding}" Grid.ColumnSpan="2"  IsReadOnly="True"  AutoGeneratingColumn="GridFile2Contents_AutoGeneratingColumn">
+                                <DataGrid.Resources>
+                                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                                        <Setter Property="ContentTemplate">
+                                            <Setter.Value>
+                                                <DataTemplate>
+                                                    <StackPanel>
+                                                        <CheckBox x:Name="chkGridColumn" HorizontalAlignment="Center" Click="ChkGridColumn_Click"></CheckBox>
+                                                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </DataGrid.Resources>
+                            </DataGrid>
+                            <!--Column Selection Screen-->
+
+                            <!--Information Screen-->
+                            <Rectangle x:Name="rectFilePreviewBox" Visibility="Hidden" Width="240" Stroke="LightGray" HorizontalAlignment="Left" StrokeThickness="1" RadiusX="0" RadiusY="0" Margin="0,-86,0,0"/>
+                            <TextBlock x:Name="lblFile2PreviewInfoScreen" Visibility="Hidden" Text="{x:Static local:LocalResource.LBL_FILE2_PREVIEW}" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,-96,0,223" Background="#f5f5f5" Padding="3" Height="22" />
+
+                            <DataGrid Name="gridInformation" Visibility="Hidden" CanUserSortColumns="False" CanUserAddRows="False" ItemsSource="{Binding}" Margin="5,-66,0,5" Width="230" HorizontalAlignment="Left"  IsReadOnly="True" AutoGeneratingColumn="GridFile2Contents_AutoGeneratingColumn" LoadingRow="GridInformation_LoadingRow" Foreground="Black" CanUserReorderColumns="False" >
+                                <DataGrid.Resources>
+                                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                                        <EventSetter Event="Click" Handler="DataGridColumnHeader_Click" />
+                                        <Setter Property="ContentTemplate">
+                                            <Setter.Value>
+                                                <DataTemplate>
+                                                    <StackPanel>
+                                                        <TextBlock Text="{Binding}" TextWrapping="Wrap" />
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </DataGrid.Resources>
+
+                            </DataGrid>
+
+                            <!--Question Setting-->
+                            <Rectangle x:Name="rectQSettingsBox" Visibility="Hidden" Width="380" Stroke="LightGray" HorizontalAlignment="Left" StrokeThickness="1" RadiusX="0" RadiusY="0" Margin="250,-86,0,0" Grid.ColumnSpan="2"/>
+                            <TextBlock x:Name="lblQuestionSetting" Visibility="Hidden" Text="{x:Static local:LocalResource.LBL_QUESTION_SETTING}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="265,-96,0,223" Background="#f5f5f5" Padding="3" Height="22"/>
+
+                            <TextBlock x:Name="lblItemName" Visibility="Hidden" Text="{x:Static local:LocalResource.LBL_ITEM_NAME}" TextWrapping="Wrap" VerticalAlignment="top" HorizontalAlignment="Left" Margin="260,-75,0,190" Height="30" Width="57"/>
+                            <TextBox  x:Name="txtItemName" Visibility="Hidden"  Margin="327,-68,0,196" VerticalAlignment="Center" Height="20" Width="133" VerticalContentAlignment="Center" HorizontalAlignment="Left" Text="" IsEnabled="True" TextChanged="TxtItemName_TextChanged" MaxLength="25">
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="BorderBrush" Value="#aeaeae"/>
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                        <Setter Property="BorderThickness" Value="1"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <!--Question Setting-->
+
+                            <TextBlock x:Name="lblAnswerType" Visibility="Hidden" Text="{x:Static local:LocalResource.LBL_ANSWER_TYPE_SHORT}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="260,-34,0,167" Height="16" Width="65"/>
+                            <ComboBox x:Name="ddlAnswerType" Visibility="Hidden"  Margin="327,-34,0,162" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="133" VerticalContentAlignment="Center" Text=""  SelectedIndex="0"  SelectionChanged="DdlAnswerType_SelectionChanged" >
+                                <ComboBoxItem Content = "SA"/>
+                                <ComboBoxItem Content = "MA"/>
+                                <ComboBoxItem Content = "N"/>
+                                <ComboBoxItem Content = "FA"/>
+                            </ComboBox>
+
+                            <TextBlock x:Name="lblNoOfChoices" Visibility="Hidden" Text="{x:Static local:LocalResource.LBL_NO_OF_CHOICES_SHORT}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="260,0,0,0" Height="30" Width="70" TextWrapping="Wrap"/>
+                            <TextBox  x:Name="txtNoOfChoices" Visibility="Hidden"  Margin="327,1,0,127" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="133" VerticalContentAlignment="Center" LostFocus="TxtNoOfChoices_LostFocus"  TextChanged="TxtNoOfChoices_TextChanged">
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="BorderBrush" Value="#aeaeae"/>
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                        <Setter Property="BorderThickness" Value="1"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+
+                            <TextBlock x:Name="lblQuestionTitle" Visibility="Hidden" Text="{x:Static local:LocalResource.LBL_TITLE}" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="260,0,0,60" Height="33" Width="60"/>
+                            <TextBox  x:Name="txtQuestionTitle" Visibility="Hidden"  Margin="327,35,0,93" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="133" VerticalContentAlignment="Center" Text="" IsEnabled="True" TextChanged="TxtQuestionTitle_TextChanged" MaxLength="32767">
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="BorderBrush" Value="#aeaeae"/>
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                        <Setter Property="BorderThickness" Value="1"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+
+                            <TextBlock x:Name="lblQuestionSentence" Visibility="Hidden" Text="{x:Static local:LocalResource.LBL_QUESTION_SENTENCE}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="260,72,0,0" Height="30" Width="70" TextWrapping="Wrap"/>
+                            <TextBox  x:Name="txtQuestionSentence" Visibility="Hidden"  AcceptsReturn="True" Margin="325,70,0,36" HorizontalAlignment="Left" VerticalAlignment="Center" Height="42" Width="135" VerticalContentAlignment="Center" Text="" IsEnabled="True" TextChanged="TxtQuestionSentence_TextChanged" MaxLength="32767">
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="BorderBrush" Value="#aeaeae"/>
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                        <Setter Property="BorderThickness" Value="1"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+
+                            <TextBlock x:Name="lblChoiceWording" Visibility="Hidden" Text="{x:Static local:LocalResource.LBL_CHOICE_WORDING}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,-78,25,0" Height="16" Width="100" TextWrapping="Wrap" Grid.ColumnSpan="2"/>
+
+                            <DataGrid Name="gridChoiceWording" LostFocus="GridChoiceWording_LostFocus" PreviewKeyDown="GridChoiceWording_PreviewKeyDown" 
+                                      DataGridCell.Selected="DataGrid_GotFocus"  Visibility="Hidden" CanUserAddRows="False" HeadersVisibility="None" 
+                                      ItemsSource="{Binding}" AutoGenerateColumns="False" VerticalAlignment="Top" Width="151.5" Height="170" HorizontalAlignment="Right" 
+                                      Margin="0,-58,6,0" Grid.ColumnSpan="2" AutoGeneratingColumn="GridFile2Contents_AutoGeneratingColumn" CanUserSortColumns="False"
+                                      CanUserDeleteRows="False"   >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Sl no" IsReadOnly="True" Binding="{Binding SlNo}" />
+                                    <DataGridTextColumn Header="Choice wording " Binding="{Binding WordingText}">
+                                        <DataGridTextColumn.EditingElementStyle>
+                                            <Style TargetType="TextBox" >
+                                                <EventSetter Event="TextChanged" Handler="TextBox_TextChanged"/>
+                                                <EventSetter Event="CommandManager.PreviewExecuted" Handler="TextBox_PreviewExecuted"/>
+                                                <Setter Property="TextWrapping" Value="Wrap" />                                                
+                                                <Setter Property="AcceptsReturn" Value="true" />
+                                                <EventSetter Event="SizeChanged" Handler="TextBox_SizeChanged"/>
+                                            </Style>
+                                        </DataGridTextColumn.EditingElementStyle>
+                                    </DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+                            <Button x:Name="btn_PrevData" Visibility="Hidden" Style="{StaticResource Button}" Grid.Column="0" Height="25" Width="90" Margin="0,118,51,6" HorizontalAlignment="Right" Content="{x:Static local:LocalResource.BTN_PREVIOUS_DATA}" Click="Btn_PrevData_Click"></Button>
+                            <Button x:Name="btn_NextData" Visibility="Hidden" Style="{StaticResource Button}" Grid.Column="0" Height="25" Width="90" Margin="0,118,8,6" HorizontalAlignment="Right" Content="{x:Static local:LocalResource.BTN_NEXT_DATA}" Click="Btn_NextData_Click" Grid.ColumnSpan="2"/>
+                            <!--Information Screen-->
+
+                            <!--Venn Diagram-->
+
+                            <Canvas x:Name="imgCirle2" Visibility="Hidden" Margin="1,-60,0,0" Grid.ColumnSpan="2">
+                                <Ellipse Canvas.Top="-21" Fill="#8EB4E3" Canvas.Left="149" Height="200" Width="200" StrokeThickness="1" Stroke="Gray"/>
+                            </Canvas>
+
+                            <Canvas x:Name="imgCirle1" Visibility="Hidden" Margin="160,-60,0,0" Grid.ColumnSpan="2">
+                                <Ellipse Canvas.Left="107"  Height="200" Width="200" StrokeThickness="1" Stroke="Gray" Canvas.Top="-21"/>
+                            </Canvas>
+
+                            <TextBlock x:Name="lblimg1CountTop" Visibility="Hidden" Margin="182,1,0,132" Text="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Height="16" Width="70" TextAlignment="Center"/>
+                            <TextBlock x:Name="lblimgMiddleCountTop" Visibility="Hidden" Margin="270,1,0,132" Text="0" VerticalAlignment="Center" HorizontalAlignment="Left" Height="16" Width="90" TextAlignment="Center"/>
+                            <TextBlock x:Name="lblimg2CountTop" Visibility="Hidden" Margin="373,1,0,132" Text="0" VerticalAlignment="Center" HorizontalAlignment="Left" Height="16" Width="80" TextAlignment="Center"/>
+
+                            <TextBlock x:Name="lblimg1CountBottom" Visibility="Hidden" Margin="182,31,0,102" Text="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Height="16" Width="70" TextAlignment="Center" />
+                            <TextBlock x:Name="lblimgMiddleCountBottom" Visibility="Hidden" Margin="270,31,0,102" Text="0" VerticalAlignment="Center" HorizontalAlignment="Left" Height="16" Width="90" TextAlignment="Center" />
+                            <TextBlock x:Name="lblimg2CountBottom" Visibility="Hidden" Margin="373,31,0,102" Text="0" VerticalAlignment="Center" HorizontalAlignment="Left" Height="16"  Width="80" TextAlignment="Center"/>
+
+                            <TextBlock x:Name="lblDescriptionIsProcessed" Visibility="Hidden" Margin="10,130,10,-92" Text="{x:Static local:LocalResource.LBL_ISPROCESSED_DESCRIPTION}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="111" Width="612"  TextAlignment="Center" Foreground="DeepPink" Grid.ColumnSpan="2" TextWrapping="Wrap"/>
+                            <TextBlock x:Name="lblDescriptionIsNotProcessed" Visibility="Hidden" Margin="10,130,10,-92" Text="{x:Static local:LocalResource.LBL_ISNOTPROCESSED_DESCRIPTION}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="111" Width="612"  TextAlignment="Center" Foreground="DeepPink" Grid.ColumnSpan="2" TextWrapping="Wrap"/>
+                            <!--Row 4-->
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+            <Grid Grid.Row="2" Margin="24,8,24,-8">
+                <Button Name="btn_read_qlayout" Click="btn_read_qlayout_Click" Visibility="Hidden" ToolTip="{x:Static local:LocalResource.IM_QLAYOUT_READ_TOOLTIP}" Style="{StaticResource Button}" Height="30" Width="120" Margin="0,0,0,0" Content="{x:Static local:LocalResource.IM_QLAYOUT_READ}" HorizontalAlignment="Left" Grid.Column="3" />
+                <CheckBox Name="Check_utf8" Grid.Column="3" Content="UTF-8" IsChecked="False" Visibility="Hidden" Margin="135,0,0,0"  VerticalAlignment="Center" Height="16" HorizontalAlignment="Left" Width="54"/>
+                <Button x:Name="btn_Back" Visibility="Hidden" Style="{StaticResource Button}" Grid.Column="3" Height="30" Width="90" Margin="0,0,200,0" HorizontalAlignment="Right" Content="{x:Static local:LocalResource.BTN_BACK}" Click="Btn_Back_Click"></Button>
+                <Button x:Name="btn_Next" IsEnabled="False" Style="{StaticResource Button}" Grid.Column="3" Height="30" Width="90" Margin="0,0,100,0" HorizontalAlignment="Right" Content="{x:Static local:LocalResource.BTN_NEXT}" Click="Btn_Next_Click"></Button>
+                <Button x:Name="btnExecute" IsEnabled="False" Visibility="Hidden" Style="{StaticResource Button}" Grid.Column="3" Height="30" Width="90" Margin="0,0,100,0" HorizontalAlignment="Right" Content="{x:Static local:LocalResource.BTN_EXECUTION}" Click="BtnExecute_Click"></Button>
+                <Button x:Name="btn_Cancel" Style="{StaticResource Button}" Grid.Column="2" Height="30" Width="90" Margin="0,0,0,0" HorizontalAlignment="Right" Content="{x:Static local:LocalResource.BTN_CANCEL}" Click="Btn_Cancel_Click"></Button>
+                <Button x:Name="btn_Close" Style="{StaticResource Button}" Visibility="Hidden" Grid.Column="4" Height="30" Width="90" HorizontalAlignment="Right" Content="{x:Static local:LocalResource.BTN_CLOSE}" Click="Btn_Close_Click"></Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

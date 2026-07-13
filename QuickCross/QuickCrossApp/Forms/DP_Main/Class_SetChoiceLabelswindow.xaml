@@ -1,0 +1,39 @@
+﻿<Window x:Class="Qc4Launcher.Forms.DP_Main.Class_SetChoiceLabelswindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Qc4Launcher.Forms.DP_Main"
+         xmlns:res="clr-namespace:Qc4Launcher"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        mc:Ignorable="d" ShowInTaskbar="False" PreviewMouseRightButtonDown="Window_PreviewMouseRightButtonDown" PreviewMouseRightButtonUp="Window_PreviewMouseRightButtonDown"
+        Title="{x:Static res:LocalResource.BTN_SET_CHOICE_LABELS}" Height="170" Width="320" Background="#FFF0F0F0" BorderBrush="#ADADAD" BorderThickness="1" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closed="Window_Closed">
+    <Grid Margin="4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2.2*"/>
+            <RowDefinition Height="1.7*"/>
+            <RowDefinition Height="1.8*"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="#FFE1E1E1" BorderThickness="1" Grid.RowSpan="2" Background="White"/>
+        <Grid Grid.Row="0" Margin="8,8,35,0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1.8*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{x:Static res:LocalResource.LBL_INPUT_UNITS}" Style="{StaticResource TextBlockNormalWithCenterAligned}" Grid.Row="0" Grid.Column="0"></TextBlock>
+            <TextBox Name="txt_inputUnits" Grid.Row="0" Grid.Column="1"  Style="{StaticResource NormalTextBox}"></TextBox>
+            <TextBlock Text="{x:Static res:LocalResource.LBL_INPUT_UNITS_SUPPORT}" Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBlockNormalWithCenterAligned}"></TextBlock>
+        </Grid>
+        <CheckBox Name="chk_thousandSeparator" IsChecked="{Binding IsThousandSeparatorEnabled}"  Click="Chk_thousandSeparator_Click" Grid.Row="1" Content="{x:Static res:LocalResource.LBL_THOUSAND_SEPARATOR}" Margin="8,5,0,8" Style="{StaticResource CheckBoxNormal}"/>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,0,8">
+
+            <Button Name="btn_execute"  Style="{StaticResource NormalButton}"  Content="{x:Static res:LocalResource.BTN_EXECUTION}" Click="Btn_execute_Click" HorizontalAlignment="Right" Width="100" Height="25" />
+            <Button Name="btn_closeBtn"  Style="{StaticResource NormalButton}" Content="{x:Static res:LocalResource.BTN_CLOSE}" Click="Btn_closeBtn_Click" HorizontalAlignment="Right" Width="100" Height="25"  Margin="6,0,10,0"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

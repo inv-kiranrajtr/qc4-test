@@ -1,0 +1,56 @@
+﻿<Window x:Class="Qc4Launcher.Forms.FilterSettingValue"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:local="clr-namespace:Qc4Launcher"
+        mc:Ignorable="d"
+      BorderBrush="#ADADAD" BorderThickness="1"
+        Title="{x:Static local:LocalResource.LABEL_VALUE}" Height="350"  ResizeMode="NoResize" Width="300" WindowStartupLocation="CenterScreen" ShowInTaskbar="False">
+    <Window.Resources>
+        <DataTemplate x:Key="QuestionVariabl">
+            <Grid Height="15" Width="auto" ShowGridLines="false">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock  Grid.Column="0" Background="{x:Null}" Text="{Binding item}" Margin="0"></TextBlock>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid Background="#FFF0F0F0">
+        
+        
+		<Grid.RowDefinitions>
+			<RowDefinition Height="4*"/>
+			<RowDefinition Height="1*"/>
+		</Grid.RowDefinitions>
+
+       
+        <!--<ListView Style="{StaticResource ListBoxCommon1}" ItemTemplate="{StaticResource QuestionVariabl}" MouseDoubleClick="ValueListBox_MouseDoubleClick" 
+                  Name="valueListBox" Grid.Row="0" SelectionChanged="ValueListBox_SelectionChanged" SelectionMode="Extended" MouseDown="List_Source_MouseDown"
+                  MouseUp="List_Source_MouseUp" ScrollViewer.ScrollChanged="List_Source_ScrollChanged">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Foreground" Value=" #FF333333"></Setter>
+                    <EventSetter Event="MouseEnter" Handler="ListBoxItem_MouseEnter"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>-->
+        <Grid Grid.Row="0">
+            <DataGrid  x:Name="valueListBox" Margin="8" CellStyle="{StaticResource Datagrid_GT_Cell_Style1}" CurrentCellChanged="valueListBox_CurrentCellChanged"  
+                       BorderThickness="1" SelectionMode="Extended" SelectionUnit="FullRow"  BorderBrush="#FFE1E1E1" Style="{StaticResource Datagrid_GT_Font_Style}" 
+                       ItemsSource="{Binding}" HeadersVisibility="None" IsEnabled="True" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserDeleteRows="False" 
+                       CanUserSortColumns="False" CanUserAddRows="False" HorizontalScrollBarVisibility="Hidden" SelectionChanged="ValueListBox_SelectionChanged"
+                       MouseDoubleClick="ValueListBox_MouseDoubleClick">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" Header=""  Binding="{Binding item}" CanUserResize="False" CanUserSort="False" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Button Style="{StaticResource NormalButton}" Name="ok_button" Width="100" Height="25" HorizontalAlignment="Left"  Margin="60,0" Content="{x:Static local:LocalResource.BTN_OK}" Click="Ok_button_Click"/>
+            <Button Style="{StaticResource NormalButton}" Name="cancel_button" Width="100" Height="25" HorizontalAlignment="Right"  Margin="8,0" Content="{x:Static local:LocalResource.BTN_CLOSE}" Click="Cancel_button_Click"/>
+        </Grid>
+    </Grid>
+</Window>

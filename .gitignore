@@ -1,0 +1,179 @@
+## .gitignore for QuickCross & QuickCrossAdmintool
+## Visual Studio / .NET Framework (packages.config) solutions
+
+##############################
+# Visual Studio / IDE
+##############################
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+*.VC.db
+*.VC.VC.opendb
+*.psess
+*.vsp
+*.vspx
+*.sap
+*.DotSettings.user
+
+##############################
+# Build results
+##############################
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+*.obj
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# MSBuild / NCrunch / ReSharper / DotCover
+*.ilk
+*.meta
+*_i.c
+*_p.c
+*_h.h
+*.iobj
+*.ipdb
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+ipch/
+*.aps
+*.ncb
+*.opt
+*.plg
+*.[Cc]ache
+*.VisualState.xml
+TestResult.xml
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.dotCover
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotCover
+*.coverage
+*.coveragexml
+*.ncrunch*
+_NCrunch_*
+.*crunch*.local.xml
+nCrunchTemp_*
+
+##############################
+# NuGet
+##############################
+**/packages/*
+!**/packages/build/
+*.nupkg
+*.nuget.props
+*.nuget.targets
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+##############################
+# QuickCross build / installer outputs
+##############################
+QuickCross/BuildOutput/
+# NPOI build output (DLLs/PDBs/XML) — produced from main/, ooxml/, etc.
+QuickCross/solution/
+QuickCross/Installer/*.msi
+QuickCross/Installer/*.exe
+QuickCross/Installer/*.dll
+QuickCross/Installer/*.zip
+QuickCross/Installer/*.z0?
+QuickCross/Installer/*.pfx
+
+# Visual Studio Installer / ClickOnce publish leftovers
+*.Publish.xml
+*.publishproj
+*.application
+*.appx
+*.appxbundle
+*.appxupload
+publish/
+
+# VS upgrade / migration logs
+UpgradeLog*.htm
+UpgradeLog*.XML
+*_UpgradeReport_Files/
+.vscode/
+
+##############################
+# Certificates & secrets (do not commit)
+##############################
+*.pfx
+*.p12
+*.key
+*.cer
+*.crt
+*.pem
+# Keep strong-name keys used by NPOI projects if present in-tree;
+# uncomment the next line to ignore all SNK files as well:
+# *.snk
+
+##############################
+# OS / misc
+##############################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*~
+*.swp
+*.bak
+*.tmp
+
+##############################
+# QuickCrossAdmintool
+##############################
+QuickCrossAdmintool/**/bin/
+QuickCrossAdmintool/**/obj/
+QuickCrossAdmintool/.vs/
+QuickCrossAdmintool/packages/
+
+##############################
+# Local / environment
+##############################
+*.local
+*.local.json
+appsettings.*.local.json
+.env
+.env.*
+!.env.example

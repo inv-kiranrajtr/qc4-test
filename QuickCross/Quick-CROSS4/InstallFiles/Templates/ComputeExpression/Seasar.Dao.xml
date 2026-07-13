@@ -1,0 +1,507 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Seasar.Dao</name>
+    </assembly>
+    <members>
+        <member name="M:Seasar.Dao.IRelationRowCreator.CreateRelationRow(System.Data.IDataReader,Seasar.Dao.IRelationPropertyType,System.Collections.IList,System.Collections.Hashtable,System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.IDictionary{System.String,Seasar.Extension.ADO.IPropertyType}})">
+            <summary>
+            1行分のオブジェクトを作成する
+            </summary>
+            <returns>1行分のEntity型のオブジェクト</returns>
+        </member>
+        <member name="M:Seasar.Dao.IRelationRowCreator.CreateRelationPropertyCache(System.Collections.IList,Seasar.Dao.IBeanMetaData)">
+            <summary>
+            関連のプロパティキャッシュを作成する
+            </summary>
+            <param name="columnNames">カラム名のリスト</param>
+            <param name="bmd">メタ情報</param>
+            <returns>関連のプロパティキャッシュ</returns>
+        </member>
+        <member name="P:Seasar.Dao.Pager.IPagerCondition.Limit">
+            <summary>
+            検索結果から一度に取得する最大件数
+            </summary>
+        </member>
+        <member name="P:Seasar.Dao.Pager.IPagerCondition.Offset">
+            <summary>
+            検索結果の取得開始位置
+            </summary>
+        </member>
+        <member name="P:Seasar.Dao.Pager.IPagerCondition.Count">
+            <summary>
+            検索結果の総件数
+            </summary>
+        </member>
+        <member name="M:Seasar.Dao.Impl.FieldAnnotationReader.GetProcedure(System.String)">
+            <summary>
+            プロシージャ名を取得する
+            </summary>
+            <param name="methodName">メソッド名</param>
+            <returns>プロシージャ名</returns>
+        </member>
+        <member name="M:Seasar.Dao.IRowCreator.CreateRow(System.Data.IDataReader,Seasar.Dao.IColumnMetaData[],System.Type)">
+            <summary>
+            1行分のオブジェクトを作成する
+            </summary>
+            <param name="reader">IDataReader</param>
+            <param name="columns">Columnのメタデータ</param>
+            <param name="beanType">オブジェクトの型</param>
+            <returns>1行分のEntity型のオブジェクト</returns>
+        </member>
+        <member name="M:Seasar.Dao.IRowCreator.CreateColumnMetaData(System.Collections.IList,Seasar.Dao.IBeanMetaData)">
+            <summary>
+            Columnのメタデータを作成する
+            </summary>
+            <param name="columnNames">カラム名のリスト</param>
+            <param name="beanMetaData">メタ情報</param>
+            <returns>Columnのメタデータの配列</returns>
+        </member>
+        <member name="M:Seasar.Dao.Impl.DaoMetaDataImpl.CreateInsertAutoStaticCommand(System.Reflection.MethodInfo,Seasar.Extension.ADO.IDataSource,Seasar.Extension.ADO.ICommandFactory,Seasar.Dao.IBeanMetaData,System.String[])">
+            <summary>
+            現在は使用していません。(DAONET-3)
+            </summary>
+        </member>
+        <member name="M:Seasar.Dao.Impl.DaoMetaDataImpl.CreateAutoIFComment(System.Text.StringBuilder,System.String,System.String,System.Type,System.Boolean,System.Boolean)">
+            <summary>
+            IFコメントを作成する
+            </summary>
+            <param name="buf">SQLを格納する</param>
+            <param name="columnName">テーブルの列名</param>
+            <param name="propertyName">プロパティの名前</param>
+            <param name="propertyType">プロパティの型</param>
+            <param name="first">1つめのプロパティかどうか</param>
+            <param name="began">BEGINコメントが開始されているかどうか</param>
+        </member>
+        <member name="M:Seasar.Dao.Impl.DaoMetaDataImpl.CreateIFExpression(System.Text.StringBuilder,System.String,System.Type)">
+            <summary>
+            評価式を作成する
+            </summary>
+            <param name="buf">SQL</param>
+            <param name="propertyName">プロパティの名前</param>
+            <param name="propertyType">プロパティの型</param>
+        </member>
+        <member name="M:Seasar.Dao.Impl.DaoMetaDataImpl.SetupProcedure(System.Reflection.MethodInfo,System.String)">
+            <summary>
+            プロシージャの組み立て
+            </summary>
+            <param name="mi">メソッド情報</param>
+            <param name="sql">ストアドプロシージャ名</param>
+        </member>
+        <member name="T:Seasar.Dao.Impl.ColumnMetaDataImpl">
+            <summary>
+            Columnのメタデータ
+            </summary>
+        </member>
+        <member name="T:Seasar.Dao.IColumnMetaData">
+            <summary>
+            Columnのメタデータ
+            </summary>
+        </member>
+        <member name="P:Seasar.Dao.IColumnMetaData.ColumnName">
+            <summary>
+            カラム名
+            </summary>
+        </member>
+        <member name="P:Seasar.Dao.IColumnMetaData.PropertyInfo">
+            <summary>
+            プロパティのメタデータ
+            </summary>
+        </member>
+        <member name="P:Seasar.Dao.IColumnMetaData.ValueType">
+            <summary>
+            データソースのColumnとBeanのプロパティがBindingを行う手段を提供する
+            </summary>
+        </member>
+        <member name="T:Seasar.Dao.Attrs.ProcedureAttribute">
+            <summary>
+            PROCEDURE属性
+            </summary>
+        </member>
+        <member name="F:Seasar.Dao.Attrs.ProcedureAttribute._procedureName">
+            <summary>
+            プロシージャ名
+            </summary>
+        </member>
+        <member name="M:Seasar.Dao.Attrs.ProcedureAttribute.#ctor(System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="procedureName">プロシージャ名</param>
+        </member>
+        <member name="P:Seasar.Dao.Attrs.ProcedureAttribute.ProcedureName">
+            <summary>
+            プロシージャ名
+            </summary>
+        </member>
+        <member name="M:Seasar.Dao.Impl.RelationRowCreatorImpl.CreateRelationRow(Seasar.Dao.Impl.RelationRowCreationResource)">
+            @param res The resource of relation row creation. (NotNull)
+            @return Created relation row. (Nullable)
+            @throws SQLException
+        </member>
+        <member name="T:Seasar.Dao.Impl.ObjectBasicProcedureHandler">
+            <summary>
+            出力パラメータが単一であるProcedureHandler
+            </summary>
+        </member>
+        <member name="T:Seasar.Dao.Impl.AbstractProcedureHandler">
+            <summary>
+            Procedure基本Handler
+            </summary>
+        </member>
+        <member name="F:Seasar.Dao.Impl.AbstractProcedureHandler._argumentTypes">
+            <summary>
+            引数タイプ
+            </summary>
+        </member>
+        <member name="F:Seasar.Dao.Impl.AbstractProcedureHandler._argumentNames">
+            <summary>
+            引数名
+            </summary>
+        </member>
+        <member name="F:Seasar.Dao.Impl.AbstractProcedureHandler._argumentDirection">
+            <summary>
+            引数のの入出力種別
+            </summary>
+        </member>
+        <member name="F:Seasar.Dao.Impl.AbstractProcedureHandler._procedureName">
+            <summary>
+            ストアドプロシージャ名
+            </summary>
+        </member>
+        <member name="M:Seasar.Dao.Impl.AbstractProcedureHandler.#ctor(Seasar.Extension.ADO.IDataSource,Seasar.Extension.ADO.ICommandFactory,System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="dataSource">データソース名</param>
+            <param name="commandFactory">IDbCommand Factory</param>
+            <param name="procedureName">ストアドプロシージャ名</param>
+        </member>
+        <member name="M:Seasar.Dao.Impl.AbstractProcedureHandler.GetCommand(System.Data.IDbConnection,System.String)">
+            <summary>
+            IDbCommandオブジェクトを取得する
+            </summary>
+            <param name="connection">コネクションオブジェクト</param>
+            <param name="procedureName">ストアドプロシージャ名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Dao.Impl.AbstractProcedureHandler.BindParamters(System.Data.IDbCommand,System.Object[],System.Type[],System.String[],System.Data.ParameterDirection[])">
+            <summary>
+            ストアドプロシージャ用INパラメータを割り当てる
+            </summary>
+            <param name="command">IDbCommandオブジェクト</param>
+            <param name="args">引数値</param>
+            <param name="argTypes">引数タイプ</param>
+            <param name="argNames">引数名</param>
+            <param name="argDirection">引数の入出力種別</param>
+        </member>
+        <member name="M:Seasar.Dao.Impl.AbstractProcedureHandler.BindReturnValues(System.Data.IDbCommand,System.String,System.Data.DbType)">
+            <summary>
+            戻り値用バインド変数を割り当てる
+            </summary>
+            <param name="command">IDbCommandオブジェクト</param>
+            <param name="parameterName">戻り値パラメータ名</param>
+            <param name="dbType">DBタイプ</param>
+        </member>
+        <member name="M:Seasar.Dao.Impl.AbstractProcedureHandler.GetDbValueType(System.Type)">
+            <summary>
+            DBTypeへ変換する
+            </summary>
+            <param name="type">タイプ</param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Dao.Impl.AbstractProcedureHandler.GetParameterDirections(System.Reflection.MethodInfo)">
+            <summary>
+            パラメータの方向を取得する
+            </summary>
+            <param name="mi">メソッド情報</param>
+            <returns>パラメータ方向配列</returns>
+        </member>
+        <member name="P:Seasar.Dao.Impl.AbstractProcedureHandler.ArgumentTypes">
+            <summary>
+            引数タイプ
+            </summary>
+        </member>
+        <member name="P:Seasar.Dao.Impl.AbstractProcedureHandler.ArgumentNames">
+            <summary>
+            引数名
+            </summary>
+        </member>
+        <member name="P:Seasar.Dao.Impl.AbstractProcedureHandler.ArgumentDirection">
+            <summary>
+            引数の入出力種別
+            </summary>
+        </member>
+        <member name="P:Seasar.Dao.Impl.AbstractProcedureHandler.ProcedureName">
+            <summary>
+            ストアドプロシージャ名
+            </summary>
+        </member>
+        <member name="M:Seasar.Dao.Impl.ObjectBasicProcedureHandler.#ctor(Seasar.Extension.ADO.IDataSource,Seasar.Extension.ADO.ICommandFactory,System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="dataSource">データソース名</param>
+            <param name="commandFactory">IDbCommand Factory</param>
+            <param name="procedureName">プロシージャ名</param>
+        </member>
+        <member name="M:Seasar.Dao.Impl.ObjectBasicProcedureHandler.Execute(System.Object[],System.Type)">
+            <summary>
+            ストアドプロシージャを実行する
+            </summary>
+            <param name="args">引数</param>
+            <param name="returnType">戻り値タイプ</param>
+            <returns>出力パラメータ値</returns>
+        </member>
+        <member name="T:Seasar.Dao.Impl.HashtableBasicProcedureHandler">
+            <summary>
+            出力パラメータが複数あるProcedureHandler
+            </summary>
+        </member>
+        <member name="M:Seasar.Dao.Impl.HashtableBasicProcedureHandler.#ctor(Seasar.Extension.ADO.IDataSource,Seasar.Extension.ADO.ICommandFactory,System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="dataSource">データソース名</param>
+            <param name="commandFactory">IDbCommand Factory</param>
+            <param name="procedureName">プロシージャ名</param>
+        </member>
+        <member name="M:Seasar.Dao.Impl.HashtableBasicProcedureHandler.Execute(System.Object[])">
+            <summary>
+            実行する
+            </summary>
+            <param name="args">引数</param>
+            <returns>出力パラメータ値</returns>
+        </member>
+        <member name="M:Seasar.Dao.Pager.PagerConditionUtil.IsPagerDto(System.Object[])">
+            <summary>
+            メソッドの引数にPagerConditionが含まれているかどうかを判定します。
+            ただし、<seealso cref="P:Seasar.Dao.Pager.IPagerCondition.Limit"/> が
+            <seealso cref="F:Seasar.Dao.Pager.PagerConditionConstants.NONE_LIMIT"/>の場合はfalseを返します。
+            </summary>
+            <param name="args">引数</param>
+            <returns>true/false</returns>
+        </member>
+        <member name="M:Seasar.Dao.Pager.PagerConditionUtil.GetPagerDto(System.Object[])">
+            <summary>
+            メソッド引数から<seealso cref="T:Seasar.Dao.Pager.IPagerCondition"/>を取得します。
+            </summary>
+            <param name="args">引数</param>
+            <returns>IPagerCondition</returns>
+        </member>
+        <member name="M:Seasar.Dao.Pager.PagerConditionUtil.GetPagerAttribute(System.Reflection.MethodInfo)">
+            <summary>
+            メソッド定義からページング用メソッド定義を取得します。優先順位は下記になります。
+            1. メソッド定義のNonPager属性(Pagear属性の取得を停止)
+            2. メソッド定義のPager属性
+            3. クラス定義のPager属性
+            </summary>
+            <returns>PagerAttribute</returns>
+        </member>
+        <member name="M:Seasar.Dao.Pager.PagerConditionUtil.CreatePagerDefinition(System.Reflection.MethodInfo,System.Object[])">
+            <summary>
+            メソッド定義からページング用メソッド定義を作成。優先順位は下記の通り。
+            1. メソッド定義のNonPager属性(Pager属性の取得を停止)
+            2. メソッド定義のPager属性
+            3. クラス定義のPager属性
+            </summary>
+        </member>
+        <member name="M:Seasar.Dao.Pager.PagerContext.GetContext">
+            <summary>
+            現在のスレッドに結びついたPagerContextを取得します。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Seasar.Dao.Pager.PagerAttribute">
+            <summary>
+            ページング機能を有効にするメソッドまたはインターフェースに設定する。
+            </summary>
+        </member>
+        <member name="M:Seasar.Dao.Dbms.DbmsManager.GetDbms(System.String)">
+            <summary>
+            Dbms.resxをdbmsKeyで探し、IDbms実装クラスのインスタンスを取得する
+            </summary>
+            <param name="dbmsKey">Dbms.resxを検索する為のKey</param>
+            <returns>IDbms実装クラスのインスタンス</returns>
+            <remarks>dbmsKeyに対応するものが見つからない場合は、
+            標準のStandardを使用する</remarks>
+        </member>
+        <member name="M:Seasar.Dao.Pager.PagerUtil.Filter(System.Collections.IList,Seasar.Dao.Pager.IPagerCondition)">
+            <summary>
+            IListの内容をIPagerConditionの条件でフィルタリングします。
+            </summary>
+            <param name="list">list</param>
+            <param name="condition">条件</param>
+            <returns>フィルタリング後のIList</returns>
+        </member>
+        <member name="M:Seasar.Dao.Impl.AbstractBeanMetaDataDataReaderHandler.#ctor(Seasar.Dao.IBeanMetaData,Seasar.Dao.IRowCreator,Seasar.Dao.IRelationRowCreator)">
+            <summary>
+            コンストラクタ。
+            </summary>
+            <param name="beanMetaData">Bean meta data. (NotNull)</param>
+            <param name="rowCreator">Row creator. (NotNull)</param>
+            <param name="relationRowCreator">Relation row creator. (NotNull)</param>
+        </member>
+        <member name="M:Seasar.Dao.Impl.AbstractBeanMetaDataDataReaderHandler.CreateColumnMetaData(System.Collections.IList)">
+            <summary>
+            Columnのメタデータを作成する
+            </summary>
+            <param name="columnNames">カラム名のリスト (NotNull)</param>
+            <returns>Columnのメタデータの配列 (NotNull)</returns>
+        </member>
+        <member name="M:Seasar.Dao.Impl.AbstractBeanMetaDataDataReaderHandler.CreateRow(System.Data.IDataReader,Seasar.Dao.IColumnMetaData[])">
+            <summary>
+            1行分のオブジェクトを作成する
+            </summary>
+            <param name="reader">IDataReader (NotNull)</param>
+            <param name="columns">Columnのメタデータ (NotNull)</param>
+            <returns>1行分のEntity型のオブジェクト (NotNull)</returns>
+        </member>
+        <member name="M:Seasar.Dao.Impl.AbstractBeanMetaDataDataReaderHandler.CreateRelationPropertyCache(System.Collections.IList)">
+            <summary>
+            関連オブジェクトのプロパティキャッシュを作成する
+            </summary>
+            <param name="columnNames">カラム名のリスト (NotNull)</param>
+            <returns>関連オブジェクトのプロパティキャッシュ (NotNull)</returns>
+        </member>
+        <member name="M:Seasar.Dao.Impl.AbstractBeanMetaDataDataReaderHandler.CreateRelationRow(System.Data.IDataReader,Seasar.Dao.IRelationPropertyType,System.Collections.IList,System.Collections.Hashtable,System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.IDictionary{System.String,Seasar.Extension.ADO.IPropertyType}})">
+            <summary>
+            1行分のオブジェクトに関連するオブジェクトを作成する
+            </summary>
+            <param name="reader">IDataReader</param>
+            <param name="rpt">Relation property type. (NotNull)</param>
+            <param name="columnNames">The list of column name. (NotNull)</param>
+            <param name="relKeyValues">The hashtable of rel key values. (NotNull)</param>
+            <param name="relationColumnMetaDataCache">The dictionary of relation property cache. (NotNull)</param>
+            <returns>1行分のEntity型のオブジェクト (Nullable)</returns>
+        </member>
+        <member name="M:Seasar.Dao.Impl.RowCreatorImpl.CreateRow(System.Data.IDataReader,Seasar.Dao.IColumnMetaData[],System.Type)">
+            <summary>
+            1行分のオブジェクトを作成する
+            </summary>
+            <param name="reader">IDataReader</param>
+            <param name="columns">Columnのメタデータ</param>
+            <param name="beanType">オブジェクトの型</param>
+            <returns>1行分のEntity型のオブジェクト</returns>
+        </member>
+        <member name="M:Seasar.Dao.Impl.RowCreatorImpl.CreateColumnMetaData(System.Collections.IList,Seasar.Dao.IBeanMetaData)">
+            <summary>
+            Columnのメタデータを作成する
+            </summary>
+            <param name="columnNames">カラム名のリスト</param>
+            <param name="beanMetaData">メタ情報</param>
+            <returns>Columnのメタデータの配列</returns>
+        </member>
+        <member name="M:Seasar.Dao.Impl.RowCreatorImpl.FindColumnName(System.Collections.IList,System.String)">
+            <summary>
+            カラム名のリストから大文字小文字を区別せずに一致するカラム名を探す
+            </summary>
+            <param name="columnNames">検索対象のカラム名のリスト</param>
+            <param name="columnName">探し出すカラム名</param>
+            <returns>見つかったカラム名（カラム名のリストから取得したカラム名）</returns>
+        </member>
+        <member name="F:Seasar.Dao.Impl.RelationRowCreationResource.dataReader">
+            Data reader. 
+        </member>
+        <member name="F:Seasar.Dao.Impl.RelationRowCreationResource.row">
+            Relation row. Initialized at first or initialied after. 
+        </member>
+        <member name="F:Seasar.Dao.Impl.RelationRowCreationResource.relationPropertyType">
+            Relation property type. 
+        </member>
+        <member name="F:Seasar.Dao.Impl.RelationRowCreationResource.columnNames">
+            The set of column name. 
+        </member>
+        <member name="F:Seasar.Dao.Impl.RelationRowCreationResource.relKeyValues">
+            The map of relation key values. 
+        </member>
+        <member name="F:Seasar.Dao.Impl.RelationRowCreationResource.relationPropertyCache">
+            The map of relation property cache. 
+        </member>
+        <member name="F:Seasar.Dao.Impl.RelationRowCreationResource.baseSuffix">
+            The suffix of base object. 
+        </member>
+        <member name="F:Seasar.Dao.Impl.RelationRowCreationResource.relationNoSuffix">
+            The suffix of relation no. 
+        </member>
+        <member name="F:Seasar.Dao.Impl.RelationRowCreationResource.limitRelationNestLevel">
+            The limit of relation nest leve. 
+        </member>
+        <member name="F:Seasar.Dao.Impl.RelationRowCreationResource.currentRelationNestLevel">
+            The current relation nest level. Default is one. 
+        </member>
+        <member name="F:Seasar.Dao.Impl.RelationRowCreationResource.currentPropertyType">
+            Current property type. This variable is temporary. 
+        </member>
+        <member name="F:Seasar.Dao.Impl.RelationRowCreationResource.validValueCount">
+            The count of valid value. 
+        </member>
+        <member name="F:Seasar.Dao.Impl.RelationRowCreationResource.createDeadLink">
+            Does it create dead link? 
+        </member>
+        <member name="F:Seasar.Dao.Impl.RelationRowCreationResource.relationPropertyTypeBackup">
+            The backup of relation property type. 
+        </member>
+        <member name="F:Seasar.Dao.Impl.RelationRowCreationResource.baseSuffixBackup">
+            The backup of base suffix. 
+        </member>
+        <member name="F:Seasar.Dao.Impl.RelationRowCreationResource.relationNoSuffixBackup">
+            The backup of relation suffix. 
+        </member>
+        <member name="M:Seasar.Dao.Impl.BeanMetaDataImpl.ClearModifiedPropertyNames(System.Object)">
+            <summary>
+            entity内の更新フラグをOFFにする。
+            ClearModifiedPropertyNamesメソッドが存在する場合はそれを呼び出す。
+            上記メソッドがなく、かつModifiedPropertyNamesプロパティがある場合は
+            そのプロパティの値がもつClear()メソッドを呼び出す。
+            どちらも持たない場合は何もせずに処理を終わる
+            </summary>
+            <remarks>DAONET-57</remarks>
+            <param name="bean">エンティティ</param>
+        </member>
+        <member name="T:Seasar.Dao.Impl.ProcedureDynamicCommand">
+            <summary>
+            ストアドプロシージャ用DynamicComandクラス
+            </summary>
+        </member>
+        <member name="F:Seasar.Dao.Impl.ProcedureDynamicCommand._returnType">
+            <summary>
+            戻り値タイプ
+            </summary>
+        </member>
+        <member name="F:Seasar.Dao.Impl.ProcedureDynamicCommand.argDirections">
+            <summary>
+            パラメータの入出力方向
+            </summary>
+        </member>
+        <member name="M:Seasar.Dao.Impl.ProcedureDynamicCommand.#ctor(Seasar.Extension.ADO.IDataSource,Seasar.Extension.ADO.ICommandFactory)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="dataSource">データソース</param>
+            <param name="commandFactory">Commandファクトリ</param>
+        </member>
+        <member name="M:Seasar.Dao.Impl.ProcedureDynamicCommand.Execute(System.Object[])">
+            <summary>
+            実行する
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Seasar.Dao.Impl.ProcedureDynamicCommand.ReturnType">
+            <summary>
+            戻り値タイプ
+            </summary>
+        </member>
+        <member name="P:Seasar.Dao.Impl.ProcedureDynamicCommand.ArgDirections">
+            <summary>
+            パラメータの入出力方向
+            </summary>
+        </member>
+        <member name="T:Seasar.Dao.Pager.NonPagerAttribute">
+            <summary>
+            ページング機能を無効にするメソッドに設定する。
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,7 @@
+﻿option echo off
+option confirm off
+option batch abort
+open %1% -hostkey="%2% %3% %4%"
+%5% "%6%" "%7%"
+close
+exit

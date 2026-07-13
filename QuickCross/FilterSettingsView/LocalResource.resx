@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BTN_CLOSE" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="BTN_COMBINE_SIDEWAYS" xml:space="preserve">
+    <value>CombineSideWays</value>
+  </data>
+  <data name="BTN_COMBINE_VERTICAL" xml:space="preserve">
+    <value>CombineVertical</value>
+  </data>
+  <data name="BTN_CREATE_QC4" xml:space="preserve">
+    <value>CreateNewQc4File</value>
+  </data>
+  <data name="BTN_DATA_MERGE" xml:space="preserve">
+    <value>DataMerge</value>
+  </data>
+  <data name="BTN_DATA_OUTPUT" xml:space="preserve">
+    <value>DataOutput</value>
+  </data>
+  <data name="BTN_EXIT" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="BTN_EXTERNAL_DATA" xml:space="preserve">
+    <value>ExternalData</value>
+  </data>
+  <data name="BTN_OPEN" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="BTN_SAVE" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="BTN_SAVE_AS" xml:space="preserve">
+    <value>SaveAs</value>
+  </data>
+  <data name="BTN_SCREEN_MATCH" xml:space="preserve">
+    <value>ScreenMatch</value>
+  </data>
+  <data name="BTN_SWAP_DATA" xml:space="preserve">
+    <value>SwapData</value>
+  </data>
+  <data name="BTN_TOSHEET" xml:space="preserve">
+    <value>ToSheet</value>
+  </data>
+  <data name="CB_ITEM_01_MA01" xml:space="preserve">
+    <value>MA 01 FORMAT</value>
+  </data>
+  <data name="CB_ITEM_02_MA_COMMA_SEPERATED" xml:space="preserve">
+    <value>MA Comma Separated in a Cell</value>
+  </data>
+  <data name="CB_MA_SPSS_01" xml:space="preserve">
+    <value>g</value>
+  </data>
+  <data name="CB_MA_SPSS_02" xml:space="preserve">
+    <value>h</value>
+  </data>
+  <data name="CELL_OFF" xml:space="preserve">
+    <value>×</value>
+  </data>
+  <data name="CELL_ON" xml:space="preserve">
+    <value>○</value>
+  </data>
+  <data name="GTT_FS_CB_ITEM_VALUE_EQUALS" xml:space="preserve">
+    <value>b</value>
+  </data>
+  <data name="GTT_FS_CB_ITEM_VALUE_GREATER_THAN" xml:space="preserve">
+    <value>c</value>
+  </data>
+  <data name="GTT_FS_CB_ITEM_VALUE_GREATER_THAN_OR_EQUAL_TO" xml:space="preserve">
+    <value>d</value>
+  </data>
+  <data name="GTT_FS_CB_ITEM_VALUE_LESS_OR_GREATER" xml:space="preserve">
+    <value>a</value>
+  </data>
+  <data name="GTT_FS_CB_ITEM_VALUE_LESS_THAN" xml:space="preserve">
+    <value>e</value>
+  </data>
+  <data name="GTT_FS_CB_ITEM_VALUE_LESS_THAN_OR_EQUAL_TO" xml:space="preserve">
+    <value>f</value>
+  </data>
+  <data name="LABEL_AND" xml:space="preserve">
+    <value>AND</value>
+  </data>
+  <data name="LABEL_ANSWERTYPE" xml:space="preserve">
+    <value>回答タイプ</value>
+  </data>
+  <data name="LABEL_BASED_RESPONDENTS" xml:space="preserve">
+    <value>Based on Total Respondents</value>
+  </data>
+  <data name="LABEL_BLANK" xml:space="preserve">
+    <value>(Blank)</value>
+  </data>
+  <data name="LABEL_CB_UNICODE_SPSS" xml:space="preserve">
+    <value>Unicode (Encoding option in SPSS)</value>
+  </data>
+  <data name="LABEL_CHARACTER_FOR_EXCLUDED" xml:space="preserve">
+    <value>Character For [Excluded]</value>
+  </data>
+  <data name="LABEL_CHOICE_COUNT" xml:space="preserve">
+    <value>選択肢数</value>
+  </data>
+  <data name="LABEL_CLOSE" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="LABEL_CONVERSION_DEFINITION_FILE" xml:space="preserve">
+    <value>Conversion Definition File</value>
+  </data>
+  <data name="LABEL_CRITERIA_VARIABLE" xml:space="preserve">
+    <value>条件アイテム</value>
+  </data>
+  <data name="LABEL_CRITERION_VARIABLE" xml:space="preserve">
+    <value>分類アイテム</value>
+  </data>
+  <data name="LABEL_DBL_LEFT_ARROW" xml:space="preserve">
+    <value>&lt;&lt;</value>
+  </data>
+  <data name="LABEL_DBL_RIGHT_ARROW" xml:space="preserve">
+    <value>&gt;&gt;</value>
+  </data>
+  <data name="LABEL_EXECUTE" xml:space="preserve">
+    <value>Execute</value>
+  </data>
+  <data name="LABEL_EXPORT" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="LABEL_EXPORT_PATH" xml:space="preserve">
+    <value>出力先フォルダ指定</value>
+  </data>
+  <data name="LABEL_EXPORT_SETTING" xml:space="preserve">
+    <value>Export Setting</value>
+  </data>
+  <data name="LABEL_EXPORT_TYPE" xml:space="preserve">
+    <value>Export Type</value>
+  </data>
+  <data name="LABEL_FILE_FORMAT" xml:space="preserve">
+    <value>File Format</value>
+  </data>
+  <data name="LABEL_FILTERING_CRITERIA" xml:space="preserve">
+    <value>絞込み条件</value>
+  </data>
+  <data name="LABEL_FILTER_SETTING" xml:space="preserve">
+    <value>Filter Setting</value>
+  </data>
+  <data name="LABEL_HYPHEN" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="LABEL_INDICATOR_FNA_SA_MA_SPSS" xml:space="preserve">
+    <value>Indicator for [No Answer] (SA/MA)</value>
+  </data>
+  <data name="LABEL_INDICATOR_FOR_NO_ANSWER" xml:space="preserve">
+    <value>Indicator For [NoAnswer]</value>
+  </data>
+  <data name="LABEL_MA_VARIABLES" xml:space="preserve">
+    <value>MA Variables</value>
+  </data>
+  <data name="LABEL_MULTIDIGIT_NUMBERS" xml:space="preserve">
+    <value>With Label</value>
+  </data>
+  <data name="LABEL_OPERATOR" xml:space="preserve">
+    <value>演算子</value>
+  </data>
+  <data name="LABEL_OP_CHOICE_NUMBERS" xml:space="preserve">
+    <value>Output Choice Numbers</value>
+  </data>
+  <data name="LABEL_OP_MA_CHOICE_SPSS" xml:space="preserve">
+    <value>Output MA Choice</value>
+  </data>
+  <data name="LABEL_OP_ON_OFF_0" xml:space="preserve">
+    <value>Output ON(1)/OFF(0)</value>
+  </data>
+  <data name="LABEL_OP_ON_OFF_BLANK" xml:space="preserve">
+    <value>Output ON(1)/OFF(Blank)</value>
+  </data>
+  <data name="LABEL_OR" xml:space="preserve">
+    <value>OR</value>
+  </data>
+  <data name="LABEL_OUTPUT_OPTIONS" xml:space="preserve">
+    <value>Output Options</value>
+  </data>
+  <data name="LABEL_PAD_WITH_LEADING_SPACES" xml:space="preserve">
+    <value>Pad With Leading Spaces</value>
+  </data>
+  <data name="LABEL_PAD_WITH_LEADING_ZEROES" xml:space="preserve">
+    <value>Pad With Leading Zeroes</value>
+  </data>
+  <data name="LABEL_QUESTION" xml:space="preserve">
+    <value>質問文</value>
+  </data>
+  <data name="LABEL_SINGLE_LEFT_ARROW" xml:space="preserve">
+    <value>&lt;</value>
+  </data>
+  <data name="LABEL_SINGLE_RIGHT_ARROW" xml:space="preserve">
+    <value>&gt;</value>
+  </data>
+  <data name="LABEL_SPLIT_BY_256" xml:space="preserve">
+    <value>Split by 256 columns</value>
+  </data>
+  <data name="LABEL_STAR" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="LABEL_VALUE" xml:space="preserve">
+    <value>値</value>
+  </data>
+  <data name="LABEL_VARIABLES_TO_EXPORT" xml:space="preserve">
+    <value>Variables To Export(SAMPLEID Required)</value>
+  </data>
+  <data name="LABEL_VERICAL_LAYOUT" xml:space="preserve">
+    <value>Vertical Layout OutPut</value>
+  </data>
+  <data name="LABEL_ZERO" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="LBL_COMBINE_SIDEWAYS" xml:space="preserve">
+    <value>Here is a description of the sentence. Because the character is small, it might be better a little more big. This sentence is for Dummies.</value>
+  </data>
+  <data name="LBL_COMBINE_VERTICAL" xml:space="preserve">
+    <value>Here is a description of the sentence. Because the character is small, it might be better a little more big. This sentence is for Dummies.</value>
+  </data>
+  <data name="LBL_CREATE_QC4" xml:space="preserve">
+    <value>Here is a description of the sentence. Because the character is small, it might be better a little more big. This sentence is for Dummies.</value>
+  </data>
+  <data name="LBL_DATA_EXPORT" xml:space="preserve">
+    <value>Data Export</value>
+  </data>
+  <data name="LBL_EXTERNAL_DATA" xml:space="preserve">
+    <value>Here is a description of the sentence. Because the character is small, it might be better a little more big. This sentence is for Dummies.</value>
+  </data>
+  <data name="LBL_FILE_NAME" xml:space="preserve">
+    <value>FileName</value>
+  </data>
+  <data name="LBL_SCREEN_MATCH" xml:space="preserve">
+    <value>Here is a description of the sentence. Because the character is small, it might be better a little more big. This sentence is for Dummies.</value>
+  </data>
+  <data name="LBL_SWAP_ERROR" xml:space="preserve">
+    <value>Mismatch Data in Swap Data</value>
+  </data>
+  <data name="TITLE_SDE_WINDOW" xml:space="preserve">
+    <value>Swap Data </value>
+  </data>
+</root>

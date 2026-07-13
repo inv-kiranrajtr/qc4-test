@@ -1,0 +1,349 @@
+﻿<Window xmlns:Usercontrols="clr-namespace:Qc4Launcher.Forms.Multivariate_Analysis.Usercontrols"  x:Class="Qc4Launcher.Forms.Multivariate_Analysis.CorrespondenceAnalysis"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Qc4Launcher.Forms.Multivariate_Analysis"
+        mc:Ignorable="d"
+        xmlns:res="clr-namespace:Qc4Launcher"
+        xmlns:FilterSettingsView="clr-namespace:FilterSettingsView;assembly=FilterSettingsView"
+        Title="{x:Static res:LocalResource.MULTI_CORRES_HEADER}" Height="700" Closing="Window_Closing" 
+        PreviewMouseRightButtonDown="DisableRightMenu" PreviewMouseRightButtonUp="DisableRightMenu" 
+        PreviewKeyDown="Window_PreviewKeyDown" Loaded="Window_Loaded" Width="812" Background="#FFF0F0F0" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+
+        <Style TargetType="GroupBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="GroupBox">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Border Grid.Row="0"
+                          BorderThickness="1" BorderBrush="White"
+                          CornerRadius="0,0,0,0">
+                                <ContentPresenter 
+                          ContentSource="Header"
+                          RecognizesAccessKey="True" />
+                            </Border>
+                            <Border Grid.Row="1" BorderBrush="#D5DFE5"
+                                    BorderThickness="1"
+                                    CornerRadius="0,0,0,0">
+                                <ContentPresenter Margin="4" />
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TabControl Margin="10">
+            <TabItem x:Name="tab1">
+                <TabItem.Header>
+                    <TextBlock Grid.Column="0" Text="{x:Static res:LocalResource.MULTI_ANALYSIS_SETTINGS}" Style="{StaticResource TextBlockNormalWithCenterAligned}" ></TextBlock>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.85*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <StackPanel Orientation="Horizontal" Margin="10 5 5 5">
+                            <RadioButton Style="{StaticResource Radibuttoncommon}"  x:Name="radio_crosstabulate" Click="Radio_gtmatrix_Click" Content="{x:Static res:LocalResource.MULTI_CORRES_CROSS_TABULATE}"/>
+                            <RadioButton Style="{StaticResource Radibuttoncommon}" x:Name="radio_gtmatrix" Click="Radio_gtmatrix_Click" Content="{x:Static res:LocalResource.MULTI_CORRES_GT_MATRIX}" Margin="10 0 0 0"/>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="1"  Grid.ColumnSpan="2"  >
+                        <Usercontrols:GTTabulateUC x:Name="usercontrolGT" Loaded="UsercontrolGT_Loaded" />
+                        <Usercontrols:crosstabulate  x:Name="crosstabulate"/>
+                    </Grid>
+                    <Grid Grid.Row="2" Grid.Column="0">
+                        <Border  Grid.Row="2"  BorderThickness="1" BorderBrush="#FFE1E1E1" Margin="10 0 0 10" >
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Grid.Row="0" Margin="20 5 5 5" Text="{x:Static res:LocalResource.MULTI_CORRES_NO_OF_DIMENSIONS}" Style="{StaticResource TextBlockNormalWithCenterAligned}" ></TextBlock>
+                                    <Usercontrols:NumericUpDown IsTabStop="True" x:Name="number_diameter" Grid.Column="1" Margin="5" Width="40"/>
+                                </Grid>
+                                <Border  Grid.Row="2"  BorderThickness="1" BorderBrush="#FFE1E1E1" Margin="10" >
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" TextWrapping="Wrap"  Margin="10 5 5 5" Text="{x:Static res:LocalResource.MULTI_CORRES_DIMENSION_NUMBER_TO_OUTPUT}" Style="{StaticResource TextBlockNormalWithCenterAligned}"  Width="50"></TextBlock>
+                                        <TextBlock Grid.Column="1" Grid.Row="0" Margin="10 5 5 5" TextWrapping="Wrap" Text="{x:Static res:LocalResource.MULTI_CORRES_HORIZONTAL}" Style="{StaticResource TextBlockNormalWithCenterAligned}" ></TextBlock>
+                                        <TextBlock Grid.Column="1" Grid.Row="1" Margin="10 5 5 5" TextWrapping="Wrap" Text="{x:Static res:LocalResource.MULTI_CORRES_VERTICAL}" Style="{StaticResource TextBlockNormalWithCenterAligned}" ></TextBlock>
+                                        <Usercontrols:NumericUpDown x:Name="numeric_horizontal" Grid.Column="2" Grid.Row="0" Margin="5" Width="40" VerticalAlignment="Center"/>
+                                        <Usercontrols:NumericUpDown x:Name="numeric_vertical" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" Margin="5" Width="40"/>
+                                        <CheckBox x:Name="chkbx_horizontal" VerticalContentAlignment="Center"  Style="{StaticResource CheckBoxCommon}" Grid.Column="3" Grid.Row="0" VerticalAlignment="Center">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                    <RowDefinition Height="3*"/>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock TextWrapping="Wrap" Text="{x:Static res:LocalResource.MULTI_CORRES_USE_REVERSED_DATA_SCORE}" Grid.RowSpan="2"></TextBlock>
+                                            </Grid>
+                                        </CheckBox>
+                                        <CheckBox x:Name="chkbx_vertical" Style="{StaticResource CheckBoxCommon}" Grid.Column="3" Grid.Row="1" VerticalContentAlignment="Center" VerticalAlignment="Center">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                    <RowDefinition Height="3*"/>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock TextWrapping="Wrap" Text="{x:Static res:LocalResource.MULTI_CORRES_USE_REVERSED_DATA_SCORE}" Grid.RowSpan="2"></TextBlock>
+                                            </Grid>
+                                        </CheckBox>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <Border  Grid.Row="2" Grid.Column="1"  VerticalAlignment="Top" BorderThickness="1" BorderBrush="#FFE1E1E1" Margin="10 0 10 10" >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0"  TextWrapping="Wrap" Grid.Row="0" Margin="10 5 5 5" Text="{x:Static res:LocalResource.MULTI_CORRES_ANALYSIS_BASED_ON}" Style="{StaticResource TextBlockNormalWithCenterAligned}" ></TextBlock>
+                            <RadioButton Grid.Row="0" Grid.Column="1"  x:Name="Num_factor_extracted_radiobtn"  Margin="5 10 5 5" Style="{StaticResource RadibuttonNormal}" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition Height="14"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock TextWrapping="Wrap" Text="{x:Static res:LocalResource.MULTI_CORRES_ANALYSIS_WITH_PERCENTAGE}" Grid.RowSpan="2"></TextBlock>
+                                </Grid>
+                            </RadioButton>
+                            <RadioButton Grid.Row="1" Grid.Column="1"  x:Name="analysis_num_radio" Margin="5 5 5 10" Style="{StaticResource RadibuttonNormal}" >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition Height="3*"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock TextWrapping="Wrap" Text="{x:Static res:LocalResource.MULTI_CORRES_ANALYSIS_WITH_FREQUENCY}" Grid.RowSpan="2"></TextBlock>
+                                </Grid>
+                            </RadioButton>
+                        </Grid>
+                    </Border>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Page_Refine">
+                <TabItem.Header>
+                    <TextBlock Grid.Column="0" Text="{x:Static res:LocalResource.LABEL_FILTER_SETTING}" Style="{StaticResource TextBlockNormalWithCenterAligned}" ></TextBlock>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <CheckBox Checked="OnCheck" HorizontalAlignment="Left" Unchecked="OnCheck" x:Name="Check_Refine_Condition" Style="{StaticResource CheckBoxCommon}" Content="{x:Static res:LocalResource.LABEL_FILTERING_CRITERIA}" Margin="10 20 10 0"/>
+                    <Grid Grid.Row="1" x:Name="filterGrid">
+                        <Border BorderThickness="1" BorderBrush="#FFE1E1E1" Margin="10"  >
+                            <FilterSettingsView:FilterControlMulti x:Name="fdesign" Margin="10"/>
+                            <!--<Usercontrols:CriteriaControl x:Name="Criteria_Control" Margin="10"/>-->
+                        </Border>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Visibility="Hidden">
+                <TabItem.Header>
+                    <TextBlock Grid.Column="0" Text="{x:Static res:LocalResource.LABEL_GRAPH_OPTIONS}" Style="{StaticResource TextBlockNormalWithCenterAligned}" ></TextBlock>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Border BorderThickness="1" BorderBrush="#FFE1E1E1" Margin="10" >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <CheckBox x:Name="chkbtn_output_chart" Checked="Chkbtn_output_chart_Checked" Style="{StaticResource CheckBoxCommon}" Unchecked="Chkbtn_output_chart_Checked" Content="Output Bar Chart" Margin="10 10 10 10"/>
+                            <RadioButton x:Name="rdo_output_graph_seperately" Style="{StaticResource Radibuttoncommon}" Content="Output graph seperately" Grid.Row="1" Margin="10 0 10 10"/>
+                            <RadioButton x:Name="rdo_output_onegraph" Style="{StaticResource Radibuttoncommon}" Content="Output into one graph" Grid.Row="1" Grid.Column="1" Margin="10 0 10 10"/>
+
+                        </Grid>
+                    </Border>
+                    <GroupBox   Foreground="#FF333333" Margin="10" FontFamily="Arial" x:Name="Output_summary" Grid.Row="1">
+                        <GroupBox.Header>
+                            <TextBlock Style="{StaticResource TextBlockNormal}" Text="Graph Pattern Setting"   />
+                        </GroupBox.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <GroupBox   Foreground="#FF333333" Margin="10" FontFamily="Arial"  Grid.Row="0">
+                                <GroupBox.Header>
+                                    <TextBlock Style="{StaticResource TextBlockNormal}" Text="Bar Chart"   />
+                                </GroupBox.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Bar" Margin="10 0 20 0" Style="{StaticResource TextBlockNormalWithCenterAligned}" ></TextBlock>
+                                    <TextBox Grid.Column="1" x:Name="txt_color1" IsReadOnly="True"  Margin="2" Width="20" Height="20" Cursor="Arrow" MouseDoubleClick="Txt_color1_MouseDoubleClick"></TextBox>
+                                    <TextBox Grid.Column="2" x:Name="txt_color2" IsReadOnly="True"  Margin="2" Width="20" Height="20" Cursor="Arrow" MouseDoubleClick="Txt_color1_MouseDoubleClick"></TextBox>
+                                    <TextBox Grid.Column="3" x:Name="txt_color3" IsReadOnly="True"  Margin="2" Width="20" Height="20" Cursor="Arrow" MouseDoubleClick="Txt_color1_MouseDoubleClick"></TextBox>
+                                    <TextBox Grid.Column="4" x:Name="txt_color4" IsReadOnly="True"  Margin="2" Width="20" Height="20" Cursor="Arrow" MouseDoubleClick="Txt_color1_MouseDoubleClick"></TextBox>
+                                    <TextBox Grid.Column="5" x:Name="txt_color5" IsReadOnly="True"  Margin="2" Width="20" Height="20" Cursor="Arrow" MouseDoubleClick="Txt_color1_MouseDoubleClick"></TextBox>
+                                    <ComboBox Grid.Column="6" Margin="10 0 0 0" Height="25" Width="150" x:Name="bar_combo" Style="{StaticResource NonEditableComboformat}" VerticalContentAlignment="Center"/>
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox   Foreground="#FF333333" Margin="10" FontFamily="Arial"  Grid.Row="1">
+                                <GroupBox.Header>
+                                    <TextBlock Style="{StaticResource TextBlockNormal}" Text="Correspondence Map"/>
+                                </GroupBox.Header>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock VerticalAlignment="Center" Style="{StaticResource TextBlockNormal}" Text="Background" Margin="10 0 0 0"/>
+                                        <TextBox  x:Name="txt_background" IsReadOnly="True"  Margin="5 5 5 5" Width="20" Height="20" Cursor="Arrow" MouseDoubleClick="Txt_color1_MouseDoubleClick"></TextBox>
+                                        <ComboBox  Margin="5 0 0 0" Height="25" Width="150" x:Name="background_combo" Style="{StaticResource NonEditableComboformat}" VerticalContentAlignment="Center"/>
+                                    </StackPanel>
+                                    <GroupBox Grid.Row="1"  Foreground="#FF333333" Margin="10 10 10 5" FontFamily="Arial" >
+                                        <GroupBox.Header>
+                                            <TextBlock Style="{StaticResource TextBlockNormal}" Text="Row"   />
+                                        </GroupBox.Header>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock VerticalAlignment="Center" Style="{StaticResource TextBlockNormal}" Margin="10 0 0 0" Text="Marker Foreground"/>
+                                            <TextBox Grid.Column="1" IsReadOnly="True" x:Name="row_marker_color" Margin="10" Width="20" Height="20" MouseDoubleClick="Txt_color1_MouseDoubleClick" Cursor="Arrow"></TextBox>
+
+                                            <TextBlock Grid.Row="1" VerticalAlignment="Center" Style="{StaticResource TextBlockNormal}" Margin="10 0 0 0" Text="Charactor"/>
+                                            <TextBox Grid.Row="1" Grid.Column="1" IsReadOnly="True" x:Name="row_character_color" Margin="10" Width="20" Height="20" MouseDoubleClick="Txt_color1_MouseDoubleClick" Cursor="Arrow"></TextBox>
+
+                                            <TextBlock Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Style="{StaticResource TextBlockNormal}" Margin="10 0 0 0" Text="Marker Background"/>
+                                            <TextBox Grid.Row="0" Grid.Column="3" IsReadOnly="True" x:Name="row_marker_back_color" Margin="10" Width="20" Height="20" MouseDoubleClick="Txt_color1_MouseDoubleClick" Cursor="Arrow"></TextBox>
+
+                                            <TextBlock Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Style="{StaticResource TextBlockNormal}" Margin="10 0 0 0" Text="Character Background"/>
+                                            <TextBox Grid.Row="1" Grid.Column="3" IsReadOnly="True" x:Name="row_character_back_color" Margin="10" Width="20" Height="20" MouseDoubleClick="Txt_color1_MouseDoubleClick" Cursor="Arrow"></TextBox>
+
+                                            <CheckBox x:Name="chkbx_not_filled" Content="Not filled" IsChecked="True" Style="{StaticResource CheckBoxNormal}" Grid.Column="5" Grid.Row="1"/>
+                                        </Grid>
+                                    </GroupBox>
+                                    <GroupBox Grid.Row="2"  Foreground="#FF333333" Margin="10 5 10 10" FontFamily="Arial" >
+                                        <GroupBox.Header>
+                                            <TextBlock Style="{StaticResource TextBlockNormal}" Text="Column"   />
+                                        </GroupBox.Header>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock VerticalAlignment="Center" Style="{StaticResource TextBlockNormal}" Margin="10 0 0 0" Text="Marker Foreground"/>
+                                            <TextBox Grid.Column="1" IsReadOnly="True" x:Name="column_marker_back_color" Margin="10" Width="20" Height="20" MouseDoubleClick="Txt_color1_MouseDoubleClick" Cursor="Arrow"></TextBox>
+
+                                            <TextBlock Grid.Row="1" VerticalAlignment="Center" Style="{StaticResource TextBlockNormal}" Margin="10 0 0 0" Text="Charactor"/>
+                                            <TextBox Grid.Row="1" Grid.Column="1" IsReadOnly="True" x:Name="column_character_color" Margin="10" Width="20" Height="20" MouseDoubleClick="Txt_color1_MouseDoubleClick" Cursor="Arrow"></TextBox>
+
+                                            <TextBlock Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Style="{StaticResource TextBlockNormal}" Margin="10 0 0 0" Text="Marker Background"/>
+                                            <TextBox Grid.Row="0" Grid.Column="3" IsReadOnly="True" x:Name="column_mark_back_color" Margin="10" Width="20" Height="20" MouseDoubleClick="Txt_color1_MouseDoubleClick" Cursor="Arrow"></TextBox>
+
+                                            <TextBlock Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Style="{StaticResource TextBlockNormal}" Margin="10 0 0 0" Text="Character Background"/>
+                                            <TextBox Grid.Row="1" Grid.Column="3" IsReadOnly="True" x:Name="column_character_back_color" Margin="10" Width="20" Height="20" MouseDoubleClick="Txt_color1_MouseDoubleClick" Cursor="Arrow"></TextBox>
+                                            <CheckBox x:Name="chkbx_not_filled2" Content="Not filled" IsChecked="True" Style="{StaticResource CheckBoxNormal}" Grid.Column="5" Grid.Row="1"/>
+
+                                        </Grid>
+                                    </GroupBox>
+
+
+                                </Grid>
+
+                            </GroupBox>
+                            <Grid Grid.Row="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Button  HorizontalAlignment="Left"  Style="{StaticResource NormalButton}" Margin="10 10 10 10"  Content="Initialize"  Width="100" Height="25" />
+                                <Button  Grid.Column="2" HorizontalAlignment="Right"  Style="{StaticResource NormalButton}" Margin="10 10 10 10"  Content="Restore Default"  Width="100" Height="25" />
+                                <Button Grid.Column="3" HorizontalAlignment="Right"  Style="{StaticResource NormalButton}" Margin="10 10 10 10"  Content="Save as Default"  Width="100" Height="25" />
+
+
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Grid Grid.Row="1" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Button IsEnabled="False"   Style="{StaticResource NormalButton}" Margin="0 10 10 10" x:Name="btn_Execute"   Content="{x:Static res:LocalResource.LABEL_EXECUTE}" Width="100" Height="25" Click="Btn_Execute_Click"/>
+                <Button    Style="{StaticResource NormalButton}" Margin="0 10 10 10" Content="{x:Static res:LocalResource.BTN_CLOSE}" x:Name="Btn_close" Width="100" Height="25" Click="Btn_close_Click"  />
+
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

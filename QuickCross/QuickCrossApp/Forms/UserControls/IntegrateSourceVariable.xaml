@@ -1,0 +1,111 @@
+﻿<UserControl x:Class="Qc4Launcher.Forms.UserControls.IntegrateSourceVariable"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Qc4Launcher.Forms.UserControls"
+             xmlns:res="clr-namespace:Qc4Launcher"   
+             mc:Ignorable="d" 
+             d:DesignHeight="265" d:DesignWidth="120" Loaded="Comboloaded" Binding.TargetUpdated="Comboloaded">
+    <Grid>
+        <!--<StackPanel Orientation="Horizontal" Grid.Column="0">
+            <Separator Background="#FFE1E1E1" Width="1" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />            
+        </StackPanel>-->
+        <Grid  Margin="8,2,8,2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".8*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="3.4*"/>
+                <RowDefinition Height="1.2*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="Label_OriginItem_OriginItem" Grid.Row="0" Margin="0,2,0,2" Text="Source Variable" IsEnabled="False" Style="{StaticResource TextBlockNormalWithCenterAligned}" HorizontalAlignment="Center"></TextBlock>
+            <ComboBox x:Name="Combo_OriginItem_Item"  IsTextSearchEnabled="True" TextSearch.TextPath="Variable" Grid.Row="1" Margin="0,2,0,2"
+                      IsEditable="True" Style="{StaticResource NormalComboBox_Editable}" 
+                      ItemsSource="{Binding }"  
+                      GotKeyboardFocus="Combo_OriginItem_Item_GotKeyboardFocus" 
+                      IsSynchronizedWithCurrentItem="False" ScrollViewer.HorizontalScrollBarVisibility="Auto"><!--Style="{StaticResource NormalComboformat}"-->
+                <ComboBox.Resources>
+                    <Style TargetType="Popup">
+                        <Setter Property="MaxWidth" Value="508"/>
+                    </Style>
+                </ComboBox.Resources>
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Margin="2"   />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+                <ComboBox.ItemContainerStyle >
+                    <Style TargetType="{x:Type ComboBoxItem}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <Grid x:Name="gd" TextElement.Foreground="Black">
+                                        <Grid.ColumnDefinitions >
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Width="150" Margin="5" Grid.Column="0" Text="{Binding Variable}"/>
+                                        <TextBlock Width="80" Margin="5" Grid.Column="1" Text="{Binding AnswerTypeWithNoOfChoices}" />
+                                        <TextBlock Width="Auto" Margin="5" Grid.Column="2" Text="{Binding Question}"/>
+                                    </Grid>
+
+                                    <ControlTemplate.Triggers >
+                                        <Trigger Property="ComboBoxItem.IsSelected" Value="True">
+                                            <Setter TargetName="gd"  Property="Background" Value="#F6F6F6"></Setter>
+                                            <Setter TargetName="gd"  Property="TextElement.Foreground" Value="#FF333333"></Setter>
+                                        </Trigger>
+                                        <Trigger Property="ComboBoxItem.IsMouseOver" Value="True">
+                                            <Setter TargetName="gd"  Property="Background" Value="#e5f3fb"></Setter>
+                                            <Setter TargetName="gd"  Property="TextElement.Foreground" Value="#FF333333"></Setter>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+
+                                </ControlTemplate>
+
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+            </ComboBox>
+            <!--SelectionChanged="OnSelectionChanged"-->
+            <TextBox x:Name="Text_OriginItem1_Question" IsReadOnly="True" Grid.Row="2" Margin="0,2,0,2" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Style="{StaticResource NormalTextBoxMultiLine_READONLY}"></TextBox>
+            <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,2,0,2">
+                <TextBlock Width="69" Text="{x:Static res:LocalResource.LABEL_ANSWER_TYPE}" HorizontalAlignment="Right" Style="{StaticResource TextBlockNormalWithCenterAligned}"></TextBlock>
+                <TextBox x:Name="Text_OriginItem1_AnswerType" IsReadOnly="True" Margin="2 0 0 0" Width="54" Height="25"  HorizontalAlignment="Right" Style="{StaticResource NormalTextBox_READONLY}" ></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0,2,0,2">
+                <TextBlock Width="69" Text="{x:Static res:LocalResource.LABEL_NO_OF_CHOICES}" TextWrapping="Wrap" Style="{StaticResource TextBlockNormalWithCenterAligned}"></TextBlock>
+                <TextBox x:Name="Text_OriginItem1_SelectCount" IsReadOnly="True" Margin="2 0 0 0" Width="54" Height="25" Style="{StaticResource NormalTextBox_READONLY}"></TextBox>
+            </StackPanel>
+            <ListView x:Name="List_OriginItem_ChoiceList"   Style="{StaticResource ListViewCommon}" Grid.Row="5" Margin="0,2,0,2" Background="#F0F0F0"></ListView>
+            <Border Name="minmaxavgborder"  Grid.Row="5"  Visibility="Hidden"   BorderThickness="1" Height="90" Margin="0,2,1,2" Background="#F0F0F0" BorderBrush="LightGray">
+                <Grid Name="minmaxavg"  Grid.Row="5"  Visibility="Hidden"  Margin="2,2,2,2" Background="#F0F0F0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".5*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Text="{x:Static res:LocalResource.LABEL_MIN_INTEGRATE}" Grid.Row="0" Margin="0,0,0,2" Style="{StaticResource TextBlockNormalWithCenterAligned}"></TextBlock>
+                    <TextBox x:Name="Text_OriginItem_Min" IsReadOnly="True" Grid.Column="1" Grid.Row="0" Margin="6,0,0,2" Height="25" Style="{StaticResource NormalTextBox_READONLY}"></TextBox>
+                    <TextBlock Grid.Column="0" Text="{x:Static res:LocalResource.LABEL_MAX_INTEGRATE}" Grid.Row="1" Margin="0,0,0,2" Style="{StaticResource TextBlockNormalWithCenterAligned}"></TextBlock>
+                    <TextBox x:Name="Text_OriginItem_Max" IsReadOnly="True" Grid.Column="1" Grid.Row="1" Margin="6,0,0,2" Height="25" Style="{StaticResource NormalTextBox_READONLY}"></TextBox>
+                    <TextBlock Grid.Column="0" Text="{x:Static res:LocalResource.LABEL_MEAN_INTEGRATE}" Grid.Row="2" Margin="0,0,0,2" Style="{StaticResource TextBlockNormalWithCenterAligned}"></TextBlock>
+                    <TextBox x:Name="Text_OriginItem_Avg" IsReadOnly="True" Grid.Column="1" Grid.Row="2" Margin="6,0,0,2" Height="25" Style="{StaticResource NormalTextBox_READONLY}"></TextBox>
+            </Grid>
+            </Border>
+            <Button x:Name="Command_OriginItem_InputSupport" Content="{x:Static res:LocalResource.BTN_INTEGRATE_CRITERIA_VALUE}" Style="{StaticResource NormalButton}" ToolTip="{x:Static res:LocalResource.TOOLTIP_INTEGRATE_CRITERIA_VALUE}" Grid.Row="6" Margin="0,2,0,2"></Button>
+        </Grid>
+    </Grid>
+</UserControl>

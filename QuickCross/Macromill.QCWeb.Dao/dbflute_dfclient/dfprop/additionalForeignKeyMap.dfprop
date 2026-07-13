@@ -1,0 +1,484 @@
+# /---------------------------------------------------------------------------
+# additionalForeignKeyMap: (NotRequired - Default map:{})
+#
+# If foreign key does not exist in your database,
+# you can set up here as virtual foreign key for DBFlute.
+#
+# And it's one-to-one relation if you add one fixed condition to referrer table, 
+# you can set virtual foreign key with fixedCondition and fixedSuffix.
+# And you can use it to view objects too.
+#
+# If local column name is same as foreign column name,
+# you can omit the setting of localColumnName and foreignColumnName.
+# The names are treated as case insensitive.
+#
+# Example:
+# map:{
+#     ; FK_MEMBER_MEMBER_STATUS_CODE = map:{
+#         ; localTableName  = MEMBER             ; foreignTableName  = MEMBER_STATUS
+#         ; localColumnName = MEMBER_STATUS_CODE ; foreignColumnName = MEMBER_STATUS_CODE
+#     }
+#     ; FK_PURCHASE_MEMBER_ID = map:{
+#         ; localTableName  = PURCHASE  ; foreignTableName  = MEMBER
+#     }
+#     ; FK_MEMBER_MEMBER_ADDRESS_VALID = map:{
+#         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_ADDRESS
+#         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
+#         ; fixedCondition = 
+#          $$foreignAlias$$.VALID_BEGIN_DATE <= /*targetDate(Date)*/null
+#      and $$foreignAlias$$.VALID_END_DATE >= /*targetDate(Date)*/null 
+#         ; fixedSuffix = AsValid
+#     }
+# }
+#
+# *The line that starts with '#' means comment-out.
+#
+map:{
+    #; FK_MEMBER_MEMBER_STATUS_CODE = map:{
+    #    ; localTableName  = MEMBER             ; foreignTableName  = MEMBER_STATUS
+    #    ; localColumnName = MEMBER_STATUS_CODE ; foreignColumnName = MEMBER_STATUS_CODE
+    #}
+	# -----------------------------------
+	# ---------- QCWeb調査管理 ----------
+	# -----------------------------------
+	# 1.1.1.割付セル情報
+	; FK_T_QCWEB_SURVEY_INFO_T_ALLOCATION_CELL_INFO_QCWEBID = map:{
+		; localTableName  = T_QCWEB_SURVEY_INFO     ; foreignTableName  = T_Allocation_Cell_Info
+		; localColumnName = QCWebID                 ; foreignColumnName = QCWebID
+	}
+	# 1.1.2.セレクト条件情報
+	; FK_T_QCWEB_SURVEY_INFO_T_SELECT_CONDITION_INFO_QCWEBID = map:{
+		; localTableName  = T_QCWEB_SURVEY_INFO     ; foreignTableName  = T_Select_Condition_Info
+		; localColumnName = QCWebID                 ; foreignColumnName = QCWebID
+	}
+	# 1.2.アイテム情報
+	; FK_T_QCWEB_SURVEY_INFO_T_ITEM_INFO_QCWEBID = map:{
+		; localTableName  = T_QCWEB_SURVEY_INFO     ; foreignTableName  = T_Item_Info
+		; localColumnName = QCWebID                 ; foreignColumnName = QCWebID
+	}
+	# 1.6.テーブル管理
+	; FK_T_QCWEB_SURVEY_INFO_T_TABLE_CONTROL_QCWEBID = map:{
+		; localTableName  = T_QCWEB_SURVEY_INFO     ; foreignTableName  = T_Table_Control
+		; localColumnName = QCWebID                 ; foreignColumnName = QCWebID
+	}
+	## 1.7.テーブル詳細情報
+	#; FK_T_QCWEB_SURVEY_INFO_T_TABLE_DETAIL_INFO_QCWEBID = map:{
+	#	; localTableName  = T_QCWEB_SURVEY_INFO     ; foreignTableName  = T_Table_Detail_Info
+	#	; localColumnName = QCWebID                 ; foreignColumnName = QCWebID
+	#}
+	# 1.8.環境設定
+	; FK_T_QCWEB_SURVEY_INFO_T_DEFAULT_ENV_QCWEBID = map:{
+		; localTableName  = T_QCWEB_SURVEY_INFO     ; foreignTableName  = T_Default_Env
+		; localColumnName = QCWebID                 ; foreignColumnName = QCWebID
+	}
+	# 1.8.2.色設定情報
+	; FK_T_QCWEB_SURVEY_INFO_T_DEFAULT_ENV_COLOR_INFO_QCWEBID = map:{
+		; localTableName  = T_QCWEB_SURVEY_INFO     ; foreignTableName  = T_Default_Env_Color_Info
+		; localColumnName = QCWebID                 ; foreignColumnName = QCWebID
+	}
+	# 2.シナリオ
+	; FK_T_QCWEB_SURVEY_INFO_T_SCENARIO_TOTALIZATION_QCWEBID = map:{
+		; localTableName  = T_QCWEB_SURVEY_INFO     ; foreignTableName  = T_Scenario_Totalization
+		; localColumnName = QCWebID                 ; foreignColumnName = QCWebID
+	}
+	# 3.レポートセット
+	; FK_T_QCWEB_SURVEY_INFO_T_REPORTSET_QCWEBID = map:{
+		; localTableName  = T_QCWEB_SURVEY_INFO     ; foreignTableName  = T_Reportset
+		; localColumnName = QCWebID                 ; foreignColumnName = QCWebID
+	}
+	# 4.データ加工リスト
+	; FK_T_QCWEB_SURVEY_INFO_T_DATA_EDIT_LIST_QCWEBID = map:{
+		; localTableName  = T_QCWEB_SURVEY_INFO     ; foreignTableName  = T_Data_Edit_List
+		; localColumnName = QCWebID                 ; foreignColumnName = QCWebID
+	}
+	# 5.1.データ出力設定
+	; FK_T_QCWEB_SURVEY_INFO_T_OUTPUT_SETTING_QCWEBID = map:{
+		; localTableName  = T_QCWEB_SURVEY_INFO     ; foreignTableName  = T_Output_Setting
+		; localColumnName = QCWebID                 ; foreignColumnName = QCWebID
+	}
+	## 5.2.データ出力履歴アイテム
+	#; FK_T_QCWEB_SURVEY_INFO_T_OUTPUT_HISTORY_ITEM_QCWEBID = map:{
+	#	; localTableName  = T_QCWEB_SURVEY_INFO     ; foreignTableName  = T_Output_History_Item
+	#	; localColumnName = QCWebID                 ; foreignColumnName = QCWebID
+	#}
+	# 6.1.リクエスト
+	; FK_T_QCWEB_SURVEY_INFO_T_OUTPUT_REQUEST_QCWEBID = map:{
+		; localTableName  = T_QCWEB_SURVEY_INFO     ; foreignTableName  = T_Output_Request
+		; localColumnName = QCWebID                 ; foreignColumnName = QCWebID
+	}
+	## 6.3.テンプレート
+	#; FK_T_QCWEB_SURVEY_INFO_T_OUTPUT_TEMPLATE_QCWEBID = map:{
+	#	; localTableName  = T_QCWEB_SURVEY_INFO     ; foreignTableName  = T_Output_Template
+	#	; localColumnName = QCWebID                 ; foreignColumnName = QCWebID
+	#}
+	# 8.1.アクセス権限管理情報
+	; FK_T_QCWEB_SURVEY_INFO_T_ACCESS_PERMISSIONS_INFO_QCWEBID = map:{
+		; localTableName  = T_QCWEB_SURVEY_INFO     ; foreignTableName  = T_Access_Permissions_Info
+		; localColumnName = QCWebID                 ; foreignColumnName = QCWebID
+	}
+	# 8.2.セッション管理
+	; FK_T_QCWEB_SURVEY_INFO_T_SESSION_CONTROLER_QCWEBID = map:{
+		; localTableName  = T_QCWEB_SURVEY_INFO     ; foreignTableName  = T_Session_Controler
+		; localColumnName = QCWebID                 ; foreignColumnName = QCWebID
+	}
+	# 8.3.通知
+	; FK_T_QCWEB_SURVEY_INFO_T_NOTICE_QCWEBID = map:{
+		; localTableName  = T_QCWEB_SURVEY_INFO     ; foreignTableName  = T_Notice
+		; localColumnName = QCWebID                 ; foreignColumnName = QCWebID
+	}
+	# 8.6.出力設定－GT
+	; FK_T_QCWEB_SURVEY_INFO_T_OUTPUT_SETTING_GT_QCWEBID = map:{
+		; localTableName  = T_QCWEB_SURVEY_INFO     ; foreignTableName  = T_Output_Setting_GT
+		; localColumnName = QCWebID                 ; foreignColumnName = QCWebID
+	}
+	# 8.7.出力設定－クロス
+	; FK_T_QCWEB_SURVEY_INFO_T_OUTPUT_SETTING_CROSS_QCWEBID = map:{
+		; localTableName  = T_QCWEB_SURVEY_INFO     ; foreignTableName  = T_Output_Setting_Cross
+		; localColumnName = QCWebID                 ; foreignColumnName = QCWebID
+	}
+	# 8.8.出力設定－FA
+	; FK_T_QCWEB_SURVEY_INFO_T_OUTPUT_SETTING_FA_QCWEBID = map:{
+		; localTableName  = T_QCWEB_SURVEY_INFO     ; foreignTableName  = T_Output_Setting_FA
+		; localColumnName = QCWebID                 ; foreignColumnName = QCWebID
+	}
+	# 8.9.出力設定－レポート
+	; FK_T_QCWEB_SURVEY_INFO_T_OUTPUT_SETTING_REPORT_QCWEBID = map:{
+		; localTableName  = T_QCWEB_SURVEY_INFO     ; foreignTableName  = T_Output_Setting_Report
+		; localColumnName = QCWebID                 ; foreignColumnName = QCWebID
+	}
+	# 1.1.4.QCWeb調査管理詳細
+	; FK_T_QCWEB_SURVEY_INFO_T_QCWEB_SURVEY_DETAIL_QCWEBID = map:{
+		; localTableName  = T_QCWEB_SURVEY_INFO ; foreignTableName  = T_QCWEB_SURVEY_DETAIL
+		; localColumnName = QCWebID             ; foreignColumnName = QCWebID
+	}
+
+	# -----------------------------------
+	# ---------- アイテム情報 -----------
+	# -----------------------------------
+	# 1.3.カテゴリ情報
+	#; FK_T_ITEM_INFO_T_CATEGORY_INFO_ITEM_INFO_ID = map:{
+	#	; localTableName  = T_Item_Info             ; foreignTableName  = T_Category_Info
+	#	; localColumnName = Item_Info_ID            ; foreignColumnName = Item_Info_ID
+	#}
+	# 1.9.マトリクス情報
+	; FK_T_ITEM_INFO_T_MATRIX_INFO_ITEM_INFO_ID = map:{
+		; localTableName  = T_Item_Info             ; foreignTableName  = T_Matrix_Info
+		; localColumnName = Item_Info_ID            ; foreignColumnName = Child_Item_Info_ID
+	}
+	# 2.1.GTシナリオアイテム
+	#; FK_T_ITEM_INFO_T_GT_SCENARIO_ITEM_ITEM_INFO_ID = map:{
+	#	; localTableName  = T_Item_Info             ; foreignTableName  = T_GT_Scenario_Item
+	#	; localColumnName = Item_Info_ID            ; foreignColumnName = Item_Info_ID
+	#}
+	# 2.3.1.付加アイテム
+	; FK_T_ITEM_INFO_T_FA_LIST_ADD_ITEM_ITEM_INFO_ID = map:{
+		; localTableName  = T_Item_Info             ; foreignTableName  = T_FA_List_Add_Item
+		; localColumnName = Item_Info_ID            ; foreignColumnName = Item_Info_ID
+	}
+	# 2.5.シナリオ絞込み条件
+	#; FK_T_ITEM_INFO_T_SCENARIO_QUERYLIST_ITEM_INFO_ID = map:{
+	#	; localTableName  = T_Item_Info             ; foreignTableName  = T_Scenario_QueryList
+	#	; localColumnName = Item_Info_ID            ; foreignColumnName = Item_Info_ID
+	#}
+	# 4.10.1.データ修正条件
+	#; FK_T_ITEM_INFO_T_EDIT_CONDITION_ITEM_INFO_ID = map:{
+	#	; localTableName  = T_Item_Info             ; foreignTableName  = T_Edit_Condition
+	#	; localColumnName = Item_Info_ID            ; foreignColumnName = Item_ID
+	#}
+	# 4.9.1.データ削除条件
+	#; FK_T_ITEM_INFO_T_DELETE_CONDITION_ITEM_INFO_ID = map:{
+	#	; localTableName  = T_Item_Info             ; foreignTableName  = T_Delete_Condition
+	#	; localColumnName = Item_Info_ID            ; foreignColumnName = Item_ID
+	#}
+	# 5.2.データ出力履歴アイテム
+	#; FK_T_ITEM_INFO_T_OUTPUT_HISTORY_ITEM_ITEM_INFO_ID = map:{
+	#	; localTableName  = T_Item_Info             ; foreignTableName  = T_Output_History_Item
+	#	; localColumnName = Item_Info_ID            ; foreignColumnName = Item_Info_ID
+	#}
+	# 2.3.1.FAシナリオアイテム
+	; FK_T_ITEM_INFO_T_FA_SCENARIO_ITEM_ITEM_INFO_ID = map:{
+		; localTableName = T_Item_Info              ; foreignTableName = T_FA_Scenario_Item
+		; localColumnName = Item_Info_ID            ; foreignColumnName = FA_Target_Item_ID
+	}
+	# 1.6.テーブル管理
+	; FK_T_ITEM_INFO_T_TABLE_CONTROL_QCWEBID = map:{
+		; localTableName = T_Item_Info         ; foreignTableName = T_TABLE_CONTROL
+		; localColumnName = QCWEBID            ; foreignColumnName = QCWEBID
+	}
+	# 2.シナリオ
+	; FK_T_CATEGORY_EDIT_ID_T_SCENARIO_TOTALIZATION_SCENARIO_TOTALIZATION_ID = map:{
+		; localTableName = T_ITEM_INFO         ; foreignTableName = T_SCENARIO_TOTALIZATION
+		; localColumnName = CATEGORY_EDIT_ID   ; foreignColumnName = Scenario_Totalization_ID
+	}
+	#4.データ加工リスト
+	;FK_T_ITEM_INFO_T_DATA_EDIT_LIST_DATA_EDIT_ID = map:{
+		; localTableName = T_ITEM_INFO    ; foreignTableName = T_DATA_EDIT_LIST
+		; localColumnName = DATA_EDIT_ID  ;foreignColumnName = DATA_EDIT_ID
+	}
+
+	# -----------------------------------
+	# ---------- マトリクス情報 ---------
+	# -----------------------------------
+	# 1.3.カテゴリ情報
+	; FK_T_MATRIX_INFO_T_CATEGORY_INFO_CATEGORY_INFO_ID = map:{
+		; localTableName = T_MATRIX_INFO             ; foreignTableName = T_CATEGORY_INFO
+		; localColumnName = Add_Fa_Category_Info_ID  ; foreignColumnName = CATEGORY_INFO_ID
+	}
+
+	# -----------------------------------
+	# ---------- シナリオ情報 -----------
+	# -----------------------------------
+	# 2.1.GTシナリオアイテム
+	; FK_T_SCENARIO_TOTALIZATION_T_GT_SCENARIO_ITEM_SCENARIO_TOTALIZATION_ID = map:{
+		; localTableName  = T_Scenario_Totalization  ; foreignTableName  = T_GT_Scenario_Item
+		; localColumnName = Scenario_Totalization_ID ; foreignColumnName = Scenario_Totalization_ID
+	}
+	# 2.2.クロス集計対象シナリオアイテム
+	; FK_T_SCENARIO_TOTALIZATION_T_SC_ITEM_SCENARIO_TOTALIZATION_ID = map:{
+		; localTableName  = T_Scenario_Totalization  ; foreignTableName  = T_Cross_Scenario_Target
+		; localColumnName = Scenario_Totalization_ID ; foreignColumnName = Scenario_Totalization_ID
+	}
+	# 2.3.FAシナリオアイテムヘッダー
+	; FK_T_SCENARIO_TOTALIZATION_T_FA_LIST_HEADER_SCENARIO_TOTALIZATION_ID = map:{
+		; localTableName  = T_Scenario_Totalization  ; foreignTableName  = T_FA_Scenario_Header
+		; localColumnName = Scenario_Totalization_ID ; foreignColumnName = Scenario_Totalization_ID
+	}
+	# 2.5.シナリオ絞込み条件
+	; FK_T_SCENARIO_TOTALIZATION_T_SCENARIO_QUERYLIST_TOTALIZATION_ID = map:{
+		; localTableName  = T_Scenario_Totalization  ; foreignTableName  = T_Scenario_QueryList
+		; localColumnName = Scenario_Totalization_ID ; foreignColumnName = Scenario_Totalization_ID
+	}
+	# 2.6.カテゴリ出力編集
+	; FK_T_SCENARIO_TOTALIZATION_T_CATEGORY_OUTPUT_EDIT_TOTALIZATION_ID = map:{
+		; localTableName  = T_Scenario_Totalization  ; foreignTableName  = T_Category_Output_Edit
+		; localColumnName = Scenario_Totalization_ID ; foreignColumnName = Scenario_Totalization_ID
+	}
+	# 2.7.GT集計設定追加
+	; FK_T_SCENARIO_TOTALIZATION_T_GT_MATRIX_INFO_TOTALIZATION_ID = map:{
+		; localTableName  = T_Scenario_Totalization  ; foreignTableName  = T_GT_Matrix_Info
+		; localColumnName = Scenario_Totalization_ID ; foreignColumnName = Scenario_Totalization_ID
+	}
+	# 1.1.QCWeb調査管理
+	; FK_T_SCENARIO_TOTALIZATION_T_QCWEB_SURVEY_INFO_ID = map:{
+		; localTableName  = T_Scenario_Totalization  ; foreignTableName  = T_QCWEB_SURVEY_INFO
+		; localColumnName = QCWebID					 ; foreignColumnName = QCWebID
+	}
+	# 1.8.環境設定
+	; FK_T_SCENARIO_TOTALIZATION_T_DEFAULT_ENV_ID = map:{
+		; localTableName  = T_Scenario_Totalization  ; foreignTableName  = T_DEFAULT_ENV
+		; localColumnName = QCWebID					 ; foreignColumnName = QCWebID
+	}
+
+
+	# -----------------------------------
+	# ---------- 絞り込み条件 -----------
+	# -----------------------------------
+	# 1.2.アイテム情報
+	; FK_T_SCENARIO_QUERYLIST_T_ITEM_INFO_ITEM_INFO_ID = map:{
+		; localTableName  = T_SCENARIO_QUERYLIST  ; foreignTableName  = T_ITEM_INFO
+		; localColumnName = Item_Info_ID          ; foreignColumnName = Item_Info_ID
+	}
+
+	# ----------------------------------------
+	# ---------- GTシナリオアイテム ----------
+	# ----------------------------------------
+	# 1.2.アイテム情報
+	; FK_T_GT_SCENARIO_ITEM_T_ITEM_INFO = map:{
+		; localTableName = T_GT_SCENARIO_ITEM ; foreignTableName = T_ITEM_INFO
+		; localColumnName = ITEM_INFO_ID      ; foreignColumnName = ITEM_INFO_ID
+	}
+	
+	# ----------------------------------------
+	# ---------- FAシナリオヘッダー ----------
+	# ----------------------------------------
+	# 2.3.1.FAシナリオアイテム
+	; FK_T_FA_SCENARIO_HEADER_T_FA_SCENARIO_ITEM_ITEM_ID = map:{
+		; localTableName = T_FA_Scenario_Header   ; foreignTableName = T_FA_Scenario_Item
+		; localColumnName = FA_Scenario_Header_ID ; foreignColumnName = FA_Scenario_Header_ID
+	}
+	# 2.3.1.付加アイテム
+	; FK_T_FA_SCENARIO_HEADER_T_FA_LIST_ADD_ITEM_ITEM_ID = map:{
+		; localTableName = T_FA_Scenario_Header      ; foreignTableName = T_FA_LIST_ADD_ITEM
+		; localColumnName = FA_Scenario_Header_ID    ; foreignColumnName = FA_Scenario_Header_ID
+	}
+	
+	# ----------------------------------------
+	# ---------- FAシナリオアイテム ----------
+	# ----------------------------------------
+	# 1.2.アイテム情報
+	; FK_T_FA_SCENARIO_ITEM_T_ITEM_INFO_ITEM_ID = map:{
+		; localTableName = T_FA_Scenario_Item        ; foreignTableName = T_ITEM_INFO
+		; localColumnName = FA_Target_Item_ID        ; foreignColumnName = ITEM_INFO_ID
+	}
+	
+	# ----------------------------------------
+	# ---------- 付加アイテム ----------------
+	# ----------------------------------------
+	# 1.2.アイテム情報
+	; FK_T_FA_LIST_ADD_ITEM_T_ITEM_INFO_ITEM_ID = map:{
+		; localTableName = T_FA_LIST_ADD_ITEM        ; foreignTableName = T_ITEM_INFO
+		; localColumnName = ITEM_INFO_ID                  ; foreignColumnName = ITEM_INFO_ID
+	}
+	
+	# ----------------------------------------------------
+	# ---------- クロス集計対象シナリオアイテム ----------
+	# ----------------------------------------------------
+	# 2.2.1.クロス集計軸シナリオアイテム
+	; FK_T_CROSS_SCENARIO_ITEM_T_AXIS_ITEM_SCENARIO_ITEM_ID = map:{
+		; localTableName  = T_Cross_Scenario_Item    ; foreignTableName  = T_Cross_Scenario_Target
+		; localColumnName = Cross_Scenario_Target_ID ; foreignColumnName = Cross_Scenario_Target_ID
+	}
+
+	# ----------------------------------------------------
+	# ---------- クロス集計軸シナリオアイテム ------------
+	# ----------------------------------------------------
+	# 2.2.1.1.折れ線カテゴリリスト
+	; FK_T_CROSS_SCENARIO_ITEM_T_POLYLINE_CATEGORY_LIST_CROSS_AXIS_ITEM_ID = map:{
+		; localTableName  = T_Cross_Scenario_Item     ; foreignTableName  = T_Polyline_Category_List
+		; localColumnName = Cross_Scenario_Item_ID    ; foreignColumnName = Cross_Scenario_Item_ID
+	}
+
+	# --------------------------------
+	# ---------- 色設定情報 ----------
+	# --------------------------------
+	# 1.8.2.1.色情報詳細
+	; FK_T_DEFAULT_ENV_COLOR_INFO_T_DEFAULT_ENV_COLOR_DTL_COLOR_SET_INFO_ID = map:{
+		; localTableName  = T_Default_Env_Color_Info  ; foreignTableName  = T_Default_Env_Color_Dtl
+		; localColumnName = Def_Env_Color_Info_ID     ; foreignColumnName = Def_Env_Color_Info_ID
+	}
+
+	# --------------------------------------------
+	# ---------- ウエイトバックヘッダー ----------
+	# --------------------------------------------
+	# 2.4.1.ウエイトバックカテゴリー設定値
+	; FK_T_WEIGHTBACK_T_WEIGHTBACK_VALUE_WEIGHTBACK_ID = map:{
+		; localTableName  = T_Weightback       ; foreignTableName  = T_Weightback_Value
+		; localColumnName = Weightback_ID      ; foreignColumnName = Weightback_ID
+	}
+
+	# --------------------------------------------
+	# ---------- カテゴリ出力編集 ----------------
+	# --------------------------------------------
+	# 2.6.1.カテゴリ出力編集詳細
+	; FK_T_CATEGORY_OUTPUT_EDIT_T_CATEGORY_OUTPUT_DETAIL_CATEGORY_OUTPUT_EDIT_ID = map:{
+		; localTableName  = T_Category_Output_Edit    ; foreignTableName  = T_Category_Output_Detail
+		; localColumnName = Category_Output_Edit_ID   ; foreignColumnName = Category_Output_Edit_ID
+	}
+
+	# --------------------------------------------
+	# ---------- GT集計設定追加 ------------------
+	# --------------------------------------------
+	# 2.7.1.GT集計設定子アイテム
+	; FK_T_GT_MATRIX_INFO_T_GT_MATRIX_CHILD_GT_MATRIX_INFO_ID = map:{
+		; localTableName  = T_GT_Matrix_Info    ; foreignTableName  = T_GT_Matrix_Child
+		; localColumnName = GT_Matrix_Info_ID   ; foreignColumnName = GT_Matrix_Info_ID
+	}
+
+	# --------------------------------------------
+	# ----- 2.7.1.GT集計設定子アイテム ------------
+	# --------------------------------------------
+	# 1.2.アイテム情報
+	; FK_T_GT_MATRIX_CHILD_T_ITEM_INFO_CHILD_ITEM_ID = map:{
+		; localTableName = T_GT_MATRIX_CHILD ; foreignTableName = T_ITEM_INFO
+		; localColumnName = CHILD_ITEM_ID    ; foreignColumnName = ITEM_INFO_ID
+	}
+
+	# --------------------------------------------
+	# ---------- レポートセット ------------------
+	# --------------------------------------------
+	# 3.1.レポート
+	; FK_T_REPORTSET_T_REPORT_REPORTSET_ID = map:{
+		; localTableName  = T_Reportset         ; foreignTableName  = T_Report
+		; localColumnName = Reportset_ID        ; foreignColumnName = Reportset_ID
+	}
+
+	# --------------------------------------------
+	# ---------- レポート ------------------------
+	# --------------------------------------------
+	# 3.1.1.子レポート
+	; FK_T_REPORT_T_REPORT_REPORT_ID = map:{
+		; localTableName  = T_Report            ; foreignTableName  = T_Report_Child
+		; localColumnName = Report_ID           ; foreignColumnName = Parent_Report_ID
+	}
+
+	# --------------------------------------------
+	# ---------- データ出力設定 ------------------
+	# --------------------------------------------
+	# 5.2.データ出力履歴アイテム
+	; FK_T_OUTPUT_SETTING_T_REPORT_QCWEBID = map:{
+		; localTableName  = T_Output_Setting    ; foreignTableName  = T_Output_History_Item
+		; localColumnName = QCWebID             ; foreignColumnName = QCWebID
+	}
+
+	# --------------------------------------------
+	# ---------- リクエスト ----------------------
+	# --------------------------------------------
+	# 6.2.出力物共通
+	; FK_T_OUTPUT_REQUEST_T_REPORT_REQUEST_ID = map:{
+		; localTableName  = T_Output_Request    ; foreignTableName  = T_Output_Common
+		; localColumnName = Output_Request_ID          ; foreignColumnName = Output_Request_ID
+	}
+	## 6.2.出力物共通
+	#; FK_T_OUTPUT_REQUEST_T_REPORT_REQUEST_ID = map:{
+	#	; localTableName  = T_Output_Request    ; foreignTableName  = T_Output_Common
+	#	; localColumnName = Request_ID          ; foreignColumnName = Request_ID
+	#}
+	# 6.出力物レポートセット情報
+	; FK_T_OUTPUT_REQUEST_T_OUTPUT_REPORTSET_INFO_REPORTSET_INFO_ID = map:{
+		; localTableName  = T_Output_Request    ; foreignTableName  = T_Output_Reportset_Info
+		; localColumnName = Output_Reportset_Info_ID   ; foreignColumnName = Output_Reportset_Info_ID
+	}
+	# 1.1.QCWeb調査管理
+	; FK_T_OUTPUT_REQUEST_T_QCWEB_SURVEY_INFO_QCWEBID = map:{
+		; localTableName  = T_Output_Request    ; foreignTableName  = T_QCWEB_SURVEY_INFO
+		; localColumnName = QCWEBID             ; foreignColumnName = QCWEBID
+	}
+
+	# ----------------------------------------------
+	# ---------- 出力物レポートセット情報 ----------
+	# ----------------------------------------------
+	# 6.3.テンプレート
+	; FK_T_OUTPUT_REPORTSET_INFO_T_OUTPUT_TEMPLATE_TEMPLATE_ID = map:{
+		; localTableName  = T_Output_Reportset_Info  ; foreignTableName  = T_Output_Template
+		; localColumnName = Output_Template_ID              ; foreignColumnName = Output_Template_ID
+	}
+
+	# ----------------------------------------------
+	# ---------- テンプレート ----------------------
+	# ----------------------------------------------
+	# 6.4.PPテンプレートマスタ
+	; FK_T_OUTPUT_TEMPLATE_T_OUTPUT_TEMPLATE_MASTER_PP_TEMPLATE_MASTER_ID = map:{
+		; localTableName  = T_Output_Template         ; foreignTableName  = T_Output_Template_Master
+		; localColumnName = Output_Template_Master_ID ; foreignColumnName = Output_Template_Master_ID
+	}
+
+	# ----------------------------------------------
+	# ---------- 出力物共通 ------------------------
+	# ----------------------------------------------
+	# 6.2.1.出力物サブ_GT
+	; FK_T_OUTPUT_COMMON_T_OUTPUT_SUB_GT_OUTPUT_ID = map:{
+		; localTableName  = T_Output_Common       ; foreignTableName  = T_Output_Sub_GT
+		; localColumnName = Output_Common_ID      ; foreignColumnName = Output_Common_ID
+	}
+	# 6.2.2.出力物サブ_クロス
+	; FK_T_OUTPUT_COMMON_T_OUTPUT_SUB_CROSS_OUTPUT_ID = map:{
+		; localTableName  = T_Output_Common       ; foreignTableName  = T_Output_Sub_Cross
+		; localColumnName = Output_Common_ID      ; foreignColumnName = Output_Common_ID
+	}
+	# 6.2.3.出力物サブ_FA
+	; FK_T_OUTPUT_COMMON_T_OUTPUT_SUB_FA_OUTPUT_ID = map:{
+		; localTableName  = T_Output_Common       ; foreignTableName  = T_Output_Sub_FA
+		; localColumnName = Output_Common_ID      ; foreignColumnName = Output_Common_ID
+	}
+	# 6.2.4.出力物サブ_CKリスト
+	; FK_T_OUTPUT_COMMON_T_OUTPUT_SUB_CKLIST_OUTPUT_ID = map:{
+		; localTableName  = T_Output_Common       ; foreignTableName  = T_Output_Sub_CKList
+		; localColumnName = Output_Common_ID      ; foreignColumnName = Output_Common_ID
+	}
+	## 6.2.4.出力物サブ_CKリスト
+	#; FK_T_OUTPUT_COMMON_T_OUTPUT_SUB_CKLIST_OUTPUT_ID = map:{
+	#	; localTableName  = T_Output_Common       ; foreignTableName  = T_Output_Sub_CKList
+	#	; localColumnName = Output_Common_ID      ; foreignColumnName = Output_Common_ID
+	#}
+}
+# ----------------/

@@ -1,0 +1,52 @@
+﻿/*
+[df:title]
+アイテム情報、RawDataコントロール情報を取得する
+
+[df:description]
+QCWeb管理IDを指定して検索します
+以下の条件値は必須です
+・QCWebID
+以下の条件値は任意です
+・ItemInfoID
+*/
+-- #TItemInfoQuestions#
+-- !TItemInfoQuestionsPmb!
+-- !!Decimal QCWebId!!
+-- !!Decimal ItemInfoId!!
+
+SELECT
+    ITEM.ITEM_INFO_ID
+    ,ITEM.QCWEBID
+    ,ITEM.ITEM_NAME
+    ,ITEM.SOURCE_DIV
+    ,ITEM.ITEMNO
+    ,ITEM.ITEM_TYPE
+    ,ITEM.ANSWER_TYPE
+    ,ITEM.MATRIX_DIV
+    ,ITEM.LV1TITLE
+    ,ITEM.LV2TITLE
+    ,ITEM.ORIGINAL_LV1TITLE
+    ,ITEM.ORIGINAL_LV2TITLE
+    ,ITEM.TABLE_NAME
+    ,ITEM.COLUMN_NAME
+    ,ITEM.STATUS
+    ,ITEM.SORT_FLAG
+	,ITEM.Sort_Range
+    ,ITEM.LAST_UPDATE_DATETIME
+    ,MATRIX.ITEM_INFO_ID as Parent_ItemInfo_Id
+    ,MATRIX.ADD_FA_CATEGORY_INFO_ID
+	,TBL.BASE_TABLE_NAME
+FROM
+	T_ITEM_INFO ITEM LEFT JOIN T_MATRIX_INFO MATRIX ON
+		ITEM.ITEM_INFO_ID = MATRIX.CHILD_ITEM_INFO_ID
+	INNER JOIN T_TABLE_CONTROL TBL ON
+		ITEM.QCWEBID = TBL.QCWEBID
+WHERE
+		ITEM.QCWEBID = /*pmb.QCWebId*/28
+	/*IF pmb.ItemInfoId != 0*/AND ITEM.ITEM_INFO_ID = /*pmb.ItemInfoId*/342/*END*/
+	AND ITEM.STATUS = 1
+	AND ITEM.MATRIX_DIV in (0, 1, 3)
+ORDER BY
+	ITEM.SORT_NUMBER asc
+	,ITEM.SORT_FLAG asc
+;

@@ -1,0 +1,2331 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QCWebReportBatch</name>
+    </assembly>
+    <members>
+        <member name="T:Macromill.QCWeb.Batch.Report.ConfigReader">
+            <summary>
+            設定ファイルの読み込み
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.ConfigReader.GetValue(System.String)">
+            <summary>
+            指定したKeyの情報を設定ファイルから取得する
+            </summary>
+            <param name="key">キーワード</param>
+            <returns>値</returns>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Constants">
+            <summary>
+            Reportバッチ内の定数(主にメッセージID)を定義した静的クラス
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Constants.GlobalConstants">
+            <summary>
+            Reportバッチ内の共有定数を定義した静的クラス
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.GlobalConstants.BATCH_ID">
+            <summary>
+            ReportバッチのバッチID
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Constants.GlobalConstants.MessageID">
+            <summary>
+            共有メッセージIDを定義した静的クラス
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Constants.LocalConstants">
+            <summary>
+            狭い範囲で使用する定数を定義した静的クラス
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer">
+            <summary>
+            QCB030101プロジェクト内の定数を定義したクラス
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.ProgramMessageID">
+            <summary>
+            Program.cs内で主に使用するメッセージIDを定義した静的クラス
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID">
+            <summary>
+            QCB030101LogicImpl.cs内で主に使用するメッセージIDを定義した静的クラス
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.SERVERCODE_CAPTION_MESSAGE_ID">
+            <summary>
+            自身のサーバコード:{0}
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.REQUEST_INTERVAL_CAPTION_MESSAGE_ID">
+            <summary>
+            リクエスト問い合わせのインターバル(ミリ秒):{0}
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.CPU_WATCH_INTERVAL_CAPTION_MESSAGE_ID">
+            <summary>
+            CPU監視のインターバル(ミリ秒):{0}
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.MAX_CPU_USABLE_CAPTION_MESSAGE_ID">
+            <summary>
+            CPU負荷の閾値(%):{0}
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.MAX_OVERWORK_TIME_CAPTION_MESSAGE_ID">
+            <summary>
+            CPU過剰負荷時間の限界値(分):{0}
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.MAX_RUNNING_TIME_CAPTION_MESSAGE_ID">
+            <summary>
+            生成処理時間の限界値(分):{0}
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.PROCESSING_WEIGHT_CAPTION_MESSAGE_ID">
+            <summary>
+            処理重度:{0}
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.POLING_INFO_MESSAGE_ID">
+            <summary>
+            {0}ミリ秒ポーリングします。
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.BATCH_START_MESSAGE_ID">
+            <summary>
+            Reportバッチ処理を開始します。
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.ENVIRONMENT_SETTING_MESSAGE_ID">
+            <summary>
+            以下の環境設定情報で動作します。
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.OVERWORK_TIMEOUT_INFO_MESSAGE_ID">
+            <summary>
+            規定時間を超えた処理がされています。
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.OVERWORK_TIMEOUT_FATAL_MESSAGE_ID">
+            <summary>
+            規定時間を超えた処理が行われたため終了します。
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.PROCESSING_OBJECT_MESSAGE_ID">
+            <summary>
+            処理対象情報の出力
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.REQUEST_SERVER_MESSAGE_ID">
+            <summary>
+            リクエストサーバ：{0}
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.REQUEST_ID_MESSAGE_ID">
+            <summary>
+            リクエストID：{0}
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.PROC_REQUEST_NONE_QUE_MESSAGE_ID">
+            <summary>
+            出力物作成依頼キューがありません。
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.ROW_LOCK_MESSAGE_ID">
+            <summary>
+            行ロックされています。リクエストID：{0}
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.REPORT_REQUEST_ERROR_MESSAGE_ID">
+            <summary>
+            Report.Requestクラス生成に失敗しました。{0}
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.FORCED_TERMINATION_MESSAGE_ID">
+            <summary>
+            生成処理時間を超えたので強制終了します。処理時間:{0} 生成処理既定時間:{1}
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.WAIT_MESSAGE_ID">
+            <summary>
+            規定時間待機します：{0}秒
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.ZIP_MESSAGE_ID">
+            <summary>
+            ZIP圧縮します。{0}
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.SFTP_MESSAGE_ID">
+            <summary>
+            SFTP転送を行います。{0}→{1}
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary">
+            <summary>
+            Macromill.QCWeb.Batch.Reportプロジェクト内の定数を定義したクラス
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.RequestMessageID">
+            <summary>
+            Request.cs内で主に使用するメッセージIDを定義した静的クラス
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.RequestMessageID.GET_REQUEST_INFORMATION_FATAL_MESSAGE_ID">
+            <summary>
+            リクエスト情報の取得に失敗しました。リクエストID:{0}
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.RequestMessageID.GET_OUTPUT_INFORMATION_FATAL_MESSAGE_ID">
+            <summary>
+            出力物情報の取得に失敗しました。リクエストID:{0}
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.RequestMessageID.UNKNOWN_OUTPUT_TYPE_FATAL_MESSAGE_ID">
+            <summary>
+            出力物の種類に不明な値が指定されています。出力物共通ID:{0}
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.ReportsetMessageID">
+            <summary>
+            Reportset.cs内で主に使用するメッセージIDを定義した静的クラス
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.OutputMessageID">
+            <summary>
+            Output.cs内で主に使用するメッセージIDを定義した静的クラス
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.TableMessageID">
+            <summary>
+            Table.cs内で主に使用するメッセージIDを定義した静的クラス
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.TableMessageID.INSUFFICIENT_TABLE_SETTING_INFORMATION_FATAL_MESSAGE_ID">
+            <summary>
+            {0}の集計表設定情報{1}が不足しています。
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.TableMessageID.INVALID_TABLE_SETTING_INFORMATION_FATAL_MESSAGE_ID">
+            <summary>
+            {0}の集計表設定情報{1}が正しく取得できません。
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.ConfigReaderMessageID">
+            <summary>
+            ConfigReader.cs内で主に使用するメッセージIDを定義した静的クラス
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.MacroExecuterMessageID">
+            <summary>
+            MacroExecuter.cs内で主に使用するメッセージIDを定義した静的クラス
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.MacroExecuterMessageID.MACROBOOK_NOT_FOUND_FATAL_MESSAGE_ID">
+            <summary>
+            Excelマクロブックが見つかりません。'{0}'
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.BATCH_ID">
+            <summary>
+            GlobalConstants.BATCH_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.GlobalConstants.BATCH_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.SERVERCODE_CAPTION_MESSAGE_ID">
+            <summary>
+            LocalConstants.Executer.QCB030101LogicImplMessageID.SERVERCODE_CAPTION_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.SERVERCODE_CAPTION_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.REQUEST_INTERVAL_CAPTION_MESSAGE_ID">
+            <summary>
+            LocalConstants.Executer.QCB030101LogicImplMessageID.REQUEST_INTERVAL_CAPTION_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.REQUEST_INTERVAL_CAPTION_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.CPU_WATCH_INTERVAL_CAPTION_MESSAGE_ID">
+            <summary>
+            LocalConstants.Executer.QCB030101LogicImplMessageID.CPU_WATCH_INTERVAL_CAPTION_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.CPU_WATCH_INTERVAL_CAPTION_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.MAX_CPU_USABLE_CAPTION_MESSAGE_ID">
+            <summary>
+            LocalConstants.Executer.QCB030101LogicImplMessageID.MAX_CPU_USABLE_CAPTION_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.MAX_CPU_USABLE_CAPTION_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.MAX_OVERWORK_TIME_CAPTION_MESSAGE_ID">
+            <summary>
+            LocalConstants.Executer.QCB030101LogicImplMessageID.MAX_OVERWORK_TIME_CAPTION_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.MAX_OVERWORK_TIME_CAPTION_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.MAX_RUNNING_TIME_CAPTION_MESSAGE_ID">
+            <summary>
+            LocalConstants.Executer.QCB030101LogicImplMessageID.MAX_RUNNING_TIME_CAPTION_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.MAX_RUNNING_TIME_CAPTION_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.PROCESSING_WEIGHT_CAPTION_MESSAGE_ID">
+            <summary>
+            LocalConstants.Executer.QCB030101LogicImplMessageID.PROCESSING_WEIGHT_CAPTION_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.PROCESSING_WEIGHT_CAPTION_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.POLING_INFO_MESSAGE_ID">
+            <summary>
+            LocalConstants.Executer.QCB030101LogicImplMessageID.POLING_INFO_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.POLING_INFO_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.OVERWORK_TIMEOUT_INFO_MESSAGE_ID">
+            <summary>
+            LocalConstants.Executer.QCB030101LogicImplMessageID.OVERWORK_TIMEOUT_INFO_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.OVERWORK_TIMEOUT_INFO_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.OVERWORK_TIMEOUT_FATAL_MESSAGE_ID">
+            <summary>
+            LocalConstants.Executer.QCB030101LogicImplMessageID.OVERWORK_TIMEOUT_FATAL_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.Executer.QCB030101LogicImplMessageID.OVERWORK_TIMEOUT_FATAL_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.GET_REQUEST_INFORMATION_FATAL_MESSAGE_ID">
+            <summary>
+            LocalConstants.ClassLibrary.RequestMessageID.GET_REQUEST_INFORMATION_FATAL_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.RequestMessageID.GET_REQUEST_INFORMATION_FATAL_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.GET_OUTPUT_INFORMATION_FATAL_MESSAGE_ID">
+            <summary>
+            LocalConstants.ClassLibrary.RequestMessageID.GET_OUTPUT_INFORMATION_FATAL_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.RequestMessageID.GET_OUTPUT_INFORMATION_FATAL_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.UNKNOWN_OUTPUT_TYPE_FATAL_MESSAGE_ID">
+            <summary>
+            LocalConstants.ClassLibrary.RequestMessageID.UNKNOWN_OUTPUT_TYPE_FATAL_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.RequestMessageID.UNKNOWN_OUTPUT_TYPE_FATAL_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.MACROBOOK_NOT_FOUND_FATAL_MESSAGE_ID">
+            <summary>
+            LocalConstants.ClassLibrary.MacroExecuterMessageID.MACROBOOK_NOT_FOUND_FATAL_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.MacroExecuterMessageID.MACROBOOK_NOT_FOUND_FATAL_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.INSUFFICIENT_TABLE_SETTING_INFORMATION_FATAL_MESSAGE_ID">
+            <summary>
+            LocalConstants.ClassLibrary.TableMessageID.INSUFFICIENT_TABLE_SETTING_INFORMATION_FATAL_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.TableMessageID.INSUFFICIENT_TABLE_SETTING_INFORMATION_FATAL_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.INVALID_TABLE_SETTING_INFORMATION_FATAL_MESSAGE_ID">
+            <summary>
+            LocalConstants.ClassLibrary.TableMessageID.INVALID_TABLE_SETTING_INFORMATION_FATAL_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.TableMessageID.INVALID_TABLE_SETTING_INFORMATION_FATAL_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.BATCH_START_MESSAGE_ID">
+            <summary>
+            LocalConstants.ClassLibrary.TableMessageID.BATCH_START_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.TableMessageID.BATCH_START_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.ENVIRONMENT_SETTING_MESSAGE_ID">
+            <summary>
+            LocalConstants.ClassLibrary.TableMessageID.ENVIRONMENT_SETTING_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.TableMessageID.ENVIRONMENT_SETTING_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.PROCESSING_OBJECT_MESSAGE_ID">
+            <summary>
+            LocalConstants.ClassLibrary.TableMessageID.PROCESSING_OBJECT_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.TableMessageID.PROCESSING_OBJECT_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.REQUEST_SERVER_MESSAGE_ID">
+            <summary>
+            LocalConstants.ClassLibrary.TableMessageID.REQUEST_SERVER_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.TableMessageID.REQUEST_SERVER_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.REQUEST_ID_MESSAGE_ID">
+            <summary>
+            LocalConstants.ClassLibrary.TableMessageID.REQUEST_ID_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.TableMessageID.REQUEST_ID_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.PROC_REQUEST_NONE_QUE_MESSAGE_ID">
+            <summary>
+            LocalConstants.ClassLibrary.TableMessageID.PROC_REQUEST_NONE_QUE_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.TableMessageID.PROC_REQUEST_NONE_QUE_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.ROW_LOCK_MESSAGE_ID">
+            <summary>
+            LocalConstants.ClassLibrary.TableMessageID.ROW_LOCK_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.TableMessageID.ROW_LOCK_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.REPORT_REQUEST_ERROR_MESSAGE_ID">
+            <summary>
+            LocalConstants.ClassLibrary.TableMessageID.REPORT_REQUEST_ERROR_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.TableMessageID.REPORT_REQUEST_ERROR_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.FORCED_TERMINATION_MESSAGE_ID">
+            <summary>
+            LocalConstants.ClassLibrary.TableMessageID.FORCED_TERMINATION_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.TableMessageID.FORCED_TERMINATION_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.WAIT_MESSAGE_ID">
+            <summary>
+            LocalConstants.ClassLibrary.TableMessageID.WAIT_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.TableMessageID.WAIT_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.ZIP_MESSAGE_ID">
+            <summary>
+            LocalConstants.ClassLibrary.TableMessageID.ZIP_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.TableMessageID.ZIP_MESSAGE_ID"/>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Constants.SFTP_MESSAGE_ID">
+            <summary>
+            LocalConstants.ClassLibrary.TableMessageID.SFTP_MESSAGE_ID
+            </summary>
+            <seealso cref="F:Macromill.QCWeb.Batch.Report.Constants.LocalConstants.ClassLibrary.TableMessageID.SFTP_MESSAGE_ID"/>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.MacroExecuter">
+            <summary>
+            Excelマクロブックのオープンからマクロの実行までの制御を行うクラス
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.MacroExecuter.appConfig">
+            <summary>アプリ環境設定情報共通クラス</summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.MacroExecuter.ExecMacro(Macromill.QCWeb.Batch.Report.Reportsets.Reportset)">
+            <summary>
+            レポートセット情報を与えてマクロを非同期実行する
+            </summary>
+            <param name="reportset">レポートセット情報を保持したReportsetクラスのインスタンスへの参照</param>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.MacroExecuter.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.MacroExecuter.#ctor(Macromill.QCWeb.Batch.Report.Reportsets.Reportset)">
+            <summary>
+            コンストラクタ<br />
+            インスタンシングと同時にマクロの非同期実行を行う
+            </summary>
+            <param name="reportset">レポートセット情報を保持したReportsetクラスのインスタンスへの参照</param>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.MacroExecuter.Dispose">
+            <summary>
+            Disposeメソッドの実装
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.MacroExecuter.ExcelOperator">
+            <summary>
+            Excel.Application実装クラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.MacroExecuter.OutputDirectoryPath">
+            <summary>
+            Reportサーバ上の出力物置き場のパスを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Outputs">
+            <summary>
+            出力物のコレクションクラス
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Outputs.Output">
+            <summary>
+            出力物を扱うクラス
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Outputs.Output.outputtype">
+            <summary>
+            出力物の種類を表すコード
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Outputs.Output.Init(Macromill.QCWeb.Batch.Report.Outputs,System.Decimal,System.String,System.String,Macromill.QCWeb.ReportRequest.OutputType)">
+            <summary>
+            初期化
+            </summary>
+            <param name="outputs">親コレクションへの参照</param>
+            <param name="id">出力物ID</param>
+            <param name="joinedtsvpaths">TSVファイルパスを、半角セミコロンで連結した文字列</param>
+            <param name="xlbooknameprefix">Excelブック名のプリフィックス</param>
+            <param name="outputtype">出力物の種類を表すOutputType列挙型の値</param>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Outputs.Output.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.Output.Index">
+            <summary>
+            インデックス番号(0ベース)を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.Output.Tables">
+            <summary>
+            出力物に紐づく集計表コレクションへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.Output.ID">
+            <summary>
+            出力物IDを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.Output.ID2">
+            <summary>
+            出力物IDを返す読み取り専用プロパティ
+            <note>VBAから呼べるようにdouble</note>
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.Output.ExcelBookNamePrefix">
+            <summary>
+            出力物のExcelブック名のプリフィックスを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.Output.StartTime">
+            <summary>
+            出力物の作成開始時間を取得/設定するプロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.Output.EndPredictionTime">
+            <summary>
+            出力物の作成終了予測時間を取得/設定するプロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.Output.EndTime">
+            <summary>
+            出力物の作成終了時間を取得/設定するプロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.Output.Status">
+            <summary>
+            ステータスコードを取得/設定するプロパティ
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Outputs.Output.AddStatus(Macromill.QCWeb.ReportRequest.StatusCode)">
+            <summary>
+            ステータスコードの追加処理を行うメソッド
+            </summary>
+            <param name="statuscode">追加するステータスコード</param>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Outputs.Output.RemoveStatus(Macromill.QCWeb.ReportRequest.StatusCode)">
+            <summary>
+            ステータスコードの解除処理を行うメソッド
+            </summary>
+            <param name="statuscode">解除するステータスコード</param>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.Output.StatusDescription">
+            <summary>
+            ステータスの説明文字列を取得/設定するプロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.Output.OutputType">
+            <summary>
+            出力物の種類を表すOutputType列挙型の値を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Outputs.Output.Dispose">
+            <summary>
+            Disposeメソッドの実装
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.Output.ParentCollection">
+            <summary>
+            自身のインスタンスが格納されているOutputsコレクションクラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.Output.ParentReportset">
+            <summary>
+            自身のインスタンスの親であるReportsetクラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.Output.ParentRequest">
+            <summary>
+            自身のインスタンスの親であるRequestクラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Outputs.OutputFA">
+            <summary>
+            FAリストの出力物を扱うクラス
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Outputs.OutputFA.pagesetup">
+            <summary>
+            ページ設定を行うかどうかを表すフラグ
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Outputs.OutputFA.Init(Macromill.QCWeb.Batch.Report.Outputs,System.Decimal,System.String,System.String,Microsoft.Office.Interop.Excel.XlPaperSize,Microsoft.Office.Interop.Excel.XlPageOrientation,Macromill.QCWeb.ReportRequest.OutputType)">
+            <summary>
+            初期化
+            </summary>
+            <param name="outputs">親コレクションへの参照</param>
+            <param name="id">出力物ID</param>
+            <param name="joinedtsvpaths">TSVファイルパスを、半角セミコロンで連結した文字列</param>
+            <param name="xlbooknameprefix">Excelブック名のプリフィックス</param>
+            <param name="papersize">用紙サイズ列挙値</param>
+            <param name="paperorientation">ページの向き列挙値</param>
+            <param name="outputtype">出力物の種類を表す列挙値</param>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Outputs.OutputFA.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputFA.PaperSize">
+            <summary>
+            ページ設定時の用紙サイズを表すXlPaperSize列挙型の値を取得/設定するプロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputFA.PaperOrientation">
+            <summary>
+            ページ設定時の用紙の向きを表すXlPageOrientation列挙型の値を取得/設定するプロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputFA.PageSetup">
+            <summary>
+            ページ設定のオン/オフを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputFA.FilteringExpression">
+            <summary>
+            絞込み条件式を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputFA.LocalizedFilteringExpression">
+            <summary>
+            ロケールに応じて文章化された絞込み条件式を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Outputs.OutputGT">
+            <summary>
+            GT表の出力物を扱うクラス
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.OutputNPerTable">
+            <summary>
+            N％表作成のオン/オフを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.OutputNTable">
+            <summary>
+            N表作成のオン/オフを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.OutputPerTable">
+            <summary>
+            ％表作成のオン/オフを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.Orientation">
+            <summary>
+            作成する集計表の向きを表すTableOrientation列挙型の値を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.PageSetupNPerTable">
+            <summary>
+            N％表のページ設定のオン/オフを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.PageSetupNTable">
+            <summary>
+            N表のページ設定のオン/オフを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.PageSetupPerTable">
+            <summary>
+            ％表のページ設定のオン/オフを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.PageSetupSignificanceTestTable">
+            <summary>
+            項目間検定表のページ設定のオン/オフを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.MarkingColoring">
+            <summary>
+            色付けのマーキングを行うかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.MarkingColoringLevel1">
+            <summary>
+            水準1での色付けのマーキングを行うかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.MarkingColoringLevel2">
+            <summary>
+            水準2での色付けのマーキングを行うかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.MarkingRanking">
+            <summary>
+            ランキングのマーキングを行うかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.MarkingAscending">
+            <summary>
+            昇降分析のマーキングを行うかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.MarkingSignificance">
+            <summary>
+            有意差検定のマーキングを行うかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.MarkingSignificanceOne">
+            <summary>
+            1％有意差検定のマーキングを行うかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.MarkingSignificanceFive">
+            <summary>
+            5％有意差検定のマーキングを行うかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.MarkingSignificanceTen">
+            <summary>
+            10％有意差検定のマーキングを行うかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.MinSamplesCountOnMarking">
+            <summary>
+            マーキングを行う条件とする母数の最小値を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.SignificanceTest">
+            <summary>
+            項目間検定のオン/オフを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.SignificanceTestOne">
+            <summary>
+            有意水準1％での項目間検定のオン/オフを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.SignificanceTestFive">
+            <summary>
+            有意水準5％での項目間検定のオン/オフを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.SignificanceTestTen">
+            <summary>
+            有意水準10％での項目間検定のオン/オフを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.MarkingColoringLevel1High">
+            <summary>
+            水準1高での色付けのマーキングを行うかどうかを取得/設定するプロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.MarkingColoringLevel1Low">
+            <summary>
+            水準1低での色付けのマーキングを行うかどうかを取得/設定するプロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.MarkingColoringLevel2High">
+            <summary>
+            水準2高での色付けのマーキングを行うかどうかを取得/設定するプロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.MarkingColoringLevel2Low">
+            <summary>
+            水準2低での色付けのマーキングを行うかどうかを取得/設定するプロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.ShowNAAtItem">
+            <summary>
+            集計対象の無回答を表示するかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.ShowNAAtAxis">
+            <summary>
+            集計軸の無回答を表示するかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.ShowIVAtItem">
+            <summary>
+            集計対象の非該当を表示するかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.ShowIVAtAxis">
+            <summary>
+            集計軸の非該当を表示するかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.ShowPreWBTotal">
+            <summary>
+            WB前全体を表示するかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputGT.WBOn">
+            <summary>
+            WB集計のオン/オフを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Outputs.OutputCross">
+            <summary>
+            クロス集計表の出力物を扱うクラス
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputCross.TablesOnOnesheet">
+            <summary>
+            1つのワークシートに出力する集計表の数を表すTablesOnOneSheet列挙型の値を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputCross.Level2HighColorIndex">
+            <summary>
+            水準2高(+10％)の色付けで使用する色インデックスを表す数値を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputCross.Level1HighColorIndex">
+            <summary>
+            水準1高(+5％)の色付けで使用する色インデックスを表す数値を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputCross.Level1LowColorIndex">
+            <summary>
+            水準1低(-5％)の色付けで使用する色インデックスを表す数値を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputCross.Level2LowColorIndex">
+            <summary>
+            水準2低(-10％)の色付けで使用する色インデックスを表す数値を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputCross.Level1Percent">
+            <summary>
+            水準1のパーセンテージを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputCross.Level2Percent">
+            <summary>
+            水準2のパーセンテージを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Outputs.OutputCheckList">
+            <summary>
+            チェックリストの出力物を扱うクラス
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputCheckList.TotalCount">
+            <summary>
+            全体数(サンプル数)を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Outputs.OutputRawData">
+            <summary>
+            ローデータの出力物を扱うクラス
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputRawData.QC3BookPassword">
+            <summary>
+            QC3ファイルのブックのパスワードを取得/設定するプロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputRawData.QC3SheetPassword">
+            <summary>
+            QC3ファイルのシートのパスワードを取得/設定するプロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputRawData.QC3ReadPassword">
+            <summary>
+            QC3ファイルの読み取りパスワードを取得/設定するプロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.OutputRawData.IsUTF8">
+            <summary>
+            UTF-8フラグを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.Item(System.String)">
+            <summary>
+            コレクションの要素を返すインデクサ
+            </summary>
+            <param name="key">キーとなる文字列</param>
+            <returns>キーが示すコレクションの要素であるOutputクラスのインスタンスへの参照</returns>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.Item(System.Decimal)">
+            <summary>
+            コレクションの要素を返すインデクサ
+            </summary>
+            <param name="id">出力物ID</param>
+            <returns>出力物IDが示すコレクションの要素であるOutputクラスのインスタンスへの参照</returns>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.Item(System.Double)">
+            <summary>
+            コレクションの要素を返すインデクサ
+            <note>VBAから呼べるようにdouble</note>
+            </summary>
+            <param name="id">出力物ID</param>
+            <returns>出力物IDが示すコレクションの要素であるOutputクラスのインスタンスへの参照</returns>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.Item(System.Int32)">
+            <summary>
+            コレクションの要素を返すインデクサ
+            </summary>
+            <param name="index">0ベースのインデックス</param>
+            <returns>インデックスが示す要素</returns>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.Count">
+            <summary>
+            要素数を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Outputs.Dispose">
+            <summary>
+            Disposeメソッドの実装
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.ParentReportset">
+            <summary>
+            自身のインスタンスの親であるReportsetクラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Outputs.ParentRequest">
+            <summary>
+            自身のインスタンスの親であるRequestクラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Reportsets">
+            <summary>
+            レポートセットのコレクションクラス
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Reportsets.Reportset">
+            <summary>
+            レポートセットを扱うクラス
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Reportsets.Reportset.Outputs">
+            <summary>
+            レポートセットに紐づく出力物コレクションへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Reportsets.Reportset.ID">
+            <summary>
+            レポートセットIDを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Reportsets.Reportset.ID2">
+            <summary>
+            レポートセットIDを返す読み取り専用プロパティ
+            <note>VBAから呼べるようにdouble</note>
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Reportsets.Reportset.FileType">
+            <summary>
+            出力ファイルの種類を表すFileType列挙型の値を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Reportsets.Reportset.TemplatePath">
+            <summary>
+            使用するPPテンプレートのパスを取得/設定するプロパティ<br />
+            PowerPoint、PDFのいずれか、あるいは両方を出力する場合にのみ有効
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Reportsets.Reportset.UploadPath">
+            <summary>
+            アップロード先のパスを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Reportsets.Reportset.FileNamePrefix">
+            <summary>
+            出力物のファイル名のプリフィックスを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Reportsets.Reportset.PowerPointFileType">
+            <summary>
+            PowerPointレポートの保存ファイル形式を表すPpSaveAsFileType列挙型の値を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Reportsets.Reportset.OutputComment">
+            <summary>
+            コメントを出力するかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Reportsets.Reportset.QuestionnaireInformation">
+            <summary>
+            調査票情報を保持した文字列型一次元配列への参照を返す読み取り専用プロパティ<br />
+            調査票の出力時のみ有効
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Reportsets.Reportset.KeyItemMaxSectorNumber(System.String)">
+            <summary>
+            分類アイテムの最大選択肢番号を返すメソッド
+            </summary>
+            <param name="keyItemName">分類アイテム名</param>
+            <returns>最大選択肢番号</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Reportsets.Reportset.Dispose">
+            <summary>
+            Disposeメソッドの実装
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Reportsets.Reportset.ParentCollection">
+            <summary>
+            自身のインスタンスが格納されているReportsetsコレクションクラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Reportsets.Reportset.ParentRequest">
+            <summary>
+            自身のインスタンスの親であるRequestクラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Reportsets.Reportset.ProcStatus">
+            <summary>
+            処理中ステータス(true:処理中 false:処理完了)
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Reportsets.Item(System.String)">
+            <summary>
+            コレクションの要素を返すインデクサ
+            </summary>
+            <param name="key">キーとなる文字列</param>
+            <returns>キーが示すコレクションの要素であるReportsetクラスのインスタンスへの参照</returns>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Reportsets.Item(System.Decimal)">
+            <summary>
+            コレクションの要素を返すインデクサ
+            </summary>
+            <param name="id">レポートセットID</param>
+            <returns>レポートセットIDが示すコレクションの要素であるReportsetクラスのインスタンスへの参照</returns>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Reportsets.Item(System.Double)">
+            <summary>
+            コレクションの要素を返すインデクサ
+            <note>VBAから呼べるようにdouble</note>
+            </summary>
+            <param name="id">レポートセットID</param>
+            <returns>レポートセットIDが示すコレクションの要素であるReportsetクラスのインスタンスへの参照</returns>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Reportsets.Count">
+            <summary>
+            要素数を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Reportsets.Dispose">
+            <summary>
+            Disposeメソッドの実装
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Reportsets.ParentRequest">
+            <summary>
+            自身のインスタンスの親であるRequestクラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Request">
+            <summary>
+            出力リクエストクラス
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Request.tAllocationCellInfoBhv">
+            <summary>割付セル情報TBLアクセス</summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Request.tOutputReportsetInfoBhv">
+            <summary>出力物レポートセットTBLアクセス</summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Request.tOutputRequestBhv">
+            <summary>リクエストTBLアクセス</summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Request.tOutputCommonBhv">
+            <summary>出力物共通TBLアクセス</summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Request.tOutputSubGTBhv">
+            <summary>出力物サブ-GTTBLアクセス</summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Request.tOutputSubCrossBhv">
+            <summary>出力物サブ-クロスTBLアクセス</summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Request.tOutputSubFaBhv">
+            <summary>出力サブ-FATBLアクセス</summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Request.tOutputSubCklistBhv">
+            <summary>出力物サブ-チェックリストTBLアクセス</summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Request.appConfig">
+            <summary>アプリ環境設定情報</summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Request.tQcwebSurveyDetailBhv">
+            <summary>QCWeb調査管理詳細</summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Request.MakeRequest(System.Decimal)">
+            <summary>
+            Requestクラスの作成
+            </summary>
+            <param name="id">リクエストTBLのID</param>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.Reportsets">
+            <summary>
+            リクエストに紐づくレポートセットコレクションへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.ID">
+            <summary>
+            リクエストIDを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.ID2">
+            <summary>
+            リクエストIDを返す読み取り専用プロパティ
+            <note>VBAから呼べるようにdouble</note>
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.QCWebID">
+            <summary>
+            調査IDを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.QCWebID2">
+            <summary>
+            調査IDを返す読み取り専用プロパティ
+            <note>VBAから呼べるようにdouble</note>
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.RequestServerCode">
+            <summary>
+            リクエストを発行したサーバのサーバコードを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.DownloadPath">
+            <summary>
+            出力物のダウンロードパスを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.Title">
+            <summary>
+            調査タイトルを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.ExcelFileFormat">
+            <summary>
+            出力するExcelブックのファイル形式を表すXlFileFormat列挙型の値を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.ShowParameter">
+            <summary>
+            数値回答質問の集計時に、統計量母数を表示するかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.ShowSummary">
+            <summary>
+            数値回答質問の集計時に、合計を表示するかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.ShowAverage">
+            <summary>
+            数値回答質問の集計時に、平均を表示するかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.ShowStdev">
+            <summary>
+            数値回答質問の集計時に、標準偏差を表示するかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.ShowMinimum">
+            <summary>
+            数値回答質問の集計時に、最小値を表示するかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.ShowMaximum">
+            <summary>
+            数値回答質問の集計時に、最大値を表示するかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.ShowMedian">
+            <summary>
+            数値回答質問の集計時に、中央値を表示するかどうかを返す読み取り専用プロパティ
+            <note>WB集計時には無視される</note>
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Request.NumDigitsAfterDecimal(Macromill.QCWeb.ReportRequest.NumericContentsCode)">
+            <summary>
+            数値回答質問の集計項目において、表示する小数点以下の桁数を返すメソッド<br />
+            </summary>
+            <param name="ncontentscode">
+            数値回答質問の集計項目を表すNumericContentsCode列挙型の以下の値のいずれか
+            <list type="bullet">
+            <item>
+            <description>NumericContentsCode.Summary</description>
+            </item>
+            <item>
+            <description>NumericContentsCode.Average</description>
+            </item>
+            <item>
+            <description>NumericContentsCode.Stdev</description>
+            </item>
+            <item>
+            <description>NumericContentsCode.Minimum</description>
+            </item>
+            <item>
+            <description>NumericContentsCode.Maximum</description>
+            </item>
+            <item>
+            <description>NumericContentsCode.Median</description>
+            </item>
+            </list>
+            </param>
+            <returns>ncontentscodeが表す数値回答質問の集計項目で、表示する小数点以下の桁数</returns>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.WeightNumDigitsAfterDecimal">
+            <summary>
+            ウエイト値設定時に、表示する小数点以下の桁数を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.WeightAverageNumDigitsAfterDecimal">
+            <summary>
+            加重平均算出時に、表示する小数点以下の桁数を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.LocationCode">
+            <summary>
+            ロケーションを表す2文字のコードを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.RetryFlag">
+            <summary>
+            リトライ実行であるかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Request.Dispose">
+            <summary>
+            Disposeメソッドの実装
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.MergeAxis">
+            <summary>
+            集計軸のセルを結合するかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.ShowZeroNAIV">
+            <summary>
+            0件の無回答/非該当を表示するかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.StatusDescription">
+            <summary>
+            ステータスコードの説明を取得/設定するプロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Request.PptTemplateCheckFilePath">
+            <summary>
+            PPTテンプレートチェックファイルパスを取得するプロパティ
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Tables">
+            <summary>
+            集計表のコレクションクラス
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Tables.Table">
+            <summary>
+            集計表を扱うクラス
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.GT_PROMPT">
+            <summary>
+            GT
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.CROSS_PROMPT">
+            <summary>
+            クロス
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.FALIST_PROMPT">
+            <summary>
+            FAリスト
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.CHECKLIST_PROMPT">
+            <summary>
+            チェックリスト
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.QUESTIONNAIRE_PROMPT">
+            <summary>
+            調査票
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.RAWDATA_PROMPT">
+            <summary>
+            ローデータ
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.ITEM_INFORMATION_PROMPT">
+            <summary>
+            アイテム情報
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.SECTORS_INFORMATION_PROMPT">
+            <summary>
+            選択肢情報
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.SECTORS_COUNT_PROMPT">
+            <summary>
+            選択肢数
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.KEY_ITEM_INFORMATION_PROMPT">
+            <summary>
+            分類アイテム情報
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.MAIN_ITEM_INFORMATION_PROMPT">
+            <summary>
+            集計対象アイテム情報
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.SIGNIFICANCE_TEST_CODE_PROMPT">
+            <summary>
+            項目間検定コード
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.CHILD_QUESTIONS_COUNT_PROMPT">
+            <summary>
+            子質問数
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.CHART_INFORMATION_PROMPT">
+            <summary>
+            グラフ情報
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.CHART_GRADIENT_INFORMATION_PROMPT">
+            <summary>
+            グラフ情報 - グラデーション情報
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.ITEM_SECTORS_INFORMATION_PROMPT">
+            <summary>
+            アイテム情報 - 選択肢情報
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.ITEM_SECTORS_COUNT_PROMPT">
+            <summary>
+            アイテム情報 - 選択肢数
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.MAIN_ITEM_SECTORS_INFORMATION_PROMPT">
+            <summary>
+            集計対象アイテム情報 - 選択肢情報
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.MAIN_ITEM_SECTORS_COUNT_PROMPT">
+            <summary>
+            集計対象アイテム情報
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.AXES_ITEM_INFORMATION_PROMPT">
+            <summary>
+            集計軸アイテム情報
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.AXES_GROUPS_COUNT_PROMPT">
+            <summary>
+            集計軸グループ数
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.AXES_COUNT_PROMPT">
+            <summary>
+            集計軸数
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.AXIS_ITEM_SECTORS_COUNT_PROMPT">
+            <summary>
+            集計軸アイテム情報 - 選択肢数
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.LINE_CHART_ROWS_INFORMATION_PROMPT">
+            <summary>
+            折れ線グラフ行情報
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.ITEMS_COUNT_INFORMATION_PROMPT">
+            <summary>
+            アイテム数情報
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.FA_ITEMS_COUNT_PROMPT">
+            <summary>
+            FAアイテム数
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.ADDED_ITEMS_COUNT_PROMPT">
+            <summary>
+            付加アイテム数
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.FIRST_ITEM_NAME_PROMPT">
+            <summary>
+            先頭アイテム名
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.FLAG_INFORMATION_PROMPT">
+            <summary>
+            フラグ情報
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.CHILD_QUESTIONS_INFORMATION_PROMPT">
+            <summary>
+            子質問情報
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.DATA_TYPE_CODE_PROMPT">
+            <summary>
+            データタイプコード
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.RESEARCH_INFORMATION_PROMPT">
+            <summary>
+            QInfo調査情報
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.RESEARCH_ID_INFORMATION_PROMPT">
+            <summary>
+            QInfo調査情報 - 調査ID
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.RESEARCH_METHOD_INFORMATION_PROMPT">
+            <summary>
+            QInfo調査情報 - 調査方法
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.RESEARCH_SERVICE_INFORMATION_PROMPT">
+            <summary>
+            QInfo調査情報 - 商品種別
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.RESEARCH_PERIODS_INFORMATION_PROMPT">
+            <summary>
+            QInfo調査情報 - 実施期間
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.CELLS_INFORMATION_PROMPT">
+            <summary>
+            QInfo割付セル情報
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.RULES_INFORMATION_PROMPT">
+            <summary>
+            QInfoセレクト条件情報
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.LAYOUT_ORIENTATION_CODE_PROMPT">
+            <summary>
+            レイアウト表向きコード
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.Table.datawithmarking">
+            <summary>
+            DataWithMarking型の二段階配列
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Tables.Table.StringByMatrix">
+            <summary>
+            [性能対策]行と列を引数に持ち、文字列を戻り値に持つデリゲート型の定義
+            </summary>
+            <param name="r">行インデックス</param>
+            <param name="c">列インデックス</param>
+            <returns>文字列</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.Table.ByMatrixForString(Macromill.QCWeb.Batch.Report.Tables.Table.StringByMatrix,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            [性能対策]文字列の２次元配列を返す
+            </summary>
+            <param name="func">行と列を引数に持ち、文字列を戻り値に持つ関数の参照</param>
+            <param name="RowIndexFrom">行インデックス開始値</param>
+            <param name="RowIndexTo">行インデックス終了値</param>
+            <param name="ColumnIndexFrom">列インデックス開始値</param>
+            <param name="ColumnIndexTo">列インデックス終了値</param>
+            <returns>２次元配列</returns>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.Table.Index">
+            <summary>
+            インデックス番号(0ベース)を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.Table.TableValue(System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            集計表のセルのN値の文字列表現またはキャプションを返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <param name="Unescape">アンエスケープ処理を行うかどうかを示すフラグ</param>
+            <param name="WhitespaceIsNull">スペースのみの場合にnullを返す場合はtrue</param>
+            <returns>
+            集計表データ内で<paramref name="RowIndex"/>と<paramref name="ColumnIndex"/>とで示されるセルの文字列データまたはN値の文字列表現<br />
+            <paramref name="Unescape"/>がtrueのときには、正規表現のアンエスケープ処理を行ってから返す
+            </returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.Table.TableValue(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            集計表のセルのN値の文字列表現またはキャプションを返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <param name="Unescape">アンエスケープ処理を行うかどうかを示すフラグ (省略可、既定値false)</param>
+            <returns>
+            集計表データ内で<paramref name="RowIndex"/>と<paramref name="ColumnIndex"/>とで示されるセルの文字列データまたはN値の文字列表現<br />
+            <paramref name="Unescape"/>がtrueのときには、正規表現のアンエスケープ処理を行ってから返す
+            </returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.Table.TableValueByMatrix(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            [性能対策]集計表のセルのN値の文字列表現またはキャプションを２次元配列で返すメソッド
+            </summary>
+            <param name="RowIndexFrom">行インデックス開始値</param>
+            <param name="RowIndexTo">行インデックス終了値</param>
+            <param name="ColumnIndexFrom">列インデックス開始値</param>
+            <param name="ColumnIndexTo">列インデックス終了値</param>
+            <param name="ColumnIndexTo">列インデックス終了値</param>
+            <param name="Unescape">アンエスケープ処理を行うかどうかを示すフラグ (省略可、既定値false)</param>
+            <returns>セルの文字列データまたはN値の文字列表現を２次元配列で返す</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.Table.PercentValue(System.Int32,System.Int32)">
+            <summary>
+            集計表のセルの％値を返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <returns>集計表データ内でRowIndexとColumnIndexとで示されるセルの％値</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.Table.PercentValueByMatrix(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            [性能対策]集計表のセルの％値の２次元配列を返すメソッド
+            </summary>
+            <param name="RowIndexFrom">行インデックス開始値</param>
+            <param name="RowIndexTo">行インデックス終了値</param>
+            <param name="ColumnIndexFrom">列インデックス開始値</param>
+            <param name="ColumnIndexTo">列インデックス終了値</param>
+            <returns>集計表データ内のセルの％値の２次元配列</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.Table.GetSliceData(System.Int32)">
+            <summary>
+            集計表の行データを文字列型配列で返すメソッド<br />
+            アンエスケープ処理はしない
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <returns><paramref name="RowIndex"/>が示す行の行データが入った一次元配列</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.Table.DataMarking(System.Int32,System.Int32)">
+            <summary>
+            集計表のセルのマーキング情報を表すDataMarking列挙型の値を返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <returns>集計表データ内でRowIndexとColumnIndexとで示されるデータのマーキング情報を表すDataMarking列挙型の値</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.Table.SignificanceTestCharacters(System.Int32,System.Int32)">
+            <summary>
+            集計表のセルの項目間検定レターを返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <returns>集計表データ内でRowIndexとColumnIndexとで示されるデータの項目間検定レター</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.Table.SignificanceTestCharactersByMatrix(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            [性能対策]集計表のセルの項目間検定レターを２次元配列で返すメソッド
+            </summary>
+            <param name="RowIndexFrom">行インデックス開始値</param>
+            <param name="RowIndexTo">行インデックス終了値</param>
+            <param name="ColumnIndexFrom">列インデックス開始値</param>
+            <param name="ColumnIndexTo">列インデックス終了値</param>
+            <returns>２次元配列</returns>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.Table.GetTableValueRowIndexMinimum">
+            <summary>
+            集計表データの行インデックスの最小値を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.Table.GetTableValueRowIndexMaximum">
+            <summary>
+            集計表データの行インデックスの最大値を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.Table.GetTableValueColumnIndexMinimum">
+            <summary>
+            集計表データの列インデックスの最小値を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.Table.GetTableValueColumnIndexMaximum">
+            <summary>
+            集計表データの列インデックスの最大値を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.Table.Information">
+            <summary>
+            TSVファイルの内容から、集計表設定情報を切り出して返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.Table.Comment">
+            <summary>
+            コメントを取得/設定するプロパティ<br />
+            設定が有効なのは1度だけ
+            <note>設定するコメントのアンエスケープ処理は内部で行うので、設定時には行わないこと</note>
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.Table.Dispose">
+            <summary>
+            Disposeメソッドの実装
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.Table.ParentCollection">
+            <summary>
+            自身のインスタンスが格納されているTablesコレクションクラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.Table.ParentOutput">
+            <summary>
+            自身のインスタンスの親であるOutputクラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.Table.ParentReportset">
+            <summary>
+            自身のインスタンスの親であるReportsetクラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.Table.ParentRequest">
+            <summary>
+            自身のインスタンスの親であるRequestクラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Tables.GTTable">
+            <summary>
+            GT表の集計表を扱うクラス
+            </summary>
+        </member>
+        <member name="F:Macromill.QCWeb.Batch.Report.Tables.GTTable.parentQInfo">
+            <summary>
+            親質問情報
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.GTTable.axesInformation">
+            <summary>
+            クロス時TSVファイル内の集計軸情報部分の文字列をそのまま保持するプロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.GTTable.linechartrowInformation">
+            <summary>
+            クロス時TSVファイル内の折れ線グラフ行情報部分の文字列をそのまま保持するプロパティ
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.GTTable.GetGTTableInformation(System.Boolean)">
+            <summary>
+            コンストラクタのサブルーチン<br />
+            GTまたはクロスの集計表情報を精査、整理する
+            </summary>
+            <param name="isCross">クロス集計時はtrueを指定</param>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.GTTable.KeyItem">
+            <summary>
+            分類アイテムの簡易情報を保持したKeyItemInformationクラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.GTTable.Question">
+            <summary>
+            集計アイテムの簡易情報を保持したQuestionInformationクラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.GTTable.SignificancetestCode">
+            <summary>
+            項目間検定の種類を表すSignificanceTestCode列挙型の値を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.GTTable.ChildQuestionsCount">
+            <summary>
+            集計対象アイテムの子質問数を返す読み取り専用プロパティ<br />
+            マトリクス以外では0
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.GTTable.Chart">
+            <summary>
+            グラフの簡易情報を保持したChartInformationクラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.GTTable.HideChartDescriptionMaxPercent">
+            <summary>
+            円グラフの出力時に、選択肢名を非表示にする最大パーセンテージを、-1～50の整数で返す読み取り専用プロパティ<br />
+            既定値-1
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.GTTable.Sector(System.Int32)">
+            <summary>
+            集計対象質問の選択肢の簡易情報を保持したSectorInformationクラスのインスタンスへの参照を返すメソッド
+            </summary>
+            <param name="index">選択肢のインデックス</param>
+            <returns>インデックスが示す選択肢の簡易情報を保持したSectorInformationクラスのインスタンスへの参照</returns>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.GTTable.SectorsCount">
+            <summary>
+            集計対象質問の選択肢数を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.GTTable.Rank(System.Int32,System.Int32)">
+            <summary>
+            集計表のセルのランク情報を返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <returns>集計表データ内で<paramref name="RowIndex"/>と<paramref name="ColumnIndex"/>とで示されるデータのランク情報</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.GTTable.RankByMatrix(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            [性能対策]集計表のセルのランク情報を２次元配列で返すメソッド
+            </summary>
+            <param name="RowIndexFrom">行インデックス開始値</param>
+            <param name="RowIndexTo">行インデックス終了値</param>
+            <param name="ColumnIndexFrom">列インデックス開始値</param>
+            <param name="ColumnIndexTo">列インデックス終了値</param>
+            <returns>２次元配列</returns>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Tables.CrossTable">
+            <summary>
+            クロス表の集計表を扱うクラス
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.CrossTable.AxesGroups">
+            <summary>
+            集計軸グループコレクションへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.CrossTable.LineChartRows">
+            <summary>
+            折れ線グラフとする行のインデックス (折れ線設定可能な行の1から始まるインデックス)をまとめたArrayListクラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.CrossTable.LineChartRowsArray">
+            <summary>
+            折れ線グラフとする行のインデックス (折れ線設定可能な行の1から始まるインデックス)からなる一次元配列を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.ExistLineChartIndex(System.Int32)">
+            <summary>
+            <paramref name="Index"/>に指定したインデックスが、折れ線グラフとする行のインデックス (折れ線設定可能な行の1から始まるインデックス)に含まれるかどうかを返すメソッド
+            </summary>
+            <param name="Index">調べる行インデックス</param>
+            <returns>存在する場合true、存在しない場合false</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.ColoringLevel1High(System.Int32,System.Int32)">
+            <summary>
+            集計表のセルの％値が全体との差の色付けマーキングで水準1で高いかどうかを返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <returns>集計表データ内で<paramref name="RowIndex"/>と<paramref name="ColumnIndex"/>とで示されるデータが全体との差の色付けマーキングで水準1で高い場合true</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.ColoringLevel1HighByMatrix(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            [性能対策]集計表のセルの％値が全体との差の色付けマーキングで水準1で高いかどうかを２次元配列で返すメソッド
+            </summary>
+            <param name="RowIndexFrom">行インデックス開始値</param>
+            <param name="RowIndexTo">行インデックス終了値</param>
+            <param name="ColumnIndexFrom">列インデックス開始値</param>
+            <param name="ColumnIndexTo">列インデックス終了値</param>
+            <returns>２次元配列</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.ColoringLevel2High(System.Int32,System.Int32)">
+            <summary>
+            集計表のセルの％値が全体との差の色付けマーキングで水準2で高いかどうかを返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <returns>集計表データ内で<paramref name="RowIndex"/>と<paramref name="ColumnIndex"/>とで示されるデータが全体との差の色付けマーキングで水準2で高い場合true</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.ColoringLevel2HighByMatrix(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            [性能対策]集計表のセルの％値が全体との差の色付けマーキングで水準2で高いかどうかを２次元配列で返すメソッド
+            </summary>
+            <param name="RowIndexFrom">行インデックス開始値</param>
+            <param name="RowIndexTo">行インデックス終了値</param>
+            <param name="ColumnIndexFrom">列インデックス開始値</param>
+            <param name="ColumnIndexTo">列インデックス終了値</param>
+            <returns>２次元配列</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.ColoringLevel1Low(System.Int32,System.Int32)">
+            <summary>
+            集計表のセルの％値が全体との差の色付けマーキングで水準1で低いかどうかを返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <returns>集計表データ内で<paramref name="RowIndex"/>と<paramref name="ColumnIndex"/>とで示されるデータが全体との差の色付けマーキングで水準1で低い場合true</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.ColoringLevel1LowByMatrix(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            [性能対策]集計表のセルの％値が全体との差の色付けマーキングで水準1で低いかどうかを２次元配列で返すメソッド
+            </summary>
+            <param name="RowIndexFrom">行インデックス開始値</param>
+            <param name="RowIndexTo">行インデックス終了値</param>
+            <param name="ColumnIndexFrom">列インデックス開始値</param>
+            <param name="ColumnIndexTo">列インデックス終了値</param>
+            <returns>２次元配列</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.ColoringLevel2Low(System.Int32,System.Int32)">
+            <summary>
+            集計表のセルの％値が全体との差の色付けマーキングで水準2で低いかどうかを返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <returns>集計表データ内で<paramref name="RowIndex"/>と<paramref name="ColumnIndex"/>とで示されるデータが全体との差の色付けマーキングで水準2で低い場合true</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.ColoringLevel2LowByMatrix(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            [性能対策]集計表のセルの％値が全体との差の色付けマーキングで水準2で低いかどうかを２次元配列で返すメソッド
+            </summary>
+            <param name="RowIndexFrom">行インデックス開始値</param>
+            <param name="RowIndexTo">行インデックス終了値</param>
+            <param name="ColumnIndexFrom">列インデックス開始値</param>
+            <param name="ColumnIndexTo">列インデックス終了値</param>
+            <returns>２次元配列</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.AscendingMarking(System.Int32,System.Int32)">
+            <summary>
+            集計表のセルの昇降分析マーキング情報を返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <returns>集計表データ内で<paramref name="RowIndex"/>と<paramref name="ColumnIndex"/>とで示されるデータの昇降分析マーキング情報</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.IsArrowEnd(System.Int32,System.Int32,Macromill.QCWeb.Tabulation.DataMarking@)">
+            <summary>
+            集計表のセルが昇降分析マーキングの矢筈または矢尻にあたるかどうかを返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <param name="reverseSide">逆側の昇降分析マーキングの値(DataMarking列挙型) (戻り値)</param>
+            <returns>集計表データ内で<paramref name="RowIndex"/>と<paramref name="ColumnIndex"/>とで示されるデータの昇降分析マーキング情報が、矢筈または矢尻を表すかどうか</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.IsArrowShaft(System.Int32,System.Int32)">
+            <summary>
+            集計表のセルが昇降分析マーキングの矢柄にあたるかどうかを返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <returns>集計表データ内で<paramref name="RowIndex"/>と<paramref name="ColumnIndex"/>とで示されるデータの昇降分析マーキング情報が、矢柄を表すかどうか</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.Significance1PercentHigh(System.Int32,System.Int32)">
+            <summary>
+            集計表のセルのデータが1％水準で有意に高いかどうかを返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <returns>集計表データ内で<paramref name="RowIndex"/>と<paramref name="ColumnIndex"/>とで示されるデータが1％水準で有意に高い場合true</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.Significance1PercentHighByMatrix(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            [性能対策]集計表のセルのデータが1％水準で有意に高いかどうかを２次元配列で返すメソッド
+            </summary>
+            <param name="RowIndexFrom">行インデックス開始値</param>
+            <param name="RowIndexTo">行インデックス終了値</param>
+            <param name="ColumnIndexFrom">列インデックス開始値</param>
+            <param name="ColumnIndexTo">列インデックス終了値</param>
+            <returns>２次元配列</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.Significance5PercentHigh(System.Int32,System.Int32)">
+            <summary>
+            集計表のセルのデータが5％水準で有意に高いかどうかを返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <returns>集計表データ内で<paramref name="RowIndex"/>と<paramref name="ColumnIndex"/>とで示されるデータが5％水準で有意に高い場合true</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.Significance5PercentHighByMatrix(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            [性能対策]集計表のセルのデータが5％水準で有意に高いかどうかを２次元配列で返すメソッド
+            </summary>
+            <param name="RowIndexFrom">行インデックス開始値</param>
+            <param name="RowIndexTo">行インデックス終了値</param>
+            <param name="ColumnIndexFrom">列インデックス開始値</param>
+            <param name="ColumnIndexTo">列インデックス終了値</param>
+            <returns>２次元配列</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.Significance10PercentHigh(System.Int32,System.Int32)">
+            <summary>
+            集計表のセルのデータが10％水準で有意に高いかどうかを返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <returns>集計表データ内で<paramref name="RowIndex"/>と<paramref name="ColumnIndex"/>とで示されるデータが10％水準で有意に高い場合true</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.Significance10PercentHighByMatrix(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            [性能対策]集計表のセルのデータが10％水準で有意に高いかどうかを２次元配列で返すメソッド
+            </summary>
+            <param name="RowIndexFrom">行インデックス開始値</param>
+            <param name="RowIndexTo">行インデックス終了値</param>
+            <param name="ColumnIndexFrom">列インデックス開始値</param>
+            <param name="ColumnIndexTo">列インデックス終了値</param>
+            <returns>２次元配列</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.Significance1PercentLow(System.Int32,System.Int32)">
+            <summary>
+            集計表のセルのデータが1％水準で有意に低いかどうかを返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <returns>集計表データ内で<paramref name="RowIndex"/>と<paramref name="ColumnIndex"/>とで示されるデータが1％水準で有意に低い場合true</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.Significance1PercentLowByMatrix(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            [性能対策]集計表のセルのデータが1％水準で有意に低いかどうかを２次元配列で返すメソッド
+            </summary>
+            <param name="RowIndexFrom">行インデックス開始値</param>
+            <param name="RowIndexTo">行インデックス終了値</param>
+            <param name="ColumnIndexFrom">列インデックス開始値</param>
+            <param name="ColumnIndexTo">列インデックス終了値</param>
+            <returns>２次元配列</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.Significance5PercentLow(System.Int32,System.Int32)">
+            <summary>
+            集計表のセルのデータが5％水準で有意に低いかどうかを返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <returns>集計表データ内で<paramref name="RowIndex"/>と<paramref name="ColumnIndex"/>とで示されるデータが5％水準で有意に低い場合true</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.Significance5PercentLowByMatrix(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            [性能対策]集計表のセルのデータが5％水準で有意に低いかどうかを２次元配列で返すメソッド
+            </summary>
+            <param name="RowIndexFrom">行インデックス開始値</param>
+            <param name="RowIndexTo">行インデックス終了値</param>
+            <param name="ColumnIndexFrom">列インデックス開始値</param>
+            <param name="ColumnIndexTo">列インデックス終了値</param>
+            <returns>２次元配列</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.Significance10PercentLow(System.Int32,System.Int32)">
+            <summary>
+            集計表のセルのデータが10％水準で有意に低いかどうかを返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <returns>集計表データ内で<paramref name="RowIndex"/>と<paramref name="ColumnIndex"/>とで示されるデータが10％水準で有意に低い場合true</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.Significance10PercentLowByMatrix(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            [性能対策]集計表のセルのデータが10％水準で有意に低いかどうかを２次元配列で返すメソッド
+            </summary>
+            <param name="RowIndexFrom">行インデックス開始値</param>
+            <param name="RowIndexTo">行インデックス終了値</param>
+            <param name="ColumnIndexFrom">列インデックス開始値</param>
+            <param name="ColumnIndexTo">列インデックス終了値</param>
+            <returns>２次元配列</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.SignificanceMark(System.Int32,System.Int32,System.String)">
+            <summary>
+            集計表のセルの全体との差の検定マークを返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <param name="locale">ロケール</param>
+            <returns>集計表データ内で<paramref name="RowIndex"/>と<paramref name="ColumnIndex"/>とで示されるデータの検定マーク</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.CrossTable.SignificanceMarkByMatrix(System.Int32,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            [性能対策]集計表のセルの全体との差の検定マークを２次元配列で返すメソッド
+            </summary>
+            <param name="RowIndexFrom">行インデックス開始値</param>
+            <param name="RowIndexTo">行インデックス終了値</param>
+            <param name="ColumnIndexFrom">列インデックス開始値</param>
+            <param name="ColumnIndexTo">列インデックス終了値</param>
+            <param name="locale">ロケール</param>
+            <returns>２次元配列</returns>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.CrossTable.SetNo">
+            <summary>
+            セット番号を取得する読み取り専用プロパティ (1シート1クロスのシナリオ出力時に有効)
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.CrossTable.ParentQNo">
+            <summary>
+            マトリクスの親質問番号を取得する読み取り専用プロパティ (1シート1クロスのシナリオ出力時に有効)
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Tables.FAListTable">
+            <summary>
+            FAリストの集計表を扱うクラス
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.FAListTable.KeyItem">
+            <summary>
+            分類アイテムの簡易情報を保持したKeyItemInformationクラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.FAListTable.FAItemsCount">
+            <summary>
+            FAアイテム数を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.FAListTable.AddedItemsCount">
+            <summary>
+            付加アイテム数を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.FAListTable.AddedItemQType(System.Int32)">
+            <summary>
+            付加アイテムの質問タイプを表すQuestionType列挙型の値を返すメソッド
+            </summary>
+            <param name="index">付加アイテムの0ベースインデックス</param>
+            <returns>インデックスが示す付加アイテムの簡易な質問タイプ</returns>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.FAListTable.TopItemName">
+            <summary>
+            先頭のFAアイテム名を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.FAListTable.FAItemsCountMax">
+            <summary>
+            FAアイテム数の上限値を返す読み取り専用プロパティ
+            <note>静的な値だが、COMからの参照のためにインスタンスメンバ</note>
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.FAListTable.AddedItemsCountMax">
+            <summary>
+            付加アイテム数の上限値を返す読み取り専用プロパティ
+            <note>静的な値だが、COMからの参照のためにインスタンスメンバ</note>
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Tables.CheckListTable">
+            <summary>
+            チェックリストの集計表を扱うクラス
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.CheckListTable.Question">
+            <summary>
+            集計アイテムの簡易情報を保持したQuestionInformationクラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.CheckListTable.SectorsCount">
+            <summary>
+            集計アイテムの選択肢数を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.CheckListTable.IsChanged">
+            <summary>
+            変更の有無を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.CheckListTable.IsNewItem">
+            <summary>
+            新アイテムかどうかを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Tables.QuestionnaireTable">
+            <summary>
+            調査票の質問情報を扱うクラス
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.QuestionnaireTable.Question">
+            <summary>
+            質問の簡易情報を保持したQuestionInformation2クラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.QuestionnaireTable.Sector(System.Int32)">
+            <summary>
+            選択肢の簡易情報を保持したSectorInformation2クラスのインスタンスへの参照を返すメソッド
+            </summary>
+            <param name="index">選択肢のインデックス</param>
+            <returns>インデックスが示す選択肢の簡易情報を保持したSectorInformation2クラスのインスタンスへの参照</returns>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.QuestionnaireTable.SectorsCount">
+            <summary>
+            選択肢数を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.QuestionnaireTable.ChildQuestion(System.Int32)">
+            <summary>
+            子質問の簡易情報を保持したQuestionInformation2クラスのインスタンスへの参照を返すメソッド
+            </summary>
+            <param name="index">子質問のインデックス</param>
+            <returns>インデックスが示す子質問の簡易情報を保持したQuestionInformation2クラスのインスタンスへの参照</returns>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.QuestionnaireTable.ChildQuestionSCount">
+            <summary>
+            子質問数を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="T:Macromill.QCWeb.Batch.Report.Tables.RawDataTable">
+            <summary>
+            ローデータの質問情報を扱うクラス
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.DividedIndexes.StartIndex">
+            <summary>
+            開始列インデックスを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.DividedIndexes.EndIndex">
+            <summary>
+            終了列インデックスを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.DivideColumns(System.Int32)">
+            <summary>
+            列数による分割処理を行うメソッド
+            </summary>
+            <param name="ColumnsCountPerSheet">分割する1シートあたりの列数</param>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.DivideRows(System.Int32)">
+            <summary>
+            行数によるレイアウトの分割処理を行うメソッド
+            </summary>
+            <param name="RowsCountPerSheet">RowsCountPerSheet</param>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.DataType">
+            <summary>
+            データ出力時のデータ形式を表すOutputDataType列挙型の値を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.LayoutOrientation">
+            <summary>
+            レイアウト表の向きを表すLayoutOrientation列挙型の値を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.ResearchInformationsArray">
+            <summary>
+            調査概要の調査情報を保持したResearchInformation構造体の値からなる配列を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.ResearchInformationCaptionArray">
+            <summary>
+            調査概要の調査情報の見出しを保持した二次元配列を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.ResearchInformationIDsArray">
+            <summary>
+            調査情報の調査IDの値からなる配列を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.ResearchInformationNamesArray">
+            <summary>
+            調査情報の調査名の値からなる配列を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.ResearchInformationMethodsArray">
+            <summary>
+            調査情報の調査方法の値からなる配列を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.ResearchInformationServicesArray">
+            <summary>
+            調査情報の商品種別の値からなる配列を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.ResearchInformationPeriodsArray">
+            <summary>
+            調査情報の実施期間の値からなる配列を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.CellInformationsArray">
+            <summary>
+            調査概要の割付セル情報を保持したCellInformation構造体の値からなる配列を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.CellInformationCaptionArray">
+            <summary>
+            調査概要の割付セル情報の見出しを保持した配列を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.CellInformationRowCaption">
+            <summary>
+            調査概要の割付セル情報の行見出しを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.CellInformationNumbersArray">
+            <summary>
+            割付セル情報のセルNo.の値からなる1列の二次元配列を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.CellInformationDescriptionsArray">
+            <summary>
+            割付セル情報のセル名称の値からなる1列の二次元配列を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.CellInformationRequestDataCountsArray">
+            <summary>
+            割付セル情報の希望サンプル数の値からなる1列の二次元配列を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.CellInformationValidDataCountsArray">
+            <summary>
+            割付セル情報の有効サンプル数の値からなる1列の二次元配列を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.RuleInformationsArray">
+            <summary>
+            調査概要のセレクト条件情報を保持したRuleInformation構造体の値からなる配列を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.RuleInformationCaptionArray">
+            <summary>
+            調査概要のセレクト条件情報の見出しを保持した配列を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.RuleInformationRowCaption">
+            <summary>
+            調査概要のセレクト条件情報の行見出しを返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.RuleInformationQuestionNosArray">
+            <summary>
+            セレクト条件情報の質問番号の値からなる1列の二次元配列を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.RuleInformationChildQuestionNosArray">
+            <summary>
+            セレクト条件情報の子質問番号の値からなる1列の二次元配列を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.RuleInformationExpressionsArray">
+            <summary>
+            セレクト条件情報のセレクト条件の値からなる1列の二次元配列を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.DividedSheetsCount">
+            <summary>
+            データシート分割後のシート数を返す
+            <note>シート分割は、DivideColumnsメソッドを使って行う</note>
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.DividedLayoutSheetsCount">
+            <summary>
+            レイアウトシート分割後のシート数を返す
+            <note>シート分割は、DivideRowsメソッドを使って行う</note>
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.SheetColumnsCount(System.Int32)">
+            <summary>
+            集計表データの列数を返す読み取り専用プロパティ
+            </summary>
+            <param name="SheetIndex">シートインデックス (0ベース)</param>
+            <returns>集計表データの列数</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.SheetRowsCount(System.Int32)">
+            <summary>
+            レイアウト表データの行数を返す読み取り専用プロパティ
+            </summary>
+            <param name="SheetIndex">シートインデックス (0ベース)</param>
+            <returns>レイアウト表データの行数</returns>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.LayoutColumnsCount">
+            <summary>
+            レイアウト表データの列数を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.TableValue(System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            ローデータ表の各セルの値の文字列表現またはキャプションを返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <param name="SheetIndex">シートインデックス (0ベース) (省略可、既定値0)</param>
+            <param name="Unescape">アンエスケープ処理を行うかどうかを示すフラグ (省略可、既定値false)</param>
+            <param name="WhitespaceIsNull">スペースのみの場合にnullを返す場合はtrue (省略可、既定値true)</param>
+            <returns>
+            <paramref name="SheetIndex"/>番目のローデータ表で<paramref name="RowIndex"/>と<paramref name="ColumnIndex"/>とで示されるセルの文字列表現<br />
+            <paramref name="Unescape"/>がtrueのときには、正規表現のアンエスケープ処理を行ってから返す
+            </returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.ColumnQCAnswerType(System.Int32,System.Int32)">
+            <summary>
+            ローデータ表の列が示すアイテムのQC3での回答タイプを表すQCAnswerType列挙型の値を返すメソッド
+            </summary>
+            <param name="ColumnIndex">列インデックス</param>
+            <param name="SheetIndex">シートインデックス (0ベース) (省略可、既定値0)</param>
+            <returns>QC3での回答タイプを表すQCAnswerType列挙型の値</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.IsMAColumn(System.Int32,System.Int32)">
+            <summary>
+            コード形式の場合、ローデータ表の列がMA列かどうかを返すメソッド
+            </summary>
+            <param name="ColumnIndex">列インデックス</param>
+            <param name="SheetIndex">シートインデックス (0ベース) (省略可、既定値0)</param>
+            <returns>MA列の場合true、そうでない場合false</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.IsFAColumn(System.Int32,System.Int32)">
+            <summary>
+            ローデータ表の列がFA列かどうかを返すメソッド
+            </summary>
+            <param name="ColumnIndex">列インデックス</param>
+            <param name="SheetIndex">シートインデックス (0ベース) (省略可、既定値0)</param>
+            <returns>FA列の場合true、そうでない場合false</returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.RawDataTable.LayoutValue(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            レイアウト表のセルの値をアンエスケープして返すメソッド
+            </summary>
+            <param name="RowIndex">行インデックス</param>
+            <param name="ColumnIndex">列インデックス</param>
+            <param name="SheetIndex">シートインデックス (0ベース) (省略可、既定値0)</param>
+            <returns>
+            レイアウト表で<paramref name="RowIndex"/>と<paramref name="ColumnIndex"/>とで示されるセルのアンエスケープ済み文字列表現
+            </returns>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.KeyItemMaxSectorNumber(System.String)">
+            <summary>
+            分類アイテムの最大選択肢番号を返すメソッド
+            </summary>
+            <param name="keyItemName">分類アイテム名</param>
+            <returns>最大選択肢番号</returns>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.Item(System.Int32)">
+            <summary>
+            コレクションの要素を返すインデクサ
+            </summary>
+            <param name="index">インデックス</param>
+            <returns>インデックスが示すコレクションの要素であるTableクラスのインスタンスへの参照</returns>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.Item(System.String)">
+            <summary>
+            コレクションの要素を返すインデクサ
+            </summary>
+            <param name="key">キーとなる文字列</param>
+            <returns>キーが示すコレクションの要素であるTableクラスのインスタンスへの参照</returns>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.Count">
+            <summary>
+            要素数を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="M:Macromill.QCWeb.Batch.Report.Tables.Dispose">
+            <summary>
+            Disposeメソッドの実装
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.ParentOutput">
+            <summary>
+            自身のインスタンスの親であるOutputクラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.ParentReportset">
+            <summary>
+            自身のインスタンスの親であるReportsetクラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+        <member name="P:Macromill.QCWeb.Batch.Report.Tables.ParentRequest">
+            <summary>
+            自身のインスタンスの親であるRequestクラスのインスタンスへの参照を返す読み取り専用プロパティ
+            </summary>
+        </member>
+    </members>
+</doc>

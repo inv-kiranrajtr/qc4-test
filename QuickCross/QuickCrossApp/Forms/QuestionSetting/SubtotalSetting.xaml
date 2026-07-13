@@ -1,0 +1,331 @@
+﻿<Window x:Class="Qc4Launcher.Forms.QuestionSetting.SubtotalSetting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Qc4Launcher.Forms.QuestionSetting"      
+        mc:Ignorable="d"
+  xmlns:res="clr-namespace:Qc4Launcher"
+        Title="{x:Static res:LocalResource.QS_SUBTOTAL_TITLE}" Height="540" Width="590" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closed="Window_Closed" Loaded="Windowloaded" PreviewMouseRightButtonDown="DisableRightMenu" PreviewMouseRightButtonUp="DisableRightMenu" >
+    <Window.Resources>
+
+    </Window.Resources>
+  
+    <Grid Background="#FFF0F0F0">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+                    <Label Content="{x:Static res:LocalResource.QS_TXT_LABEL_VARIABLE}" Height="25" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource Labelformat}"></Label>
+                </Grid>
+                <Grid Grid.Column="2">
+                    <TextBox Name="Text__OriginItem_Item"  IsEnabled="False" Height="25" Margin="16,0,17,0" VerticalAlignment="Center" Style="{StaticResource NormalTxtBox}"   />
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".6*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <DataGrid  x:Name="ChoiceList" Margin="7,27,0,30" Width="170" BorderBrush="#FFE1E1E1" Style="{StaticResource Datagrid_normal_NoPadding}" ItemsSource="{Binding}" HeadersVisibility="None" IsEnabled="True"  Background="White"   AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserDeleteRows="False" CanUserSortColumns="False" CanUserAddRows="False" HorizontalScrollBarVisibility="Disabled" PreviewKeyDown="KeymockCtrl"  CurrentCellChanged="Choices_grid_CurrentCellChanged" HorizontalGridLinesBrush="Transparent" VerticalGridLinesBrush="#FFE1E1E1" IsTabStop="False" Focusable="False" CopyingRowClipboardContent="ChoiceList_CopyingRowClipboardContent">
+                        <DataGrid.Resources>
+                           
+                            <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#F6F6F6"/>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#CBE8F6"/>
+                        </DataGrid.Resources>
+                        <DataGrid.RowStyle>
+                            <Style TargetType="{x:Type DataGridRow}">
+                                <Style.Triggers>
+
+                                    <DataTrigger Binding="{Binding Path=Selectable}" Value="False">
+                                        <DataTrigger.Setters>
+                                            <Setter Property="Background" Value="LightGray" />
+                                        </DataTrigger.Setters>
+                                    </DataTrigger>
+
+                                    <Trigger Property="IsMouseOver"
+                           Value="True">
+                                        <Setter Property="Background"
+                               Value="#e5f3fb" />
+                                        <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+
+                                        <!--<Setter Property="Background" Value="#CBE8F6"/>-->
+                                        <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                    </Trigger>
+                                </Style.Triggers>
+
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="IsTabStop" Value="False" />
+                              
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn  Width="auto" Binding="{Binding Index, Mode=OneWay}" CanUserResize="False" CanUserSort="False"  IsReadOnly="False">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell" BasedOn="{StaticResource Datagrid_GT_Cell_Style_qs}">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="true" >
+                                                <Setter Property="Foreground" Value="Black" />
+                                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
+                                        <Setter Property="IsTabStop" Value="False" />
+                                        
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn  Binding="{Binding Choices, Mode=OneWay}" CanUserResize="False" MinWidth="150" CanUserSort="False"  Width="auto" IsReadOnly="False">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell" BasedOn="{StaticResource Datagrid_GT_Cell_Style_qs}">
+                                     
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="true" >
+                                                <Setter Property="Foreground" Value="Black" />
+                                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
+                                        <Setter Property="IsTabStop" Value="False" />
+                                       
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </Grid>
+                <Grid Grid.Column="1">
+                    <DataGrid  Name="sub_datagrid" Height="300" ScrollViewer.CanContentScroll="False"  RowHeight="27.2" RowHeaderWidth="0" CanUserReorderColumns="False" ColumnHeaderHeight="26" ItemsSource="{Binding}"  CanUserResizeColumns="False" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled"  CanUserResizeRows="False" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserSortColumns="False" ColumnHeaderStyle="{StaticResource Datagrid_Header_Style}" Style="{StaticResource Datagrid_normal}" Padding="0" Margin="0,0,16,0" PreviewKeyDown="HandleCopyPaste" PreviewKeyUp="sub_datagrid_PreviewKeyUp" CopyingRowClipboardContent="sub_datagrid_CopyingRowClipboardContent" >
+                    
+                        <DataGrid.RowStyle>
+                            <Style TargetType="{x:Type DataGridRow}">
+                                <Style.Triggers>
+
+                                    <DataTrigger Binding="{Binding Path=Selectable}" Value="False">
+                                        <DataTrigger.Setters>
+                                            <Setter Property="Background" Value="LightGray" />
+                                        </DataTrigger.Setters>
+                                    </DataTrigger>
+
+                                    <Trigger Property="IsMouseOver"
+                           Value="True">
+                                        <Setter Property="Background"
+                               Value="#e5f3fb" />
+                                        <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+
+                                        <Setter Property="Background" Value="#CBE8F6"/>
+                                        <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                    </Trigger>
+                                </Style.Triggers>
+
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <DataGrid.Resources>
+                            <!--<SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" 
+                   Color="#FFd9f3fe"/>-->
+                            <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#F6F6F6"/>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#CBE8F6"/>
+                        </DataGrid.Resources>
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell" BasedOn="{StaticResource Datagrid_GT_Cell_Style_qs}">
+                                <Setter Property="IsTabStop" Value="False" />
+                               
+                            </Style>
+                        </DataGrid.CellStyle>
+                        
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="" Width="28" CanUserResize="False" KeyboardNavigation.IsTabStop="False">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Name="btn_RightArrow" Content=">" BorderThickness="0" Click="btn_RightArrow_Click" Style="{StaticResource SmallButton}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn >
+                            <DataGridTextColumn Width="20" IsReadOnly="True" Binding="{Binding No}"  x:Name="No">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell" BasedOn="{StaticResource {x:Type DataGridCell}}">
+                                        <Setter Property="Background" Value="#FFF0F0F0"/>
+                                        <Setter Property="KeyboardNavigation.IsTabStop"
+                Value="False" />
+                                        <Style.Triggers>
+                                            <Trigger Property="DataGridCell.IsSelected" Value="True">
+                                                <Setter Property="BorderBrush">
+                                                    <Setter.Value>
+                                                        <SolidColorBrush Color="Transparent"/>
+                                                    </Setter.Value>
+                                                </Setter>
+                                                <Setter Property="Foreground"
+                            Value="{DynamicResource
+                                   {x:Static SystemColors.ControlTextBrushKey}}"/>
+                                                <Setter Property="Background">
+                                                    <Setter.Value>
+                                                        <SolidColorBrush Color="#FFF0F0F0"/>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                        <Setter Property="Foreground" Value="#FF333333" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                               
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Width="147" Header="{x:Static res:LocalResource.QS_DATAGRID_CHOICE}"  Binding="{Binding Choice}" x:Name="Choice">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="IsTabStop" Value="True" />
+                                        <Setter Property="Focusable" Value="True" />
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Padding" Value="6,0,0,0" />
+                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                        <Setter Property="Foreground" Value="#FF333333" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                                
+                            </DataGridTextColumn>
+                            <DataGridTemplateColumn Header="{x:Static res:LocalResource.QS_SUBTOTAL_DATAGRID_OPERATOR}" ClipboardContentBinding="{Binding Operator}" Width="60" CanUserResize="False" >
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox x:Name="cmb_operator" IsEditable="False" Loaded=" comboload" Style="{StaticResource NormalComboBox_Editable}" BorderBrush="White" SelectionChanged="changeComboselction" SelectedItem="{Binding Operator,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                                        </ComboBox>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Width="88" Header="{x:Static res:LocalResource.QS_SUBTOTAL_DATAGRID_VALUE}" Binding="{Binding Value}" x:Name="Value">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Padding" Value="6,0,0,0" />
+                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                        <Setter Property="Foreground" Value="#FF333333" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="IsTabStop" Value="True" />
+                                        <Setter Property="Focusable" Value="True" />
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75"></ColumnDefinition>
+                    <ColumnDefinition Width="65"></ColumnDefinition>
+                    <ColumnDefinition Width="125"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="125"></ColumnDefinition>
+                    <ColumnDefinition Width="125"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Label Content="{x:Static res:LocalResource.QS_SUBTOTAL_COMBO_LABEL_TOP}" Width="50" Height="25" Margin="7,0,0,0" Style="{StaticResource Labelformat}"></Label>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Label Content="{x:Static res:LocalResource.QS_SUBTOTAL_COMBO_LABEL_BOTTOM}" Width="50" Height="25" Style="{StaticResource Labelformat}" Margin="7,0,0,0"></Label>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <ComboBox Name="Combo_Top_Num" Style="{StaticResource NormalComboBox}" Width="55" Height="20" HorizontalAlignment="Left" Margin="0,0,0,0" PreviewKeyUp="Top_bottom_Item_check" PreviewKeyDown="Combo_Top_Num_PreviewKeyDown"></ComboBox>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <ComboBox Name="Combo_Bottom_Num" Style="{StaticResource NormalComboBox}"  Width="55" Height="20" HorizontalAlignment="Left" Margin="0"  PreviewKeyUp="Top_bottom_Item_check" PreviewKeyDown="Combo_Bottom_Num_PreviewKeyDown"></ComboBox>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Button x:Name="Add1" Content="{x:Static res:LocalResource.QS_SUBTOTAL_BTN_ADD}" Width="100" Height="25" Style="{StaticResource NormalButton}" HorizontalAlignment="Left" Margin="0" Click="btn_Top_add" PreviewKeyDown="Add1_PreviewKeyDown"></Button>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Button x:Name="Add2" Content="{x:Static res:LocalResource.QS_SUBTOTAL_BTN_ADD}" Width="100" Height="25" Style="{StaticResource NormalButton}" HorizontalAlignment="Left" Margin="0" Click="btn_Bottom_add" PreviewKeyDown="Add2_PreviewKeyDown"></Button>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Column="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Button x:Name="insert_row" Content="{x:Static res:LocalResource.QS_SUBTOTAL_BTN_INSERTROW}" Width="100" Style="{StaticResource NormalButton}" Height="25" HorizontalAlignment="Right"  Margin="0" Click="InsertRow_toDataGrid" PreviewKeyDown="insert_row_PreviewKeyDown"></Button>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Button x:Name="Delete_row"  Content="{x:Static res:LocalResource.QS_SUBTOTAL_BTN_DELETEROW}" Style="{StaticResource NormalButton}" Width="100" Height="25" HorizontalAlignment="Right"  Margin="0" Click="DeleteRow_toDataGrid" PreviewKeyDown="Delete_row_PreviewKeyDown"></Button>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Column="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Button Name="moveup" Content="{x:Static res:LocalResource.QS_SUBTOTAL_BTN_MOVEUP}" Style="{StaticResource NormalButton}" Width="100" Height="25" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="6,0,0,0" Click="Content_Up_data" PreviewKeyDown="moveup_PreviewKeyDown" ></Button>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Button Name="movedown" Content="{x:Static res:LocalResource.QS_SUBTOTAL_BTN_MOVEDOWN}" Style="{StaticResource NormalButton}" Width="100" Height="25" HorizontalAlignment="Left"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Margin="6,0,0,0" Click="Content_down_data" PreviewKeyDown="movedown_PreviewKeyDown"></Button>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                    <ColumnDefinition Width="120"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="2">
+                    <Button x:Name="btn_deleteall" Content="{x:Static res:LocalResource.QS_SUBTOTAL_DELETE_ALL}" Width="100" Height="25" HorizontalAlignment="Right" Style="{StaticResource NormalButton}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,9,8,16" Click="Remove_all_from_Dt" PreviewKeyDown="btn_deleteall_PreviewKeyDown"></Button>
+                </Grid>
+                <Grid Grid.Column="3">
+                    <Button Name="btn_save" Content="{x:Static res:LocalResource.COPY_EDIT__SAVE}" Width="100" Height="25" HorizontalAlignment="Left" Style="{StaticResource NormalButton}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="18,9,0,16" Click="Save_subtotal_sheet" PreviewKeyDown="btn_save_PreviewKeyDown"></Button>
+                </Grid>
+                <Grid Grid.Column="4">
+                    <Button Name="btn_cancel" Content="{x:Static res:LocalResource.QS_SUBTOTAL_CANCEL}"  Width="100" Height="25" HorizontalAlignment="Left" Style="{StaticResource NormalButton}"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="4,9,0,16" Click="Return_parant_Window" PreviewKeyDown="btn_cancel_PreviewKeyDown"></Button>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

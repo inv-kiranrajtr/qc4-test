@@ -1,0 +1,1537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ADD1MINUS1_PARAM2_TOOLTIPDESC" xml:space="preserve">
+    <value>選択肢を指定してください。</value>
+  </data>
+  <data name="ADD1MINUS1_PARAM2_TOOLTIPHEADER" xml:space="preserve">
+    <value>【選択肢】</value>
+  </data>
+  <data name="ADD1_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>付戻し対象のアイテムを指定してください。</value>
+  </data>
+  <data name="ADD1_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>【付戻し対象のアイテム】</value>
+  </data>
+  <data name="ADD1_PM1_ERRORMESSAGE" xml:space="preserve">
+    <value>未登録の付戻し対象のアイテムです。</value>
+  </data>
+  <data name="ADD2_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>代入値を指定してください。</value>
+  </data>
+  <data name="ADD2_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>【代入値】</value>
+  </data>
+  <data name="ADD3_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>0: 積上げチェックなし
+1: 積上げチェックあり</value>
+  </data>
+  <data name="ADD3_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>【積上げチェック】</value>
+  </data>
+  <data name="ADD3_PARAM_N_TOOLTIPHEADER" xml:space="preserve">
+    <value>【積上げ対象のアイテム】</value>
+  </data>
+  <data name="AGGREGATE_PARAMS_TOOTTIPDESC" xml:space="preserve">
+    <value>プログラム名を指定してください。</value>
+  </data>
+  <data name="AGGREGATE_PARAMS_TOOTTIPDESC_" xml:space="preserve">
+    <value>対象アイテムを指定してください。</value>
+  </data>
+  <data name="AGGREGATE_PARAMS_TOOTTIPDESC_ADD3" xml:space="preserve">
+    <value>積上げ対象のアイテムを指定してください。</value>
+  </data>
+  <data name="ALERT_CELL_EDIT" xml:space="preserve">
+    <value>続ける前にセルの編集を終了してください。</value>
+  </data>
+  <data name="ALERT_DATA_SHEET_CHANGE" xml:space="preserve">
+    <value>Dataシートでの変更はファイルに保存/反映されません。
+Dataの変更はデータ加工からのみ可能です。</value>
+  </data>
+  <data name="ALERT_EXECUTE_DP_OR_DELET_VAR" xml:space="preserve">
+    <value>データ加工を実行するか、設問設定で新アイテムを削除してください。</value>
+  </data>
+  <data name="ALERT_HEADER_DELETE" xml:space="preserve">
+    <value>ヘッダーの変更はできません。</value>
+  </data>
+  <data name="ALERT_UN_PROCESSED_VARIABLE_EXIST" xml:space="preserve">
+    <value>加工されていない新アイテムがあります。
+このまま実行しますか？</value>
+  </data>
+  <data name="ALERT_VARIABLE_EDIT_MODE" xml:space="preserve">
+    <value>アイテム名編集モードを終了して、再度お試しください。</value>
+  </data>
+  <data name="ALERT_WANT_TO_SAVE" xml:space="preserve">
+    <value>{0} を保存しますか？</value>
+  </data>
+  <data name="AVG_VALIDATION_ERRORMESSAGE" xml:space="preserve">
+    <value>未登録のAVGです。</value>
+  </data>
+  <data name="BTN_CANCEL" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="buttonAutoSettings" xml:space="preserve">
+    <value>自動設定</value>
+  </data>
+  <data name="buttonChart" xml:space="preserve">
+    <value>グラフ出力</value>
+  </data>
+  <data name="buttonCheck" xml:space="preserve">
+    <value>チェック</value>
+  </data>
+  <data name="buttonCheckQS" xml:space="preserve">
+    <value>質問構成チェック</value>
+  </data>
+  <data name="buttonCopy" xml:space="preserve">
+    <value>コピー</value>
+  </data>
+  <data name="buttonCT" xml:space="preserve">
+    <value>クロス集計</value>
+  </data>
+  <data name="buttonDelete" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="buttonDown" xml:space="preserve">
+    <value>↓下へ</value>
+  </data>
+  <data name="buttonEQ" xml:space="preserve">
+    <value>調査票作成</value>
+  </data>
+  <data name="buttonExecute" xml:space="preserve">
+    <value>実行</value>
+  </data>
+  <data name="buttonExecuteDP" xml:space="preserve">
+    <value>実行</value>
+  </data>
+  <data name="buttonExecuteGT" xml:space="preserve">
+    <value>実行</value>
+  </data>
+  <data name="buttonInsert" xml:space="preserve">
+    <value>挿入</value>
+  </data>
+  <data name="buttonJump" xml:space="preserve">
+    <value>Jump</value>
+  </data>
+  <data name="buttonMenu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="buttonOptionsCT" xml:space="preserve">
+    <value>オプション</value>
+  </data>
+  <data name="buttonOptionsGT" xml:space="preserve">
+    <value>オプション</value>
+  </data>
+  <data name="buttonOptionsSummary" xml:space="preserve">
+    <value>オプション</value>
+  </data>
+  <data name="buttonOutput" xml:space="preserve">
+    <value>実行</value>
+  </data>
+  <data name="buttonPaste" xml:space="preserve">
+    <value>貼付</value>
+  </data>
+  <data name="buttonStatus" xml:space="preserve">
+    <value>オン/オフ</value>
+  </data>
+  <data name="buttonUp" xml:space="preserve">
+    <value>↑上へ</value>
+  </data>
+  <data name="CALL_PARAM1_TOOLTIP_DESC" xml:space="preserve">
+    <value>プログラム名を指定してください。</value>
+  </data>
+  <data name="CALL_PARAM1_TOOLTIP_HEADER" xml:space="preserve">
+    <value>【プログラム名】</value>
+  </data>
+  <data name="CALL_PARAMN_TOOLTIP_DESC" xml:space="preserve">
+    <value>変数{0}を指定してください。</value>
+  </data>
+  <data name="CALL_PARAMN_TOOLTIP_HEADER" xml:space="preserve">
+    <value>【変数{0}】</value>
+  </data>
+  <data name="CANNOT_SPECIFY_MULTIPLE_RANGE" xml:space="preserve">
+    <value>複数の選択範囲は指定できません。</value>
+  </data>
+  <data name="CELL_OFF" xml:space="preserve">
+    <value>×</value>
+  </data>
+  <data name="CELL_ON" xml:space="preserve">
+    <value>○</value>
+  </data>
+  <data name="checkBoxCols" xml:space="preserve">
+    <value>縦％</value>
+  </data>
+  <data name="checkBoxCross" xml:space="preserve">
+    <value>チェッククロスあり</value>
+  </data>
+  <data name="checkBoxLevel1" xml:space="preserve">
+    <value>1%</value>
+  </data>
+  <data name="checkBoxLevel10" xml:space="preserve">
+    <value>10%</value>
+  </data>
+  <data name="checkBoxLevel5" xml:space="preserve">
+    <value>5%</value>
+  </data>
+  <data name="checkBoxList" xml:space="preserve">
+    <value>チェックリストあり</value>
+  </data>
+  <data name="checkBoxOff" xml:space="preserve">
+    <value>●</value>
+  </data>
+  <data name="checkBoxOn" xml:space="preserve">
+    <value>○</value>
+  </data>
+  <data name="checkBoxRows" xml:space="preserve">
+    <value>横％</value>
+  </data>
+  <data name="checkBoxSort" xml:space="preserve">
+    <value>付加アイテムで昇順に並べ替える</value>
+  </data>
+  <data name="CHECK_FALIST_VALIDATION" xml:space="preserve">
+    <value>FA編集行がありません。</value>
+  </data>
+  <data name="CHECK_FALIST_VALIDATION1" xml:space="preserve">
+    <value>FA編集行がありません。</value>
+  </data>
+  <data name="CHECK_VALIDATION_SUCCESS" xml:space="preserve">
+    <value>加工文のチェックが完了しました。</value>
+  </data>
+  <data name="CLASS_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>クラス元アイテムを指定してください。</value>
+  </data>
+  <data name="CLASS_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>【クラス元アイテム】</value>
+  </data>
+  <data name="CLASS_PARAM2_TOOLTIPDESC" xml:space="preserve">
+    <value>1 : 以上 - 以下
+2 : 以上 - 未満
+3 : より大きい-以下
+4 : より大きい-未満</value>
+  </data>
+  <data name="CLASS_PARAM2_TOOLTIPHEADER" xml:space="preserve">
+    <value>【上下限の指定】</value>
+  </data>
+  <data name="CLASS_PARAM3_TOOLTIPDESC" xml:space="preserve">
+    <value>1 : 無回答
+2 : 0として扱う</value>
+  </data>
+  <data name="CLASS_PARAM3_TOOLTIPHEADER" xml:space="preserve">
+    <value>【無回答の処理】</value>
+  </data>
+  <data name="CLASS_PARAM_N_TOOLTIPDESC" xml:space="preserve">
+    <value>[ {0} ] の該当範囲</value>
+  </data>
+  <data name="CLASS_PARAM_N_TOOLTIPHEADER" xml:space="preserve">
+    <value>【カテゴリ条件】</value>
+  </data>
+  <data name="CLOSE_ALERT" xml:space="preserve">
+    <value>を閉じますか？</value>
+  </data>
+  <data name="CLOSE_ALERT_VARIABLEEDIT_MODE" xml:space="preserve">
+    <value>アイテム名編集モードではファイルを閉じることはできません。</value>
+  </data>
+  <data name="Common" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="COMPARISON_FILE_NAME" xml:space="preserve">
+    <value>比較GT</value>
+  </data>
+  <data name="COMPUTE_TOOLTIP_DESC" xml:space="preserve">
+    <value>算出式を入力してください。
+アイテム名は[ ]で括ってください。</value>
+  </data>
+  <data name="COMPUTE_TOOLTIP_DESC_" xml:space="preserve">
+    <value>算出式を入力してください。
+アイテム名は[ ] で
+括ってください。</value>
+  </data>
+  <data name="COMPUTE_TOOLTIP_HEADER" xml:space="preserve">
+    <value>【COMPUTE】</value>
+  </data>
+  <data name="COUNT_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>回答反応数の元アイテムを指定してください。</value>
+  </data>
+  <data name="COUNT_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>【回答反応数の元アイテム】</value>
+  </data>
+  <data name="COUNT_PARAM2_TOOLTIPDESC" xml:space="preserve">
+    <value>カウント範囲を指定してください。</value>
+  </data>
+  <data name="COUNT_PARAM2_TOOLTIPHEADER" xml:space="preserve">
+    <value>【カウント範囲】</value>
+  </data>
+  <data name="COUNT_PARAM_1_ERRORMESSAGE" xml:space="preserve">
+    <value>未登録の回答反応数の元アイテムです。</value>
+  </data>
+  <data name="COUNT_PARAM_N_TOOLTIPDESC" xml:space="preserve">
+    <value>[ {0} ] の回答個数を指定してください。</value>
+  </data>
+  <data name="COUNT_PARAM_N_TOOLTIPHEADER" xml:space="preserve">
+    <value>【回答個数】</value>
+  </data>
+  <data name="CR_3WAY_VARIABLE_CATEGORY_CNT_INVALID" xml:space="preserve">
+    <value>{0} 列の3重アイテムカテゴリ数が正しくありません。</value>
+  </data>
+  <data name="CR_3WAY_VARIABLE_INVALID" xml:space="preserve">
+    <value>{0} 列の3重アイテムに不正なアイテムが設定されています。</value>
+  </data>
+  <data name="CR_3WAY_VARIABLE_TYPE_INVALID" xml:space="preserve">
+    <value>{0} 列の3重アイテムの回答タイプが正しくありません。</value>
+  </data>
+  <data name="CR_AXES_VARIABLE_CATEGORY_CNT_INVALID" xml:space="preserve">
+    <value>{0} 列の分析軸のカテゴリ数が正しくありません。</value>
+  </data>
+  <data name="CR_AXES_VARIABLE_INVALID" xml:space="preserve">
+    <value>{0} 列の分析軸に不正なアイテムが設定されています。</value>
+  </data>
+  <data name="CR_AXES_VARIABLE_TYPE_INVALID" xml:space="preserve">
+    <value>{0} 列の分析軸の回答タイプが正しくありません。</value>
+  </data>
+  <data name="CR_COL_CHART_INVALID" xml:space="preserve">
+    <value>{0} 列の折れ線グラフ欄に不正な値が設定されています。</value>
+  </data>
+  <data name="CR_COL_DIV_INVALID" xml:space="preserve">
+    <value>{0} 列のdiv欄に不正な値が設定されています。</value>
+  </data>
+  <data name="CR_COL_GT_INVALID" xml:space="preserve">
+    <value>{0} 列の単純集計欄に不正な値が設定されています。</value>
+  </data>
+  <data name="CR_NARROW_CRITERIA_INVALID" xml:space="preserve">
+    <value>{0} 列の絞込み条件値に不正な値が設定されています。</value>
+  </data>
+  <data name="CR_NARROW_VARIABLE_INVALID" xml:space="preserve">
+    <value>{0} 列の絞込みアイテムに不正な値が設定されています。</value>
+  </data>
+  <data name="CR_ROW_DIV_INVALID" xml:space="preserve">
+    <value>{0} 行目のdiv欄に不正な値が設定されています。</value>
+  </data>
+  <data name="CR_VARIABLE_CATEGORY_CNT_INVALID" xml:space="preserve">
+    <value>{0} 行目の集計対象アイテムのカテゴリ数が正しくありません。</value>
+  </data>
+  <data name="CR_VARIABLE_INVALID" xml:space="preserve">
+    <value>{0} 行目の集計対象アイテムに不正なアイテムが設定されています。</value>
+  </data>
+  <data name="CR_VARIABLE_TYPE_INVALID" xml:space="preserve">
+    <value>{0} 行目の集計対象アイテムの回答タイプが正しくありません。</value>
+  </data>
+  <data name="CTab1" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="CTab2" xml:space="preserve">
+    <value>出力設定</value>
+  </data>
+  <data name="DATAPROCESS_COMPLETED" xml:space="preserve">
+    <value>データ加工を完了しました。</value>
+  </data>
+  <data name="DECST_ALREADY_EXISTS" xml:space="preserve">
+    <value>入力されたアイテム名と同じアイテム名が存在しています。</value>
+  </data>
+  <data name="DECST_NOTFOUND" xml:space="preserve">
+    <value>DECSTがありません。</value>
+  </data>
+  <data name="DECST_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>プログラム名を指定してください。</value>
+  </data>
+  <data name="DECST_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>【プログラム名】</value>
+  </data>
+  <data name="DECST_PARAM2_TOOLTIPDESC" xml:space="preserve">
+    <value>変数の数を指定してください。</value>
+  </data>
+  <data name="DECST_PARAM2_TOOLTIPHEADER" xml:space="preserve">
+    <value>【変数の数】</value>
+  </data>
+  <data name="DECST_PARAMN_TOOLTIPDESC" xml:space="preserve">
+    <value>変数を指定してください</value>
+  </data>
+  <data name="DECST_PARAMN_TOOLTIPHEADER" xml:space="preserve">
+    <value>【変数】</value>
+  </data>
+  <data name="DECST_PARAM_ENTRY_RESTRICT" xml:space="preserve">
+    <value>この値の編集は禁止されています。</value>
+  </data>
+  <data name="DECST_PM2_ERRORMESSAGE" xml:space="preserve">
+    <value>[ {0} - {1}] までの整数を、設定してください。</value>
+  </data>
+  <data name="DProcess1" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="DProcess2" xml:space="preserve">
+    <value>出力設定</value>
+  </data>
+  <data name="DP_PROGRESS_MSG_10" xml:space="preserve">
+    <value>加工処理中</value>
+  </data>
+  <data name="DP_PROGRESS_MSG_5" xml:space="preserve">
+    <value>データ読み込み中</value>
+  </data>
+  <data name="DP_PROGRESS_MSG_95" xml:space="preserve">
+    <value>データ書き込み中</value>
+  </data>
+  <data name="EQUAL_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>対象アイテムを指定してください。</value>
+  </data>
+  <data name="EQUAL_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>({0})</value>
+  </data>
+  <data name="ERR_CALL_METHODNOTFOUND" xml:space="preserve">
+    <value>Call可能な実行対象がありません。</value>
+  </data>
+  <data name="ERR_DECST_NESTED" xml:space="preserve">
+    <value>DECST~DECEND と FOR~NEXT は入れ子にできません。</value>
+  </data>
+  <data name="ERR_FOR_NESTED" xml:space="preserve">
+    <value>NEXTの前のFOR文が正しくありません。</value>
+  </data>
+  <data name="ERR_INVALID_DECEND" xml:space="preserve">
+    <value>DECENDの入力が正しくありません。</value>
+  </data>
+  <data name="ERR_INVALID_DECST" xml:space="preserve">
+    <value>DECSTの入力が正しくありません。</value>
+  </data>
+  <data name="ERR_INVALID_NEXT" xml:space="preserve">
+    <value>NEXTの記述が正しくありません。</value>
+  </data>
+  <data name="ERR_MSG_CANNOT_EXECUTE_BECAUSE_NO_DATA" xml:space="preserve">
+    <value>有効なデータがありません。</value>
+  </data>
+  <data name="ERR_MSG_COMPUTE_CONSTRUCTION_SENTENCE_INCORRECT" xml:space="preserve">
+    <value>文の構成が正しくありません。</value>
+  </data>
+  <data name="ERR_MSG_COMPUTE_MA_NOT_ALLOWED" xml:space="preserve">
+    <value>回答タイプが [{0}] 以外のアイテムは指定できません。</value>
+  </data>
+  <data name="ERR_MSG_COMPUTE_NOT_NUMERIC" xml:space="preserve">
+    <value>{0}加工の中で、計算できないデータが含まれていました。
+このまま処理を続行してもよろしいでしょうか？
+新アイテム名 ： 【{1}】</value>
+  </data>
+  <data name="ERR_MSG_CONTENT_INVALID" xml:space="preserve">
+    <value>内容が不正です。</value>
+  </data>
+  <data name="ERR_MSG_COUNT_PARAM_OVERLAP" xml:space="preserve">
+    <value>{0} の引数の設定が正しくないか、 アイテムを設定している場合、回答タイプが正しくありません。</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_CRITERIA_VARIABLE_NOT_SET" xml:space="preserve">
+    <value>条件アイテムの設定が正しくありません。</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_CRITERIA_VARIABLE_PARAM_MISSING" xml:space="preserve">
+    <value>条件アイテムの設定が正しくありません。</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_DIRECTION" xml:space="preserve">
+    <value>加工指示が設定されていません。</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_EMPTY" xml:space="preserve">
+    <value>実行可能な加工文がありません。</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_ERROR_JOINT" xml:space="preserve">
+    <value>引数の選択肢の合計が代入アイテムのカテゴリ数を超えています。</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_ERROR_JOINT_VALUE_MISSING" xml:space="preserve">
+    <value>引数が間を空けて指定されています。</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_ERROR_NOT_SET" xml:space="preserve">
+    <value>の設定が正しくないか、</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_ERROR_NOT_SET_MCONVERT" xml:space="preserve">
+    <value>{0}の引数の設定が正しくないか、
+アイテムの回答タイプが正しくありません。</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_ERROR_OPERATOR" xml:space="preserve">
+    <value>加工演算子が設定されていません。</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_ERROR_PARAMETER" xml:space="preserve">
+    <value>の引数</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_ERROR_ROW" xml:space="preserve">
+    <value>行目がエラーです。</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_ERROR_ROW_LINE_NUMBER" xml:space="preserve">
+    <value>{0}行目がエラーです。</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_INVALID_VARIABLE" xml:space="preserve">
+    <value>代入アイテムが正しくありません。</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_OMIT_PARAM1" xml:space="preserve">
+    <value>引数が間を空けて指定されています。</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_VARIABLE" xml:space="preserve">
+    <value>加工アイテムが設定されていません。</value>
+  </data>
+  <data name="ERR_MSG_DP_INVALID_ENTRY" xml:space="preserve">
+    <value>{0} 行目の入力が正しくありません。</value>
+  </data>
+  <data name="ERR_MSG_FAILED_TO_GET_DATA" xml:space="preserve">
+    <value>データの取得に失敗しました。</value>
+  </data>
+  <data name="ERR_MSG_FAILED_TO_GET_DATA_" xml:space="preserve">
+    <value>データの取得に失敗しました。</value>
+  </data>
+  <data name="ERR_MSG_INEQUALITY_SIGN_CANNOT_BE_USED_MA_FA" xml:space="preserve">
+    <value>{0}に不等号（&lt;, &gt;, &lt;=, &gt;=）は使用できません。</value>
+  </data>
+  <data name="ERR_MSG_INPUT_NUMERIC_OR_SELECT_VALUE_FROM_LIST" xml:space="preserve">
+    <value>数値を入力するか、リストから値を選択してください。</value>
+  </data>
+  <data name="ERR_MSG_INTEGRATE_PARAM_VALUE_COMBINATIONS" xml:space="preserve">
+    <value>条件が組み合わせの数と一致していません。</value>
+  </data>
+  <data name="ERR_MSG_INVALID_FA_ITEM" xml:space="preserve">
+    <value>行目にFA以外のアイテムが設定されています</value>
+  </data>
+  <data name="ERR_MSG_INVALID_FORNEXT" xml:space="preserve">
+    <value>FOR NEXTが正しくありません。</value>
+  </data>
+  <data name="ERR_MSG_INVALID_ITEM" xml:space="preserve">
+    <value>行目の集計対象アイテムに不正なアイテムが設定されています。</value>
+  </data>
+  <data name="ERR_MSG_NO_PARAMETER_TO_PROCESS" xml:space="preserve">
+    <value>処理可能なパラメータがありません。</value>
+  </data>
+  <data name="ERR_MSG_RANGE_CANNOT_BE_DESIGNATED" xml:space="preserve">
+    <value>範囲を指定できません。</value>
+  </data>
+  <data name="ERR_MSG_SET_AN_INTEGER_IN_THE_RANGE" xml:space="preserve">
+    <value>[{0}]の範囲の整数を設定してください。</value>
+  </data>
+  <data name="ERR_MSG_SET_AN_INTEGER_IN_THE_RANGE_OF" xml:space="preserve">
+    <value>の範囲の整数を設定してください。</value>
+  </data>
+  <data name="ERR_MSG_SET_NUMERIC_VALUE" xml:space="preserve">
+    <value>数値を設定してください。</value>
+  </data>
+  <data name="ERR_MSG_THE_COMBINING_CRITERIA" xml:space="preserve">
+    <value>組合せ条件[{0}]には、</value>
+  </data>
+  <data name="ERR_MSG_THE_COMBINING_CRITERIA_IS" xml:space="preserve">
+    <value>組合せ条件 [{0}] は</value>
+  </data>
+  <data name="ERR_MSG_VALIDATION_CORRECTDATA" xml:space="preserve">
+    <value>[{0}]は開始時以外に設定できません。</value>
+  </data>
+  <data name="ERR_MSG_VARIABLE_NOT_SET_IN_QUESTION_SETTING" xml:space="preserve">
+    <value>データ加工の変数 [{0}] は設問設定で設定されていません。</value>
+  </data>
+  <data name="ERR_NEXT_NOTFOUND" xml:space="preserve">
+    <value>NEXTの記述がありません。</value>
+  </data>
+  <data name="ERR_UNMATCHING_DECST" xml:space="preserve">
+    <value>{0} と入力内容が一致しません。</value>
+  </data>
+  <data name="EXPORT_QUESTIONNAIRE" xml:space="preserve">
+    <value>調査票作成</value>
+  </data>
+  <data name="FA1" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="FA2" xml:space="preserve">
+    <value>出力設定</value>
+  </data>
+  <data name="FAILED_TO_GET_DATA" xml:space="preserve">
+    <value>データの取得に失敗しました。</value>
+  </data>
+  <data name="FA_NO_DATA" xml:space="preserve">
+    <value>データの取得に失敗しました。</value>
+  </data>
+  <data name="FA_ResultString_1" xml:space="preserve">
+    <value>分類アイテム</value>
+  </data>
+  <data name="FA_ResultString_2" xml:space="preserve">
+    <value>条件値</value>
+  </data>
+  <data name="FA_ResultString_3" xml:space="preserve">
+    <value>件数</value>
+  </data>
+  <data name="FA_VARIABLE_INVALID" xml:space="preserve">
+    <value>無効なFAアイテムが設定されています。</value>
+  </data>
+  <data name="FILE_READONLY_OPEN_MSG" xml:space="preserve">
+    <value>{0}' を変更し、保存する必要がなければ、読み取り専用で開いてください。読み取り専用で開きますか？</value>
+  </data>
+  <data name="FILE_READONLY_SAVE_WARNING_MSG" xml:space="preserve">
+    <value>{0}' は読み取り専用のため、上書き保存できません。
+変更内容を維持するには、新しい名前でファイルを保存するか、別の場所に保存する必要があります。</value>
+  </data>
+  <data name="FILE_SAVED" xml:space="preserve">
+    <value>ファイルを保存しました。</value>
+  </data>
+  <data name="FOR_NEXT_PARAM3_INVALID" xml:space="preserve">
+    <value>変数の遷移条件が正しくありません。</value>
+  </data>
+  <data name="GT1" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="GT2" xml:space="preserve">
+    <value>有意水準</value>
+  </data>
+  <data name="GTGraphQC100StackedBarChart" xml:space="preserve">
+    <value>横帯グラフ</value>
+  </data>
+  <data name="GTGraphQC100StackedColumnChart" xml:space="preserve">
+    <value>縦帯グラフ</value>
+  </data>
+  <data name="GTGraphQCBarChart" xml:space="preserve">
+    <value>横棒グラフ</value>
+  </data>
+  <data name="GTGraphQCColumnChart" xml:space="preserve">
+    <value>縦棒グラフ</value>
+  </data>
+  <data name="GTGraphQCMBarChart" xml:space="preserve">
+    <value>M横棒グラフ</value>
+  </data>
+  <data name="GTGraphQCMColumnChart" xml:space="preserve">
+    <value>M縦棒グラフ</value>
+  </data>
+  <data name="GTGraphQCMPieChart" xml:space="preserve">
+    <value>M円グラフ</value>
+  </data>
+  <data name="GTGraphQCPieChart" xml:space="preserve">
+    <value>円グラフ</value>
+  </data>
+  <data name="GTGraphQCPieRATChart" xml:space="preserve">
+    <value>円RATグラフ</value>
+  </data>
+  <data name="GTGraphQCRATBarChart" xml:space="preserve">
+    <value>横棒RATグラフ</value>
+  </data>
+  <data name="GTGraphQCRATColumnChart" xml:space="preserve">
+    <value>縦棒RATグラフ</value>
+  </data>
+  <data name="GTGraphQCStackedBarChart" xml:space="preserve">
+    <value>積上横棒グラフ</value>
+  </data>
+  <data name="GTGraphQCStackedColumnChart" xml:space="preserve">
+    <value>積上縦棒グラフ</value>
+  </data>
+  <data name="GTMAGraph" xml:space="preserve">
+    <value>横棒グラフ,縦棒グラフ</value>
+  </data>
+  <data name="GTMTMGraph" xml:space="preserve">
+    <value>M横棒グラフ,M縦棒グラフ,横棒グラフ,縦棒グラフ</value>
+  </data>
+  <data name="GTMTSGraph" xml:space="preserve">
+    <value>横帯グラフ,縦帯グラフ,M円グラフ</value>
+  </data>
+  <data name="GTRATGraph" xml:space="preserve">
+    <value>円RATグラフ,横棒RATグラフ,縦棒RATグラフ</value>
+  </data>
+  <data name="GTRNKGraph" xml:space="preserve">
+    <value>積上横棒グラフ,積上縦棒グラフ</value>
+  </data>
+  <data name="GTSAGraph" xml:space="preserve">
+    <value>円グラフ,横帯グラフ,縦帯グラフ,横棒グラフ,縦棒グラフ</value>
+  </data>
+  <data name="GT_AUTO_SETTNG_CONFIRM" xml:space="preserve">
+    <value>今ある設定はすべてクリアされますが、よろしいですか？</value>
+  </data>
+  <data name="GT_CHART_TYPE_INVALID" xml:space="preserve">
+    <value>{0} 行目のグラフタイプが正しくありません。</value>
+  </data>
+  <data name="GT_EXEC_INVALID" xml:space="preserve">
+    <value>{0} 行目のオン/オフ設定が正しくありません。</value>
+  </data>
+  <data name="GT_GRAPH_INVALID" xml:space="preserve">
+    <value>{0} 行目のグラフ設定が正しくありません。</value>
+  </data>
+  <data name="GT_PROGRESS_MSG1" xml:space="preserve">
+    <value>設定の読み込み開始</value>
+  </data>
+  <data name="GT_PROGRESS_MSG2" xml:space="preserve">
+    <value>設定からデータ取得中</value>
+  </data>
+  <data name="GT_PROGRESS_MSG3" xml:space="preserve">
+    <value>設定からデータ取得中</value>
+  </data>
+  <data name="GT_PROGRESS_MSG4" xml:space="preserve">
+    <value>GTからデフォルトデータコピー中</value>
+  </data>
+  <data name="GT_PROGRESS_MSG5" xml:space="preserve">
+    <value>コピー完了</value>
+  </data>
+  <data name="GT_PROGRESS_MSG6" xml:space="preserve">
+    <value>設定の読み込み完了</value>
+  </data>
+  <data name="GT_TABLE_HEADING_INVALID" xml:space="preserve">
+    <value>{0} 行目には表題を設定できません。</value>
+  </data>
+  <data name="GT_TABULATION_ITEM_INVALID" xml:space="preserve">
+    <value>{0} 行目の集計アイテムが正しくありません。</value>
+  </data>
+  <data name="GT_TEST_INVALID" xml:space="preserve">
+    <value>{0} 行目には検定を設定できません。</value>
+  </data>
+  <data name="IM_MSG_CLOSE_FORM" xml:space="preserve">
+    <value>閉じますか？</value>
+  </data>
+  <data name="INFO_TOOLTIP_TARGET_VARIABLE" xml:space="preserve">
+    <value>対象アイテム</value>
+  </data>
+  <data name="INTEGRATE_CRITERIA_PARAMN_TOOLTIPDESC" xml:space="preserve">
+    <value>組合せ元アイテムの条件を指定してください。</value>
+  </data>
+  <data name="INTEGRATE_CRITERIA_PARAMN_TOOLTIPHEADER" xml:space="preserve">
+    <value>【組合せ元アイテムの条件】</value>
+  </data>
+  <data name="INTEGRATE_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>0: チェックなし
+1: チェックあり</value>
+  </data>
+  <data name="INTEGRATE_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>【ベースオプション】</value>
+  </data>
+  <data name="INTEGRATE_PARAM2_TOOLTIPDESC" xml:space="preserve">
+    <value>組合せアイテム数を指定してください。</value>
+  </data>
+  <data name="INTEGRATE_PARAM2_TOOLTIPHEADER" xml:space="preserve">
+    <value>【組合せアイテム数】</value>
+  </data>
+  <data name="INTEGRATE_PARAMN_TOOLTIPDESC" xml:space="preserve">
+    <value>[{0}] の該当範囲</value>
+  </data>
+  <data name="INTEGRATE_PARAMN_TOOLTIPHEADER" xml:space="preserve">
+    <value>【組合せ条件】</value>
+  </data>
+  <data name="INTEGRATE_SRC_PARAMN_TOOLTIPDESC" xml:space="preserve">
+    <value>組合せ元アイテムを指定してください。</value>
+  </data>
+  <data name="INTEGRATE_SRC_PARAMN_TOOLTIPHEADER" xml:space="preserve">
+    <value>【組合せ元アイテム】</value>
+  </data>
+  <data name="INVALID_SHEET" xml:space="preserve">
+    <value>無効なシートです。</value>
+  </data>
+  <data name="JOINT_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>連結対象のアイテムを指定してください。</value>
+  </data>
+  <data name="JOINT_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>【連結対象のアイテム】</value>
+  </data>
+  <data name="JOINT_PARAM2_TOOLTIPDESC" xml:space="preserve">
+    <value>最小カテゴリ-
+最大カテゴリ</value>
+  </data>
+  <data name="JOINT_PARAM2_TOOLTIPHEADER" xml:space="preserve">
+    <value>【対象選択肢】</value>
+  </data>
+  <data name="labelAlert" xml:space="preserve">
+    <value>有意水準の設定は2つまでです。</value>
+  </data>
+  <data name="labelOutput" xml:space="preserve">
+    <value>出力形式</value>
+  </data>
+  <data name="labelStatus" xml:space="preserve">
+    <value>状態</value>
+  </data>
+  <data name="LDEL_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>引数を指定してください。</value>
+  </data>
+  <data name="LDEL_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>【】</value>
+  </data>
+  <data name="LDEL_VALIDATION_ERROR1" xml:space="preserve">
+    <value>{0} の引数の設定が正しくありません。</value>
+  </data>
+  <data name="LDEL_VALIDATION_ERROR2" xml:space="preserve">
+    <value>数値を設定してください。</value>
+  </data>
+  <data name="LISTUP_COMMAND_LINE_NUMBER" xml:space="preserve">
+    <value>加工行</value>
+  </data>
+  <data name="LISTUP_COMPARISON_OPERATOR" xml:space="preserve">
+    <value>関係演算子</value>
+  </data>
+  <data name="LISTUP_CRITERIA_VALUE" xml:space="preserve">
+    <value>条件値</value>
+  </data>
+  <data name="LISTUP_LIST" xml:space="preserve">
+    <value>LIST</value>
+  </data>
+  <data name="LISTUP_NO_OF_CASES" xml:space="preserve">
+    <value>件数</value>
+  </data>
+  <data name="LISTUP_SAMPLE_ID" xml:space="preserve">
+    <value>SAMPLEID</value>
+  </data>
+  <data name="LISTUP_TOOLTIP_DESC" xml:space="preserve">
+    <value>LISTUP
+するアイテムを選択してください。</value>
+  </data>
+  <data name="LISTUP_TOOLTIP_HEADER" xml:space="preserve">
+    <value>【LISTUP】</value>
+  </data>
+  <data name="LISTUP_VALUE" xml:space="preserve">
+    <value>値</value>
+  </data>
+  <data name="LISTUP_VARIABLE" xml:space="preserve">
+    <value>アイテム名</value>
+  </data>
+  <data name="LISTUP__INSTRUCTION" xml:space="preserve">
+    <value>指示</value>
+  </data>
+  <data name="LOADING" xml:space="preserve">
+    <value>ロード中</value>
+  </data>
+  <data name="MarkBlackCircle" xml:space="preserve">
+    <value>●</value>
+  </data>
+  <data name="MarkOFF" xml:space="preserve">
+    <value>×</value>
+  </data>
+  <data name="MarkOffCr" xml:space="preserve">
+    <value>○</value>
+  </data>
+  <data name="MarkWhiteCircle" xml:space="preserve">
+    <value>○</value>
+  </data>
+  <data name="MAX_VALIDATION_ERRORMESSAGE" xml:space="preserve">
+    <value>未登録のMAXです。</value>
+  </data>
+  <data name="MCONVERT_ARG_TOOLTIP_DESC" xml:space="preserve">
+    <value>[{0}]の該当アイテム</value>
+  </data>
+  <data name="MCONVERT_ARG_TOOLTIP_HEADER" xml:space="preserve">
+    <value>【代入アイテム】</value>
+  </data>
+  <data name="MCONVERT_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>0: チェックなし
+1: チェックあり</value>
+  </data>
+  <data name="MCONVERT_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>【ベースオプション】</value>
+  </data>
+  <data name="MCONVERT_PARAM2_TOOLTIPDESC" xml:space="preserve">
+    <value>併合するアイテムの選択肢あるいは選択条件を入力してください。</value>
+  </data>
+  <data name="MCONVERT_PARAM2_TOOLTIPHEADER" xml:space="preserve">
+    <value>【選択肢条件】</value>
+  </data>
+  <data name="MCONVERT_PARAMMISMATCH_VALIDATION" xml:space="preserve">
+    <value>入力基準アイテムと同一カテゴリ数[ %0% ]のアイテムを選択して下さい。</value>
+  </data>
+  <data name="MCONVERT_PARAMRANGE_VALIDATION" xml:space="preserve">
+    <value>引数１で設定した選択肢条件以上のカテゴリ数のアイテムを選択して下さい。</value>
+  </data>
+  <data name="MCONVERT_TOOLTIP_DESC" xml:space="preserve">
+    <value>[おしゃれな{0}]の該当アイテム</value>
+  </data>
+  <data name="MCONVERT_TOOLTIP_HEADER" xml:space="preserve">
+    <value>【代入アイテム】</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="MINUS1_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>取外し対象のアイテムを指定してください。</value>
+  </data>
+  <data name="MINUS1_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>【取外し対象のアイテム】</value>
+  </data>
+  <data name="MINUS1_PM1_ERRORMESSAGE" xml:space="preserve">
+    <value>未登録の取外し対象のアイテムです。</value>
+  </data>
+  <data name="MINUS1_PM1_ERRORMESSAGE1" xml:space="preserve">
+    <value>未登録の取外し対象のアイテムです。</value>
+  </data>
+  <data name="MINUS2_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>排他を指定してください。</value>
+  </data>
+  <data name="MINUS2_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>【排他】</value>
+  </data>
+  <data name="MIN_VALIDATION_ERRORMESSAGE" xml:space="preserve">
+    <value>未登録のMINです。</value>
+  </data>
+  <data name="MSG_OUTPUT_ABORTED" xml:space="preserve">
+    <value>出力を中止しました。</value>
+  </data>
+  <data name="MTOS_PARAM1_TOOTIPDESC" xml:space="preserve">
+    <value>抽出元アイテムを指定してください。</value>
+  </data>
+  <data name="MTOS_PARAM1_TOOTIPHEADER" xml:space="preserve">
+    <value>【抽出元アイテム】</value>
+  </data>
+  <data name="MTOS_PARAM2_TOOTIPDESC" xml:space="preserve">
+    <value>1 : 前優先
+2 : 後優先</value>
+  </data>
+  <data name="MTOS_PARAM2_TOOTIPHEADER" xml:space="preserve">
+    <value>【抽出条件】</value>
+  </data>
+  <data name="MTOS_PM1_ERRORMESSAGE" xml:space="preserve">
+    <value>未登録の抽出元アイテムです。</value>
+  </data>
+  <data name="MTOS_PM2_ERRORMESSAGE" xml:space="preserve">
+    <value>未登録の抽出条件です。</value>
+  </data>
+  <data name="OMIT2_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>OMIT2する＜始まりの＞アイテムを選択してください。</value>
+  </data>
+  <data name="OMIT2_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>【OMIT2】</value>
+  </data>
+  <data name="OMIT2_PARAM2_TOOLTIPDESC1" xml:space="preserve">
+    <value>OMIT2する＜終わりの＞アイテムを選択してください。</value>
+  </data>
+  <data name="OMIT2_PARAM2_TOOLTIPHEADER1" xml:space="preserve">
+    <value>【OMIT2】</value>
+  </data>
+  <data name="OMIT2_VALIDATION_ERRORMESSAGE" xml:space="preserve">
+    <value>未登録のOMIT2です。</value>
+  </data>
+  <data name="OMIT_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>OMIT
+するアイテムを選択してください。</value>
+  </data>
+  <data name="OMIT_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>【OMIT】</value>
+  </data>
+  <data name="OMIT_VALIDATION_ERRORMESSAGE" xml:space="preserve">
+    <value>未登録のOMITです。</value>
+  </data>
+  <data name="PROGRESSBAR_ERROR" xml:space="preserve">
+    <value>不明なエラーが発生しました。</value>
+  </data>
+  <data name="PROGRESS_COMPLETE" xml:space="preserve">
+    <value>終了しました。</value>
+  </data>
+  <data name="PROGRESS_FAIL" xml:space="preserve">
+    <value>失敗しました。</value>
+  </data>
+  <data name="PROGRESS_LOADING" xml:space="preserve">
+    <value>データのロード中</value>
+  </data>
+  <data name="PROGRESS_MESSAGE_1" xml:space="preserve">
+    <value>FA出力実行開始</value>
+  </data>
+  <data name="PROGRESS_MESSAGE_2" xml:space="preserve">
+    <value>FA作成用データ取得中</value>
+  </data>
+  <data name="PROGRESS_MESSAGE_3" xml:space="preserve">
+    <value>FA出力用のExcel作成中</value>
+  </data>
+  <data name="PROGRESS_MESSAGE_4" xml:space="preserve">
+    <value>FA作成開始</value>
+  </data>
+  <data name="PROGRESS_MESSAGE_5_1" xml:space="preserve">
+    <value>FAデータ取得中</value>
+  </data>
+  <data name="PROGRESS_MESSAGE_5_2" xml:space="preserve">
+    <value>FA付加項目データ取得中</value>
+  </data>
+  <data name="PROGRESS_MESSAGE_5_3" xml:space="preserve">
+    <value>FAの先頭行</value>
+  </data>
+  <data name="PROGRESS_MESSAGE_5_4" xml:space="preserve">
+    <value>FAリスト取得中</value>
+  </data>
+  <data name="PROGRESS_MESSAGE_5_5" xml:space="preserve">
+    <value>FA出力シートのダウンロード中</value>
+  </data>
+  <data name="PROGRESS_MESSAGE_5_6" xml:space="preserve">
+    <value>FAシート読み込み中</value>
+  </data>
+  <data name="PROGRESS_MESSAGE_6" xml:space="preserve">
+    <value>FA出力シートがダウンロードされました。</value>
+  </data>
+  <data name="PROGRESS_MESSAGE_7" xml:space="preserve">
+    <value>FA出力がキャンセルされました。</value>
+  </data>
+  <data name="QC4" xml:space="preserve">
+    <value>QuickCross 4</value>
+  </data>
+  <data name="QC4_INTEGRITYCHECK_FAIL" xml:space="preserve">
+    <value>整合性チェックに失敗しました。</value>
+  </data>
+  <data name="QSettings1" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="QSettings2" xml:space="preserve">
+    <value>セル</value>
+  </data>
+  <data name="QS_ALERT_ADD_SUBTOTAL_COUNT_NOT_SET" xml:space="preserve">
+    <value>以下のアイテムの回答データを削除しますか？
+{0}</value>
+  </data>
+  <data name="QS_ALERT_ADD_SUBTOTAL_CRITERIA_NOT_SET" xml:space="preserve">
+    <value>セル {0} に小計条件が設定されていません。</value>
+  </data>
+  <data name="QS_ALERT_ADD_SUBTOTAL_NAME_NOT_SET" xml:space="preserve">
+    <value>セル {0} に小計名が設定されていません。</value>
+  </data>
+  <data name="QS_ALERT_ANIMPNEW_DATA_DELETE" xml:space="preserve">
+    <value>下記アイテムのデータを削除しますか{0}</value>
+  </data>
+  <data name="QS_ALERT_AN_IMP_ROW_DELETE" xml:space="preserve">
+    <value>DB反映時に回答データも削除され、復元できません。本当に削除しますか？</value>
+  </data>
+  <data name="QS_ALERT_COUNTBASE_VALUE_NOT_SET" xml:space="preserve">
+    <value>セル {0} にCount Baseが設定されていません。</value>
+  </data>
+  <data name="QS_ALERT_DELETE_ORG_QUESTION" xml:space="preserve">
+    <value>既存アイテムは削除できません。</value>
+  </data>
+  <data name="QS_ALERT_FLAG_UPDATE" xml:space="preserve">
+    <value>以下のアイテムのフラグを更新しました。</value>
+  </data>
+  <data name="QS_ALERT_INVALID_ADDSUBTOTAL" xml:space="preserve">
+    <value>小計出力の値が正しくありません。</value>
+  </data>
+  <data name="QS_ALERT_INVALID_COUNTBASE" xml:space="preserve">
+    <value>Count Baseの値が正しくありません。</value>
+  </data>
+  <data name="QS_ALERT_INVALID_COUNTBASE_FLAG" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目のCount Baseが正しくありません。</value>
+  </data>
+  <data name="QS_ALERT_INVALID_QUESTION_FLAG" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目の「New」欄のフラグに不正な値が設定されています。</value>
+  </data>
+  <data name="QS_ALERT_INVALID_QUESTION_FLAG_EMPTY" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目の「New」欄が空欄です。</value>
+  </data>
+  <data name="QS_ALERT_INVALID_QUESTION_TYPE" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目の質問タイプが正しくありません。</value>
+  </data>
+  <data name="QS_ALERT_INVALID_VALUE" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目 {1} 列に不正な値が設定されています。</value>
+  </data>
+  <data name="QS_ALERT_INVALID_VALUE_NOT_BETWEEN" xml:space="preserve">
+    <value>設問設定エラー
+[1 - {0}] の間の値を設定してください。</value>
+  </data>
+  <data name="QS_ALERT_ORG_DELETE" xml:space="preserve">
+    <value>既存アイテムは削除できません。</value>
+  </data>
+  <data name="QS_ALERT_QTITLE_NOT_EMPTY" xml:space="preserve">
+    <value>表題を空にすることはできません。</value>
+  </data>
+  <data name="QS_ALERT_WEIGHTBACK" xml:space="preserve">
+    <value>「WeightBack」という文字列はアイテム名に指定できません。</value>
+  </data>
+  <data name="QS_ALERT_WT" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目のWT値が正しくありません。
+アイテム名 : {1}</value>
+  </data>
+  <data name="QS_ANSWER_TYPE_RULE" xml:space="preserve">
+    <value>設問設定エラー
+回答タイプの変更ルール違反です。
+{0} 行目の回答タイプが変更されました。
+アイテム名 : {1}
+回答タイプ : {2}
+変更前の回答タイプ : {3}</value>
+  </data>
+  <data name="QS_CHOICE_VALUE_MORETHAN_COUNT" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目 {1} 列にカテゴリ数以上の選択肢が設定されています。</value>
+  </data>
+  <data name="QS_CONFM_ALERT_IMPAN_DELETE" xml:space="preserve">
+    <value>次のアイテムの回答データを削除してもいいですか？ \ n {0}</value>
+  </data>
+  <data name="QS_DATA_INTEGRITY_CHECK" xml:space="preserve">
+    <value>データの整合性チェック</value>
+  </data>
+  <data name="QS_DELETE_CONFIRM1" xml:space="preserve">
+    <value>削除してもよろしいですか？</value>
+  </data>
+  <data name="QS_DELETE_CONFIRM2" xml:space="preserve">
+    <value>該当アイテムに関連するデータ加工文を削除します。加工後データを加工前に戻します。よろしいですか？</value>
+  </data>
+  <data name="QS_ERROR_IN_MATRIX_QUESTION" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目 {1} 列に複数のエラーが発生しています。</value>
+  </data>
+  <data name="QS_ERROR_IN_MATRIX_SUBTOTAL" xml:space="preserve">
+    <value>マトリクス内の小計設定が一致していません。
+{0} 行目 {1} 列</value>
+  </data>
+  <data name="QS_ERROR_IN_MATRIX_SUBTOTAL_ADDSUB" xml:space="preserve">
+    <value>マトリクス内の小計出力欄が一致していません。
+{0} 行目 {1} 列</value>
+  </data>
+  <data name="QS_ERROR_IN_MATRIX_SUBTOTAL_ADDSUBCOUNT" xml:space="preserve">
+    <value>マトリクス内の小計設定数欄が一致していません。
+{0} 行目 {1} 列</value>
+  </data>
+  <data name="QS_ERROR_IN_MATRIX_SUBTOTAL_COUNT" xml:space="preserve">
+    <value>マトリクス内のCount欄が一致していません。
+{0} 行目 {1} 列</value>
+  </data>
+  <data name="QS_ERROR_IN_MATRIX_SUBTOTAL_COUNTBASE" xml:space="preserve">
+    <value>マトリクス内のCount Base欄が一致していません。
+{0} 行目 {1} 列</value>
+  </data>
+  <data name="QS_FIX_DELETED_QUESTIONS" xml:space="preserve">
+    <value>削除された質問を修正してください。</value>
+  </data>
+  <data name="QS_INEGRITY_CHECK_SUCCESS" xml:space="preserve">
+    <value>データ整合性チェックが完了しました。</value>
+  </data>
+  <data name="QS_INTEGIRITY_VARIABLE_CHANGED" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目のアイテム名が通常モードで変更されました。
+アイテム名 : {1}
+変更前のアイテム名 : {2}</value>
+  </data>
+  <data name="QS_INTEGRITY_CHOICE_COUNT_LESS" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目のカテゴリ数より大きな値の回答データが存在します。
+アイテム名 : {1}
+変更前のカテゴリ数 : {2}
+回答データ最大値 : {3}</value>
+  </data>
+  <data name="QS_INVALID_ANSWER_TYPE" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目の回答タイプが正しくありません。
+アイテム名 : {1}</value>
+  </data>
+  <data name="QS_MATRIX_CHOICE_COUNT_NOT_EQUAL" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目のカテゴリ数が上のアイテムと違います。</value>
+  </data>
+  <data name="QS_MATRIX_CHOICE_NOT_EQUAL" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目 {1} 列の選択肢名が上のアイテムと違います。</value>
+  </data>
+  <data name="QS_MATRIX_QUESTION_LESS" xml:space="preserve">
+    <value>設問設定エラー
+質問数の値がマトリクスアイテム数を超えています。
+{1} 行目
+質問 : {0} </value>
+  </data>
+  <data name="QS_MATRIX_SORT_NOT_EQUAL" xml:space="preserve">
+    <value>マトリクス内の並替表示欄が一致していません。
+{0} 行目 {1} 列</value>
+  </data>
+  <data name="QS_MATRIX_TITLE_NOT_EQUAL" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目 {1} 列の表題が上のアイテムと違います。</value>
+  </data>
+  <data name="QS_MATRIX_WT_NOT_EQUAL" xml:space="preserve">
+    <value>マトリクス内のWT欄が一致していません。
+{0} 行目 {1} 列</value>
+  </data>
+  <data name="QS_MAX_NO_EXCEED" xml:space="preserve">
+    <value>質問数が上限を超えています。</value>
+  </data>
+  <data name="QS_NO_VALUE_REQUIRED" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目 {1} 列に値は不要です。</value>
+  </data>
+  <data name="QS_NULL_ANSWER_TYPE" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目の回答タイプが空欄です。
+アイテム名 : {1}</value>
+  </data>
+  <data name="QS_NUMBER_OF_CHOICE_NOT_SET" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目のカテゴリ数が空欄です。
+アイテム名 : {1}</value>
+  </data>
+  <data name="QS_NUMBER_OF_CHOICE_SET" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目のカテゴリ数に値があります。
+回答タイプ : {1}
+アイテム名 : {2}</value>
+  </data>
+  <data name="QS_QUESTIONIRE_SHEET_NAME" xml:space="preserve">
+    <value>調査票</value>
+  </data>
+  <data name="QS_QUESTIONIRE_TITLE1" xml:space="preserve">
+    <value>▲ 設問文を折りたたむ</value>
+  </data>
+  <data name="QS_QUESTIONIRE_TITLE2" xml:space="preserve">
+    <value>選択肢記号の説明</value>
+  </data>
+  <data name="QS_QUESTIONIRE_TITLE3" xml:space="preserve">
+    <value>複数選択（チェックボックス）</value>
+  </data>
+  <data name="QS_QUESTIONIRE_TITLE4" xml:space="preserve">
+    <value>単一選択（ラジオボタン）</value>
+  </data>
+  <data name="QS_QUESTIONIRE_TITLE5" xml:space="preserve">
+    <value>単一選択（プルダウン）</value>
+  </data>
+  <data name="QS_QUESTIONIRE_TITLE6" xml:space="preserve">
+    <value>項目リスト</value>
+  </data>
+  <data name="QS_QUESTIONIRE_TITLE7" xml:space="preserve">
+    <value>選択肢リスト</value>
+  </data>
+  <data name="QS_QUESTIONIRE_TITLE8" xml:space="preserve">
+    <value>順位回答</value>
+  </data>
+  <data name="QS_QUESTIONIRE_TITLE9" xml:space="preserve">
+    <value>{0}位/番目まで</value>
+  </data>
+  <data name="QS_QUESTION_CONFIGURATION_CHECK" xml:space="preserve">
+    <value>質問構成チェック</value>
+  </data>
+  <data name="QS_QUESTION_COUNT_INTEGER" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目の質問数の値が整数ではありません。</value>
+  </data>
+  <data name="QS_QUESTION_COUNT_MORETHAN_201" xml:space="preserve">
+    <value>{0} 行目の質問数の値が200を超えています。
+質問タイプ : {1}</value>
+  </data>
+  <data name="QS_QUESTION_COUNT_NEGATIVE" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目の質問数の値がマイナスの値です。</value>
+  </data>
+  <data name="QS_QUESTION_COUNT_SHOULD_EMPTY" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目の質問数欄は空欄でなければなりません。
+質問タイプ : {1}</value>
+  </data>
+  <data name="QS_RAWDATA_ANSWER_TYPE_NOT_MATCH" xml:space="preserve">
+    <value>回答タイプの変更ルール違反です。 {0} 行目に不正な値が含まれています。アイテム名 : {1} 回答タイプ : {2} , 前のカテゴリ数 : {3}</value>
+  </data>
+  <data name="QS_RAWDATA_ANSWER_TYPE_NOT_MATCH1" xml:space="preserve">
+    <value>設問設定エラー
+回答タイプの変更ルール違反です。
+変換できない回答データが含まれています。
+アイテム名 : {0} 
+回答タイプ : {1}  
+変更前の回答タイプ : {2}</value>
+  </data>
+  <data name="QS_RAWDATA_CATEGORY_NOT_MATCH" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目のカテゴリ数がデータと一致しません。
+アイテム名 : {1}</value>
+  </data>
+  <data name="QS_SCORE_INVALID_VALUE" xml:space="preserve">
+    <value>WT値には、数値を設定してください。</value>
+  </data>
+  <data name="QS_SET_INTEGER" xml:space="preserve">
+    <value>設問設定エラー
+{2} 行目 {3} 列には [ {0} - {1} ] までの整数を設定してください。</value>
+  </data>
+  <data name="QS_SHEET_CHANGE_ALERT" xml:space="preserve">
+    <value>データ加工結果が不正になっている可能性があります。再度データ加工を実行してください。</value>
+  </data>
+  <data name="QS_START_VARIABLE_EDIT_MODE" xml:space="preserve">
+    <value>アイテム名編集モードを開始</value>
+  </data>
+  <data name="QS_STOP_VARIABLE_EDIT_MODE" xml:space="preserve">
+    <value>アイテム名編集モードを終了</value>
+  </data>
+  <data name="QS_TOP_BOX_TEXT" xml:space="preserve">
+    <value>データの設問設定リストです。質問文や選択肢の編集、新アイテムの設定が可能です。</value>
+  </data>
+  <data name="QS_VARIABLE_DUPLICATED" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目 のアイテム名が重複しています。</value>
+  </data>
+  <data name="QS_VARIABLE_EDIT_MODE" xml:space="preserve">
+    <value>アイテム名編集モードを</value>
+  </data>
+  <data name="QS_VARIABLE_MAX_LENGTH" xml:space="preserve">
+    <value>アイテム名は25文字以下に設定してください。</value>
+  </data>
+  <data name="QS_VARIABLE_MODE_SHEET_CHANGE" xml:space="preserve">
+    <value>アイテム名編集モード時はシートを移動できません。</value>
+  </data>
+  <data name="QS_VARIABLE_NULL_NOT_ALLOWED" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目 のアイテム名が空です。</value>
+  </data>
+  <data name="QS_VARIABLE_NUMBER_ONLY" xml:space="preserve">
+    <value>設問設定エラー
+数字のみのアイテム名は設定できません。</value>
+  </data>
+  <data name="QS_VARIABLE_SPECIAL_CHARACTER" xml:space="preserve">
+    <value>アイテム名に記号は設定できません。</value>
+  </data>
+  <data name="RECODE_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>リコード元アイテムを指定してください。</value>
+  </data>
+  <data name="RECODE_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>【リコード元アイテム】</value>
+  </data>
+  <data name="RECODE_PARM_N_TOOLTIPDESC" xml:space="preserve">
+    <value>[ {0} ] の該当範囲</value>
+  </data>
+  <data name="RECODE_PARM_N_TOOLTIPHEADER" xml:space="preserve">
+    <value>【リコード条件】</value>
+  </data>
+  <data name="RECODE_PM1_ERRORMESSAGE" xml:space="preserve">
+    <value>未登録のリコード元アイテムです。</value>
+  </data>
+  <data name="SAVE_ALERT" xml:space="preserve">
+    <value>{0} を保存しますか？</value>
+  </data>
+  <data name="SAVE_ALERT_VARIBLE_EDIT_MODE" xml:space="preserve">
+    <value>アイテム名編集モードで保存はできません。</value>
+  </data>
+  <data name="SD_ALERT_CHOOSE_OTHER_FILE" xml:space="preserve">
+    <value>別のファイルを指定してください。</value>
+  </data>
+  <data name="SD_ALERT_MISMATCH_VARIABLES" xml:space="preserve">
+    <value>以下のアイテムでデータが一致しません。
+{0}</value>
+  </data>
+  <data name="SD_ALERT_SAME_FILENAME" xml:space="preserve">
+    <value>ファイル名を変更して再度お試しください。</value>
+  </data>
+  <data name="SD_ALERT_SUCESS" xml:space="preserve">
+    <value>データ差替が完了しました。</value>
+  </data>
+  <data name="SD_ERROR_FAILED" xml:space="preserve">
+    <value>シートのチェックに失敗しました。
+他のファイルを選択してください。</value>
+  </data>
+  <data name="SD_PB_DELETE_QUESTIONS" xml:space="preserve">
+    <value>不要な質問を削除しています。</value>
+  </data>
+  <data name="SD_PB_DELETE_SHEET" xml:space="preserve">
+    <value>Dataシートを削除しています。</value>
+  </data>
+  <data name="SD_PB_DONE_INTEGRITY_CHECK" xml:space="preserve">
+    <value>データの整合性チェックが完了しました。</value>
+  </data>
+  <data name="SD_PB_DONE_QS_UPDATE" xml:space="preserve">
+    <value>設問設定シートの更新が完了しました。</value>
+  </data>
+  <data name="SD_PB_DONE_SHEETCHECK" xml:space="preserve">
+    <value>シートのチェックが完了しました。</value>
+  </data>
+  <data name="SD_PB_FAILD" xml:space="preserve">
+    <value>データ差替に失敗しました。</value>
+  </data>
+  <data name="SD_PB_FINALIZING" xml:space="preserve">
+    <value>データ差替の最終処理中</value>
+  </data>
+  <data name="SD_PB_PROCESS_DB_UPDATE" xml:space="preserve">
+    <value>データ差替データベースの更新中</value>
+  </data>
+  <data name="SD_PB_PROCESS_INTEGRITY_CHECK" xml:space="preserve">
+    <value>データの整合性チェック中</value>
+  </data>
+  <data name="SD_PB_PROCESS_QS_UPDATE" xml:space="preserve">
+    <value>設問設定シートを更新中</value>
+  </data>
+  <data name="SD_PB_PROCESS_SHEETCHECK" xml:space="preserve">
+    <value>シートをチェック中</value>
+  </data>
+  <data name="SET_INETGER_BETWEEN" xml:space="preserve">
+    <value>[ {0} - {1} ] までの整数を設定してください。</value>
+  </data>
+  <data name="SET_INETGER_BETWEEN_RANGE" xml:space="preserve">
+    <value> {2} 行目 {3} 列には
+[ {0} - {1} ] までの整数を設定してください。</value>
+  </data>
+  <data name="SET_INTEGER_BETWEEN" xml:space="preserve">
+    <value>「{0}～{1}」までの整数を設定してください。</value>
+  </data>
+  <data name="SET_NUMERIC_VALUE" xml:space="preserve">
+    <value>数値を設定してください。</value>
+  </data>
+  <data name="SET_NUMERIC_VALUE_RANGE" xml:space="preserve">
+    <value>{0} 行目{1} 列には数値を設定してください。</value>
+  </data>
+  <data name="SL_INPUT_INVALID" xml:space="preserve">
+    <value>{0} 行目{1} 列の設定が正しくありません。</value>
+  </data>
+  <data name="SL_OUPUT_NAME_DUPLICATE" xml:space="preserve">
+    <value>{0} 行目 : 出力名が重複しています。「OK」で新しい出力名を自動付与します。</value>
+  </data>
+  <data name="SL_OUPUT_NAME_DUPLICATE_DEFAULT" xml:space="preserve">
+    <value>{0} 行目 : デフォルト出力名が重複しています。「OK」で新しい出力名を自動付与します。</value>
+  </data>
+  <data name="SL_OUPUT_NAME_MULTIPLE" xml:space="preserve">
+    <value>{0} 行目 : 1表当たり複数の出力名が設定されています。「OK」で先頭の名前を採用します。</value>
+  </data>
+  <data name="SL_OUPUT_NAME_NOT_SET_FIRST" xml:space="preserve">
+    <value>{0} 行目 : 表の先頭アイテムに出力名が設定されていません。「OK」で先頭アイテムに出力名を自動付与します。</value>
+  </data>
+  <data name="SL_OUTPUT_ENABLE_INVALID" xml:space="preserve">
+    <value>{0} 列の出力欄に不正な値があります。</value>
+  </data>
+  <data name="SL_VARIABLE_SEP_NO_MATCH" xml:space="preserve">
+    <value>{0} 行目 : 1表の設定内に回答タイプSA/MAとNが混在しています。</value>
+  </data>
+  <data name="SP_PB_ALMOST_FINISH" xml:space="preserve">
+    <value>間もなく完了します。</value>
+  </data>
+  <data name="SP_PB_COMPLETED" xml:space="preserve">
+    <value>データ差替が完了しました。</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="TITILE_FALIST" xml:space="preserve">
+    <value>FAリスト</value>
+  </data>
+  <data name="TITLE_DATA_PROCESSING" xml:space="preserve">
+    <value>データ加工</value>
+  </data>
+  <data name="toggleButtonVEM" xml:space="preserve">
+    <value>アイテム名編集モード</value>
+  </data>
+  <data name="UNSUPPORTED_VARIABLETYPE" xml:space="preserve">
+    <value>サポートされていない変数タイプです。</value>
+  </data>
+  <data name="VALIDATION_CLASS_MSG" xml:space="preserve">
+    <value>範囲の分割指定はできません。</value>
+  </data>
+  <data name="VALIDATION_FAIL_SHEET" xml:space="preserve">
+    <value>{0} 行目{1} 列で質問構成チェックに失敗しました。</value>
+  </data>
+  <data name="VALIDATION_MESSAGE_CALL" xml:space="preserve">
+    <value>プログラム名を指定してください。</value>
+  </data>
+  <data name="VALIDATION_SUCCESS_SHEET" xml:space="preserve">
+    <value>質問構成チェックが完了しました。</value>
+  </data>
+  <data name="VAL_PM1_ERROR_MESSAGE" xml:space="preserve">
+    <value>変数のレンジ開始を指定してください。</value>
+  </data>
+  <data name="VAL_PM1_ERROR_TITLE" xml:space="preserve">
+    <value>【変数のレンジ開始】</value>
+  </data>
+  <data name="VAL_PM2_ERROR_MESSAGE" xml:space="preserve">
+    <value>変数のレンジ終了を指定してください。</value>
+  </data>
+  <data name="VAL_PM2_ERROR_TITLE" xml:space="preserve">
+    <value>【変数のレンジ終了】</value>
+  </data>
+  <data name="VAL_PM3_ERROR_MESSAGE" xml:space="preserve">
+    <value>変数の遷移条件を指定してください。</value>
+  </data>
+  <data name="VAL_PM3_ERROR_TITLE" xml:space="preserve">
+    <value>【変数の遷移条件】</value>
+  </data>
+  <data name="ERR_MSG_COMPUTE_MA_FA_NOT_ALLOWED" xml:space="preserve">
+    <value>回答タイプが[N][SA]以外のアイテムは指定できません。</value>
+  </data>
+  <data name="BTN_UNDO" xml:space="preserve">
+    <value>加工前に戻す</value>
+  </data>
+  <data name="MarkOFFForValidateGT" xml:space="preserve">
+    <value>×</value>
+  </data>
+  <data name="SHEET_MAX_ROW_NO_EXCEED" xml:space="preserve">
+    <value>100万行を超えて入力できません。</value>
+  </data>
+</root>

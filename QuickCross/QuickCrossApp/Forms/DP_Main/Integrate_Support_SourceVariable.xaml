@@ -1,0 +1,599 @@
+﻿<Window x:Class="Qc4Launcher.Forms.DP_Main.Integrate_Support_SourceVariable"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Qc4Launcher.Forms.DP_Main"
+         xmlns:res="clr-namespace:Qc4Launcher"
+        mc:Ignorable="d" ShowInTaskbar="False"
+        Title="Integrate_Support_SourceVariable" ResizeMode="NoResize" Height="445" Width="620" Loaded="Window_Load" WindowStartupLocation="CenterScreen" Background="#FFF0F0F0" PreviewMouseRightButtonDown="DisableRightMenu" PreviewMouseRightButtonUp="DisableRightMenu" BorderBrush="#ADADAD" BorderThickness="1">
+    <!--Background="#FFF0F0F0"-->
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Margin="5,5,5,1"  BorderThickness="1"     BorderBrush="#FFE1E1E1"/>
+        <!--CornerRadius="4"-->
+        <Grid Grid.Row="0" Margin="6,6,6,2"  Background="#FFFFFFFF">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="8.8*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,3,8,0" HorizontalAlignment="Right">
+                <TextBlock Name="Label_OriginItem_Item" Text="New Variable" Margin="0,0,6,0"  Style="{StaticResource TextBlockNormalWithCenterAligned}"/>
+                <TextBox Name="Combo_OriginItem_Item" IsReadOnly="True" Text="New Variable Name" Height="25" Width="180" Style="{StaticResource NormalTextBox}" IsTabStop="False"/>
+            </StackPanel>
+            <Grid Grid.Row="1"  Background="#FFFFFFFF">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2.95*"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
+                <!--<ListBox x:Name="List_OriginItem_Item"  Grid.Column="0" Margin="10,0,0,6" SelectionMode="Multiple"  
+                           
+                           ScrollViewer.CanContentScroll="True"      IsSynchronizedWithCurrentItem="True"   >
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                            <Setter Property="Padding" Value="6,0,0,0"></Setter>
+                            <Setter Property="Foreground" Value="#FF333333"></Setter>
+                            <Setter Property="FontFamily" Value="Arial"></Setter>
+                            <Setter Property="FontSize" Value="12"></Setter>
+                            
+                            <EventSetter Event="MouseEnter" Handler="List_OriginItem_Item_MouseEnter"/>
+                            <EventSetter Event="PreviewMouseMove" Handler="List_OriginItem_Item_MouseEnter"/>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                </ListBox>-->
+
+                <DataGrid Grid.Column="0" Name="List_OriginItem_Item"  HeadersVisibility="None"  CanUserResizeColumns="False"  HorizontalGridLinesBrush="Transparent" VerticalGridLinesBrush="Transparent"
+                                   CanUserSortColumns="False" Margin="8,0,0,0" CanUserDeleteRows="False"     CanUserReorderColumns="False"  Background="White"  Style="{StaticResource Datagrid_normal_NoPadding}" 
+                                   CanUserAddRows="False" ItemsSource="{Binding}" AutoGenerateColumns="False" BorderBrush="#FFE1E1E1" Height="270" Width="auto"  SelectionUnit="FullRow"
+                                   VerticalAlignment="Top"  HorizontalAlignment="Stretch"  HorizontalScrollBarVisibility="Disabled"   ScrollViewer.VerticalScrollBarVisibility="Auto" CurrentCellChanged="Choices_grid_CurrentCellChanged" PreviewKeyDown="Grid_PreviewKeyDown" CopyingRowClipboardContent="List_OriginItem_Item_CopyingRowClipboardContent">
+                    <!--<Style TargetType="DataGridRow">
+                                
+                            </Style>-->
+                    <DataGrid.Resources>
+                        <!--<SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" 
+                   Color="#FFd9f3fe"/>-->
+                        <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#F6F6F6"/>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#CBE8F6"/>
+                    </DataGrid.Resources>
+                    <DataGrid.RowStyle>
+                        <Style TargetType="{x:Type DataGridRow}">
+                            <Style.Triggers>
+
+                                <DataTrigger Binding="{Binding Path=Selectable}" Value="False">
+                                    <DataTrigger.Setters>
+                                        <Setter Property="Background" Value="LightGray" />
+                                    </DataTrigger.Setters>
+                                </DataTrigger>
+                                <Trigger Property="IsMouseOver"
+                           Value="True">
+                                    <Setter Property="Background"
+                               Value="#e5f3fb" />
+                                    <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="True">
+
+                                    <!--<Setter Property="Background" Value="#CBE8F6"/>-->
+                                    <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+                  
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="slno"  Width="32"  Binding="{Binding SL, Mode=OneWay}">
+                           
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                    <Setter Property="Foreground" Value="#FF333333" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                            <DataGridTextColumn.EditingElementStyle>
+                                <Style TargetType="TextBox" >
+                                    <!--<EventSetter Event="TextChanged" Handler="TextBox_TextChanged" />-->
+                                    <Setter Property="TextWrapping" Value="Wrap" />
+                                    <Setter Property="AcceptsReturn" Value="true" />
+                                    <Setter Property="IsEnabled" Value="False" />
+                                    <Setter Property="IsReadOnly" Value="True" />
+                                </Style>
+                            </DataGridTextColumn.EditingElementStyle>
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell" BasedOn="{StaticResource Datagrid_GT_Cell_Style_qs}">
+                                    <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
+                                    <Setter Property="BorderThickness" Value="0,0,1,0"/>
+                                    <Setter Property="BorderBrush" Value="#FFE1E1E1"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="true" >
+                                            <Setter Property="Foreground" Value="Black" />
+                                            <Setter Property="BorderBrush" Value="Transparent"/>
+                                        </Trigger>
+                                        <!--<DataTrigger Binding="{Binding checkVer}" Value="True">
+                                                    <Setter Property="Foreground" Value="Black" />
+                                                </DataTrigger>-->
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                            <!--<DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell"  BasedOn="{StaticResource Datagrid_GT_Cell_Style1}">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="true" >
+                                            <Setter Property="Foreground" Value="Black" />
+                                        </Trigger>
+                                        --><!--<DataTrigger Binding="{Binding checkVer}" Value="True">
+                                                    <Setter Property="Foreground" Value="Black" />
+                                                </DataTrigger>--><!--
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>-->
+                        </DataGridTextColumn>
+                        <DataGridTextColumn x:Name="ChoiceListSelect1"  Width="*"  Binding="{Binding Choice, Mode=OneWay}"> 
+                            <DataGridTextColumn.EditingElementStyle>
+                                <Style TargetType="TextBox" >
+                                    <!--<EventSetter Event="TextChanged" Handler="TextBox_TextChanged" />167-->
+                                    <Setter Property="TextWrapping" Value="Wrap" />
+                                    <Setter Property="AcceptsReturn" Value="true" />
+                                    <Setter Property="IsEnabled" Value="False" />
+                                    <Setter Property="IsReadOnly" Value="True" />
+                                </Style>
+                            </DataGridTextColumn.EditingElementStyle>
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell"  BasedOn="{StaticResource Datagrid_GT_Cell_Style_qs}">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="true" >
+                                            <Setter Property="Foreground" Value="Black" />
+                                            <Setter Property="BorderBrush" Value="Transparent"/>
+                                        </Trigger>
+                                        <!--<DataTrigger Binding="{Binding checkVer}" Value="True">
+                                                    <Setter Property="Foreground" Value="Black" />
+                                                </DataTrigger>-->
+                                    </Style.Triggers>
+                                    <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Border Name="minmaxavgborder" Grid.Row="5" Margin="8,0,0,2"  BorderThickness="1"  Height="100"   BorderBrush="#FFE1E1E1">
+                    <Grid x:Name="minmaxavg"  Grid.Column="0" Margin="10,5,5,5" Height="90" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="4*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="{x:Static res:LocalResource.LABEL_MIN_INTEGRATE}" Grid.Row="0" Margin="0,0,0,4" VerticalAlignment="Center" Style="{StaticResource TextBlockNormalWithCenterAligned}"></TextBlock>
+                        <TextBox x:Name="Text_OriginItem_Min" IsReadOnly="True" Grid.Column="1" Grid.Row="0"  Margin="0,0,0,4" Style="{StaticResource NormalTextBox_READONLY}"></TextBox>
+                        <TextBlock Grid.Column="0"  Grid.Row="1" Text="{x:Static res:LocalResource.LABEL_MAX_INTEGRATE}"  Margin="0,0,0,4" VerticalAlignment="Center" Style="{StaticResource TextBlockNormalWithCenterAligned}"></TextBlock>
+                        <TextBox x:Name="Text_OriginItem_Max" IsReadOnly="True" Grid.Column="1" Grid.Row="1"  Margin="0,0,0,4" Style="{StaticResource NormalTextBox_READONLY}"></TextBox>
+                        <TextBlock Grid.Column="0" Text="{x:Static res:LocalResource.LABEL_MEAN_INTEGRATE}" Grid.Row="2"  Margin="0,0,0,4" VerticalAlignment="Center" Style="{StaticResource TextBlockNormalWithCenterAligned}"></TextBlock>
+                        <TextBox x:Name="Text_OriginItem_Avg" IsReadOnly="True" Grid.Column="1" Grid.Row="2"  Margin="0,0,0,4" Style="{StaticResource NormalTextBox_READONLY}"></TextBox>
+                    </Grid>
+                </Border>
+                <DataGrid Grid.Column="1" Name="gridcriteriavalues"  HeadersVisibility="Column"    CanUserResizeColumns="False" HorizontalScrollBarVisibility="Hidden"
+                                   CanUserSortColumns="False" Margin="6,0,6,6" CanUserDeleteRows="False"   CanUserReorderColumns="False"   GotKeyboardFocus="Gridcriteriavalues_GotKeyboardFocus"
+                                   CanUserAddRows="False" ItemsSource="{Binding}" AutoGenerateColumns="False" RowHeight="25" HorizontalContentAlignment="Center"
+                                   VerticalAlignment="Top" Width="400" Style="{StaticResource Datagrid_normal}" BorderBrush="#FFE1E1E1" ColumnHeaderStyle="{StaticResource Datagrid_Header_Style1}" PreviewKeyDown="gridcriteriavalues_PreviewKeyDown" CopyingRowClipboardContent="Gridcriteriavalues_CopyingRowClipboardContent" IsMouseCaptureWithinChanged="Gridcriteriavalues_IsMouseCaptureWithinChanged" PreviewKeyUp="Gridcriteriavalues_PreviewKeyUp">
+                  
+                    <DataGrid.RowStyle>
+                        <Style TargetType="{x:Type DataGridRow}">
+                            <Style.Triggers>
+
+                                <DataTrigger Binding="{Binding Path=Selectable}" Value="False">
+                                    <DataTrigger.Setters>
+                                        <Setter Property="Background" Value="LightGray" />
+                                    </DataTrigger.Setters>
+                                </DataTrigger>
+
+                                <Trigger Property="IsMouseOver"
+                           Value="True">
+                                    <Setter Property="Background"
+                               Value="#e5f3fb" />
+                                    <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                </Trigger>
+                            </Style.Triggers>
+
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Resources>
+                        <!--<SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" 
+                   Color="#FFd9f3fe"/>-->
+                        <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#F6F6F6"/>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#CBE8F6"/>
+                    </DataGrid.Resources>
+                    <!--<DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell" BasedOn="{StaticResource Datagrid_GT_Cell_Style_qs}">
+                            <Setter Property="IsTabStop" Value="False" />
+
+                        </Style>
+                    </DataGrid.CellStyle>-->
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn  x:Name="gridselectbutton"  Width="25" CanUserResize="False">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Name="btn_RightArrow" Content=">" Click="Btn_RightArrow_Click" KeyDown="Btn_RightArrow_KeyDown" Style="{StaticResource SmallButton}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" 
+                                Value="Gainsboro" />
+                                    <Setter Property="KeyboardNavigation.IsTabStop"
+               Value="False" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True" >
+                                            <Setter Property="Foreground" Value="Black" />
+
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTemplateColumn.CellStyle>
+                        </DataGridTemplateColumn>
+                        
+                        <!--<DataGridTextColumn Width="35" x:Name="gridselectbutton"     IsReadOnly="True" Binding="{Binding Sl}" >
+                            -->
+                        <!--Width="40"-->
+                        <!--
+                            
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+
+                                </Style>
+                                
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" 
+                                Value="Gainsboro" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True" >
+                                            <Setter Property="Foreground" Value="Black" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>-->
+                        <DataGridTextColumn x:Name="gridslno"  Width="45" IsReadOnly="True"   Binding="{Binding SL}">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                    <Setter Property="Foreground" Value="#FF333333" />
+                                    <!--<Setter Property="Foreground" Value="#FF333333" />-->
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                            <DataGridTextColumn.EditingElementStyle>
+                                <Style TargetType="TextBox" >
+                                    <!--<EventSetter Event="TextChanged" Handler="TextBox_TextChanged"/>-->
+                                    <Setter  Property="TextWrapping" Value="Wrap" />
+                                    <Setter Property="AcceptsReturn" Value="true" />
+
+                                </Style>
+                            </DataGridTextColumn.EditingElementStyle>
+                            <!--<DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>-->
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" 
+                                Value="Gainsboro" />
+                                    <Setter Property="KeyboardNavigation.IsTabStop"
+               Value="False" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True" >
+                                            <Setter Property="Foreground" Value="Black" />
+
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn  Width="*" x:Name="gridchoice"  Header="{x:Static res:LocalResource.LABEL_CHOICE}" Binding="{Binding Choice}">
+                            <DataGridTextColumn.EditingElementStyle>
+                                <Style TargetType="TextBox" >
+                                    <!--<EventSetter Event="TextChanged" Handler="TextBox_TextChanged"/>-->
+                                    <Setter Property="TextWrapping" Value="NoWrap" />
+                                    <Setter Property="AcceptsReturn" Value="true" />
+                                    <Setter Property="BorderBrush" Value="{x:Null}" />
+                                </Style>
+                            </DataGridTextColumn.EditingElementStyle>
+                            <!--<DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>-->
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Padding" Value="6,0,0,0" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                    <Setter Property="Foreground" Value="#FF333333" />
+                                    <!--<Setter Property="Foreground" Value="#FF333333" />-->
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                            <!--<DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" 
+                                Value="Gainsboro" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True" >
+                                            <Setter Property="Foreground" Value="Black" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>-->
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn x:Name="gridoperator"  Header="{x:Static res:LocalResource.LABEL_OPERATOR}" ClipboardContentBinding="{Binding Operator}"  Width="55"  CanUserResize="False">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ComboBox x:Name="cmb_dataGrid_operator" Loaded="LoadCombo_Equal_NotEqual" IsEditable="False" Style="{StaticResource NormalComboBox_Editable}"   BorderBrush="White"  SelectedItem="{Binding Operator, UpdateSourceTrigger=PropertyChanged}"><!--ItemsSource="{Binding Operator}"-->
+                                    </ComboBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" 
+                                Value="Gainsboro" />
+                                    <Setter Property="KeyboardNavigation.IsTabStop"
+               Value="False" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True" >
+                                            <Setter Property="Foreground" Value="Black" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTemplateColumn.CellStyle>
+                        </DataGridTemplateColumn>
+                        <!--<DataGridTemplateColumn Header="{x:Static res:LocalResource.LABEL_OPERATOR}"  Width="50" CanUserResize="False" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ComboBox x:Name="cmb_dataGrid_operator" IsEditable="True" Style="{StaticResource NormalComboBox_Editable}" BorderBrush="White" SelectedItem="{Binding Operator}">
+                                        <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_EQUALS}"/>
+                                        <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_LESS_OR_GREATER}"/>
+                                    </ComboBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>-->
+                        <!--<DataGridTextColumn  Width="50" x:Name="gridoperator" Header="{x:Static res:LocalResource.LABEL_OPERATOR}" 
+                                                     Binding="{Binding Operator}" >
+                            <DataGridTextColumn.EditingElementStyle>
+                                <Style TargetType="TextBox" >
+                                    -->
+                        <!--<EventSetter Event="TextChanged" Handler="AllowOnlyNumbers"/>-->
+                        <!--
+                                    <Setter Property="TextWrapping" Value="Wrap" />
+                                    <Setter Property="AcceptsReturn" Value="true" />
+                                </Style>
+                            </DataGridTextColumn.EditingElementStyle>
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>-->
+                        <DataGridTextColumn   Width="112"  x:Name="gridcriteriavalue" Header="{x:Static res:LocalResource.LBL_INTEGRATE_SUPPORT_FORM_CRITERIA_VALUE}" Binding="{Binding CriteriaValue}">
+                            <DataGridTextColumn.EditingElementStyle>
+                                <Style TargetType="TextBox" >
+                                    <!--<EventSetter Event="TextChanged" Handler="TextBox_TextChanged"/>-->
+                                    <Setter Property="TextWrapping" Value="NoWrap" />
+                                    <Setter Property="AcceptsReturn" Value="true" />
+                                </Style>
+                            </DataGridTextColumn.EditingElementStyle>
+                            <!--<DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>-->
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Padding" Value="6,0,0,0" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                    <!--<Setter Property="Foreground" Value="#FF333333" />-->
+                                    <!--<Setter Property="Foreground" Value="#FF333333" />-->
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="true" >
+                                            <Setter Property="Foreground" Value="#FF333333" />
+
+                                            <!--<Setter Property="Padding" Value="0,0,0,0" />
+                                            <Setter Property="VerticalAlignment" Value="Center" />
+                                            <Setter Property="Foreground" Value="#FF333333" />-->
+                                        </Trigger>
+                                        <!--<DataTrigger Binding="{Binding checkVer}" Value="True">
+                                                    <Setter Property="Foreground" Value="Black" />
+                                                </DataTrigger>-->
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                            <!--<DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" 
+                                Value="Gainsboro" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True" >
+                                            <Setter Property="Foreground" Value="Black" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>-->
+                        </DataGridTextColumn>
+                        <DataGridTextColumn  Width="81" x:Name="gridloverlimit" Header="{x:Static res:LocalResource.GRID_LBL_INTEGRATE_LOWER_LIMIT}"   Binding="{Binding LowerLimit}">
+                            <DataGridTextColumn.EditingElementStyle >
+                                <Style TargetType="TextBox" >
+                                    <!--<EventSetter Event="TextChanged" Handler="TextBox_TextChanged" />-->
+                                    <Setter Property="TextWrapping" Value="NoWrap" />
+                                    <Setter Property="AcceptsReturn" Value="true" />
+                                </Style>
+                            </DataGridTextColumn.EditingElementStyle>
+                            <!--<DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                    <Setter Property="ContentTemplate">
+                                        <Setter.Value>
+                                            <DataTemplate>
+                                                <TextBlock TextWrapping="Wrap" Text="{Binding}"></TextBlock>
+                                            </DataTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>-->
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Padding" Value="6,0,0,0" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                    <!--<Setter Property="Foreground" Value="#FF333333" />-->
+                                    <!--<Setter Property="Foreground" Value="#FF333333" />-->
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="true" >
+                                            <Setter Property="Foreground" Value="#FF333333" />
+
+                                            <!--<Setter Property="Padding" Value="0,0,0,0" />
+                                            <Setter Property="VerticalAlignment" Value="Center" />
+                                            <Setter Property="Foreground" Value="#FF333333" />-->
+                                        </Trigger>
+                                        <!--<DataTrigger Binding="{Binding checkVer}" Value="True">
+                                                    <Setter Property="Foreground" Value="Black" />
+                                                </DataTrigger>-->
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn x:Name="gridseperator" IsReadOnly="True"    Width="25"  Binding="{Binding Seperator}">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                    <Setter Property="Foreground" Value="#FF333333" />
+                                    <!--<Setter Property="Foreground" Value="#FF333333" />-->
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                            <DataGridTextColumn.EditingElementStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" 
+                                Value="Gainsboro" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True" >
+                                            <Setter Property="Foreground" Value="Black" />
+                                            <Setter Property="HorizontalAlignment" Value="Center" />
+                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                            <Setter Property="Padding" Value="6,0,0,0" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.EditingElementStyle>
+                            <!--<DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>-->
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Background" 
+                                Value="Gainsboro" />
+                                    <Setter Property="KeyboardNavigation.IsTabStop"
+               Value="False" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True" >
+                                            <Setter Property="Foreground" Value="Black" />
+                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                            <!--<DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="true" >
+                                            <Setter Property="Foreground" Value="Black" />
+                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                            <Setter Property="VerticalContentAlignment" Value="Center" />
+                                        </Trigger>
+                                        -->
+                            <!--<DataTrigger Binding="{Binding checkVer}" Value="True">
+                                                    <Setter Property="Foreground" Value="Black" />
+                                                </DataTrigger>-->
+                            <!--
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>-->
+                        </DataGridTextColumn>
+                        <DataGridTextColumn x:Name="gridupperlimit"  Width="81" Header="{x:Static res:LocalResource.GRID_LBL_INTEGRATE_UPPER_LIMIT}" Binding="{Binding UpperLimit}">
+                            <DataGridTextColumn.EditingElementStyle>
+                                <Style TargetType="TextBox" >
+                                    <!--<EventSetter Event="TextChanged" Handler="TextBox_TextChanged" />-->
+                                    <Setter Property="TextWrapping" Value="NoWrap" />
+                                    <Setter Property="AcceptsReturn" Value="true" />
+                                </Style>
+                            </DataGridTextColumn.EditingElementStyle>
+                            <!--<DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>-->
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="true" >
+                                            <Setter Property="Foreground" Value="#FF333333" />
+
+                                            <!--<Setter Property="Padding" Value="0,0,0,0" />
+                                            <Setter Property="VerticalAlignment" Value="Center" />
+                                            <Setter Property="Foreground" Value="#FF333333" />-->
+                                        </Trigger>
+                                        <!--<DataTrigger Binding="{Binding checkVer}" Value="True">
+                                                    <Setter Property="Foreground" Value="Black" />
+                                                </DataTrigger>-->
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Padding" Value="6,0,0,0" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                    <!--<Setter Property="Foreground" Value="#FF333333" />-->
+                                    <!--<Setter Property="Foreground" Value="#FF333333" />-->
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1"  Background="#FFF0F0F0">
+            <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10">
+                <Button Name="Command_Entry"  Content="{x:Static res:LocalResource.BTN_SAVE}" HorizontalAlignment="Right" Width="100" Height="25" Margin="6,0,0,0"  Click="Command_Entry_Click" Style="{StaticResource NormalButton}"/>
+                <Button Name="Command_Cancel" Content="{x:Static res:LocalResource.BTN_CANCEL}" HorizontalAlignment="Right" Width="100" Height="25" Click="Command_Cancel_Click" Margin="6,0,0,0"  Style="{StaticResource NormalButton}"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,107 @@
+﻿<Window x:Class="Qc4Launcher.Forms.QCM.QcmMainScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Qc4Launcher.Forms.QCM"
+        mc:Ignorable="d"
+          xmlns:res="clr-namespace:Qc4Launcher"
+        Title="{x:Static res:LocalResource.QCM_TITLE}" Height="380" Width="500"  ResizeMode="NoResize" WindowStyle="None" 
+			WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Closed="Window_Closed" BorderBrush="#ADADAD" BorderThickness="1">
+    <Grid Background="#FFF0F0F0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid  Grid.Row="0"  MouseDown="DragableGridMouseDown" Style="{StaticResource Header}">
+            <TextBlock Style="{StaticResource HeaderText}" Text="{x:Static res:LocalResource.QCM_TITLE}"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <RadioButton Name="radio_sjis" GroupName="txtFormat" Style="{StaticResource RadibuttonNormal}" Margin="30,0,0,0" Content="SJIS" FontWeight="Bold"></RadioButton>
+                <RadioButton Name="radio_utf" GroupName="txtFormat" Style="{StaticResource RadibuttonNormal}" Margin="100,0,0,0" Content="UTF-8" FontWeight="Bold"></RadioButton>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="265"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Margin="16,5,16,0" BorderThickness="1" BorderBrush="#FFADADAD">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Label Content="{x:Static res:LocalResource.QCM_QLAYOUT_LABEL}" VerticalAlignment="Bottom" Margin="10,0,0,0"></Label>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="40"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <TextBox Name="txt_qlayout" Height="25" Style="{StaticResource NormalTextBox}" Margin="6,0,0,0" IsReadOnly="True" ></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Button Name="btn_qlayout" Content="..." VerticalContentAlignment="Center" Height="25" Style="{StaticResource SmallButton}" Width="30"  Margin="1,0,6,0" Click="Open_qlayout_csvdata"></Button>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Label Content="{x:Static res:LocalResource.QCM_QRAWDATA_LABEL}" VerticalAlignment="Bottom" Margin="10,0,0,0"></Label>
+                    </Grid>
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="40"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <TextBox Name="txt_qrowdata" Height="25" Style="{StaticResource NormalTextBox}" Margin="6,0,0,0" IsReadOnly="True" ></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Button Name="btn_qrowdata" Content="..."  VerticalContentAlignment="Center" Height="25" Style="{StaticResource SmallButton}" Width="30"  Margin="1,0,6,0" Click="Open_qrewdata_tsvdata"></Button>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="5">
+                        <Label Content="{x:Static res:LocalResource.QCM_OUT_LABEL}"  Width="300" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,0"></Label>
+                    </Grid>
+                    <Grid Grid.Row="6">
+                   <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="40"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <TextBox Name="txt_out" Height="25" Style="{StaticResource NormalTextBox}" Margin="6,0,0,12" IsReadOnly="True" ></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Button Name="btn_out" Content="..." VerticalContentAlignment="Center" Height="25" Style="{StaticResource SmallButton}" Width="30"  Margin="1,0,6,12" Click="Open_qc4_output" IsEnabled="False"></Button>
+                        </Grid>
+                    </Grid>
+
+                </Grid>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="120"></ColumnDefinition>
+                <ColumnDefinition Width="120"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Name="StartConvert_btn" Grid.Column="1" Content="{x:Static res:LocalResource.QCM_BTN_START_CONVERSION}"  Style="{StaticResource NormalButton}" Click="Qcm_Convert" IsEnabled="False"></Button>
+            <Button Name="Cancel_btn" Grid.Column="2" Content="{x:Static res:LocalResource.QCM_BTN_CANCEL}" Margin="0,0,16,0" Style="{StaticResource NormalButton}" Click="Qcm_cancel"></Button>
+        </Grid>
+
+    </Grid>
+   
+</Window>

@@ -1,0 +1,77 @@
+﻿/*
+[df:title]
+取込管理情報を本調査ID、ステータス：取込中で検索
+
+[df:description]
+標準納品、追加データをUNION ALLで取得
+標準納品データは最新データのみ取得する
+
+TRawdataImportQueInfoBhv_SelectGroupByMainSurveyId.sql
+*/
+
+-- #RawdataImportQueInfoImportDataUnionAll#
+-- !TRawdataImportQueInfoImportDataUnionAllPmb!
+-- !!Decimal MainSurveyId!!
+
+SELECT
+	UN.RAWDATA_IMPORT_QUE_INFO_ID
+	, UN.QCWEB_JOB_NO
+	, UN.MAIN_SURVEY_ID
+	, UN.SURVEY_DATA_TYPE
+	, UN.FILEPATH
+	, UN.FILE_NAME
+	, UN.IMPORT_STATUS
+	, UN.MESSAGE
+	, UN.QCWEBID
+	, UN.ADD_DATA_NO
+FROM
+	(
+		SELECT
+			MAX(RAWDATA_IMPORT_QUE_INFO_ID) AS RAWDATA_IMPORT_QUE_INFO_ID
+			, QCWEB_JOB_NO
+			, MAIN_SURVEY_ID
+			, SURVEY_DATA_TYPE
+			, FILEPATH
+			, FILE_NAME
+			, IMPORT_STATUS
+			, MESSAGE
+			, QCWEBID
+			, ADD_DATA_NO
+		FROM
+			T_RAWDATA_IMPORT_QUE_INFO
+		WHERE
+			SURVEY_DATA_TYPE = '0'
+		GROUP BY
+			QCWEB_JOB_NO
+			, MAIN_SURVEY_ID
+			, SURVEY_DATA_TYPE
+			, FILEPATH
+			, FILE_NAME
+			, IMPORT_STATUS
+			, MESSAGE
+			, QCWEBID
+			, ADD_DATA_NO
+		UNION ALL
+		SELECT
+			RAWDATA_IMPORT_QUE_INFO_ID
+			, QCWEB_JOB_NO
+			, MAIN_SURVEY_ID
+			, SURVEY_DATA_TYPE
+			, FILEPATH
+			, FILE_NAME
+			, IMPORT_STATUS
+			, MESSAGE
+			, QCWEBID
+			, ADD_DATA_NO
+		FROM
+			T_RAWDATA_IMPORT_QUE_INFO
+		WHERE
+			SURVEY_DATA_TYPE = '1'
+	) UN
+WHERE
+		UN.MAIN_SURVEY_ID = /*pmb.MainSurveyId*/1
+	AND UN.IMPORT_STATUS = 1
+ORDER BY
+	UN.RAWDATA_IMPORT_QUE_INFO_ID ASC
+	, UN.QCWEB_JOB_NO ASC
+;

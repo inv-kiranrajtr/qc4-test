@@ -1,0 +1,62 @@
+# /---------------------------------------------------------------------------
+# classificationDeploymentMap: (NotRequired - Default map:{})
+#
+# The relation between column and classification.
+#
+# This property uses classification names of classificationDefinitionMap.
+# The table name '$$ALL$$' means all tables are target.
+# The table names and column names are treated as case insensitive.
+#
+# You don't need specify here about table classifications.
+# Because table classifications are auto-deployed by relation information.
+#
+# Specification:
+# map: {
+#     [table-name or $$ALL$$] = map:{
+#         ; [column-name (with hint)]=[classification-name]
+#     }
+# }
+#
+# *The line that starts with '#' means comment-out.
+#
+map:{
+    #; $$ALL$$       = map:{suffix:_FLG=Flg}
+    ; $$ALL$$        = map:{
+        ; DELETE_FLAG=DeleteFlag
+        ; suffix:_FLAG=Flag
+    }
+    ; T_Item_Info    = map:{
+    	; Source_Div=SourceDiv
+    	; Answer_Type=AnswerType
+    	; Matrix_Div=MatrixType
+    	; Item_Type=ItemType
+    	; Status=ItemStatus
+    }
+    ; T_Scenario_QueryList = map:{
+    	; Operation_Code=OperationCode
+    }
+    ; T_Scenario_Totalization = map:{
+    	; Scenario_Type=ScenarioType
+    	; Condition_Div=ConditionDiv
+    	; Rate1_Sign=RateSign
+    	; Rate2_Sign=RateSign
+    }
+    ; T_Output_Request = map:{
+    	; PowerPoint_Type=PowerPointType
+    	; Excelbook_Type=ExcelbookType
+    	; NoAnswer_Visible_Code=NoAnswerVisibleCode
+    	; Unmacth_Visible_Code=UnmacthVisibleCode
+    #	; Proc_WeightProc_Weight=ProcWeightProcWeight
+    }
+    ; T_RawData_Import_Que_Info = map:{
+    	; Survey_Data_Type=SurveyDataType
+    	; Import_Status=ImportStatus
+    }
+    ; T_RawData_Delete_Que = map:{
+    	; Delete_Status=DeleteStatus
+    }
+    ; T_Output_WP_Master = map:{
+    	; Output_WP_Master_ID=OutputWPMasterID
+    }
+}
+# ----------------/

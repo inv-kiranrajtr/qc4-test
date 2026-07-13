@@ -1,0 +1,80 @@
+# /---------------------------------------------------------------------------
+# sequenceDefinitionMap: (NotRequired - Default map:{})
+#
+# The relation mappings between sequence and table.
+# If you don't specify the mappings, you cannot insert 
+# a record of the table by sequence.
+# The table names are treated as case insensitive.
+#
+# Example:
+# map:{
+#     ; PURCHASE     = SEQ_PURCHASE
+#     ; MEMBER       = SEQ_MEMBER
+#     ; MEMBER_LOGIN = SEQ_MEMBER_LOGIN
+#     ; PRODUCT      = SEQ_PRODUCT
+# }
+#
+# *The line that starts with '#' means comment-out.
+#
+map:{
+    #; PURCHASE     = SEQ_PURCHASE
+    #; MEMBER       = SEQ_MEMBER
+    #; MEMBER_LOGIN = SEQ_MEMBER_LOGIN
+    #; PRODUCT      = SEQ_PRODUCT
+	; T_Survey_Info                       = T_Survey_Info_SEQ_01
+	; T_QCWeb_Survey_Detail               = T_QCWeb_Survey_Detail_SEQ_01
+	; T_QCWeb_Survey_Info                 = T_QCWeb_Survey_Info_SEQ_01
+	; T_QCWeb_Survey_Info.Add_Data_No     = T_QCWeb_Survey_Info_SEQ_02
+	; T_Item_Info                         = T_Item_Info_SEQ_01
+	; T_Category_Info                     = T_Category_Info_SEQ_01
+	; T_Default_Env_Color_Dtl             = T_Default_Env_Color_Dtl_SEQ_01
+	; T_Default_Env_Color_Info            = T_Default_Env_Color_Info_SEQ_1
+	; T_Matrix_Info                       = T_Matrix_Info_SEQ_01
+	; T_Default_Env_Color_Dtl_C           = T_Default_Env_Color_Dtl_C_SEQ1
+	; T_Default_Env_Color_Info_C          = T_Default_Env_Color_Info_CSEQ1
+	; T_GT_Scenario_Item                  = T_GT_Scenario_Item_SEQ_01
+	; T_Polyline_Category_List            = T_Polyline_Category_List_SEQ01
+	; T_Cross_Scenario_Item               = T_Cross_Scenario_Item_SEQ_01
+	; T_Cross_Scenario_Target             = T_Cross_Scenario_Target_SEQ_01
+	; T_FA_Scenario_Item                  = T_FA_Scenario_Item_SEQ_01
+	; T_FA_List_Add_Item                  = T_FA_List_Add_Item_SEQ_01
+	; T_FA_Scenario_Header                = T_FA_Scenario_Header_SEQ_01
+	; T_Weightback_Value                  = T_Weightback_Value_SEQ_01
+	; T_Weightback                        = T_Weightback_SEQ_01
+	; T_Scenario_QueryList                = T_Scenario_QueryList_SEQ_01
+	; T_Category_Output_Detail            = T_Category_Output_Detail_SEQ01
+	; T_Category_Output_Edit              = T_Category_Output_Edit_SEQ_01
+	; T_GT_Matrix_Child                   = T_GT_Matrix_Child_SEQ_01
+	; T_GT_Matrix_Info                    = T_GT_Matrix_Info_SEQ_01
+	; T_Color_Info_Detail_GT              = T_Color_Info_Detail_GT_SEQ_01
+	; T_Color_Set_Info_GT                 = T_Color_Set_Info_GT_SEQ_01
+	; T_Color_Info_Detail_Cross           = T_Color_Info_Detail_CrossSEQ1
+	; T_Color_Set_Info_Cross              = T_Color_Set_Info_Cross_SEQ_01
+	; T_Scenario_Totalization             = T_Scenario_Totalization_SEQ_01
+	; T_Report_Child                      = T_Report_Child_SEQ_01
+	; T_Report                            = T_Report_SEQ_01
+	; T_Reportset                         = T_Reportset_SEQ_01
+	; T_Integ_Condition                   = T_Integ_Condition_SEQ_01
+	; T_Edit_Condition                    = T_Edit_Condition_SEQ_01
+	; T_Edit_Target_Item                  = T_Edit_Target_Item_SEQ_01
+	; T_Delete_Condition                  = T_Delete_Condition_SEQ_01
+	; T_Delete_Sample_ID_List             = T_Delete_Sample_ID_List_SEQ_01
+	; T_Delete_Data                       = T_Delete_Data_SEQ_01
+	; T_Data_Edit_List                    = T_Data_Edit_List_SEQ_01
+	; T_Output_History_Item               = T_Output_History_Item_SEQ_01
+	; T_Output_Request                    = T_Output_Request_SEQ_01
+	; T_Output_Sub_GT                     = T_Output_Sub_GT_SEQ_01
+	; T_Output_Sub_Cross                  = T_Output_Sub_Cross_SEQ_01
+	; T_Output_Sub_FA                     = T_Output_Sub_FA_SEQ_01
+	; T_Output_Sub_CKList                 = T_Output_Sub_CKList_SEQ_01
+	; T_Output_Common                     = T_Output_Common_SEQ_01
+	; T_Output_Template                   = T_Output_Template_SEQ_01
+	; T_Output_Template_Master            = T_Output_Template_Master_SEQ01
+	; T_Output_Reportset_Info             = T_Output_Reportset_Info_SEQ_01
+	; T_RawData_Import_Que_Info           = T_RawData_Import_Que_Info_SEQ1
+	; T_RawData_Delete_Que                = T_RawData_Delete_Que_SEQ_01
+	; T_Notice                            = T_Notice_SEQ_01
+	; T_Data_Process_New_Category         = T_Data_Process_New_CategorySEQ
+	; T_Data_Process_New_Item_Src         = T_Data_Process_New_Item_SrcSEQ
+}
+# ----------------/

@@ -1,0 +1,6 @@
+１.　ログメッセージ一覧.xlsを作成する（ＭＭ様から展開予定）
+２．「 key=value 」のプロパティファイル(Messages.txt)を作成する。
+３．[Microsoft Visual Studio 2010]-[Visual Studio Tools]-[Visual Studio コマンドプロンプト（2010）]を選択する。
+４．プロパティファイルが存在するフォルダに移動する。
+５．「resgen Messages.txt」を実行する。
+６．「Messages.resources」が生成されたことを確認する。

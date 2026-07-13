@@ -1,0 +1,95 @@
+﻿<Window x:Class="Qc4Launcher.Forms.Cross_Tabulation.QuestionDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Qc4Launcher.Forms.Cross_Tabulation"
+        xmlns:res="clr-namespace:Qc4Launcher"
+        mc:Ignorable="d"
+        BorderBrush="#ADADAD" BorderThickness="1"
+        Title="{x:Static res:LocalResource.CROSS_QSTN_DET}" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False" Height="650" Width="400">
+    <Window.Resources>
+        <Style x:Key="CenterGridHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="{x:Type DataGridCell}">
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="FontFamily" Value="Arial"></Setter>
+                    <Setter Property="Background" Value="#F7F7F7"></Setter>
+                    <Setter Property="FontSize" Value="12"></Setter>
+                  
+                </Trigger>
+                
+            </Style.Triggers>
+        </Style>
+
+
+    </Window.Resources>
+
+    <Grid Background="#FFF0F0F0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="10 10 10 0" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3.5*"/>
+                <ColumnDefinition Width="3.5*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Margin="0 10 0 0" Orientation="Vertical">
+                <TextBlock Foreground="#999999" Style="{StaticResource TxtblockformatWithoutBg}" Text="{x:Static res:LocalResource.CROSS_ITEM_NAME}" Margin="5 0 0 0"/>
+                <TextBox Style="{StaticResource ROTxtBox}" IsEnabled="False" Height="20" Width="120" HorizontalAlignment="Left" Text="{Binding Variable}" Margin="5 5 0 0"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Margin="10 10 0 0" Orientation="Vertical">
+                <TextBlock Foreground="#999999" Style="{StaticResource TxtblockformatWithoutBg}" Text="{x:Static res:LocalResource.LABEL_ANSWER_TYPE}" Margin="5 0 0 0"/>
+                <TextBox Style="{StaticResource ROTxtBox}"  IsEnabled="False" Height="20" Text="{Binding AnswerType}" Width="90" HorizontalAlignment="Left" Margin="5 5 0 0"/>
+            </StackPanel>
+            <Grid Grid.Column="2" Margin="10 10 0 0" >
+                <TextBlock Foreground="#999999" Style="{StaticResource TxtblockformatWithoutBg}" Text="{x:Static res:LocalResource.LBL_NO_OF_CHOICES}" Margin="5 0 0 0"/>
+                <TextBox Style="{StaticResource ROTxtBox}"  Text="{Binding Path=CategoryCount, Mode=OneWay}" IsEnabled="False" Height="20"  Margin="5 13 5 5"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" Margin="10 0 10 0" Background="White">
+            <Grid Grid.Column="2"   Margin="0 5 0 0">
+                <TextBlock Foreground="#999999" Style="{StaticResource TxtblockformatWithoutBg}" VerticalAlignment="Top" Text="{x:Static res:LocalResource.CROSS_TITLE}" Margin="5 0 0 0"/>
+                <TextBox Style="{StaticResource ROTxtBox}" Text="{Binding TableHeading}" Height="50" TextWrapping="Wrap" IsEnabled="False" Margin="5,5,5,5"></TextBox>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2" Margin="10 0 10 0" Background="White">
+            <Grid Grid.Column="2"   Margin="0 5 0 0">
+                <TextBlock Foreground="#999999" Style="{StaticResource TxtblockformatWithoutBg}" VerticalAlignment="Top"  Text="{x:Static res:LocalResource.ADDQS_QUESTION_LABEL}" Margin="5 0 0 0"/>
+                <TextBox Style="{StaticResource ROTxtBox}"  Text="{Binding Question}" IsEnabled="False" TextWrapping="Wrap" Height="50"   Margin="5,5,5,5"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3" Margin="10 0 10 0" Background="White">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Foreground="#999999" Grid.Row="0" Style="{StaticResource TxtblockformatWithoutBg}" HorizontalAlignment="Center" VerticalAlignment="Top"  Text="{x:Static res:LocalResource.CROSS_CHOICES}"  Margin="0 5 0 5"/>
+
+               <Grid Grid.Row="1">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="False">
+                        <DataGrid BorderBrush="#D1D1D1" Style="{StaticResource Datagrid_normal1}" Margin="5" HorizontalScrollBarVisibility="Hidden" IsEnabled="False" x:Name="data_grid"  CanUserResizeRows="False" HeadersVisibility="None" BorderThickness="1" HorizontalGridLinesBrush="#D1D1D1" VerticalGridLinesBrush="#D1D1D1"  SelectionMode="Single" LoadingRow="Data_grid_LoadingRow"  Grid.Column="1" AutoGenerateColumns="False" ItemsSource="{Binding list_choices, Mode=OneWay}"  CanUserReorderColumns="False" CanUserDeleteRows="False" CanUserSortColumns="False" CanUserAddRows="False" >
+                        <DataGrid.Columns >
+                                <DataGridTextColumn Foreground="#8D8D8D" Binding="{Binding slno, Mode=OneWay}" CanUserResize="False" CanUserSort="False"  Width="auto" IsReadOnly="False"/>
+                                <DataGridTextColumn Foreground="#8D8D8D" Binding="{Binding choice, Mode=OneWay}" CanUserResize="False" CanUserSort="False"  Width="600" IsReadOnly="False"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    </ScrollViewer>
+                </Grid>
+            </Grid>
+
+
+
+        </Grid>
+        <Button HorizontalAlignment="Right" Style="{StaticResource NormalButton}" Margin="0 0 10 0" Grid.Row="5" Content="{x:Static res:LocalResource.BTN_CLOSE}" Click="Button_Click"/>
+    </Grid>
+</Window>

@@ -1,0 +1,411 @@
+﻿<Window x:Class="Qc4Launcher.Forms.DP_Main.ReviseData"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:res="clr-namespace:Qc4Launcher"
+        xmlns:uc="clr-namespace:Qc4Launcher.Forms.UserControls"
+        mc:Ignorable="d"
+        Title = "{x:Static res:LocalResource.TITLE_REVISE_DATA}" Height="615" Width="810" ResizeMode="NoResize" PreviewMouseRightButtonDown="DisableRightMenu" PreviewMouseRightButtonUp="DisableRightMenu"
+			WindowStartupLocation="CenterScreen" Background="#FFF0F0F0" Loaded="Window_Loaded" Closed="Window_Closed" BorderBrush="#ADADAD" BorderThickness="1">
+    <Window.Resources>
+        <DataTemplate x:Key="QuestionVariable">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"  Text="{Binding Question}"></TextBlock>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid Background="#FFFFFFFF" Margin="5">
+        <Grid.RowDefinitions>
+            <!-- Divide whole window into three rows-->
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="#FFE1E1E1" BorderThickness="1,1,1,0"/>
+        <Grid Grid.Row="0" Margin="10,5,10,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="100*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="{x:Static res:LocalResource.LBL_GROUP_PROCESSING_METHOD}" Style="{StaticResource TxtblockformatWithoutBg}" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap" />
+                <TextBlock Grid.Row="1" Text="{x:Static res:LocalResource.LBL_GROUP_COMMAND}" Style="{StaticResource TxtblockformatWithoutBg}" Background="#FFFFFFFF" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <CheckBox Grid.Row="2" Style="{StaticResource CheckBoxCommon}" Name="Check_Criteria" Checked="OnCheck" Padding="4" Unchecked="OnCheck"  Content="{x:Static res:LocalResource.LABEL_CRITERIA}" TabIndex="1"
+                          Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" VerticalContentAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Column="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <TextBox Name="Textbox_ProcessMethod" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Left" Text="{x:Static res:LocalResource.TITLE_REVISE_DATA}" Style="{StaticResource NormalTextBox_READONLY_WhiteBG}" 
+                             Width="320" Height="25" TextWrapping="Wrap" Background="#FFFFFFFF" IsTabStop="False"/>
+                <TextBox Name="Textbox_Command" Grid.Row="1"  Style="{StaticResource ROTxtBox3}" Text="{x:Static res:LocalResource.LABEL_ADD_MINUS1}"  Height="25" Width="320" IsTabStop="False" 
+                         HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" ></TextBox>
+            </Grid>
+            <Grid Grid.Column="2" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Name="Text_Method_Desc" Grid.Row="0" Text="{x:Static res:LocalResource.LABEL_REVISE_DATA_DESC}" Style="{StaticResource TxtblockformatWithoutBg}" Background="#FFFFFFFF" 
+                           HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap" />
+            </Grid>
+        </Grid>
+
+        <Border BorderBrush="#FFE1E1E1" BorderThickness="1,0,1,1" Grid.Row="1">
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="18*"/>
+                    <ColumnDefinition Width="16*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0"  Margin="10,5,10,10" BorderThickness="1" BorderBrush="#FFE1E1E1">
+                    <Grid Grid.Column="0">
+                        <uc:CriteriaControl x:Name="Criteria_Control" ></uc:CriteriaControl>
+                    </Grid>
+                </Border>
+                <Border Grid.Column="1"  Margin="0,5,0,10" BorderThickness="1" BorderBrush="#FFE1E1E1">
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"></RowDefinition>
+                            <RowDefinition Height="10*"></RowDefinition>
+                            <RowDefinition Height="10*"></RowDefinition>
+                            <RowDefinition Height="15*"></RowDefinition>
+                            <RowDefinition Height="50*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{x:Static res:LocalResource.LABEL_VARIABLE_TO_REVISE}" TextWrapping="Wrap" Style="{StaticResource TextBlockNormalWithCenterAligned}" Background="#FFFFFFFF" Margin="8,0,0,0" HorizontalAlignment="Left" />
+                            <ComboBox Name="Combo_VariablesToRevise" Style="{StaticResource NormalComboBox_Editable}" ItemsSource="{Binding}" Grid.Column="1" Margin="12,0,0,0"
+                                  IsTextSearchEnabled="True" VerticalAlignment="Center" HorizontalAlignment="Left" IsEnabled="True" TextSearch.TextPath="QuestionVariable" DropDownClosed="Combo_VariabletoRevise_DropDownClosed" 
+                                  GotKeyboardFocus="Combo_VariableToRevise_GotKeyboardFocus" PreviewKeyDown="Combo_VariablesToRevise_PreviewKeyDown" PreviewKeyUp="Combo_VariablesToRevise_PreviewKeyUp"
+                                  IsSynchronizedWithCurrentItem="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" Height="25" Width="172" SelectionChanged="Combo_VariableToRevise_SelectionChanged" TabIndex="30" >
+                                <ComboBox.Resources>
+                                    <Style TargetType="Popup">
+                                        <Setter Property="MaxWidth" Value="508"/>
+                                    </Style>
+                                </ComboBox.Resources>
+
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Margin="2" Text="{Binding QuestionVariable}"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+
+                                <ComboBox.ItemContainerStyle>
+                                    <Style TargetType="{x:Type ComboBoxItem}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate>
+                                                    <Grid x:Name="gd" TextElement.Foreground="Black">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="150"/>
+                                                            <ColumnDefinition Width="80"/>
+                                                            <ColumnDefinition />
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBlock Width="150" Margin="5" Grid.Column="0" Text="{Binding QuestionVariable}"/>
+                                                        <TextBlock Width="80" Margin="5" Grid.Column="1" Text="{Binding QuestionVariableType}"/>
+                                                        <TextBlock Width="auto" Margin="5" Grid.Column="2" Text="{Binding Question}"/>
+                                                    </Grid>
+                                                    <ControlTemplate.Triggers >
+                                                        <Trigger Property="ComboBoxItem.IsSelected" Value="True">
+                                                            <Setter TargetName="gd"  Property="Background" Value="#F6F6F6"></Setter>
+                                                            <Setter TargetName="gd"  Property="TextElement.Foreground" Value="#FF333333"></Setter>
+                                                        </Trigger>
+                                                        <Trigger Property="ComboBoxItem.IsMouseOver" Value="True">
+                                                            <Setter TargetName="gd"  Property="Background" Value="#e5f3fb"></Setter>
+                                                            <Setter TargetName="gd"  Property="TextElement.Foreground" Value="#FF333333"></Setter>
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ComboBox.ItemContainerStyle>
+                            </ComboBox>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10.9*"></ColumnDefinition>
+                                <ColumnDefinition Width="6*"></ColumnDefinition>
+                                <ColumnDefinition Width="11.4*"></ColumnDefinition>
+                                <ColumnDefinition Width="8.6*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Margin="8,0,0,0" Text="{x:Static res:LocalResource.LBL_GROUP_ANSWER_TYPE}" Style="{StaticResource TextBlockNormalWithCenterAligned}" Background="#FFFFFFFF" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            <TextBox Name="Text_ReviseItem_AnswerType"  Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Height="25" Width="40"  Style="{StaticResource NormalTextBox_READONLY}" Margin="1,0,0,0" IsTabStop="False" />
+                            <TextBlock Grid.Column="2" Margin="2,0,0,0" Text="{x:Static res:LocalResource.LBL_GROUP_N0_OF_CHOICES}" Style="{StaticResource TextBlockNormalWithCenterAligned}" Background="#FFFFFFFF" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            <TextBox Name="Text_ReviseItem_CategoryCount"  Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="25" Width="50"  Style="{StaticResource NormalTextBox_READONLY}" IsTabStop="False" />
+                        </Grid>
+                        <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Margin="8,-12,0,10" Text="{x:Static res:LocalResource.LBL_GROUP_QUESTION}" Style="{StaticResource TextBlockNormalWithCenterAligned}" Background="#FFFFFFFF" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            <TextBox Name="Text_ReviseItem_Question"  Style="{StaticResource NormalTextBoxMultiLine_READONLY}" Grid.Column="1" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Width="173" Margin="12,10,8,10" TextWrapping="Wrap" IsTabStop="False" />
+                        </Grid>
+                        <Grid Grid.Row="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <DataGrid  Name="Grid_ReviseItem_Choices" Margin="10,10,0,0" Style="{StaticResource Datagrid_GT_Font_Style2}" 
+                                           ItemsSource="{Binding}" HeadersVisibility="None" IsEnabled="True" CurrentCellChanged="Choices_grid_CurrentCellChanged" IsTabStop="False"
+                                           AutoGenerateColumns="False" CanUserReorderColumns="False" 
+                                           CanUserDeleteRows="False"  CanUserSortColumns="False" CanUserAddRows="False" HorizontalScrollBarVisibility="Disabled" PreviewKeyDown="Grid_ReviseItem_Choices_PreviewKeyDown_1"
+                                           SelectionUnit="FullRow" SelectionMode="Extended" HorizontalAlignment="Left" VerticalAlignment="Top" Width="237" Height="214" CopyingRowClipboardContent="Choices_grid_CopyingRowClipboardContent" >
+                                <DataGrid.CellStyle>
+                                    <Style TargetType="DataGridCell" >
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="true" >
+                                                <Setter Property="Foreground" Value="Black" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
+                                    </Style>
+                                </DataGrid.CellStyle>
+                                <DataGrid.Resources>
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#F6F6F6"/>
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#CBE8F6"/>
+                                </DataGrid.Resources>
+
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="DataGridRow">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=Selectable}" Value="False">
+                                                <DataTrigger.Setters>
+                                                    <Setter Property="Background" Value="#F6F6F6" />
+                                                    <Setter Property="BorderBrush" Value="#F1F1F1"/>
+                                                </DataTrigger.Setters>
+                                            </DataTrigger>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#e5f3fb" />
+                                                <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                            </Trigger>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+
+                                    </Style>
+                                </DataGrid.RowStyle>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn  Width="32" Binding="{Binding No, Mode=OneWay}" CanUserResize="False" CanUserSort="False"  IsReadOnly="True">
+                                        <DataGridTextColumn.CellStyle>
+                                            <Style TargetType="DataGridCell" BasedOn="{StaticResource Datagrid_GT_Cell_Style_qs}">
+                                                <Setter Property="BorderThickness" Value="0,0,1,0"/>
+                                                <Setter Property="BorderBrush" Value="#FFE1E1E1"/>
+                                                <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsSelected" Value="true" >
+                                                        <Setter Property="Foreground" Value="Black" />
+                                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </DataGridTextColumn.CellStyle>
+                                        <DataGridTextColumn.ElementStyle>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="HorizontalAlignment" Value="Center" />
+                                                <Setter Property="Foreground" Value="#FF333333" />
+                                            </Style>
+                                        </DataGridTextColumn.ElementStyle>
+                                    </DataGridTextColumn>
+                                    <DataGridTextColumn  Width="*" Binding="{Binding Choice, Mode=OneWay}" CanUserResize="False" CanUserSort="False"  IsReadOnly="True">
+                                        <DataGridTextColumn.CellStyle>
+                                            <Style TargetType="DataGridCell" BasedOn="{StaticResource Datagrid_GT_Cell_Style_qs}">
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsSelected" Value="true" >
+                                                        <Setter Property="Foreground" Value="Black" />
+                                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                                <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
+                                            </Style>
+                                        </DataGridTextColumn.CellStyle>
+                                    </DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+                            <TextBlock Name="Label_Reference_Value" Text="{x:Static res:LocalResource.LABEL_REFERNCE_VALUE}" Style="{StaticResource TextBlockNormalWithCenterAligned}" Background="#FFFFFFFF" HorizontalAlignment="Left" 
+                                   VerticalAlignment="Top" Margin="20,50,0,0" TextWrapping="Wrap" Visibility="Hidden" />
+                            <Border Name="minmaxavgborder" Visibility="Hidden"  Margin="10,70,12,50" BorderThickness="1" CornerRadius="4" BorderBrush="LightGray">
+                                <Grid x:Name="minmaxavg" Margin="10,5,10,5" Height="90" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="1*"/>
+                                        <RowDefinition Height="1*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Grid.Column="0" Text="{x:Static res:LocalResource.LABEL_MIN_INTEGRATE}" Grid.Row="0" Margin="0,0,0,4" VerticalAlignment="Center" Style="{StaticResource TextBlockNormalWithCenterAligned}"></TextBlock>
+                                    <TextBox x:Name="Text_OriginItem_Min" IsReadOnly="True" Grid.Column="1" Grid.Row="0"  Margin="0,0,0,4" Style="{StaticResource NormalTextBox_READONLY}"></TextBox>
+                                    <TextBlock Grid.Column="0"  Grid.Row="1" Text="{x:Static res:LocalResource.LABEL_MAX_INTEGRATE}"  Margin="0,0,0,4" VerticalAlignment="Center" Style="{StaticResource TextBlockNormalWithCenterAligned}"></TextBlock>
+                                    <TextBox x:Name="Text_OriginItem_Max" IsReadOnly="True" Grid.Column="1" Grid.Row="1"  Margin="0,0,0,4" Style="{StaticResource NormalTextBox_READONLY}"></TextBox>
+                                    <TextBlock Grid.Column="0" Text="{x:Static res:LocalResource.LABEL_MEAN_INTEGRATE}" Grid.Row="2"  Margin="0,0,0,4" VerticalAlignment="Center" Style="{StaticResource TextBlockNormalWithCenterAligned}"></TextBlock>
+                                    <TextBox x:Name="Text_OriginItem_Avg" IsReadOnly="True" Grid.Column="1" Grid.Row="2"  Margin="0,0,0,4" Style="{StaticResource NormalTextBox_READONLY}"></TextBox>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1.2*"></RowDefinition>
+                        <RowDefinition Height="5.8*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0"  Margin="10,5,10,10" BorderThickness="1" BorderBrush="#FFE1E1E1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="8*"/>
+                                    <RowDefinition Height="12*"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" VerticalAlignment="Bottom" Text="{x:Static res:LocalResource.LABEL_REVISION_METHOD}" Style="{StaticResource TextBlockNormalWithCenterAligned}" Background="#FFFFFFFF" Margin="10,0,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" />
+                                <ComboBox Name="Combo_RevisionMethod" Style="{StaticResource NonEditableComboformat}" ItemsSource="{Binding}" Margin="10,0,0,0" Grid.Row="1" Opacity="0.7"
+                                VerticalAlignment="Center" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#F0F0F0" IsEnabled="False" SelectionChanged="Combo_RevisionMethod_SelectionChanged"        
+                                IsSynchronizedWithCurrentItem="True" Height="25" Width="194" Padding="6,0,0,0" TabIndex="31" />
+                            </Grid>
+                        </Grid>
+                        <!--<Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="0" Text="{x:Static res:LocalResource.LABEL_REVISION_METHOD}" Style="{StaticResource TextBlockNormalWithCenterAligned}" Background="#FFFFFFFF" Margin="10,0,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" />
+                            <ComboBox Name="Combo_RevisionMethod" Style="{StaticResource NonEditableComboformat}" ItemsSource="{Binding}" Grid.Row="1" Opacity="0.7"
+                                VerticalAlignment="Center" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#F0F0F0" IsEnabled="False" SelectionChanged="Combo_RevisionMethod_SelectionChanged"        
+                                IsSynchronizedWithCurrentItem="True" Height="25" Width="130" Padding="6,0,0,0" TabIndex="31" />
+
+                        </Grid>-->
+                    </Border>
+                    <Border Grid.Row="1"  Margin="10,0,10,10" BorderThickness="1" BorderBrush="#FFE1E1E1">
+                        <Grid Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Text="{x:Static res:LocalResource.LABEL_REVISED_VALUE}" Style="{StaticResource TextBlockNormalWithCenterAligned}" Background="#FFFFFFFF" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" TextWrapping="Wrap" />
+                            <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10,0,0,0">
+                                <RadioButton Name="Option_Choice" GroupName="RevisedValueOptions" Style="{StaticResource RadibuttonNormal}" Content="{x:Static res:LocalResource.LABEL_CHOICE}" IsEnabled="False" Click="RevisedValue_RadioButtonClick" Margin="0,0,0,9" VerticalAlignment="Bottom" TabIndex="32" ></RadioButton>
+                                <ComboBox Name="Combo_RevisedChoice" Style="{StaticResource NormalComboBox_Editable}" ItemsSource="{Binding}" PreviewKeyDown="Combo_RevisedChoice_PreviewKeyDown" PreviewKeyUp="Combo_RevisedChoice_PreviewKeyUp"
+                                            VerticalAlignment="Center" HorizontalAlignment="Left" VerticalContentAlignment="Center" Background="#F0F0F0" IsEnabled="False" SelectionChanged="Combo_RevisedChoice_SelectionChanged"       
+                                            IsSynchronizedWithCurrentItem="True" Height="25" Width="120" Padding="6,0,0,0" Margin="16,0,0,0" TabIndex="33" />
+
+                            </StackPanel>
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3.6*"/>
+                                    <ColumnDefinition Width="6.4*"/>
+                                </Grid.ColumnDefinitions>
+                                    <RadioButton Grid.Column="0" Margin="10 0 0 0" Name="Option_Variable" GroupName="RevisedValueOptions" Style="{StaticResource RadibuttonNormal}" Content="{x:Static res:LocalResource.QUSI_VARIABLE}" IsEnabled="False" Click="RevisedValue_RadioButtonClick" TabIndex="34" ></RadioButton>
+                                <ComboBox Grid.Column="2" Name="Combo_RevisedVariable" Style="{StaticResource NormalComboBox_Editable}" ItemsSource="{Binding}" Margin="6,0,0,0"
+                                  IsTextSearchEnabled="True" VerticalAlignment="Center" HorizontalAlignment="Left" Background="#F0F0F0" IsEnabled="False" TabIndex="35"
+                                  TextSearch.TextPath="QuestionVariable" DropDownClosed="Combo_VariabletoRevise_DropDownClosed" PreviewKeyDown="Combo_RevisedVariable_PreviewKeyDown"
+                                  GotFocus="Combo_VariableToRevise_GotFocus" GotKeyboardFocus="Combo_VariableToRevise_GotKeyboardFocus" PreviewKeyUp="Combo_RevisedVariable_PreviewKeyUp"
+                                  IsSynchronizedWithCurrentItem="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" Height="25" Width="120" SelectionChanged="Combo_RevisedVariable_SelectionChanged"  >
+
+                                        <ComboBox.Resources>
+                                            <Style TargetType="Popup">
+                                                <Setter Property="MaxWidth" Value="508"/>
+                                            </Style>
+                                        </ComboBox.Resources>
+
+                                        <ComboBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Margin="2" Text="{Binding QuestionVariable}"/>
+                                            </DataTemplate>
+                                        </ComboBox.ItemTemplate>
+
+                                        <ComboBox.ItemContainerStyle>
+                                            <Style TargetType="{x:Type ComboBoxItem}">
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate>
+                                                            <Grid x:Name="gd" TextElement.Foreground="Black">
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="150"/>
+                                                                    <ColumnDefinition Width="80"/>
+                                                                    <ColumnDefinition />
+                                                                </Grid.ColumnDefinitions>
+                                                                <TextBlock Width="150" Margin="5" Grid.Column="0" Text="{Binding QuestionVariable}"/>
+                                                                <TextBlock Width="80" Margin="5" Grid.Column="1" Text="{Binding QuestionVariableType}"/>
+                                                                <TextBlock Width="auto" Margin="5" Grid.Column="2" Text="{Binding Question}"/>
+                                                            </Grid>
+                                                            <ControlTemplate.Triggers >
+                                                                <Trigger Property="ComboBoxItem.IsSelected" Value="True">
+                                                                    <Setter TargetName="gd"  Property="Background" Value="#F6F6F6"></Setter>
+                                                                    <Setter TargetName="gd"  Property="TextElement.Foreground" Value="#FF333333"></Setter>
+                                                                </Trigger>
+                                                                <Trigger Property="ComboBoxItem.IsMouseOver" Value="True">
+                                                                    <Setter TargetName="gd"  Property="Background" Value="#e5f3fb"></Setter>
+                                                                    <Setter TargetName="gd"  Property="TextElement.Foreground" Value="#FF333333"></Setter>
+                                                                </Trigger>
+                                                            </ControlTemplate.Triggers>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </ComboBox.ItemContainerStyle>
+                                    </ComboBox>                               
+                            </Grid>
+                            <RadioButton Name="Option_No_Answer" GroupName="RevisedValueOptions" Style="{StaticResource RadibuttonNormal}" Content="{x:Static res:LocalResource.LABEL_NO_ANSWER1}" Grid.Row="3" Margin="10,0,0,0" IsEnabled="False" Click="RevisedValue_RadioButtonClick" TabIndex="36" ></RadioButton>
+                            <RadioButton Name="Option_Excluded" GroupName="RevisedValueOptions" Style="{StaticResource RadibuttonNormal}" Content="{x:Static res:LocalResource.LABEL_EXCLUDED}" Grid.Row="4" Margin="10,0,0,0" IsEnabled="False" Click="RevisedValue_RadioButtonClick" TabIndex="37" ></RadioButton>
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Grid.Row="5" Margin="10,0,8,0">
+                                <RadioButton Name="Option_Free_Entry" GroupName="RevisedValueOptions" Style="{StaticResource RadibuttonNormal}" Content="{x:Static res:LocalResource.LABEL_FREE_ENTRY}" IsEnabled="False" Click="RevisedValue_RadioButtonClick" TabIndex="38"></RadioButton>
+                                <TextBox Name="Textbox_Free_Entry" Style="{StaticResource NormalTextBox}" HorizontalAlignment="Right" VerticalAlignment="Center" Width="160" Height="25" Margin="0,5,0,0" IsEnabled="False" Background="#F0F0F0" TextChanged="Textbox_Free_Entry_TextChanged" TabIndex="39"
+                                         PreviewKeyDown="Textbox_Free_Entry_PreviewKeyDown" PreviewKeyUp="Textbox_Free_Entry_PreviewKeyUp" LostFocus="Textbox_Free_Entry_LostFocus" GotFocus="Textbox_Free_Entry_GotFocus"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </Grid>
+
+            </Grid>
+        </Border>
+        <!-- Save and close buttons-->
+        <Grid Grid.Row="2" Background="#FFF0F0F0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="30*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Name="Command_Entry" Grid.Column="2" Margin="10,0,0,0" Content="{x:Static res:LocalResource.BTN_SAVE}" Style="{StaticResource NormalButton}" HorizontalAlignment="Center" VerticalAlignment="Center"  Height="25" Width="100" Click="Command_Entry_Click" IsEnabled="False" TabIndex="40"/>
+            <Button Name="Command_Cancel" Grid.Column="3" Margin="5,0,5,0" Content="{x:Static res:LocalResource.LABEL_CLOSE}" Style="{StaticResource NormalButton}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="100" Click="Command_Close_Click" TabIndex="41"/>
+        </Grid>
+    </Grid>
+</Window>

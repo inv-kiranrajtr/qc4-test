@@ -1,0 +1,190 @@
+# /---------------------------------------------------------------------------
+# classificationDefinitionMap: (NotRequired - Default map:{})
+#
+# The definition of classification.
+#
+# Specification:
+# map: {
+#     [classification-name] = list:{
+#         ; map:{
+#             ; topComment=[comment]; codeType=[String(default) or Number or Boolean]}
+#             ; isCheckImplicitSet=[true or false(default)]
+#             ; isUseDocumentOnly=[true or false(default)]
+#             ; isSuppressAutoDeploy=[true or false(default)]
+#         ; map:{code=[code]; name=[name]; alias=[alias]; comment=[comment]}
+#         ; map:{
+#             ; table=[table-name]
+#             ; code=[column-name for code]; name=[column-name for name]
+#             ; alias=[column-name for alias]; comment=[column-name for comment]}
+#             ; where=[condition for select]; orderBy=[column-name for ordering]
+#             ; exceptCodeList=[the list of except code]
+#         }
+#     }
+# }
+#
+# *The line that starts with '#' means comment-out.
+#
+map:{
+    # example for implicit classification
+    #; Flg = list:{
+    #    ; map:{topComment=general boolean classification for every flg-column; codeType=Number}
+    #    ; map:{code=1; name=True ; alias=Yes; comment=means valid}
+    #    ; map:{code=0; name=False; alias=No ; comment=means invalid}
+    #}
+    # example for table classification
+    #; MemberStatus = list:{
+    #    ; map:{topComment=status of member from entry to withdrawal; codeType=String}
+    #    ; map:{
+    #        ; table=MEMBER_STATUS
+    #        ; code=MEMBER_STATUS_CODE; name=MEMBER_STATUS_NAME
+    #        ; comment=DESCRIPTION; orderBy=DISPLAY_ORDER
+    #    }
+    #}
+    ; Flag = list:{
+        ; map:{topComment=フラグを示す; dataType=Number}
+        ; map:{code=1; name=True ; alias=はい  ; comment=有効を示す}
+        ; map:{code=0; name=False; alias=いいえ; comment=無効を示す}
+    }
+    ; DeleteFlag = list:{
+        ; map:{topComment=削除フラグを示す; dataType=String}
+        ; map:{code=1; name=True ; alias=はい  ; comment=削除を示す}
+        ; map:{code=0; name=False; alias=いいえ; comment=未削除を示す}
+    }
+    ; SourceDiv = list:{
+    	; map:{topComment=Originalデータ区分; dataType=String}
+    	; map:{code=0; name=Original; alias=Original; comment=QC3から取り込まれたオリジナルデータを示す}
+    	; map:{code=1; name=DataEdit; alias=加工データ; comment=データ加工で作成されたデータを示す}
+    	; map:{code=2; name=ScenarioDataEdit; alias=シナリオ加工データ; comment=シナリオ内の操作で作成されたデータを示す}
+    }
+    ; AnswerType = list:{
+    	; map:{topComment=回答タイプ; dataType=String}
+    	; map:{code=1; name=SA; alias=SA; comment=SAを示す}
+    	; map:{code=2; name=MA; alias=MA; comment=MAを示す}
+    	; map:{code=3; name=N;  alias=N;  comment=Nを示す}
+    	; map:{code=4; name=FA; alias=FA; comment=FAを示す}
+    	; map:{code=5; name=D;  alias=D;  comment=Dを示す}
+    }
+    ; MatrixType = list:{
+    	; map:{topComment=マトリックス区分; dataType=Number}
+    	; map:{code=0; name=NormalItem;   alias=通常アイテム; comment=通常アイテムを示す}
+    	; map:{code=1; name=MatrixParent; alias=親アイテム; comment=親アイテムを示す}
+    	; map:{code=4; name=FirstChild;   alias=子マトリックス（親作成元アイテム）; comment=子マトリックス（親作成元アイテム）を示す}
+    	; map:{code=2; name=MatrixChild;  alias=子マトリックス（通常子アイテム）; comment=子マトリックス（通常子アイテム）を示す}
+    	; map:{code=3; name=SubFA;        alias=子マトリックス（付加FA）; comment=子マトリックス（付加FA）を示す}
+    }
+    ; ConditionDiv = list:{
+    	; map:{topComment=絞り込み条件連結区分; dataType=String}
+    	; map:{code=1; name=AND; alias=&; comment=ANDを示す}
+    	; map:{code=2; name=OR;  alias=|; comment=ORを示す}
+    }
+    ; OperationCode = list:{
+    	; map:{topComment=演算子; dataType=String}
+    	; map:{code=1; name=Equal;        alias==;  comment=Equal(=)を示す}
+    	; map:{code=2; name=NotEqual;     alias=<>; comment=NotEqual(<>)を示す}
+    	; map:{code=3; name=LessThan;     alias=<;  comment=LessThan(<)を示す}
+    	; map:{code=4; name=GreaterThan;  alias=>;  comment=GreaterThan(>)を示す}
+    	; map:{code=5; name=LessEqual;    alias=<=; comment=LessEqual(<=)を示す}
+    	; map:{code=6; name=GreaterEqual; alias=>=; comment=GreaterEqual(>=)を示す}
+    }
+    ; ItemType = list:{
+    	; map:{topComment=設問タイプ; dataType=String}
+    	; map:{code=SAR; name=SAR; alias=SAR; comment=SARを示す}
+    	; map:{code=SAS; name=SAS; alias=SAS; comment=SASを示す}
+		; map:{code=SAP; name=SAP; alias=SAP; comment=SAPを示す}
+		; map:{code=MAC; name=MAC; alias=MAC; comment=MACを示す}
+		; map:{code=MTS; name=MTS; alias=MTS; comment=MTSを示す}
+		; map:{code=MTM; name=MTM; alias=MTM; comment=MTSを示す}
+		; map:{code=MTT; name=MTT; alias=MTT; comment=MTTを示す}
+		; map:{code=RNK; name=RNK; alias=RNK; comment=RNKを示す}
+		; map:{code=RAT; name=RAT; alias=RAT; comment=RATを示す}
+		; map:{code=FAS; name=FAS; alias=FAS; comment=FASを示す}
+		; map:{code=FAL; name=FAL; alias=FAL; comment=FALを示す}
+    }
+    ; ScenarioType = list:{
+    	; map:{topComment=シナリオ区分; dataType=String}
+    	; map:{code=G; name=GT;    alias=GT;    comment=GTシナリオを示す}
+    	; map:{code=C; name=CROSS; alias=CROSS; comment=クロスシナリオを示す}
+    	; map:{code=F; name=FA;    alias=FA;    comment=FAシナリオを示す}
+    }
+    ; PowerPointType = list:{
+    	; map:{topComment=PowerPoint出力形式; dataType=Number}
+    	; map:{code=1;  name=PP2003; alias=2003形式; comment=2003形式を示す}
+    	; map:{code=24; name=PP2007; alias=2007形式; comment=2007形式を示す}
+    }
+    ; ExcelbookType = list:{
+    	; map:{topComment=Excelブック形式; dataType=Number}
+    	; map:{code=56; name=EXL2003; alias=2003形式; comment=2003形式を示す}
+    	; map:{code=51; name=EXL2007; alias=2007形式; comment=2007形式を示す}
+    }
+    ; NoAnswerVisibleCode = list:{
+    	; map:{topComment=無回答表示コード; dataType=Number}
+    	; map:{code=1; name=SC;   alias=集計対象; comment=集計対象を示す}
+    	; map:{code=2; name=AXIS; alias=集計軸;   comment=集計軸を示す}
+    }
+    ; UnmacthVisibleCode = list:{
+    	; map:{topComment=非該当表示コード; dataType=Number}
+    	; map:{code=1; name=SC;   alias=集計対象; comment=集計対象を示す}
+    	; map:{code=2; name=AXIS; alias=集計軸;   comment=集計軸を示す}
+    }
+    #; NumericAnswerViewCode = list:{
+    #	; map:{topComment=数値回答表示項目コード; dataType=Number}
+    #	; map:{code=1;  name=PARAMETER; alias=統計量母数; comment=統計量母数を示す}
+    #	; map:{code=2;  name=SUMMARY;   alias=合計;       comment=合計を示す}
+    #	; map:{code=4;  name=AVERAGE;   alias=平均;       comment=平均を示す}
+    #	; map:{code=8;  name=STDEV;     alias=標準偏差;   comment=標準偏差を示す}
+    #	; map:{code=16; name=MIN;       alias=最小値;     comment=最小値を示す}
+    #	; map:{code=32; name=MAX;       alias=最大値;     comment=最大値を示す}
+    #	; map:{code=64; name=MEDIAN;    alias=中央値;     comment=中央値を示す}
+    #}
+    ; ProcWeightProcWeight = list:{
+    	; map:{topComment=処理重度; dataType=Number}
+    	; map:{code=0;  name=CHK_LIST;    alias=チェックリスト; comment=チェックリストを示す}
+    	; map:{code=1;  name=SUPER_MINI;  alias=極小;           comment=極小を示す}
+    	; map:{code=2;  name=MIN;         alias=小;             comment=小を示す}
+    	; map:{code=3;  name=MIDDLE;      alias=中;             comment=中を示す}
+    	; map:{code=4;  name=LARGE;       alias=大;             comment=大を示す}
+    	; map:{code=5;  name=SUPER_LARGE; alias=極大;           comment=極大を示す}
+    	; map:{code=10; name=TEMPLATE;    alias=テンプレート;   comment=テンプレートを示す}
+    }
+    ; SurveyDataType = list:{
+    	; map:{topComment=集計データ区分; dataType=String}
+    	; map:{code=0; name=NORMAL; alias=標準納品ファイル; comment=標準納品ファイルを示す}
+    	; map:{code=1; name=ADD;    alias=追加納品ファイル; comment=追加納品ファイルを示す}
+    }
+    ; ImportStatus = list:{
+    	; map:{topComment=取込ステータス; dataType=Number}
+    	; map:{code=0;  name=NONE_IMPORT;           alias=未取込;                    comment=未取込を示す}
+    	; map:{code=1;  name=IMPORT_EXEC;           alias=取込中;                    comment=取込中を示す}
+    	; map:{code=2;  name=IMPORT_END_ZIP;        alias=取込完(パスワード付きZIP); comment=取込完(パスワード付きZIP)を示す}
+    	; map:{code=3;  name=IMPORT_END;            alias=取込完;                    comment=取込完を示す}
+    	; map:{code=-9; name=IMPORT_ERROR;          alias=エラー;                    comment=エラーありを示す}
+    	; map:{code=-1; name=IMPORT_SKIP;           alias=スキップ;                  comment=処理をスキップしたことを示す}
+    	; map:{code=4;  name=IMPORT_END_PART_ERROR; alias=取込完(一部エラーあり);    comment=取込完(一部エラーあり)を示す}
+    }
+    ; DeleteStatus = list:{
+    	; map:{topComment=削除ステータス; dataType=Number}
+    	; map:{code=0; name=NONE_DELETE;  alias=未削除; comment=未削除を示す}
+    	; map:{code=1; name=DELETE_EXEC; alias=削除中; comment=削除中を示す}
+    	; map:{code=2; name=DELETE_END;  alias=削除完; comment=削除完を示す}
+    }
+    ; ItemStatus = list:{
+    	; map:{topComment=アイテム情報ステータス; dataType=Number}
+    	; map:{code=0; name=Invalid;   alias=無効(論理削除); comment=無効を示す}
+    	; map:{code=1; name=Effective; alias=有効;           comment=有効を示す}
+    	; map:{code=2; name=Temporary; alias=仮登録;         comment=仮登録を示す}
+    }
+    ; OutputWPMasterID = list:{
+    	; map:{topComment=出力物重度判定の区分; dataType=String}
+    	; map:{code=01; name=GT;         alias=GT;         comment=GTを示す}
+    	; map:{code=02; name=CROSS;      alias=CROSS;      comment=CROSSを示す}
+    	; map:{code=03; name=FA;         alias=FA;         comment=FAを示す}
+    	; map:{code=04; name=DataOutput; alias=データ出力; comment=データ出力を示す}
+    }
+    ;RateSign = list:{
+    	; map:{topComment=比率の差記号; dataType=Number}
+    	; map:{code=1; name=PlusAndMinus; alias=±; comment=プラス・マイナスを示す}
+    	; map:{code=2; name=Plus;         alias=+;  comment=プラスを示す}
+    	; map:{code=3; name=Minus;        alias=-;  comment=マイナスを示す}
+    }
+}
+# ----------------/

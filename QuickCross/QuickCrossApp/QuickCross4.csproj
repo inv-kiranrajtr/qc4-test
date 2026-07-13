@@ -1,0 +1,1266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6AB0E47F-D8C3-416F-ABC2-A59916A1F7B5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Qc4Launcher</RootNamespace>
+    <AssemblyName>QuickCross4</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\BuildOutput\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>1</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>img\app_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>2294006ADFDEB76A1BAB2A952DD6D9E60DE0E689</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>2020_macromill.com.codesign.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>MM_Authenticode_CodeSigning_20260513.pfx</ManifestKeyFile>
+    <ManifestTimestampUrl>http://timestamp.digicert.com</ManifestTimestampUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CsvHelper, Version=12.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.12.1.2\lib\net45\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.10.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.10.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetZip, Version=1.13.3.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.13.3\lib\net40\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=6.0.4.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.6.0.4\lib\net452\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Interfaces.6.1.1\lib\net35\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=6.1.1.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.System.Drawing.6.1.1\lib\net35\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.14\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Vbe.Interop.Forms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\Shared\Visual Studio Tools for Office\PIA\Office15\Microsoft.Vbe.Interop.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Core.1.1.0.0\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAPICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="QCWebReportBatch, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Macromill.QCWeb.Batch.Report\bin\Debug\QCWebReportBatch.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.111.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.111.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.111.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.111.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.111.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.111.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.7.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Management.Instrumentation" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Classes\Condition.cs" />
+    <Compile Include="Classes\DataExportQcFile.cs" />
+    <Compile Include="Classes\DataOutput.cs" />
+    <Compile Include="Classes\FilterSettings.cs" />
+    <Compile Include="Classes\HatchColor\HatchColorCommon.cs" />
+    <Compile Include="DB\DataSheetDao.cs" />
+    <Compile Include="DB\QuestionSettingDao.cs" />
+    <Compile Include="Forms\Cross_Tabulation\CrossQuestionSetting.cs" />
+    <Compile Include="Forms\Cross_Tabulation\CrossTabulationStd.xaml.cs">
+      <DependentUpon>CrossTabulationStd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cross_Tabulation\DataToExcel.cs" />
+    <Compile Include="Forms\Cross_Tabulation\GraphOptions.xaml.cs">
+      <DependentUpon>GraphOptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cross_Tabulation\QuestionDetails.xaml.cs">
+      <DependentUpon>QuestionDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cross_Tabulation\Cross_tab_Settings.xaml.cs">
+      <DependentUpon>Cross_tab_Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cross_Tabulation\EditTabulation.xaml.cs">
+      <DependentUpon>EditTabulation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cross_Tabulation\TabBinding.cs" />
+    <Compile Include="Forms\Cross_Tabulation\TabContent.xaml.cs">
+      <DependentUpon>TabContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cross_Tabulation\TabulationSetting.xaml.cs">
+      <DependentUpon>TabulationSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DP_Main\ADD.xaml.cs">
+      <DependentUpon>ADD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DP_Main\Class.xaml.cs">
+      <DependentUpon>Class.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DP_Main\Class_SetChoiceLabelswindow.xaml.cs">
+      <DependentUpon>Class_SetChoiceLabelswindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DP_Main\Compute.xaml.cs">
+      <DependentUpon>Compute.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DP_Main\COUNT.xaml.cs">
+      <DependentUpon>COUNT.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DP_Main\DeleteCases.xaml.cs">
+      <DependentUpon>DeleteCases.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DP_Main\DP_Main.xaml.cs">
+      <DependentUpon>DP_Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DP_Main\Exclude.xaml.cs">
+      <DependentUpon>Exclude.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DP_Main\Group.xaml.cs">
+      <DependentUpon>Group.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DP_Main\Integrate.xaml.cs">
+      <DependentUpon>Integrate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DP_Main\Integrate_Support_SourceVariable.xaml.cs">
+      <DependentUpon>Integrate_Support_SourceVariable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DP_Main\Joint.xaml.cs">
+      <DependentUpon>Joint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DP_Main\MConvert.xaml.cs">
+      <DependentUpon>MConvert.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DP_Main\MTOS.xaml.cs">
+      <DependentUpon>MTOS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DP_Main\OutputList.xaml.cs">
+      <DependentUpon>OutputList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DP_Main\RECODE.xaml.cs">
+      <DependentUpon>RECODE.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DP_Main\ReviseData.xaml.cs">
+      <DependentUpon>ReviseData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DP_Main\SummarizeChoices.xaml.cs">
+      <DependentUpon>SummarizeChoices.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FA\FA_List.xaml.cs">
+      <DependentUpon>FA_List.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GenerateKey.xaml.cs">
+      <DependentUpon>GenerateKey.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GrossTabulation.xaml.cs">
+      <DependentUpon>GrossTabulation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GrossTabulationSetting\AddGTSettings.xaml.cs">
+      <DependentUpon>AddGTSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GrossTabulationSetting\Common\CommonFunc.cs" />
+    <Compile Include="Forms\GrossTabulationSetting\GrossTabulationSetting.xaml.cs">
+      <DependentUpon>GrossTabulationSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GrossTabulationSetting\GTOutputOrder.xaml.cs">
+      <DependentUpon>GTOutputOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GrossTabulationSetting\GTSelect.xaml.cs">
+      <DependentUpon>GTSelect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LauncherDialog.xaml.cs">
+      <DependentUpon>LauncherDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Multivariate_Analysis\Cluster_Analysis.xaml.cs">
+      <DependentUpon>Cluster_Analysis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Multivariate_Analysis\CollectionClass.cs" />
+    <Compile Include="Forms\Multivariate_Analysis\CorrespondenceAnalysis.xaml.cs">
+      <DependentUpon>CorrespondenceAnalysis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Multivariate_Analysis\CSPortfolioAnalysis.xaml.cs">
+      <DependentUpon>CSPortfolioAnalysis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Multivariate_Analysis\Factor_Analysis.xaml.cs">
+      <DependentUpon>Factor_Analysis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Multivariate_Analysis\MV_Main.xaml.cs">
+      <DependentUpon>MV_Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Multivariate_Analysis\psmCalcus.cs" />
+    <Compile Include="Forms\Multivariate_Analysis\PSM_ANALYSIS.xaml.cs">
+      <DependentUpon>PSM_ANALYSIS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Multivariate_Analysis\SourceVariableFromList.cs" />
+    <Compile Include="Forms\Multivariate_Analysis\Usercontrols\CiteriaControlpsm.xaml.cs">
+      <DependentUpon>CiteriaControlpsm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Multivariate_Analysis\Usercontrols\ClusterUsd.xaml.cs">
+      <DependentUpon>ClusterUsd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Multivariate_Analysis\Usercontrols\CriteriaUsecontrol.xaml.cs">
+      <DependentUpon>CriteriaUsecontrol.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Multivariate_Analysis\Usercontrols\crosstabulate.xaml.cs">
+      <DependentUpon>crosstabulate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Multivariate_Analysis\Usercontrols\GTTabulateUC.xaml.cs">
+      <DependentUpon>GTTabulateUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Multivariate_Analysis\Usercontrols\NumericUpDown.xaml.cs">
+      <DependentUpon>NumericUpDown.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\QCM\ProgressUpdate.cs" />
+    <Compile Include="Forms\QCM\Qc4Creation.cs" />
+    <Compile Include="Forms\QCM\QCMConversionRules.cs" />
+    <Compile Include="Forms\QCM\QCMDatabaseOperations.cs" />
+    <Compile Include="Forms\QCM\QCMHelper.cs" />
+    <Compile Include="Forms\QCM\QCMInputFileProcessor.cs" />
+    <Compile Include="Forms\QCM\QcmMainScreen.xaml.cs">
+      <DependentUpon>QcmMainScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\QCM\QCMtoQC4Controller.cs" />
+    <Compile Include="Forms\QCM\QCMValidation.cs" />
+    <Compile Include="Forms\QuestionSetting\AddQuestion.xaml.cs">
+      <DependentUpon>AddQuestion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\QuestionSetting\QuestionSettingCopy.xaml.cs">
+      <DependentUpon>QuestionSettingCopy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\QuestionSetting\QuestionSettingEdit.xaml.cs">
+      <DependentUpon>QuestionSettingEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\QuestionSetting\QuestionSettingMainWindow.xaml.cs">
+      <DependentUpon>QuestionSettingMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\QuestionSetting\SubtotalSetting.xaml.cs">
+      <DependentUpon>SubtotalSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserControls\IntegrateSourceVariable.xaml.cs">
+      <DependentUpon>IntegrateSourceVariable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserControls\CriteriaControl.xaml.cs">
+      <DependentUpon>CriteriaControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserControls\JointSourceVariable.xaml.cs">
+      <DependentUpon>JointSourceVariable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserControls\MagnifyingGlassButton.xaml.cs">
+      <DependentUpon>MagnifyingGlassButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserControls\NewItemSelectionWindow.xaml.cs">
+      <DependentUpon>NewItemSelectionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LocalResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\CheckCrossQC.cs" />
+    <Compile Include="Logic\CheckCrossReader.cs" />
+    <Compile Include="Logic\CombineBanner\CombineBanners.cs" />
+    <Compile Include="Logic\CombineBanner\RangeRankingSheetStore.cs" />
+    <Compile Include="Logic\CriteriaDescProvider.cs" />
+    <Compile Include="Forms\SummaryTableForm.xaml.cs">
+      <DependentUpon>SummaryTableForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\Cross Report\CrossReportHelper.cs" />
+    <Compile Include="Logic\Cross Report\DrawingPart.cs" />
+    <Compile Include="Logic\Cross Report\ReportCreatorXML.cs" />
+    <Compile Include="Logic\Cross Report\ReportPerSigTable.cs" />
+    <Compile Include="Logic\Cross Report\ReportPerTable.cs" />
+    <Compile Include="Logic\Cross Report\ReportPortraitHelper.cs" />
+    <Compile Include="Logic\Cross Report\ReportPortraitPerSigTable.cs" />
+    <Compile Include="Logic\Cross Report\ReportPortraitPerTable.cs" />
+    <Compile Include="Logic\Cross Report\ReportPortraitSigTemplate.cs" />
+    <Compile Include="Logic\Cross Report\ReportPortraitTemplate.cs" />
+    <Compile Include="Logic\Cross Report\ReportSigTemplate.cs" />
+    <Compile Include="Logic\Cross Report\ReportTemplate.cs" />
+    <Compile Include="Logic\DataImport\BatchFileController.cs" />
+    <Compile Include="Logic\DataImport\DataProcessNewLoad.cs" />
+    <Compile Include="Logic\DataProcessHelper.cs" />
+    <Compile Include="Logic\DPCheckCross\CheckCrossCreatorXML.cs" />
+    <Compile Include="Logic\DPCheckCross\CheckCrossHelper.cs" />
+    <Compile Include="Logic\DPCheckCross\CheckCrossNPTable.cs" />
+    <Compile Include="Logic\DPCheckCross\CheckCrossTemplate.cs" />
+    <Compile Include="Logic\DPCheckList\CheckListCreator.cs" />
+    <Compile Include="Logic\DPCheckList\DPCheckListHelper.cs" />
+    <Compile Include="Logic\DPCheckList\DPCheckListTabulationQc.cs" />
+    <Compile Include="Logic\GlobalsConstant.cs" />
+    <Compile Include="Logic\Gross Tabulation\GrossTabulationQc.cs" />
+    <Compile Include="Logic\Gross Tabulation\GTCreator.cs" />
+    <Compile Include="Classes\SeparatedValuesBase.cs" />
+    <Compile Include="Classes\SwapData.cs" />
+    <Compile Include="DB\AnswerUtil.cs" />
+    <Compile Include="Classes\TextParser.cs" />
+    <Compile Include="Logic\DataImport\DataImportTrans.cs" />
+    <Compile Include="DB\DataLoadVariableDetails.cs" />
+    <Compile Include="DB\DataOutput.cs" />
+    <Compile Include="DB\DBHelper.cs" />
+    <Compile Include="DB\SwapData.cs" />
+    <Compile Include="Forms\ConfirmationBox.xaml.cs">
+      <DependentUpon>ConfirmationBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CrossTabulation.xaml.cs">
+      <DependentUpon>CrossTabulation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DataImport.xaml.cs">
+      <DependentUpon>DataImport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DataMerge.xaml.cs">
+      <DependentUpon>DataMerge.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FilterSettingValue.xaml.cs">
+      <DependentUpon>FilterSettingValue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SampleWeightBack.xaml.cs">
+      <DependentUpon>SampleWeightBack.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SwapDataErrorList.xaml.cs">
+      <DependentUpon>SwapDataErrorList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TabExportFilterSetting.xaml.cs">
+      <DependentUpon>TabExportFilterSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LocalResource.ja-JP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalResource.ja-JP.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\Gross Tabulation\Openxml\CreateFormatTables.cs" />
+    <Compile Include="Logic\Gross Tabulation\Openxml\CreateFormatWBTables.cs" />
+    <Compile Include="Logic\Gross Tabulation\Openxml\DrawingPart.cs" />
+    <Compile Include="Logic\Gross Tabulation\Openxml\GTCreatorXML.cs" />
+    <Compile Include="Logic\Gross Tabulation\Openxml\GTHelper.cs" />
+    <Compile Include="Logic\Gross Tabulation\Openxml\NewBook.cs" />
+    <Compile Include="Logic\MultiVariate\Cluster.cs" />
+    <Compile Include="Logic\MultiVariate\CorrespondeceOutput.cs" />
+    <Compile Include="Logic\MultiVariate\CS_Portfolio.cs" />
+    <Compile Include="Logic\MultiVariate\CS_Portfolio_Settings.cs" />
+    <Compile Include="Logic\MultiVariate\ExecteProcess.cs" />
+    <Compile Include="Logic\MultiVariate\Factor.cs" />
+    <Compile Include="Logic\MultiVariate\MultiVariateSettingsReader.cs" />
+    <Compile Include="Logic\MultiVariate\MultivariateTable.cs" />
+    <Compile Include="Logic\MultiVariate\CorrespondenceCalc.cs" />
+    <Compile Include="Logic\MultiVariate\PSMCalc.cs" />
+    <Compile Include="Logic\MultiVariate\PSMOutput.cs" />
+    <Compile Include="Logic\MultiVariate\PSMOutputData.cs" />
+    <Compile Include="Logic\MultiVariate\CorrespondenceSettings.cs" />
+    <Compile Include="Logic\MultiVariate\PSMSettings.cs" />
+    <Compile Include="Logic\MultiVariate\Statastic.cs" />
+    <Compile Include="Logic\NPOICrossCreator.cs" />
+    <Compile Include="Logic\NpoiHelper.cs" />
+    <Compile Include="Logic\ReportBook.cs" />
+    <Compile Include="Logic\ReportCreator.cs" />
+    <Compile Include="Logic\ReportSource.cs" />
+    <Compile Include="Logic\ReportSources.cs" />
+    <Compile Include="Logic\Gross Tabulation\GTSettingsReader.cs" />
+    <Compile Include="Logic\ColorPallet.cs" />
+    <Compile Include="Model\ColumnImportSetting.cs" />
+    <Compile Include="Logic\CrossCreator.cs" />
+    <Compile Include="Logic\CrossSettingsReader.cs" />
+    <Compile Include="Logic\CrossTabulationQC.cs" />
+    <Compile Include="Logic\OutputUtil.cs" />
+    <Compile Include="Logic\TableUtil.cs" />
+    <Compile Include="Model\Question.cs" />
+    <Compile Include="Model\QuestionSetting.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Summary\OpenXml\SummaryCreatorXml.cs" />
+    <Compile Include="Summary\OpenXml\SummaryHelper.cs" />
+    <Compile Include="Summary\OpenXml\SummaryNPFormat.cs" />
+    <Compile Include="Summary\OpenXml\Summary_n.cs" />
+    <Compile Include="Summary\OpenXml\Summary_p.cs" />
+    <Compile Include="Summary\OpenXml\Summary_ps.cs" />
+    <Compile Include="Summary\STableUtil.cs" />
+    <Compile Include="Summary\SummaryCreator.cs" />
+    <Compile Include="Summary\SummaryReader.cs" />
+    <Compile Include="Summary\SummaryTabulation.cs" />
+    <Compile Include="Util\AddFileProperties.cs" />
+    <Compile Include="Util\AdvanceSettingHelper.cs" />
+    <Compile Include="Util\CommonFunction.cs" />
+    <Compile Include="Util\Common\MessageBoxEx.cs" />
+    <Compile Include="Util\Constants.cs" />
+    <Compile Include="Util\Converters\VisibilityConverter .cs" />
+    <Compile Include="Util\DataBrowseStd\GenerateDataSheet.cs" />
+    <Compile Include="Util\DataGridHelper.cs" />
+    <Compile Include="Logic\DataImport\DataImportHelper.cs" />
+    <Compile Include="Util\DataTableHelper.cs" />
+    <Compile Include="Util\Definiotion.cs" />
+    <Compile Include="Util\DictUpdate.cs" />
+    <Compile Include="Util\ExcelUtil.cs" />
+    <Compile Include="Util\FileUtil.cs" />
+    <Compile Include="Util\FindControls.cs" />
+    <Compile Include="Util\MenuEvent.cs" />
+    <Compile Include="Forms\ProgressBar.xaml.cs">
+      <DependentUpon>ProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Util\MessageDialog.cs" />
+    <Compile Include="Util\OpenXmlHelper.cs" />
+    <Compile Include="Util\ProgressBar.cs" />
+    <Compile Include="Util\Qc3Parse.cs" />
+    <Compile Include="Util\QC4FileHelper.cs" />
+    <Compile Include="Util\QcFileHelper.cs" />
+    <Compile Include="Util\QcWebHelper.cs" />
+    <Compile Include="Util\QCWorkbookHelper.cs" />
+    <Compile Include="Util\QS\AddNewQuestion.cs" />
+    <Compile Include="Util\QS\CheckVariableExistInSheets.cs" />
+    <Compile Include="Util\QS\GridCopyPaste.cs" />
+    <Compile Include="Util\QS\NewQuestionValidation.cs" />
+    <Compile Include="Util\QS\QuestionDelete.cs" />
+    <Page Include="Forms\ConfirmationBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\CrossTabulation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Forms\Cross_Tabulation\CrossTabulationStd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Cross_Tabulation\Cross_tab_Settings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Cross_Tabulation\EditTabulation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Cross_Tabulation\GraphOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Cross_Tabulation\TabulationSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\DataImport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\DataMerge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Cross_Tabulation\QuestionDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\DP_Main\ADD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\DP_Main\Class.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\DP_Main\Class_SetChoiceLabelswindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\DP_Main\Compute.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\DP_Main\COUNT.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\DP_Main\DeleteCases.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\DP_Main\Exclude.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\DP_Main\Integrate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\Cross_Tabulation\TabContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\DP_Main\Group.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\DP_Main\DP_Main.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\DP_Main\Joint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\DP_Main\MConvert.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\DP_Main\MTOS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\DP_Main\Integrate_Support_SourceVariable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\DP_Main\OutputList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\DP_Main\RECODE.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\DP_Main\ReviseData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\DP_Main\SummarizeChoices.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\FA\FA_List.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\FilterSettingValue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\GenerateKey.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\GrossTabulation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\GrossTabulationSetting\AddGTSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Forms\GrossTabulationSetting\GrossTabulationSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Forms\GrossTabulationSetting\GTOutputOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Forms\GrossTabulationSetting\GTSelect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Forms\LauncherDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Multivariate_Analysis\Cluster_Analysis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Multivariate_Analysis\CorrespondenceAnalysis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Multivariate_Analysis\CSPortfolioAnalysis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Multivariate_Analysis\Factor_Analysis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Multivariate_Analysis\MV_Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Multivariate_Analysis\PSM_ANALYSIS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Multivariate_Analysis\Usercontrols\CiteriaControlpsm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Multivariate_Analysis\Usercontrols\ClusterUsd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Multivariate_Analysis\Usercontrols\CriteriaUsecontrol.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Multivariate_Analysis\Usercontrols\crosstabulate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Multivariate_Analysis\Usercontrols\GTTabulateUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Multivariate_Analysis\Usercontrols\NumericUpDown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\QCM\QcmMainScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\QuestionSetting\AddQuestion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\QuestionSetting\QuestionSettingCopy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\QuestionSetting\QuestionSettingEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\QuestionSetting\QuestionSettingMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\QuestionSetting\SubtotalSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\SampleWeightBack.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms\SummaryTableForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\SwapDataErrorList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\TabExportFilterSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\UserControls\IntegrateSourceVariable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\UserControls\CriteriaControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\UserControls\JointSourceVariable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\UserControls\MagnifyingGlassButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\UserControls\NewItemSelectionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Logger\Log.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Forms\ProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="2019_macromill.com.codesign.pfx" />
+    <None Include="2020_macromill.com.codesign.pfx" />
+    <None Include="app.manifest" />
+    <None Include="MM_Authenticode_CodeSigning_20220511.pfx" />
+    <None Include="MM_Authenticode_CodeSigning_20230512.pfx" />
+    <None Include="MM_Authenticode_CodeSigning_20260513.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Templates\Analysis.xls" />
+    <None Include="Templates\Analysis.xlsx" />
+    <None Include="Templates\Base.xltx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CheckList.xlt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CheckList.xltx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\color-presets.xml" >
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CombineBannerTemplate.xlsx" >
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Comparison GT.xlsx" />
+    <None Include="Templates\Comparison_GT.xltx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CorrespondenceTemplate.xls" />
+    <None Include="Templates\CorrespondenceTemplate.xlsx" />
+    <None Include="Templates\Cross.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Cross.xlt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Cross.xltx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CrossFormat.xlt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CrossNP.xlt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CrossNP.xltx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CrossNPFormat.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CrossNPFormat.xlt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CrossNPPortrait.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CrossNPPortrait.xlt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CrossNPPortrait.xltx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CrossNPPortraitFormat.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CrossNPPortraitFormat.xlt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CrossPortrait.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CrossPortrait.xlt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CrossPortrait.xltx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CrossPortraitFormat.xlt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Cross_n.xltx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Cross_np.xltx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Cross_p.xltx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Cross_ps.xltx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\CSPortfolio_Template.xls" />
+    <None Include="Templates\CSPortfolio_Template.xltx" />
+    <None Include="Templates\CSPortfolio_Template_JaJp.xltx" />
+    <None Include="Templates\DataBrowse_STD.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\DataOutput.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\FA.xlsx" />
+    <None Include="Templates\GT.xlt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\GT.xltx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\GTFormat.xlt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\GTPortraitFormat.xlt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\GTWBFormat.xlt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\GTWBPortraitFormat.xlt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\PSM_Template.xltx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\PSM_Template_ja.xltx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Qc3_Template.xlsm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Qc4_Template_DO.xlsm" />
+    <None Include="Templates\Qc4_Template_DO.xlsm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Qc4_Template_DO.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Macromill.Quick-CROSS">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Questionnaire_STD.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Report.xlt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Report.xltx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\ReportFormat.xlt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\ReportPortrait.xlt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\ReportPortrait.xltx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\ReportPortraitFormat.xlt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Report_Template.xltx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Summary_n.xltx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Summary_p.xltx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Summary_ps.xltx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LocalResource.en-US.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LocalResource.ja-JP.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocalResource.ja-JP.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LocalResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>LocalResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\buttontop.png" />
+    <Resource Include="img\export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\CombineSideWays.png" />
+    <Resource Include="img\CombineVerticallypng.png" />
+    <Resource Include="img\CreateNew.png" />
+    <Resource Include="img\externalData.png" />
+    <Resource Include="img\ScreeningMatch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FilterSettingsView\FilterSettingsView.csproj">
+      <Project>{0D613868-A2E1-4F54-A066-CF6A0535AF2E}</Project>
+      <Name>FilterSettingsView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Macromill.QCWeb.Batch.Report\Macromill.QCWeb.Batch.Report.csproj">
+      <Project>{eb027e68-d9ce-4828-91f6-598726aa0fbe}</Project>
+      <Name>Macromill.QCWeb.Batch.Report</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Macromill.QCWeb.Dao\Macromill.QCWeb.Dao.csproj">
+      <Project>{5B48496B-234C-45F8-9BEA-0D8FB0BFA6A9}</Project>
+      <Name>Macromill.QCWeb.Dao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Macromill.QCWeb\Macromill.QCWeb.csproj">
+      <Project>{e67300c0-4dba-4e36-bd3b-f75c3b9e9f8e}</Project>
+      <Name>Macromill.QCWeb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\main\NPOI.csproj">
+      <Project>{10fa8538-157a-4380-a4f6-8e2c3ee92cae}</Project>
+      <Name>NPOI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ooxml\NPOI.OOXML.csproj">
+      <Project>{6beed965-b9a0-4ffa-b96d-0f380a97331a}</Project>
+      <Name>NPOI.OOXML</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\openxml4Net\NPOI.OpenXml4Net.csproj">
+      <Project>{c9f265b7-ece3-4755-b0b1-79536575c2a9}</Project>
+      <Name>NPOI.OpenXml4Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenXmlFormats\NPOI.OpenXmlFormats.csproj">
+      <Project>{a6874784-2875-4f40-9e8f-8385a640f5d6}</Project>
+      <Name>NPOI.OpenXmlFormats</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QC4Common\QC4Common.csproj">
+      <Project>{1499a0d6-01ad-4b35-897f-e04e341ee0b3}</Project>
+      <Name>QC4Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuickCrossAddIn\QC4ExcelAddIn.csproj">
+      <Project>{65dac777-4ce9-471f-974b-33423497d287}</Project>
+      <Name>QC4ExcelAddIn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ScrollableTabControl\ScrollableTabControl.csproj">
+      <Project>{2e1fce53-9b2d-4671-81e2-f9f7cdafeaf4}</Project>
+      <Name>ScrollableTabControl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\down_arrow.png" />
+    <Resource Include="Resources\up_arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\question setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\data browsing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\data processing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\gt table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\cross table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\fa list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\multivariate analysis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\newlogosm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\logonewicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\triangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\search_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\qs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\qs_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\crosschart_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\crosschrt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\data export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\databrowse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\databrowse_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\dataexport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\dataexport_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\dataprocess.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\dataprocess_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\falist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\falist_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\gttable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\gttable_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\multivarint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\mutivarint_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\newlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\app_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\app_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\file_icon3.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\textlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\buttontop1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\uturn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Templates\color-presets.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.110.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.110.0\build\net46\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.110.0\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.110.0\build\net46\System.Data.SQLite.Core.targets'))" />
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

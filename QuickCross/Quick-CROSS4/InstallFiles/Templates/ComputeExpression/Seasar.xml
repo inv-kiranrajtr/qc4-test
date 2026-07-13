@@ -1,0 +1,4049 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Seasar</name>
+    </assembly>
+    <members>
+        <member name="F:Seasar.Framework.Container.Util.AopProxyUtil.DEFAULT_ASPECTWEAVER_INSTANCE">
+            <summary>
+            デフォルトのAspectWeaverインスタンス
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.Util.AopProxyUtil.WeaveAspect(Seasar.Framework.Container.IComponentDef,System.Reflection.ConstructorInfo,System.Object[])">
+            <summary>
+            Aspectを織り込む
+            </summary>
+            <param name="componentDef">Aspectを織り込む対象のコンポーネント定義</param>
+            <param name="constructor">コンストラクタ</param>
+            <param name="args">コンストラクタの引数</param>
+            <returns>Aspectを織り込んだオブジェクト</returns>
+        </member>
+        <member name="T:Seasar.Framework.Container.IInitMethodDef">
+            <summary>
+            初期化メソッドを定義します。
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.IMethodDef">
+            <summary>
+            メソッドを定義します。
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.IArgDefAware">
+            <summary>
+            IArgDefの設定が可能になります。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.IArgDefAware.AddArgDef(Seasar.Framework.Container.IArgDef)">
+            <summary>
+            IArgDefを追加します
+            </summary>
+            <param name="argDef">IArgDef</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.IArgDefAware.GetArgDef(System.Int32)">
+            <summary>
+            番号を指定してIArgDefを取得します
+            </summary>
+            <param name="index">IArgDefの番号</param>
+            <returns>IArgDef</returns>
+        </member>
+        <member name="P:Seasar.Framework.Container.IArgDefAware.ArgDefSize">
+            <summary>
+            ArgDefの数
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IMethodDef.MethodName">
+            <summary>
+            メソッドの名前
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IMethodDef.Args">
+            <summary>
+            引数の配列
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IMethodDef.Container">
+            <summary>
+            S2Container
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IMethodDef.Expression">
+            <summary>
+            Expression
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.Assembler.AbstractAssembler.GetComponentByReceiveType(System.Type,System.String)">
+            <summary>
+            受け側のTypeを指定してコンポーネントを取得する
+            </summary>
+            <param name="receiveType">受け側のType</param>
+            <param name="expression">expression</param>
+            <returns>expressionからコンポーネント定義を探す</returns>
+        </member>
+        <member name="T:Seasar.Framework.Aop.Proxy.AopProxy">
+            <summary>
+            AopProxy
+            </summary>
+            <remarks>
+            透過的プロクシによってAOPを実現しています。
+            </remarks>
+        </member>
+        <member name="F:Seasar.Framework.Aop.Proxy.AopProxy._target">
+            <summary>
+            透過的プロクシを作成するインスタンス
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Aop.Proxy.AopProxy._aspects">
+            <summary>
+            適用するAspect
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Aop.Proxy.AopProxy._type">
+            <summary>
+            透過的プロクシを作成する型
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Aop.Proxy.AopProxy._parameters">
+            <summary>
+            メソッドとそのクラスのインスタンスが属するS2コンテナに関する情報
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Proxy.AopProxy.#ctor(System.Type,Seasar.Framework.Aop.IAspect[],System.Collections.Hashtable,System.Object)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="type">Aspectされるターゲットの型のType</param>
+            <param name="aspects">適応するAspect</param>
+            <param name="parameters">パラメータ</param>
+            <param name="target">Aspectされるターゲット</param>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Proxy.AopProxy.#ctor(System.Type,Seasar.Framework.Aop.IAspect[],System.Collections.Hashtable)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="type">Aspectされるターゲットの型のType</param>
+            <param name="aspects">適応するAspect</param>
+            <param name="parameters">パラメータ</param>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Proxy.AopProxy.#ctor(System.Type,Seasar.Framework.Aop.IAspect[])">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="type">Aspectされるターゲットの型のType</param>
+            <param name="aspects">適応するAspect</param>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Proxy.AopProxy.#ctor(System.Type)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="type">Aspectされるターゲットの型のType</param>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Proxy.AopProxy.Create">
+            <summary>
+            透過的プロクシを返す
+            </summary>
+            <returns>透過的プロクシのインスタンス</returns>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Proxy.AopProxy.Create(System.Type[],System.Object[])">
+            <summary>
+            透過的プロクシを返す
+            </summary>
+            <param name="argTypes">透過的プロクシの対象となるクラスのコンストラクタの引数の型のリスト</param>
+            <param name="args">透過的プロクシの対象となるクラスのコンストラクタの引数のリスト</param>
+            <returns>透過的プロクシのインスタンス</returns>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Proxy.AopProxy.Create(System.Type[],System.Object[],System.Type)">
+            <summary>
+            透過的プロクシを返す
+            </summary>
+            <param name="argTypes">透過的プロクシの対象となるクラスのコンストラクタの引数の型のリスト</param>
+            <param name="args">透過的プロクシの対象となるクラスのコンストラクタの引数のリスト</param>
+            <param name="targetType">透過的プロクシの対象となるクラスの型</param>
+            <returns>透過的プロクシのインスタンス</returns>
+        </member>
+        <!-- 正しくない形式の XML コメントがメンバー "M:Seasar.Framework.Aop.Proxy.AopProxy.Invoke(System.Runtime.Remoting.Messaging.IMessage)" で無視されました -->
+        <member name="T:Seasar.Extension.Tx.ITransactionHandler">
+            <summary>
+            トランザクションの実処理を担うクラスが実装するべき処理を規定します。
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Util.JScriptUtil">
+            <summary>
+            CodeDomでJScript.NETを扱えるようにします。
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Util.ArrayUtil">
+            <summary>
+            Utility of array
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Util.ArrayUtil.Add(System.Object[],System.Object)">
+            <summary>
+            Add an item to array
+            </summary>
+            <param name="array"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Util.ArrayUtil.Add(System.Object[],System.Object[])">
+            <summary>
+            Add an array to another array
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Util.ArrayUtil.IndexOf(System.Object[],System.Object)">
+            <summary>
+            Index of array which is object
+            </summary>
+            <param name="array"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Util.ArrayUtil.IndexOf(System.Char[],System.Char)">
+            <summary>
+            Index of array which is char
+            </summary>
+            <param name="array"></param>
+            <param name="ch"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Util.ArrayUtil.Remove(System.Object[],System.Object)">
+            <summary>
+            Remove an object from array
+            </summary>
+            <param name="array"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Seasar.Framework.Container.IComponentDef">
+            <summary>
+            コンポーネントの定義をします
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.IPropertyDefAware">
+            <summary>
+            IPropertyDefの設定が可能になります。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.IPropertyDefAware.AddPropertyDef(Seasar.Framework.Container.IPropertyDef)">
+            <summary>
+            IPropertyDefを追加します。
+            </summary>
+            <param name="propertyDef">IPropertyDef</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.IPropertyDefAware.GetPropertyDef(System.Int32)">
+            <summary>
+            番号を指定してIPropertyDefを取得します。
+            </summary>
+            <param name="index">IPropertyDefの番号</param>
+            <returns>IPropertyDef</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.IPropertyDefAware.GetPropertyDef(System.String)">
+            <summary>
+            名前を指定してIPropertyDefを取得します。
+            </summary>
+            <param name="propertyName">IPropertyDefの名前</param>
+            <returns>IPropertyDef</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.IPropertyDefAware.HasPropertyDef(System.String)">
+            <summary>
+            指定した名前のIPropertyDefを持っているか判定します。
+            </summary>
+            <param name="propertyName">IPropertyDefの名前</param>
+            <returns>存在するならtrue</returns>
+        </member>
+        <member name="P:Seasar.Framework.Container.IPropertyDefAware.PropertyDefSize">
+            <summary>
+            IPropertyDefの数
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.IInitMethodDefAware">
+            <summary>
+            IInitMethodDefの設定が可能になります。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.IInitMethodDefAware.AddInitMethodDef(Seasar.Framework.Container.IInitMethodDef)">
+            <summary>
+            IInitMethodDefを追加します。
+            </summary>
+            <param name="methodDef">IInitMethodDef</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.IInitMethodDefAware.GetInitMethodDef(System.Int32)">
+            <summary>
+            番号を指定してIInitMethodDefを取得します。
+            </summary>
+            <param name="index">IInitMethodDefの番号</param>
+            <returns>IInitMethodDef</returns>
+        </member>
+        <member name="P:Seasar.Framework.Container.IInitMethodDefAware.InitMethodDefSize">
+            <summary>
+            IInitMethodDefの数
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.IDestroyMethodDefAware">
+            <summary>
+            IDestroyMethodDefの設定が可能になります。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.IDestroyMethodDefAware.AddDestroyMethodDef(Seasar.Framework.Container.IDestroyMethodDef)">
+            <summary>
+            IDestroyMethodDefを追加します。
+            </summary>
+            <param name="methodDef">IDestroyMethodDef</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.IDestroyMethodDefAware.GetDestroyMethodDef(System.Int32)">
+            <summary>
+            番号を指定してIDestroyMethodDefを取得します。
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Seasar.Framework.Container.IDestroyMethodDefAware.DestroyMethodDefSize">
+            <summary>
+            IDestroyMethodDefの数
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.IAspectDefAware">
+            <summary>
+            IAspectDefの設定が可能になります。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.IAspectDefAware.AddAspeceDef(Seasar.Framework.Container.IAspectDef)">
+            <summary>
+            IAspectDefを追加します。
+            </summary>
+            <param name="aspectDef">IAspectDef</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.IAspectDefAware.GetAspectDef(System.Int32)">
+            <summary>
+            番号を指定してIAspectDefを取得します。
+            </summary>
+            <param name="index">IAspectDefの番号</param>
+            <returns>IAspectDef</returns>
+        </member>
+        <member name="P:Seasar.Framework.Container.IAspectDefAware.AspectDefSize">
+            <summary>
+            IAspectDefの数
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.IMetaDefAware">
+            <summary>
+            IMetaDefの設定が可能になります。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.IMetaDefAware.AddMetaDef(Seasar.Framework.Container.IMetaDef)">
+            <summary>
+            IMetaDefを追加します。
+            </summary>
+            <param name="metaDef">IMetaDef</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.IMetaDefAware.GetMetaDef(System.Int32)">
+            <summary>
+            番号を指定してIMetaDefを取得します。
+            </summary>
+            <param name="index">IMetaDefの番号</param>
+            <returns>IMetaDef</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.IMetaDefAware.GetMetaDef(System.String)">
+            <summary>
+            名前を指定してIMetaDefを取得します。
+            </summary>
+            <param name="name">IMetaDefの名前</param>
+            <returns>IMetaDef</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.IMetaDefAware.GetMetaDefs(System.String)">
+            <summary>
+            名前を指定してIMetaDefの配列を取得します。
+            </summary>
+            <param name="name">IMetaDefの名前</param>
+            <returns>IMetaDefの配列</returns>
+        </member>
+        <member name="P:Seasar.Framework.Container.IMetaDefAware.MetaDefSize">
+            <summary>
+            IMetaDefの数
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.IComponentDef.GetComponent">
+            <summary>
+            コンポーネントを取得します
+            </summary>
+            <returns>コンポーネント</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.IComponentDef.GetComponent(System.Type)">
+            <summary>
+            受け取る型を指定してコンポーネントを取得します
+            </summary>
+            <param name="receiveType">受け取る型</param>
+            <returns>コンポーネント</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.IComponentDef.InjectDependency(System.Object)">
+            <summary>
+            外部コンポーネントにプロパティ・インジェクション、
+            メソッド・インジェクションを実行します。
+            外部コンポーネントと互換性のあるコンポーネント定義を利用します。
+            instanceモードが"outer"と定義されたコンポーネントのみ有効です。
+            </summary>
+            <param name="outerComponent">外部コンポーネント</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.IComponentDef.Init">
+            <summary>
+            コンポーネントの定義を初期化します。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.IComponentDef.GetProxy(System.Type)">
+            <summary>
+            プロキシを取得します。
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IComponentDef.Container">
+            <summary>
+            S2Container
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IComponentDef.ComponentType">
+            <summary>
+            コンポーネントのType
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IComponentDef.ComponentName">
+            <summary>
+            コンポーネントの名前
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IComponentDef.AutoBindingMode">
+            <summary>
+            自動バインディングモード
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IComponentDef.InstanceMode">
+            <summary>
+            インスタンスモード
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IComponentDef.Expression">
+            <summary>
+            Expression
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Exceptions.SRuntimeException">
+            <summary>
+            Seasarの実行時例外のベースとなるクラスです。
+            メッセージコードによって例外を詳細に特定できます。
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.ExtensionNotFoundRuntimeException">
+            <summary>
+            拡張子が見つからなかったときの実行時例外
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Beans.PropertyNotFoundRuntimeException">
+            <summary>
+            プロパティが見つからないときに投げられる例外です
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Beans.IPropertyDesc">
+            <summary>
+            プロパティを扱うためのインターフェースです。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IPropertyDesc.HasReadMethod">
+            <summary>
+            getterメソッドを持っているかどうか返します。
+            </summary>
+            <returns>getterメソッドを持っているかどうか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IPropertyDesc.HasWriteMethod">
+            <summary>
+            setterメソッドを持っているかどうか返します。
+            </summary>
+            <returns>setterメソッドを持っているかどうか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IPropertyDesc.GetValue(System.Object)">
+            <summary>
+            プロパティの値を返します。
+            </summary>
+            <param name="target">target</param>
+            <returns>プロパティの値</returns>
+            <exception cref="T:Seasar.Framework.Beans.IllegalPropertyRuntimeException">値の設定に失敗した場合。</exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IPropertyDesc.SetValue(System.Object,System.Object)">
+            <summary>
+            プロパティに値を設定します。
+            </summary>
+            <param name="target"></param>
+            <param name="value"></param>
+            <exception cref="T:Seasar.Framework.Beans.IllegalPropertyRuntimeException">値の設定に失敗した場合。</exception>
+        </member>
+        <member name="P:Seasar.Framework.Beans.IPropertyDesc.Property">
+            <summary>
+            元となるプロパティ情報
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Beans.IPropertyDesc.Name">
+            <summary>
+            プロパティ名
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Beans.IPropertyDesc.PropertyType">
+            <summary>
+            プロパティの型
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Beans.IPropertyDesc.ReadMethod">
+            <summary>
+            getterメソッド
+            </summary>
+            <exception cref="T:Seasar.Framework.Beans.MethodNotFoundRuntimeException"></exception>
+        </member>
+        <member name="P:Seasar.Framework.Beans.IPropertyDesc.WriteMethod">
+            <summary>
+            setterメソッド
+            </summary>
+            <exception cref="T:Seasar.Framework.Beans.MethodNotFoundRuntimeException"></exception>
+        </member>
+        <member name="T:Seasar.Framework.Beans.IMethodDesc">
+            <summary>
+            メソッド情報記述インターフェース
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IMethodDesc.GetParameterInfos">
+            <summary>
+            パラメータ情報
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IMethodDesc.GetReturnType">
+            <summary>
+            戻り値の型を返す
+            </summary>
+            <returns>戻り値の型（voidならnull)</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IMethodDesc.CanOverride">
+            <summary>
+            Overridできるかどうか判定する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IMethodDesc.Invoke(System.Object,System.Object[])">
+            <summary>
+            メソッド呼び出し
+            </summary>
+            <param name="obj">メソッドをもつオブジェクト</param>
+            <param name="parameters">メソッドに渡す引数</param>
+            <returns>メソッドの戻り値</returns>
+        </member>
+        <member name="P:Seasar.Framework.Beans.IMethodDesc.Method">
+            <summary>
+            元となるメソッド情報
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Beans.IMethodDesc.Name">
+            <summary>
+            メソッド名
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Beans.Factory.FieldDescFactory">
+            <summary>
+            フィールド情報記述クラスファクトリ
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Beans.Factory.FieldDescFactory._fieldDescCache">
+            <summary>
+            BindingFlags -> メソッド情報の検索時に指定した条件
+            string -> メソッド名
+            IFieldDesc -> フィールド情報
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.FieldDescFactory.#ctor(System.Type)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="beanType">プロパティ情報を取り出す型</param>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.FieldDescFactory.HasField(System.String)">
+            <summary>
+            指定した名前のプロパティが存在するか判定
+            </summary>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.FieldDescFactory.HasField(System.String,System.Reflection.BindingFlags)">
+            <summary>
+            指定した名前のプロパティが存在するか判定
+            </summary>
+            <param name="fieldName"></param>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.FieldDescFactory.GetFieldDesc(System.String)">
+            <summary>
+            プロパティ情報の取得(NotNull)
+            </summary>
+            <param name="fieldName"></param>
+            <returns></returns>
+            <exception cref="T:Seasar.Framework.Beans.FieldNotFoundRuntimeException"></exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.FieldDescFactory.GetFieldDesc(System.String,System.Reflection.BindingFlags)">
+            <summary>
+            プロパティ情報の取得(NotNull)
+            </summary>
+            <param name="fieldName"></param>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+            <exception cref="T:Seasar.Framework.Beans.FieldNotFoundRuntimeException"></exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.FieldDescFactory.GetFieldDescs">
+            <summary>
+            プロパティ情報一覧の取得
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.FieldDescFactory.GetFieldDescs(System.Reflection.BindingFlags)">
+            <summary>
+            プロパティ情報一覧の取得
+            </summary>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.FieldDescFactory.CreateFieldDescsIfNeed(System.Reflection.BindingFlags)">
+            <summary>
+            未登録のプロパティ検索条件の場合、プロパティ情報の新規キャッシュを行う
+            </summary>
+            <param name="bindingFlags"></param>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.FieldDescFactory.CreatePropertyDescs(System.Type,System.Reflection.BindingFlags)">
+            <summary>
+            プロパティ情報の生成
+            </summary>
+            <param name="beanType"></param>
+            <param name="bindingFlags">プロパティの取り出し条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.FieldDescFactory.CreateFieldDesc(System.Reflection.FieldInfo)">
+            <summary>
+            フィールド情報記述クラスインスタンスの生成
+            </summary>
+            <param name="fieldInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.FieldDescFactory.NewFieldDesc(System.Reflection.FieldInfo)">
+            <summary>
+            フィールド情報記述クラスインスタンスの生成
+            </summary>
+            <param name="fieldInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Seasar.Framework.Aop.Impl.MethodInvocationImpl">
+            <summary>
+            IS2MethodInvocationインターフェイスの実装
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Aop.IS2MethodInvocation">
+            <summary>
+            IMethodInvocationインターフェイスにS2独自の情報を追加したもの
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Aop.IMethodInvocation">
+            <summary>
+            Interceptorからインターセプトされているメソッドの情報にアクセスするためのインターフェイス
+            </summary>
+            <remarks>
+            このインターフェイスはAOPアライアンス準拠。
+            </remarks>
+            <seealso href="http://aopalliance.sourceforge.net/doc/index.html">AOP Alliance</seealso>
+        </member>
+        <member name="M:Seasar.Framework.Aop.IMethodInvocation.Proceed">
+            <summary>
+            他にチェーンされているInterceptorがあれば、Interceptorを呼び出します（再帰的に呼び出される）
+            他にチェーンされているInterceptorが無ければ、Interceptされているメソッドを実行します
+            </summary>
+            <returns>Interceptされたメソッドの戻り値</returns>
+        </member>
+        <member name="P:Seasar.Framework.Aop.IMethodInvocation.Method">
+            <summary>
+            InterceptされるメソッドのMethodBase
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Aop.IMethodInvocation.Target">
+            <summary>
+            Interceptされるオブジェクト
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Aop.IMethodInvocation.Arguments">
+            <summary>
+            Interceptされるメソッドの引数
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Aop.IS2MethodInvocation.GetParameter(System.String)">
+            <summary>
+            メソッドとそのクラスのインスタンスが属するS2コンテナに関する情報
+            </summary>
+            <param name="name">S2コンテナの情報の名前</param>
+        </member>
+        <member name="P:Seasar.Framework.Aop.IS2MethodInvocation.TargetType">
+            <summary>
+            メソッドが属するクラスの型情報
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Aop.Impl.MethodInvocationImpl._target">
+            <summary>
+            呼び出されるメソッドが属するインスタンス
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Aop.Impl.MethodInvocationImpl._method">
+            <summary>
+            呼び出されるメソッド
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Aop.Impl.MethodInvocationImpl._interceptors">
+            <summary>
+            メソッドをInterceptするInterceptorの配列
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Aop.Impl.MethodInvocationImpl._interceptorsIndex">
+            <summary>
+            処理されているInterceptorの再帰レベル
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Aop.Impl.MethodInvocationImpl._arguments">
+            <summary>
+            メソッドの引数
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Aop.Impl.MethodInvocationImpl._parameters">
+            <summary>
+            メソッドとそのクラスのインスタンスが属するS2コンテナに関する情報
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Impl.MethodInvocationImpl.#ctor(System.Object,System.Reflection.MethodBase,System.Object[],Seasar.Framework.Aop.IMethodInterceptor[],System.Collections.Hashtable)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="target">Interceptされるオブジェクト</param>
+            <param name="method">InterceptされるメソッドのMethodBase</param>
+            <param name="arguments">引数</param>
+            <param name="interceptors">メソッドのInterceptするInterceptor</param>
+            <param name="parameters">Interceptされるメソッドとそのクラスのインスタンスが属するS2コンテナに関する情報</param>
+        </member>
+        <!-- 正しくない形式の XML コメントがメンバー "M:Seasar.Framework.Aop.Impl.MethodInvocationImpl.Proceed" で無視されました -->
+        <member name="M:Seasar.Framework.Aop.Impl.MethodInvocationImpl.GetParameter(System.String)">
+            <summary>
+            メソッドとそのクラスのインスタンスが属するS2コンテナに関する情報
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Aop.Impl.MethodInvocationImpl.Method">
+            <summary>
+            InterceptされるメソッドのMethod
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Aop.Impl.MethodInvocationImpl.Target">
+            <summary>
+            Interceptされるオブジェクト
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Aop.Impl.MethodInvocationImpl.Arguments">
+            <summary>
+            Interceptされるメソッドの引数
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Aop.Impl.MethodInvocationImpl.TargetType">
+            <summary>
+            メソッドが属するクラスの型情報
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Aop.IAspect">
+            <summary>
+            Advice(Interceptor)とIPointcutの関連を定義します
+            </summary>
+            <remarks>
+            このインターフェイスはAOPアライアンス準拠。
+            </remarks>
+            <seealso href="http://aopalliance.sourceforge.net/doc/index.html">AOP Alliance</seealso>
+        </member>
+        <member name="P:Seasar.Framework.Aop.IAspect.MethodInterceptor">
+            <summary>
+            Advice(Interceptor)
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Aop.IAspect.Pointcut">
+            <summary>
+            IPointcut
+            </summary>
+        </member>
+        <member name="T:Seasar.Extension.ADO.Impl.SelectableDataSourceProxyWithContainer">
+            <summary>
+            S2Containerを使用してデータソースを返す
+            </summary>
+        </member>
+        <member name="T:Seasar.Extension.ADO.Impl.AbstractSelectableDataSourceProxy">
+            <summary>
+            複数データソースへの接続をサポートする抽象クラス
+            明示的にデータソースが登録されている場合はIDictionaryの方を
+            明示的に登録されていなければS2Containerの方を探します。
+            </summary>
+        </member>
+        <member name="M:Seasar.Extension.ADO.Impl.AbstractSelectableDataSourceProxy.GetDataSourceName">
+            <summary>
+            使用するデータソース名の取得
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Extension.ADO.Impl.AbstractSelectableDataSourceProxy.SetDataSourceName(System.String)">
+            <summary>
+            ローカルデータメモリスロットにデータソース名を設定
+            </summary>
+            <param name="dataSourceName"></param>
+        </member>
+        <member name="M:Seasar.Extension.ADO.Impl.AbstractSelectableDataSourceProxy.GetDataSource">
+            <summary>
+            データソースの取得
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Extension.ADO.Impl.AbstractSelectableDataSourceProxy.GetDataSource(System.String)">
+            <summary>
+            データソースの取得
+            </summary>
+            <param name="dataSourceName">データソース名</param>
+            <returns></returns>
+        </member>
+        <member name="F:Seasar.Extension.ADO.Impl.SelectableDataSourceProxyWithContainer._dataSourceName">
+            <summary>
+            データソース名
+            </summary>
+            <remarks>
+            static,スレッド毎に一意のデータソース名を保持する場合は
+            IDataSourceSelector実装クラスを作成して実装して下さい
+            </remarks>
+        </member>
+        <member name="M:Seasar.Framework.Container.Util.PropertyDefSupport.AddPropertyDef(Seasar.Framework.Container.IPropertyDef)">
+            <summary>
+            PropertyDefを追加します。
+            </summary>
+            <param name="propertyDef">IPropertyDef</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.Util.PropertyDefSupport.GetPropertyDef(System.Int32)">
+            <summary>
+            番号を指定してIPropertyDefを取得します。
+            </summary>
+            <param name="index">IPropertyDefの番号</param>
+            <returns>IPropertyDef</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.Util.PropertyDefSupport.GetPropertyDef(System.String)">
+            <summary>
+            名前を指定してIPropertyDefを取得します。
+            </summary>
+            <param name="propertyName">IPropertyDefの名前</param>
+            <returns>IPropertyDef</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.Util.PropertyDefSupport.HasPropertyDef(System.String)">
+            <summary>
+            指定された名前のIPropertyDefを持っているか判定します。
+            </summary>
+            <param name="propertyName">IPropertyDefの名前</param>
+            <returns>存在するならtrue</returns>
+        </member>
+        <member name="P:Seasar.Framework.Container.Util.PropertyDefSupport.PropertyDefSize">
+            <summary>
+            IPropertyDefの数
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.Util.PropertyDefSupport.Container">
+            <summary>
+            S2Container
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.TooManyRegistrationRuntimeException.#ctor(System.Object,System.Type[])">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="key"></param>
+            <param name="componentTypes"></param>
+        </member>
+        <member name="T:Seasar.Framework.Container.AutoRegister.ClassPattern">
+            <summary>
+            自動登録の対象、非対象となるクラス名のパターンを保持します。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.ClassPattern.#ctor">
+            <summary>
+            デフォルトのコンストラクタです。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.ClassPattern.#ctor(System.String,System.String)">
+            <summary>
+            名前空間名とクラス名のパターンを受け取るコンストラクタです。
+            </summary>
+            <param name="namespaceName">名前空間名</param>
+            <param name="shortClassNames">クラス名のパターン</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.ClassPattern.IsAppliedShortClassName(System.String)">
+            <summary>
+            （名前空間を含まない）クラス名がパターンに一致しているかどうかを返します。
+            </summary>
+            <param name="shortClassName">クラス名</param>
+            <returns>一致している場合はtrue, 一致していない場合はfalse</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.ClassPattern.IsAppliedNamespaceName(System.String)">
+            <summary>
+            名前空間名がパターンに一致しているかどうかを返します。
+            </summary>
+            <param name="namespaceName">名前空間名</param>
+            <returns>一致している場合はtrue, 一致していない場合はfalse</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.ClassPattern.AppendDelimiter(System.String)">
+            <summary>
+            デリミタを追加します。
+            </summary>
+            <param name="name">名前空間名</param>
+            <returns>名前空間名に後ろにデリミタ('.')を追加したもの</returns>
+        </member>
+        <member name="P:Seasar.Framework.Container.AutoRegister.ClassPattern.NamespaceName">
+            <summary>
+            名前空間名を取得・設定します。
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.AutoRegister.ClassPattern.ShortClassNames">
+            <summary>
+            （名前空間を含まない）クラス名のパターンを設定します。
+            </summary>
+            <remarks>
+            複数のパターンを設定する場合、','で区切ります。
+            </remarks>
+        </member>
+        <member name="T:Seasar.Framework.Beans.ConstructorNotFoundRuntimeException">
+            <summary>
+            対象のクラスに適用可能なコンストラクタが見つからなかった場合の実行時例外です。
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Aop.IAspectWeaver">
+            <summary>
+            Aspectを織り込む処理を持つInterface
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Aop.IAspectWeaver.WeaveAspect(Seasar.Framework.Container.IComponentDef,System.Reflection.ConstructorInfo,System.Object[])">
+            <summary>
+            Aspectを織り込む
+            </summary>
+            <param name="componentDef">Aspectを織り込む対象のコンポーネント定義</param>
+            <param name="constructor">コンストラクタ</param>
+            <param name="args">コンストラクタの引数</param>
+            <returns>Aspectを織り込んだオブジェクト</returns>
+        </member>
+        <member name="T:Seasar.Framework.Exceptions.NoSuchConstructorRuntimeException">
+            <summary>
+            コンストラクタが見つからない場合の実行時例外です。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.Util.DestroyMethodDefSupport.AddDestroyMethodDef(Seasar.Framework.Container.IDestroyMethodDef)">
+            <summary>
+            DestroyMethodDefを追加します。
+            </summary>
+            <param name="methodDef">MethodDef</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.Util.DestroyMethodDefSupport.GetDestroyMethodDef(System.Int32)">
+            <summary>
+            番号を指定してIDestroyMethodDefを取得します。
+            </summary>
+            <param name="index">IDestroyMethodDefの番号</param>
+            <returns>IDestroyMethodDef</returns>
+        </member>
+        <member name="P:Seasar.Framework.Container.Util.DestroyMethodDefSupport.DestroyMethodDefSize">
+            <summary>
+            DestroyMethodDefの数
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.Util.DestroyMethodDefSupport.Container">
+            <summary>
+            S2Container
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.Util.AspectDefSupport.AddAspectDef(Seasar.Framework.Container.IAspectDef)">
+            <summary>
+            IAspectDefを追加します。
+            </summary>
+            <param name="aspectDef"></param>
+        </member>
+        <member name="M:Seasar.Framework.Container.Util.AspectDefSupport.GetAspectDef(System.Int32)">
+            <summary>
+            番号を指定してIAspectDefを返します。
+            </summary>
+            <param name="index">番号</param>
+            <returns>IAspectDef</returns>
+        </member>
+        <member name="P:Seasar.Framework.Container.Util.AspectDefSupport.AspectDefSize">
+            <summary>
+            IAspectDefの数
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.Util.AspectDefSupport.Container">
+            <summary>
+            S2Container
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.IS2Container">
+            <summary>
+            コンポーネントを管理するDIコンテナのインターフェース
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.IS2Container.GetComponent(System.Object)">
+            <summary>
+            キーを指定してコンポーネントを取得します。
+            キーと一致するコンポーネント名を持つコンポーネントを取得します。
+            </summary>
+            <param name="componentKey">コンポーネントを取得するためのキー</param>
+            <returns>コンポーネント</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.IS2Container.GetComponent(System.Type,System.String)">
+            <summary>
+            コンポーネントを解決するためのTypeと名前を指定してコンポーネントを取得します。
+            </summary>
+            <param name="componentType">コンポーネントを解決するためのType</param>
+            <param name="componentName">コンポーネント名</param>
+            <returns>コンポーネント</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.IS2Container.InjectDependency(System.Object)">
+            <summary>
+            外部コンポーネントにプロパティ・インジェクション、
+            メソッド・インジェクションを実行します。
+            外部コンポーネントと互換性のあるコンポーネント定義を利用します。
+            instanceモードが"outer"と定義されたコンポーネントのみ有効です。
+            </summary>
+            <param name="outerComponent">外部コンポーネント</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.IS2Container.InjectDependency(System.Object,System.Type)">
+            <summary>
+            外部コンポーネントにプロパティ・インジェクション、
+            メソッド・インジェクションを実行します。
+            外部コンポーネント定義のキーと互換性のある
+            コンポーネント定義を利用します。
+            instanceモードが"outer"と定義されたコンポーネントのみ有効です。
+            </summary>
+            <param name="outerComponent">外部コンポーネント</param>
+            <param name="componentType">外部コンポーネント定義のキー(Type)</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.IS2Container.InjectDependency(System.Object,System.String)">
+            <summary>
+            外部コンポーネントにプロパティ・インジェクション、
+            メソッド・インジェクションを実行します。
+            外部コンポーネント定義のキーと一致する名前のコンポーネント定義を
+            取得します。
+            instanceモードが"outer"と定義されたコンポーネントのみ有効です。
+            </summary>
+            <param name="outerComponent">外部コンポーネント</param>
+            <param name="componentName">外部コンポーネント定義のキー（名前）</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.IS2Container.Register(System.Object)">
+            <summary>
+            オブジェクトをコンポーネントとして登録します。
+            キーはオブジェクトのクラスになります。
+            </summary>
+            <param name="component">コンポーネントとして登録するオブジェクト</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.IS2Container.Register(System.Object,System.String)">
+            <summary>
+            オブジェクトを名前付きコンポーネントとして登録します。
+            </summary>
+            <param name="component">コンポーネントとして登録するオブジェクト</param>
+            <param name="componentName">コンポーネント名</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.IS2Container.Register(System.Type)">
+            <summary>
+            Typeをコンポーネント定義として登録します
+            </summary>
+            <param name="componentType">コンポーネントのType</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.IS2Container.Register(System.Type,System.String)">
+            <summary>
+            Typeを名前付きコンポーネント定義として登録します。
+            </summary>
+            <param name="componentType">コンポーネントのType</param>
+            <param name="componentName">コンポーネント名</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.IS2Container.Register(Seasar.Framework.Container.IComponentDef)">
+            <summary>
+            コンポーネント定義を登録します。
+            </summary>
+            <param name="componentDef">登録するコンポーネント定義</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.IS2Container.GetComponentDef(System.Int32)">
+            <summary>
+            番号を指定してコンポーネント定義を取得します。
+            </summary>
+            <param name="index">番号</param>
+            <returns>コンポーネント定義</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.IS2Container.GetComponentDef(System.Object)">
+            <summary>
+            指定したキーからコンポーネント定義を取得します。
+            </summary>
+            <param name="key">コンポーネントのキー</param>
+            <returns>コンポーネント定義</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.IS2Container.HasComponentDef(System.Object)">
+            <summary>
+            指定したキーのコンポーネント定義を持っているか判定します。
+            </summary>
+            <param name="componentKey">コンポーネントのキー</param>
+            <returns>存在するならtrue</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.IS2Container.HasDescendant(System.String)">
+            <summary>
+            rootのコンテナで、pathに対応するコンテナが既にロードされて
+            いるかを返します。
+            </summary>
+            <param name="path">パス</param>
+            <returns>ロードされていたらtrue</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.IS2Container.GetDescendant(System.String)">
+            <summary>
+            rootのコンテナで、指定したパスに対応するロード済みのコンテナを
+            取得します。
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.IS2Container.RegisterDescendant(Seasar.Framework.Container.IS2Container)">
+            <summary>
+            rootのコンテナに、ロード済みのコンテナを登録します。
+            </summary>
+            <param name="descendant"></param>
+        </member>
+        <member name="M:Seasar.Framework.Container.IS2Container.Include(Seasar.Framework.Container.IS2Container)">
+            <summary>
+            子コンテナをincludeします。
+            </summary>
+            <param name="child">includeする子コンテナ</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.IS2Container.GetChild(System.Int32)">
+            <summary>
+            番号を指定して子コンテナを取得します
+            </summary>
+            <param name="index">子コンテナの番号</param>
+            <returns>子コンテナ</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.IS2Container.Init">
+            <summary>
+            コンテナを初期化します。
+            子コンテナを持つ場合、子コンテナを全て初期化した後、自分を初期化します。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.IS2Container.Destroy">
+            <summary>
+            コンテナの終了処理を行います。
+            子コンテナを持つ場合、自分の終了処理を実行した後、
+            子コンテナ全ての終了処理を行います。
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IS2Container.ComponentDefSize">
+            <summary>
+            コンポーネント定義の数を取得します。
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IS2Container.ChildSize">
+            <summary>
+            子コンテナの数を取得します。
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IS2Container.Namespace">
+            <summary>
+            名前空間
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IS2Container.Path">
+            <summary>
+            設定ファイルのパス
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IS2Container.Root">
+            <summary>
+            ルートのコンテナ
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IS2Container.Response">
+            <summary>
+            HTTPのレスポンス
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IS2Container.Request">
+            <summary>
+            HTTPのリクエスト
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IS2Container.Session">
+            <summary>
+            HTTPのセッション
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IS2Container.HttpApplication">
+            <summary>
+            アプリケーションの基本クラス
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IS2Container.HttpContext">
+            <summary>
+            HTTP 要求に関する HTTP 固有のすべての情報
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.Impl.SimpleComponentDef">
+            <summary>
+            コンポーネントのインスタンスを直接返す場合に使用されます。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.SimpleComponentDef.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.SimpleComponentDef.#ctor(System.Type)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="componentType">コンポーネントのType</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.SimpleComponentDef.#ctor(System.Object)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="component">コンポーネント</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.SimpleComponentDef.#ctor(System.Object,System.Type)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="component">コンポーネント</param>
+            <param name="componentType">コンポーネントのType</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.SimpleComponentDef.#ctor(System.Object,System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="component">コンポーネント</param>
+            <param name="componentName">コンポーネントの名前</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.SimpleComponentDef.#ctor(System.Object,System.Type,System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="component">コンポーネント</param>
+            <param name="componentType">コンポーネントのType</param>
+            <param name="componentName">コンポーネントの名前</param>
+        </member>
+        <member name="T:Seasar.Framework.Container.AutoRegister.IAutoNaming">
+            <summary>
+            名前が明示的に付けられていないコンポーネントに自動的に名前を付ける為のインターフェースです。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.IAutoNaming.DefineName(System.Type)">
+            <summary>
+            コンポーネント名を定義します。
+            </summary>
+            <param name="type">コンポーネント名を定義したいType</param>
+            <returns>コンポーネント名</returns>
+        </member>
+        <member name="T:Seasar.Framework.Container.AutoRegister.AbstractComponentAutoRegister">
+            <summary>
+            コンポーネントを自動登録する基底クラスです。
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.AutoRegister.AbstractAutoRegister">
+            <summary>
+            自動登録用の抽象クラスです。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.AbstractAutoRegister.GetClassPattern(System.Int32)">
+            <summary>
+            ClassPatternを取得します。
+            </summary>
+            <param name="index">取得するClassPatternのインデックス</param>
+            <returns>ClassPattern</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.AbstractAutoRegister.AddClassPattern(System.String,System.String)">
+            <summary>
+            自動登録で適用される ClassPattern を追加します。
+            </summary>
+            <param name="namespaceName">名前空間名</param>
+            <param name="shortClassNames">クラス名のパターン</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.AbstractAutoRegister.AddClassPattern(Seasar.Framework.Container.AutoRegister.ClassPattern)">
+            <summary>
+            自動登録で適用される ClassPattern を追加します。
+            </summary>
+            <param name="classPattern">ClassPattern</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.AbstractAutoRegister.AddIgnoreClassPattern(System.String,System.String)">
+            <summary>
+            自動登録されない ClassPattern を追加します。
+            </summary>
+            <param name="namespaceName">名前空間名</param>
+            <param name="shortClassNames">クラス名のパターン</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.AbstractAutoRegister.AddIgnoreClassPattern(Seasar.Framework.Container.AutoRegister.ClassPattern)">
+            <summary>
+            自動登録されない ClassPattern を追加します。
+            </summary>
+            <param name="classPattern">ClassPattern</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.AbstractAutoRegister.RegisterAll">
+            <summary>
+            自動登録を行います。
+            </summary>
+            <remarks>
+            属性による初期化メソッドの指定ができないのでJava版とは異なり
+            このメソッドをdiconファイルで初期化メソッドとして呼び出す必要があります。
+            </remarks>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.AbstractAutoRegister.IsIgnore(System.Type)">
+            <summary>
+            無視するかどうかを返します。
+            </summary>
+            <param name="type">Type</param>
+            <returns>無視するかどうか</returns>
+        </member>
+        <member name="P:Seasar.Framework.Container.AutoRegister.AbstractAutoRegister.Container">
+            <summary>
+            コンテナを取得・設定します。
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.AutoRegister.AbstractAutoRegister.ClassPatternSize">
+            <summary>
+            追加されている ClassPattern の数を取得します。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.AbstractComponentAutoRegister.ProcessType(System.Type)">
+            <summary>
+            Type に対して自動登録するかどうかの処理を行います。
+            </summary>
+            <param name="type">自動登録を行うか判断する対象の Type</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.AbstractComponentAutoRegister.Register(System.Type)">
+            <summary>
+            コンポーネントを登録します。
+            </summary>
+            <param name="type">登録する Type</param>
+        </member>
+        <member name="P:Seasar.Framework.Container.AutoRegister.AbstractComponentAutoRegister.AutoNaming">
+            <summary>
+            コンポーネントに自動的に名前を付ける為の AutoNaming を設定・取得します。
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.AutoRegister.AbstractComponentAutoRegister.InstanceMode">
+            <summary>
+            インスタンスのモードを設定・取得します。
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.AutoRegister.AbstractComponentAutoRegister.AutoBindingMode">
+            <summary>
+            自動バインディングのモードを設定・取得します。
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Aop.Interceptors.TraceInterceptor">
+            <summary>
+            呼び出されたメソッドのトレースをログに出力するInterceptor
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Aop.Interceptors.AbstractInterceptor">
+            <summary>
+            Interceptorを作成する場合は、このクラスを継承します
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Aop.IMethodInterceptor">
+            <summary>
+            メソッドに対するInterceptorのインターフェイス
+            </summary>
+            <remarks>
+            このインターフェイスはAOPアライアンス準拠。
+            </remarks>
+            <seealso href="http://aopalliance.sourceforge.net/doc/index.html">AOP Alliance</seealso>
+        </member>
+        <member name="M:Seasar.Framework.Aop.IMethodInterceptor.Invoke(Seasar.Framework.Aop.IMethodInvocation)">
+            <summary>
+            メソッドがInterceptされる場合、このメソッドが呼び出されます
+            </summary>
+            <param name="invocation">IMethodInvocation</param>
+            <returns>Interceptされるメソッドの戻り値</returns>
+        </member>
+        <member name="F:Seasar.Framework.Aop.Interceptors.TraceInterceptor._logger">
+            <summary>
+            ロガー
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Interceptors.TraceInterceptor.Invoke(Seasar.Framework.Aop.IMethodInvocation)">
+            <summary>
+            メソッドがInterceptされる場合、このメソッドが呼び出されます
+            </summary>
+            <param name="invocation">IMethodInvocation</param>
+            <returns>Interceptされるメソッドの戻り値</returns>
+        </member>
+        <member name="T:Seasar.Framework.Aop.Impl.PointcutImpl">
+            <summary>
+            IPointcutインターフェイスの実装
+            </summary>
+        </member>
+        <!-- 正しくない形式の XML コメントがメンバー "T:Seasar.Framework.Aop.IPointcut" で無視されました -->
+        <member name="M:Seasar.Framework.Aop.IPointcut.IsApplied(System.Reflection.MethodBase)">
+            <summary>
+            引数で渡されたmethodにAdviceを挿入するか確認します
+            </summary>
+            <param name="method">MethodBase メソッドとコンストラクタに関する情報を持っています</param>
+            <returns>TrueならAdviceを挿入する、FalseならAdviceは挿入されない</returns>
+        </member>
+        <member name="M:Seasar.Framework.Aop.IPointcut.IsApplied(System.String)">
+            <summary>
+            引数で渡されたメソッド名にAdviceを挿入するか確認します
+            </summary>
+            <param name="methodName">メソッド名</param>
+            <returns>TrueならAdviceを挿入する、FalseならAdviceは挿入されない</returns>
+        </member>
+        <member name="F:Seasar.Framework.Aop.Impl.PointcutImpl._regularExpressions">
+            <summary>
+            コンパイル済みメソッド名の正規表現
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Aop.Impl.PointcutImpl._methodNames">
+            <summary>
+            メソッド名の正規表現文字列
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Impl.PointcutImpl.#ctor(System.Type)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Impl.PointcutImpl.#ctor(System.String[])">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="methodNames">メソッド名の正規表現文字列の配列</param>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Impl.PointcutImpl.IsApplied(System.Reflection.MethodBase)">
+            <summary>
+            引数で渡されたmethodにAdviceを挿入するか確認します
+            </summary>
+            <param name="method">MethodBase メソッドとコンストラクタに関する情報を持っています</param>
+            <returns>TrueならAdviceを挿入する、FalseならAdviceは挿入されない</returns>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Impl.PointcutImpl.IsApplied(System.String)">
+            <summary>
+            引数で渡されたメソッド名にAdviceを挿入するか確認します
+            </summary>
+            <param name="methodName">メソッド名</param>
+            <returns>TrueならAdviceを挿入する、FalseならAdviceは挿入されない</returns>
+        </member>
+        <member name="P:Seasar.Framework.Aop.Impl.PointcutImpl.MethodNames">
+            <summary>
+            メソッド名の正規表現文字列
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Xml.S2Section">
+            <summary>
+            S2.NETの構成セクション
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Util.ConfigSectionUtil">
+            <summary>
+            XmlSerializerの代わりに設定ファイルから設定情報を読み込む
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Util.ConfigSectionUtil.GetAttributeValue(System.Xml.XmlNode,System.String)">
+            <summary>
+            属性値を取得する
+            </summary>
+            <param name="node"></param>
+            <param name="attributeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Util.ConfigSectionUtil.GetElementValue(System.Xml.XmlNode,System.String)">
+            <summary>
+            子要素の値を取得する
+            </summary>
+            <param name="parentNode"></param>
+            <param name="childName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Util.ConfigSectionUtil.GetListConfig(System.Xml.XmlNode,System.String,System.String,Seasar.Framework.Util.ConfigSectionUtil.DelegateGetListElement)">
+            <summary>
+            リストで定義された設定情報を取得する
+            </summary>
+            <param name="parentElement"></param>
+            <param name="groupName">親要素の名前</param>
+            <param name="childName">子要素の名前</param>
+            <param name="invoker"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Seasar.Framework.Util.ConfigSectionUtil.DelegateGetListElement">
+            <summary>
+            リスト要素取得処理デリゲート
+            </summary>
+            <param name="collection"></param>
+            <param name="node"></param>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.S2ContainerComponentDef.#ctor(Seasar.Framework.Container.IS2Container,System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="container">S2Container</param>
+            <param name="name"></param>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.S2ContainerComponentDef.GetComponent">
+            <summary>
+            コンポーネント
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.Impl.S2ContainerComponentDef.Container">
+            <summary>
+            S2Container
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.Impl.ArgDefImpl">
+            <summary>
+            引数を定義します。
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.IArgDef">
+            <summary>
+            引数を定義します。
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IArgDef.Value">
+            <summary>
+            値
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IArgDef.Container">
+            <summary>
+            S2Container
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IArgDef.Expression">
+            <summary>
+            Expression
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IArgDef.ChildComponentDef">
+            <summary>
+            子IComponentDef
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IArgDef.ArgType">
+            <summary>
+            引数のType
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.ArgDefImpl.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.ArgDefImpl.#ctor(System.Object)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="value">値</param>
+        </member>
+        <member name="T:Seasar.Framework.Container.IMetaDef">
+            <summary>
+            メタを定義します。
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IMetaDef.Name">
+            <summary>
+            メタの名前
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.Impl.AspectDefImpl">
+            <summary>
+            Aspectを定義します
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.IAspectDef">
+            <summary>
+            Aspectを定義します。
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IAspectDef.Aspect">
+            <summary>
+            Aspect
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.AspectDefImpl.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Beans.Impl.FieldDescImpl">
+            <summary>
+            フィールド(インスタンス変数)記述実装クラス
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Beans.IFieldDesc">
+            <summary>
+            フィールド（インスタンス変数）情報記述インターフェース
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IFieldDesc.IsReadOnly">
+            <summary>
+            読み取り専用フラグ
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IFieldDesc.GetValue(System.Object)">
+            <summary>
+            プロパティの値を返します。
+            </summary>
+            <param name="target">target</param>
+            <returns>プロパティの値</returns>
+            <exception cref="T:Seasar.Framework.Beans.IllegalFieldRuntimeException">値の取得に失敗した場合。</exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IFieldDesc.SetValue(System.Object,System.Object)">
+            <summary>
+            プロパティに値を設定します。
+            </summary>
+            <param name="target"></param>
+            <param name="value"></param>
+            <exception cref="T:Seasar.Framework.Beans.IllegalFieldRuntimeException">値の設定に失敗した場合。</exception>
+        </member>
+        <member name="P:Seasar.Framework.Beans.IFieldDesc.Field">
+            <summary>
+            元となるプロパティ
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Beans.IFieldDesc.Name">
+            <summary>
+            プロパティ名
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Beans.IFieldDesc.FieldType">
+            <summary>
+            プロパティの型
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.FieldDescImpl.#ctor(System.Reflection.FieldInfo)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="fieldInfo">フィールド情報(NotNull)</param>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.FieldDescImpl.IsReadOnly">
+            <summary>
+            読み取り専用フラグ
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.FieldDescImpl.GetValue(System.Object)">
+            <summary>
+            プロパティの値を返します。
+            </summary>
+            <param name="target">target</param>
+            <returns>プロパティの値</returns>
+            <exception cref="T:Seasar.Framework.Beans.IllegalFieldRuntimeException">値の取得に失敗した場合。</exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.FieldDescImpl.SetValue(System.Object,System.Object)">
+            <summary>
+            プロパティに値を設定します。
+            </summary>
+            <param name="target"></param>
+            <param name="value"></param>
+            <exception cref="T:Seasar.Framework.Beans.IllegalFieldRuntimeException">値の設定に失敗した場合。</exception>
+        </member>
+        <member name="P:Seasar.Framework.Beans.Impl.FieldDescImpl.Field">
+            <summary>
+            元となるプロパティ
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Beans.Impl.FieldDescImpl.Name">
+            <summary>
+            プロパティ名
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Beans.Impl.FieldDescImpl.FieldType">
+            <summary>
+            プロパティの型
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Util.AssignTypeUtil.IsSimpleType(System.Type)">
+            <summary>
+            単体の値として利用できる型か判定する
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Util.AssignTypeUtil.IsList(System.Type)">
+            <summary>
+            Genericを除くIList型実装クラスかどうか判定する
+            </summary>
+            <param name="type"></param>
+            <returns>true=IList実装,false=その他</returns>
+        </member>
+        <member name="M:Seasar.Framework.Util.AssignTypeUtil.IsGenericList(System.Type)">
+            <summary>
+            Generic型かどうか判定
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Util.AssignTypeUtil.IsNullable(System.Type)">
+            <summary>
+            Nullable型かどうか判定
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Util.ResourceUtil.GetResourceNoException(System.String,System.Reflection.Assembly)">
+            <summary>
+            リソースを取得する。リソースが見つからなくても例外は発生しない。
+            </summary>
+            <param name="path">リソースのパス</param>
+            <param name="asm">リソースが含まれるアセンブリ</param>
+            <returns>リソースのStream</returns>
+            <remarks>asmがnullもしくは動的アセンブリの場合はnullを返す</remarks>
+        </member>
+        <member name="M:Seasar.Framework.Container.Util.InitMethodDefSupport.AddInitMethodDef(Seasar.Framework.Container.IInitMethodDef)">
+            <summary>
+            MethodDefを追加します。
+            </summary>
+            <param name="methodDef">MethodDef</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.Util.InitMethodDefSupport.GetInitMethodDef(System.Int32)">
+            <summary>
+            番号を指定してIInitMethodDefを取得します。
+            </summary>
+            <param name="index">IInitMethodDefの番号</param>
+            <returns>IInitMethodDef</returns>
+        </member>
+        <member name="P:Seasar.Framework.Container.Util.InitMethodDefSupport.InitMethodDefSize">
+            <summary>
+            IInitMethodDefの数
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.Util.InitMethodDefSupport.Container">
+            <summary>
+            S2Container
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Aop.Interceptors.InterceptorChain">
+            <summary>
+            Interceptor collection
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Interceptors.InterceptorChain.Add(Seasar.Framework.Aop.IMethodInterceptor)">
+            <summary>
+            Add an interceptor
+            </summary>
+            <param name="interceptor"></param>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Interceptors.InterceptorChain.Invoke(Seasar.Framework.Aop.IMethodInvocation)">
+            <summary>
+            Execute registed interceptors
+            </summary>
+            <param name="invocation"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Seasar.Framework.Aop.Impl.AspectImpl">
+            <summary>
+            IAspectインターフェイスの実装
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Aop.Impl.AspectImpl._methodInterceptor">
+            <summary>
+            Interceptor
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Aop.Impl.AspectImpl._pointcut">
+            <summary>
+            Pointcut
+            </summary>
+            <remarks>
+            このフィールドがnullの場合はすべてのメソッドがInterceptされます。
+            </remarks>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Impl.AspectImpl.#ctor(Seasar.Framework.Aop.IMethodInterceptor,Seasar.Framework.Aop.IPointcut)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="methodInterceptor">IMethodInterceptor</param>
+            <param name="pointcut">
+            IPointcut(nullでもよい。その場合すべてのメソッドがInterceptの対象となる)
+            </param>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Impl.AspectImpl.#ctor(Seasar.Framework.Aop.IMethodInterceptor)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <remarks>
+            すべてのメソッドにInterceptする場合はこのコンストラクタをつかいます。
+            </remarks>
+            <param name="methodInterceptor">IMethodInterceptor</param>
+        </member>
+        <member name="P:Seasar.Framework.Aop.Impl.AspectImpl.MethodInterceptor">
+            <summary>
+            Advice(Interceptor)
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Aop.Impl.AspectImpl.Pointcut">
+            <summary>
+            Pointcut
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Util.DataProviderUtil.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Util.DataProviderUtil.GetBindVariableType(System.Data.IDbCommand)">
+            <summary>
+            バインド変数タイプを取得する
+            </summary>
+            <param name="cmd">コマンドオブジェクト</param>
+            <returns>バインド変数タイプ</returns>
+        </member>
+        <member name="T:Seasar.Framework.Util.ConversionUtil">
+            <summary>
+            型の変換を行うクラス
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Util.ConversionUtil.ConvertTargetType(System.Object,System.Type)">
+            <summary>
+            渡されたオブジェクトを目的のTypeに変換する
+            </summary>
+            <param name="o">変換するオブジェクト</param>
+            <param name="targetType">目的のType</param>
+            <returns>変換されたオブジェクト</returns>
+        </member>
+        <member name="M:Seasar.Framework.Util.ConversionUtil.ConvertSqlTypesNullable(System.Object,System.Type)">
+            <summary>
+            オブジェクトをINullableを実装するTypeに変換する
+            </summary>
+            <param name="o">変換するオブジェクト</param>
+            <param name="targetType">INullableを実装するType</param>
+            <returns>変換されたオブジェクト</returns>
+        </member>
+        <member name="M:Seasar.Framework.Util.ConversionUtil.ConvertNullable(System.Object,System.Type)">
+            <summary>
+            オブジェクトをNullableジェネリック構造体に変換する
+            </summary>
+            <param name="o">変換するオブジェクト</param>
+            <param name="targetType">Nullable ジェネリック構造体のType</param>
+            <returns>変換されたオブジェクト</returns>
+        </member>
+        <member name="M:Seasar.Framework.Util.ConversionUtil.ConvertConvertible(System.Object,System.Type)">
+            <summary>
+            オブジェクトをIConvertibleを実装するTypeに変換する
+            </summary>
+            <param name="o">変換するオブジェクト</param>
+            <param name="targetType">IConvertibleを実装するType</param>
+            <returns>変換されたオブジェクト</returns>
+        </member>
+        <member name="M:Seasar.Framework.Util.ConversionUtil.GetValueType(System.Type)">
+            <summary>
+            プロパティ名が"Value"であるプロパティのTypeを返す
+            </summary>
+            <param name="targetType">Type</param>
+            <returns></returns>
+        </member>
+        <member name="T:Seasar.Framework.Exceptions.JScriptEvaluateRuntimeException">
+            <summary>
+            Microsoft.JScript.Eval.JScriptEvaluateで発生する実行時例外です。
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Exceptions.IllegalAccessRuntimeException">
+            <summary>
+            TargetException, ArgumentException, TargetParameterCountException,
+            MethodAccessExceptionをラップする実行時例外です。
+            メソッド・コンストラクタ・プロパティの呼び出しに関する例外です。
+            呼び出される前に例外は発生します。
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Exceptions.EmptyRuntimeException">
+            <summary>
+            対象が設定されていない場合の実行時例外です。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.Util.AutoBindingUtil.IsSuitable(System.Type,System.Object,System.String)">
+            <summary>
+            AutoBindingが有効であるかを返す
+            </summary>
+            <param name="propertyType">プロパティのType</param>
+            <param name="component">プロパティを持つコンポーネント</param>
+            <param name="propertyName">プロパティ名</param>
+            <returns><see cref="T:System.Windows.Forms.Form"/>クラスのプロパティが
+            (AcceptButton, CancelButton, Site)の場合は自動バインディングは無効とする。
+            それ以外の場合はpropertyTypeがInterface型であれば有効とする。</returns>
+        </member>
+        <member name="T:Seasar.Framework.Container.IDestroyMethodDef">
+            <summary>
+            終了メソッドを定義します。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.DestroyMethodDefImpl.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.DestroyMethodDefImpl.#ctor(System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="methodName">メソッドの名前</param>
+        </member>
+        <member name="T:Seasar.Framework.Container.Factory.IS2ContainerBuilder">
+            <summary>
+            IS2Containerを構築します。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.Factory.IS2ContainerBuilder.Build(System.String)">
+            <summary>
+            指定されたパスからS2Containerを構築します。
+            </summary>
+            <param name="path">パス</param>
+            <returns>構築したS2Container</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.Factory.IS2ContainerBuilder.Include(Seasar.Framework.Container.IS2Container,System.String)">
+            <summary>
+            指定されたパスからS2Containerを構築し、
+            親S2Containerにincludeします。
+            </summary>
+            <param name="parent">親S2Container</param>
+            <param name="path">パス</param>
+            <returns>構築したS2Container</returns>
+        </member>
+        <member name="T:SSRMessages">
+            <summary>
+              ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ResourceManager">
+            <summary>
+              このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.Culture">
+            <summary>
+              厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
+              現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.DSSR0001">
+            <summary>
+              Physical connection closed に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.DSSR0002">
+            <summary>
+              Logical connection closed に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.DSSR0003">
+            <summary>
+              Transaction began に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.DSSR0004">
+            <summary>
+              Transaction committed に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.DSSR0005">
+            <summary>
+              Transaction rolledback に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.DSSR0006">
+            <summary>
+              Physical connection got に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.DSSR0007">
+            <summary>
+              Logical connection got に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0001">
+            <summary>
+              {0} not found に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0002">
+            <summary>
+              &lt;{0}&gt; expected:&lt;{1}&gt; but actual:&lt;{2}&gt; に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0003">
+            <summary>
+              &lt;{0}&gt; unexpected:&lt;{1}&gt; に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0005">
+            <summary>
+              Can not acquire section:{1} from {0} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0007">
+            <summary>
+              {0} should not be null or empty に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0017">
+            <summary>
+              Exception occurred, because {0} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0026">
+            <summary>
+              IllegalState({0}) に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0032">
+            <summary>
+              unexpected {0} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0040">
+            <summary>
+              IOException occurred, because {0} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0041">
+            <summary>
+              {0}&apos;&apos;s creation failure, because {1} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0042">
+            <summary>
+              An illegal access was generated by {0}, because {1} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0043">
+            <summary>
+              The target which {0} invoked is illegal, because {1} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0044">
+            <summary>
+              Class not found, details are {0} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0045">
+            <summary>
+              Two or more components({1}) are registered in {0} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0046">
+            <summary>
+              Component({0}) not found に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0047">
+            <summary>
+              The circulation reference was occurred in {0} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0048">
+            <summary>
+              The constructor of {0} for args({1}) not found に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0049">
+            <summary>
+              The method({1}) of {0} not found に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0050">
+            <summary>
+              Can not parse, because {0} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0051">
+            <summary>
+              Variable({0}) not found に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0052">
+            <summary>
+              Target of property({0}) not found に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0053">
+            <summary>
+              Bad parser configuration, because {0} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0054">
+            <summary>
+              SAXException occured, because {0} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0055">
+            <summary>
+              Resource({0}) not found に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0056">
+            <summary>
+              Attribute({1}) of tag({0}) not defined に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0057">
+            <summary>
+              Method({1}) of class({0}) not found に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0058">
+            <summary>
+              Can not configure constructor of {0}, because {1} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0059">
+            <summary>
+              Can not configure property({1}) of {0}, because {2} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0060">
+            <summary>
+              Can not configure method({1}) of {0}, because {2} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0061">
+            <summary>
+              SystemException occured, because {0} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0062">
+            <summary>
+              Connection is closed に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0063">
+            <summary>
+              RollbackException occured, because {0} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0064">
+            <summary>
+              Constructor({1}) of class({0}) not found に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0065">
+            <summary>
+              Property({1}) of class({0}) not found に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0066">
+            <summary>
+              NamingException occurred, because {0} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0067">
+            <summary>
+              Table({0}) not found に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0068">
+            <summary>
+              Column({1}) of Table({0})not found に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0069">
+            <summary>
+              Actual class ({1}) is not applicable in defined class ({0}) に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0070">
+            <summary>
+              Field({1}) of class({0}) not found に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0071">
+            <summary>
+              SQLException occured, because {0} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0073">
+            <summary>
+              JScriptException occured, because {0} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0074">
+            <summary>
+              Extension not found in {0} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0075">
+            <summary>
+              The container of ({0}) has not been registered yet. に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0076">
+            <summary>
+              Can not configure field of {0}, because {1} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0303">
+            <summary>
+              Unable to commit, tx={0} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0304">
+            <summary>
+              Already started preparing に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0305">
+            <summary>
+              Already prepared に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0306">
+            <summary>
+              Already started committing に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0307">
+            <summary>
+              Already committed に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0308">
+            <summary>
+              Already marked for rollback に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0309">
+            <summary>
+              Already started rolling back に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0310">
+            <summary>
+              Already rolled back に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0311">
+            <summary>
+              No transaction に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0312">
+            <summary>
+              Unknown state に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0313">
+            <summary>
+              Illegal status: {0} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0314">
+            <summary>
+              Already suspended に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0315">
+            <summary>
+              Not suspended に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0316">
+            <summary>
+              Nested transactions not supported に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0317">
+            <summary>
+              Already associated with another transaction に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0318">
+            <summary>
+              TMJOIN is not supported に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0319">
+            <summary>
+              {0} is not same {1} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0320">
+            <summary>
+              Status must be RS_SUCCESS に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0321">
+            <summary>
+              Status must be RS_PREPARED に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0322">
+            <summary>
+              Status must be RS_FAIL or RS_PREPARED に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0323">
+            <summary>
+              Status must be RS_SUSPENDED に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0324">
+            <summary>
+              Status must be RS_ACTIVE に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0362">
+            <summary>
+              Too many rows に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0363">
+            <summary>
+              Suspend failure, because {0} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0364">
+            <summary>
+              Resume failure, because {0} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ESSR0365">
+            <summary>
+              To open connection is failure. Please check if database is started, connection string, provider. に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ISSR0001">
+            <summary>
+              seasar started に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ISSR0002">
+            <summary>
+              seasar stopped に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ISSR0003">
+            <summary>
+              seasar shutdown に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.ISSR0005">
+            <summary>
+              {0} restarted に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.WSSR0003">
+            <summary>
+              &lt;&lt; server side stack trace &gt;&gt; に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.WSSR0004">
+            <summary>
+              &lt;&lt; RemoteException stack trace &gt;&gt; に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.WSSR0005">
+            <summary>
+              Illegal transaction rolledback に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.WSSR0006">
+            <summary>
+              Execution at {0} failovered に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.WSSR0007">
+            <summary>
+              Assign null, because constructorArg({1}) of {0} not found に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.WSSR0008">
+            <summary>
+              Skip setting property, because property({1}) of {0} not found に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:SSRMessages.WSSR0009">
+            <summary>
+              The qualifier not applicable as for the aspect is specified by method ({1}) of {0} に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Xml.S2SectionHandler">
+            <summary>
+            S2Container.NETの構成セクションハンドラクラスです。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Xml.S2SectionHandler.CreateS2Section(System.Xml.XmlNode)">
+            <summary>
+            外部設定ファイルからQuill設定情報を取得
+            </summary>
+            <param name="section">XML形式の設定情報</param>
+            <returns>Quill設定</returns>
+        </member>
+        <member name="M:Seasar.Framework.Xml.S2SectionHandler.GetAssemblyConfig(System.Xml.XmlNode)">
+            <summary>
+            アセンブリ設定情報の取得
+            </summary>
+            <param name="section"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Xml.S2SectionHandler.Invoke_GetAssemblyConfig(System.Collections.IList,System.Xml.XmlNode)">
+            <summary>
+            アセンブリ設定取得処理デリゲート
+            </summary>
+            <param name="list"></param>
+            <param name="node"></param>
+        </member>
+        <member name="T:Seasar.Framework.Exceptions.SQLRuntimeException">
+            <summary>
+            RDBMSが警告またはエラーを返したときにスローされる例外
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Exceptions.SQLRuntimeException.#ctor(System.Exception)">
+            <summary>
+            SQLRuntimeExceptionクラスの新しいインスタンスを初期化し、原因となった例外を設定する
+            </summary>
+            <param name="cause">原因となった例外</param>
+        </member>
+        <member name="M:Seasar.Framework.Exceptions.SQLRuntimeException.#ctor(System.Exception,System.String)">
+            <summary>
+            SQLRuntimeExceptionクラスの新しいインスタンスを初期化し、原因となった例外とSQLを設定する
+            </summary>
+            <param name="cause">原因となった例外</param>
+            <param name="sql">原因となったSQL</param>
+        </member>
+        <member name="M:Seasar.Framework.Exceptions.SQLRuntimeException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            シリアル化したデータを使用して、SQLRuntimeExceptionクラスの新しいインスタンスを初期化する
+            </summary>
+            <param name="info">シリアル化されたオブジェクト データを保持するオブジェクト</param>
+            <param name="context">転送元または転送先に関するコンテキスト情報</param>
+        </member>
+        <member name="P:Seasar.Framework.Exceptions.SQLRuntimeException.Sql">
+            <summary>
+            例外の原因となったSQLを設定もしくは取得する
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.AutoRegister.DefaultAutoNaming">
+            <summary>
+            コンポーネントに自動的に名前を付ける為の標準のクラスです。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.DefaultAutoNaming.DefineName(System.Type)">
+            <summary>
+            コンポーネント名を定義します。
+            </summary>
+            <remarks>
+            <para>インターフェースの場合はプリフィックスの"I"を取り除いた
+            インターフェース名（名前空間は含まない）をコンポーネント名とします。
+            （ただし2文字目が大文字の場合のみ1文字目をプリフィックスと判断します）</para>
+            <para>それ以外は名前空間を含まない簡易名をコンポーネント名とします。</para>
+            </remarks>
+            <param name="type">コンポーネント名を定義したいType</param>
+            <returns>コンポーネント名</returns>
+        </member>
+        <member name="T:Seasar.Framework.Beans.Impl.BeanDescImpl">
+            <summary>
+            BeanDesc実装クラス
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Beans.IBeanDesc">
+            <summary>
+            リフレクション情報を扱うためのインターフェースです。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.HasProperty(System.String)">
+            <summary>
+            PropertyDescを持っているかどうかを返します。
+            </summary>
+            <param name="propertyName"></param>
+            <returns>PropertyDescを持っているかどうか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.HasProperty(System.String,System.Reflection.BindingFlags)">
+            <summary>
+            PropertyDescを持っているかどうかを返します。
+            </summary>
+            <param name="propertyName"></param>
+            <param name="bindingFlags"></param>
+            <returns>PropertyDescを持っているかどうか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.GetPropertyDesc(System.String)">
+            <summary>
+            PropertyDescを返します。
+            </summary>
+            <param name="propertyName"></param>
+            <returns>PropertyDesc}</returns>
+            <exception cref="T:Seasar.Framework.Beans.PropertyNotFoundRuntimeException">
+            PropertyDescが見つからない場合
+            </exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.GetPropertyDesc(System.String,System.Reflection.BindingFlags)">
+            <summary>
+            PropertyDescを返します。
+            </summary>
+            <param name="propertyName"></param>
+            <param name="bindingFlags"></param>
+            <returns>PropertyDesc}</returns>
+            <exception cref="T:Seasar.Framework.Beans.PropertyNotFoundRuntimeException">
+            PropertyDescが見つからない場合
+            </exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.GetPropertyDesc(System.Int32)">
+            <summary>
+            PropertyDescを返します。
+            </summary>
+            <param name="index"></param>
+            <returns>PropertyDesc}</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.GetPropertyDesc(System.Int32,System.Reflection.BindingFlags)">
+            <summary>
+            PropertyDescを返します。
+            </summary>
+            <param name="index"></param>
+            <param name="bindingFlags"></param>
+            <returns>PropertyDesc}</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.GetPropertyDescs">
+            <summary>
+            PropertyDescを返します。
+            </summary>
+            <returns>PropertyDesc}</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.GetPropertyDescs(System.Reflection.BindingFlags)">
+            <summary>
+            PropertyDescを返します。
+            </summary>
+            <param name="bindingFlags"></param>
+            <returns>PropertyDesc}</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.HasField(System.String)">
+            <summary>
+            フィールド情報を持っているかどうかを返します。
+            </summary>
+            <param name="fieldName"></param>
+            <returns>PropertyInfoを持っているかどうか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.HasField(System.String,System.Reflection.BindingFlags)">
+            <summary>
+            フィールド情報を持っているかどうかを返します。
+            </summary>
+            <param name="fieldName"></param>
+            <param name="bindingFlags"></param>
+            <returns>PropertyInfoを持っているかどうか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.GetFieldDesc(System.String)">
+            <summary>
+            FieldDescを返します。
+            </summary>
+            <param name="fieldName">フィールド名</param>
+            <returns>フィールド情報</returns>
+            <exception cref="T:Seasar.Framework.Beans.FieldNotFoundRuntimeException"></exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.GetFieldDesc(System.String,System.Reflection.BindingFlags)">
+            <summary>
+            FieldDescを返します。
+            </summary>
+            <param name="fieldName">フィールド名</param>
+            <param name="bindingFlags"></param>
+            <returns>フィールド情報</returns>
+            <exception cref="T:Seasar.Framework.Beans.FieldNotFoundRuntimeException"></exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.GetFieldDesc(System.Int32)">
+            <summary>
+            FieldDescを返します。
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.GetFieldDesc(System.Int32,System.Reflection.BindingFlags)">
+            <summary>
+            FieldDescを返します。
+            </summary>
+            <param name="index"></param>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.GetFieldDescs">
+            <summary>
+            FieldDescを返します。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.GetFieldDescs(System.Reflection.BindingFlags)">
+            <summary>
+            FieldDescを返します。
+            </summary>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.GetConstructor(System.Type[])">
+            <summary>
+            型に応じたConstructorInfoを返します。
+            </summary>
+            <param name="paramTypes"></param>
+            <remarks>
+            コンストラクタ情報が使われるのは現時点ではQuillくらいのため、
+            ConstructorDescのようなものは作らずに
+            ConstructorInfoをそのまま返します。
+            </remarks>
+            <returns>型に応じたConstructorInfo}</returns>
+            <exception cref="T:Seasar.Framework.Beans.ConstructorNotFoundRuntimeException"></exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.HasMethod(System.String)">
+            <summary>
+            メソッド情報があるかどうか返します。（引数に関係なくメソッド名のみで判定します）
+            </summary>
+            <param name="methodName"></param>
+            <returns>MethodInfoがあるかどうか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.HasMethod(System.String,System.Type[])">
+            <summary>
+            メソッド情報があるかどうか返します。
+            </summary>
+            <param name="methodName"></param>
+            <param name="parameterTypes"></param>
+            <returns>MethodInfoがあるかどうか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.HasMethod(System.String,System.Reflection.BindingFlags)">
+            <summary>
+            メソッド情報があるかどうか返します。（引数に関係なくメソッド名のみで判定します）
+            </summary>
+            <param name="methodName"></param>
+            <param name="bindingFlags"></param>
+            <returns>MethodInfoがあるかどうか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.HasMethod(System.String,System.Type[],System.Reflection.BindingFlags)">
+            <summary>
+            メソッド情報があるかどうか返します。
+            </summary>
+            <param name="methodName"></param>
+            <param name="parameterTypes"></param>
+            <param name="bindingFlags"></param>
+            <returns>MethodInfoがあるかどうか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.GetMethodDesc(System.String)">
+            <summary>
+            メソッド情報を返します。引数なしのメソッドを探します。
+            </summary>
+            <param name="methodName"></param>
+            <returns></returns>
+            <exception cref="T:Seasar.Framework.Beans.MethodNotFoundRuntimeException">
+            MethodInfoが見つからない場合。
+            </exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.GetMethodDesc(System.String,System.Reflection.BindingFlags)">
+            <summary>
+            メソッド情報を返します。引数なしのメソッドを探します。
+            </summary>
+            <param name="methodName"></param>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+            <exception cref="T:Seasar.Framework.Beans.MethodNotFoundRuntimeException">
+            MethodInfoが見つからない場合。
+            </exception>
+            
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.GetMethodDesc(System.String,System.Type[])">
+            <summary>
+            メソッド情報を返します。
+            </summary>
+            <param name="methodName"></param>
+            <param name="paramTypes"></param>
+            <returns>MethodInfo}</returns>
+            <exception cref="T:Seasar.Framework.Beans.MethodNotFoundRuntimeException">
+            MethodInfoが見つからない場合。
+            </exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.GetMethodDesc(System.String,System.Type[],System.Reflection.BindingFlags)">
+            <summary>
+            メソッド情報を返します。
+            </summary>
+            <param name="methodName"></param>
+            <param name="paramTypes"></param>
+            <param name="bindingFlags"></param>
+            <returns>MethodInfo}</returns>
+            <exception cref="T:Seasar.Framework.Beans.MethodNotFoundRuntimeException">
+            MethodInfoが見つからない場合。
+            </exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.GetMethodDescs">
+            <summary>
+            メソッド情報の配列を返します。
+            </summary>
+            <returns></returns>
+            <exception cref="T:Seasar.Framework.Beans.MethodNotFoundRuntimeException">
+            MethodInfoが見つからない場合。
+            </exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.GetMethodDescs(System.Reflection.BindingFlags)">
+            <summary>
+            メソッド情報の配列を返します。
+            </summary>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+            <exception cref="T:Seasar.Framework.Beans.MethodNotFoundRuntimeException">
+            MethodInfoが見つからない場合。
+            </exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.GetMethodDescs(System.String)">
+            <summary>
+            メソッド情報の配列を返します。
+            </summary>
+            <param name="methodName"></param>
+            <returns></returns>
+            <exception cref="T:Seasar.Framework.Beans.MethodNotFoundRuntimeException">
+            MethodInfoが見つからない場合。
+            </exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.GetMethodDescs(System.String,System.Reflection.BindingFlags)">
+            <summary>
+            メソッド情報の配列を返します。
+            </summary>
+            <param name="methodName"></param>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+            <exception cref="T:Seasar.Framework.Beans.MethodNotFoundRuntimeException">
+            MethodInfoが見つからない場合。
+            </exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.IsNullable">
+            <summary>
+            Nullable(.NET)型かどうか判定
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.IsAssignableFrom(System.Type)">
+            <summary>
+            typeを代入可能か判定
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.IBeanDesc.IsAssignableFrom(Seasar.Framework.Beans.IBeanDesc)">
+            <summary>
+            beanを代入可能か判定
+            </summary>
+            <param name="bean"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Seasar.Framework.Beans.IBeanDesc.BeanType">
+            <summary>
+            保持しているリフレクション情報の対象型
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Beans.Impl.BeanDescImpl._beanType">
+            <summary>
+            元となる型
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Beans.Impl.BeanDescImpl._isNullable">
+            <summary>
+            Nullable型判定結果キャッシュ
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Beans.Impl.BeanDescImpl._propertyCache">
+            <summary>
+            プロパティ情報キャッシュ
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Beans.Impl.BeanDescImpl._methodCache">
+            <summary>
+            メソッド情報キャッシュ
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Beans.Impl.BeanDescImpl._fieldCache">
+            <summary>
+            フィールド情報キャッシュ
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.#ctor(System.Type)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="beanType">元となる型</param>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.HasProperty(System.String)">
+            <summary>
+            PropertyDescを持っているかどうかを返します。
+            </summary>
+            <param name="propertyName"></param>
+            <returns>PropertyDescを持っているかどうか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.HasProperty(System.String,System.Reflection.BindingFlags)">
+            <summary>
+            PropertyDescを持っているかどうかを返します。
+            </summary>
+            <param name="propertyName"></param>
+            <param name="bindingFlags"></param>
+            <returns>PropertyDescを持っているかどうか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetPropertyDesc(System.String)">
+            <summary>
+            PropertyDescを返します。
+            </summary>
+            <param name="propertyName"></param>
+            <returns>PropertyDesc}</returns>
+            <exception cref="T:Seasar.Framework.Beans.PropertyNotFoundRuntimeException">
+            PropertyDescが見つからない場合
+            </exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetPropertyDesc(System.String,System.Reflection.BindingFlags)">
+            <summary>
+            PropertyDescを返します。
+            </summary>
+            <param name="propertyName"></param>
+            <param name="bindingFlags"></param>
+            <returns>PropertyDesc}</returns>
+            <exception cref="T:Seasar.Framework.Beans.PropertyNotFoundRuntimeException">
+            PropertyDescが見つからない場合
+            </exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetPropertyDesc(System.Int32)">
+            <summary>
+            PropertyDescを返します。
+            </summary>
+            <param name="index"></param>
+            <returns>PropertyDesc}</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetPropertyDesc(System.Int32,System.Reflection.BindingFlags)">
+            <summary>
+            PropertyDescを返します。
+            </summary>
+            <param name="index"></param>
+            <param name="bindingFlags"></param>
+            <returns>PropertyDesc}</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetPropertyDescs">
+            <summary>
+            PropertyDescを返します。
+            </summary>
+            <returns>PropertyDesc}</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetPropertyDescs(System.Reflection.BindingFlags)">
+            <summary>
+            PropertyDescを返します。
+            </summary>
+            <param name="bindingFlags"></param>
+            <returns>PropertyDesc}</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.HasField(System.String)">
+            <summary>
+            フィールド情報を持っているかどうかを返します。
+            </summary>
+            <param name="fieldName"></param>
+            <returns>PropertyInfoを持っているかどうか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.HasField(System.String,System.Reflection.BindingFlags)">
+            <summary>
+            フィールド情報を持っているかどうかを返します。
+            </summary>
+            <param name="fieldName"></param>
+            <param name="bindingFlags"></param>
+            <returns>PropertyInfoを持っているかどうか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetFieldDesc(System.String)">
+            <summary>
+            FieldDescを返します。
+            </summary>
+            <param name="fieldName">フィールド名</param>
+            <returns>フィールド情報</returns>
+            <exception cref="T:Seasar.Framework.Beans.FieldNotFoundRuntimeException"></exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetFieldDesc(System.String,System.Reflection.BindingFlags)">
+            <summary>
+            FieldDescを返します。
+            </summary>
+            <param name="fieldName">フィールド名</param>
+            <param name="bindingFlags"></param>
+            <returns>フィールド情報</returns>
+            <exception cref="T:Seasar.Framework.Beans.FieldNotFoundRuntimeException"></exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetFieldDesc(System.Int32)">
+            <summary>
+            FieldDescを返します。
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetFieldDesc(System.Int32,System.Reflection.BindingFlags)">
+            <summary>
+            FieldDescを返します。
+            </summary>
+            <param name="index"></param>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetFieldDescs">
+            <summary>
+            FieldDescを返します。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetFieldDescs(System.Reflection.BindingFlags)">
+            <summary>
+            FieldDescを返します。
+            </summary>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetConstructor(System.Type[])">
+            <summary>
+            型に応じたConstructorInfoを返します。
+            </summary>
+            <param name="paramTypes"></param>
+            <remarks>
+            コンストラクタ情報が使われるのは現時点ではQuillくらいのため、
+            ConstructorDescのようなものは作らずに
+            ConstructorInfoをそのまま返します。
+            </remarks>
+            <returns>型に応じたConstructorInfo}</returns>
+            <exception cref="T:Seasar.Framework.Beans.ConstructorNotFoundRuntimeException"></exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.HasMethod(System.String)">
+            <summary>
+            メソッド情報があるかどうか返します。（引数に関係なくメソッド名のみで判定します）
+            </summary>
+            <param name="methodName"></param>
+            <returns>MethodInfoがあるかどうか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.HasMethod(System.String,System.Type[])">
+            <summary>
+            メソッド情報があるかどうか返します。
+            </summary>
+            <param name="methodName"></param>
+            <param name="parameterTypes"></param>
+            <returns>MethodInfoがあるかどうか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.HasMethod(System.String,System.Reflection.BindingFlags)">
+            <summary>
+            メソッド情報があるかどうか返します。（引数に関係なくメソッド名のみで判定します）
+            </summary>
+            <param name="methodName"></param>
+            <param name="bindingFlags"></param>
+            <returns>MethodInfoがあるかどうか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.HasMethod(System.String,System.Type[],System.Reflection.BindingFlags)">
+            <summary>
+            メソッド情報があるかどうか返します。
+            </summary>
+            <param name="methodName"></param>
+            <param name="parameterTypes"></param>
+            <param name="bindingFlags"></param>
+            <returns>MethodInfoがあるかどうか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetMethodDesc(System.String)">
+            <summary>
+            メソッド情報を返します。引数なしのメソッドを探します。
+            </summary>
+            <param name="methodName"></param>
+            <returns></returns>
+            <exception cref="T:Seasar.Framework.Beans.MethodNotFoundRuntimeException">
+            MethodInfoが見つからない場合。
+            </exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetMethodDesc(System.String,System.Reflection.BindingFlags)">
+            <summary>
+            メソッド情報を返します。引数なしのメソッドを探します。
+            </summary>
+            <param name="methodName"></param>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+            <exception cref="T:Seasar.Framework.Beans.MethodNotFoundRuntimeException">
+            MethodInfoが見つからない場合。
+            </exception>
+            
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetMethodDesc(System.String,System.Type[])">
+            <summary>
+            メソッド情報を返します。
+            </summary>
+            <param name="methodName"></param>
+            <param name="paramTypes"></param>
+            <returns>MethodInfo}</returns>
+            <exception cref="T:Seasar.Framework.Beans.MethodNotFoundRuntimeException">
+            MethodInfoが見つからない場合。
+            </exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetMethodDesc(System.String,System.Type[],System.Reflection.BindingFlags)">
+            <summary>
+            メソッド情報を返します。
+            </summary>
+            <param name="methodName"></param>
+            <param name="paramTypes"></param>
+            <param name="bindingFlags"></param>
+            <returns>MethodInfo}</returns>
+            <exception cref="T:Seasar.Framework.Beans.MethodNotFoundRuntimeException">
+            MethodInfoが見つからない場合。
+            </exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetMethodDescs">
+            <summary>
+            メソッド情報の配列を返します。
+            </summary>
+            <returns></returns>
+            <exception cref="T:Seasar.Framework.Beans.MethodNotFoundRuntimeException">
+            MethodInfoが見つからない場合。
+            </exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetMethodDescs(System.Reflection.BindingFlags)">
+            <summary>
+            メソッド情報の配列を返します。
+            </summary>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+            <exception cref="T:Seasar.Framework.Beans.MethodNotFoundRuntimeException">
+            MethodInfoが見つからない場合。
+            </exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetMethodDescs(System.String)">
+            <summary>
+            メソッド情報の配列を返します。
+            </summary>
+            <param name="methodName"></param>
+            <returns></returns>
+            <exception cref="T:Seasar.Framework.Beans.MethodNotFoundRuntimeException">
+            MethodInfoが見つからない場合。
+            </exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetMethodDescs(System.String,System.Reflection.BindingFlags)">
+            <summary>
+            メソッド情報の配列を返します。
+            </summary>
+            <param name="methodName"></param>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+            <exception cref="T:Seasar.Framework.Beans.MethodNotFoundRuntimeException">
+            MethodInfoが見つからない場合。
+            </exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.IsNullable">
+            <summary>
+            Nullable(.NET)型かどうか判定
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.IsAssignableFrom(System.Type)">
+            <summary>
+            typeを代入可能か判定
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.IsAssignableFrom(Seasar.Framework.Beans.IBeanDesc)">
+            <summary>
+            beanを代入可能か判定
+            </summary>
+            <param name="bean"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetOrCreatePropertyDescCache">
+            <summary>
+            プロパティ情報キャッシュの取得
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetOrCreateMethodDescCache">
+            <summary>
+            メソッド情報キャッシュの取得
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.BeanDescImpl.GetOrCreateFieldDescCache">
+            <summary>
+            フィールド情報キャッシュの取得
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Seasar.Framework.Beans.Impl.BeanDescImpl.BeanType">
+            <summary>
+            保持しているリフレクション情報の対象型
+            </summary>
+        </member>
+        <member name="T:Seasar.Extension.ADO.Impl.BasicDbParameterParser">
+            <summary>
+            ADO.NETのデータプロバイダに対応したパラメータマーカー(@, :, ?)に切り替えるクラス。
+            (SqlClientは"@parmname"、OracleClientは":parmname"、OleDbは、"?"、Odbcは、"?")
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Util.SerializeUtil.Serialize(System.Object)">
+            <summary>
+            シリアライズされたオブジェクトを返します
+            </summary>
+            <param name="o">シリアライズするオブジェクト</param>
+            <returns>シリアライズされたオブジェクト</returns>
+        </member>
+        <member name="T:Seasar.Framework.Util.BindVariableType">
+            <summary>
+            バインド変数の種類
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Exceptions.InvocationTargetRuntimeException">
+            <summary>
+            TargetInvocationExceptionをラップする実行時例外です。
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.Util.ArgDefSupport">
+            <summary>
+            IArgDefの設定をサポートします。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.Util.ArgDefSupport.AddArgDef(Seasar.Framework.Container.IArgDef)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="argDef">IArgDef</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.Util.ArgDefSupport.GetArgDef(System.Int32)">
+            <summary>
+            番号を指定してIArgDefを取得します。
+            </summary>
+            <param name="index">番号</param>
+            <returns>IArgDef</returns>
+        </member>
+        <member name="P:Seasar.Framework.Container.Util.ArgDefSupport.ArgDefSize">
+            <summary>
+            IArgDefの数
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.Util.ArgDefSupport.Container">
+            <summary>
+            S2Container
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.CyclicReferenceRuntimeException">
+            <summary>
+            コンポーネントの循環参照が起きたときの実行時例外
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Exceptions.ConfigurationManagerException">
+            <summary>
+            アプリケーション構成ファイルのアクセスでエラーを返したときにスローされる例外
+            </summary>
+        </member>
+        <member name="M:Seasar.Extension.ADO.Impl.DatabaseMetaDataImpl.CreateTableMetaData(System.String)">
+            <summary>
+            テーブル定義情報を作成する
+            </summary>
+            <param name="tableName">テーブル名</param>
+        </member>
+        <member name="M:Seasar.Extension.ADO.Impl.DatabaseMetaDataImpl.GetMetaDataForDatabase(System.String)">
+            <summary>
+            DBからテーブル定義情報を取得する
+            </summary>
+            <param name="tableName">テーブル名</param>
+            <returns>テーブル定義情報。取得できなかった場合、nullを返す</returns>
+        </member>
+        <member name="M:Seasar.Extension.ADO.Impl.DatabaseMetaDataImpl.GetMetaDataForDataSet(System.String)">
+            <summary>
+            DBのメタ情報を格納する<seealso cref="T:System.Data.DataSet"/>からテーブル定義情報を取得する
+            </summary>
+            <param name="tableName">テーブル名</param>
+            <returns>テーブル定義情報。取得できなかった場合、nullを返す</returns>
+        </member>
+        <member name="P:Seasar.Extension.ADO.Impl.DatabaseMetaDataImpl.MetaDataSetClassName">
+            <summary>
+            DBのメタ情報を格納する<seealso cref="T:System.Data.DataSet"/>の完全修飾名を設定する
+            <seealso cref="T:System.Data.DataSet"/>を含むアセンブリは、
+            現在のアプリケーション・ドメインに含まれる必要がある
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Beans.IllegalFieldRuntimeException">
+            <summary>
+            フィールド（インスタンス変数）の値の設定に失敗したときにスローされる例外です。
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Aop.Impl.AopProxyAspectWeaver">
+            <summary>
+            AopProxyを用いてAspectを織り込む処理を持つクラス
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Aop.Impl.AbstractAspectWeaver">
+            <summary>
+            Aspectを織り込む処理を持つ抽象クラス
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Impl.AbstractAspectWeaver.WeaveAspect(Seasar.Framework.Container.IComponentDef,System.Reflection.ConstructorInfo,System.Object[])">
+            <summary>
+            Aspectを織り込む
+            </summary>
+            <param name="componentDef">Aspectを織り込む対象のコンポーネント定義</param>
+            <param name="constructor">コンストラクタ</param>
+            <param name="args">コンストラクタの引数</param>
+            <returns>Aspectを織り込んだオブジェクト</returns>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Impl.AbstractAspectWeaver.GetAspects(Seasar.Framework.Container.IComponentDef)">
+            <summary>
+            コンポーネント定義に設定されているAspectを取得する
+            </summary>
+            <param name="componentDef">コンポーネント定義</param>
+            <returns>Aspectの配列</returns>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Impl.AopProxyAspectWeaver.WeaveAspect(Seasar.Framework.Container.IComponentDef,System.Reflection.ConstructorInfo,System.Object[])">
+            <summary>
+            AopProxyを用いてAspectを織り込む
+            </summary>
+            <param name="componentDef">Aspectを織り込む対象のコンポーネント定義</param>
+            <param name="constructor">コンストラクタ</param>
+            <param name="args">コンストラクタの引数</param>
+            <returns>Aspectを織り込んだオブジェクト</returns>
+        </member>
+        <member name="T:Seasar.Framework.Util.ExceptionUtil">
+            <summary>
+            例外に関するUtilクラス
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Util.ExceptionUtil.SaveStackTraceToRemoteStackTraceString(System.Exception)">
+            <summary>
+            StackTraceを保存する
+            </summary>
+            <param name="ex">例外</param>
+            <remarks>
+            Exceptionのprivate fieldである_remoteStackTraceStringに
+            InnerExceptionのStackTraceを保存する
+            </remarks>
+        </member>
+        <member name="T:Seasar.Framework.Beans.Factory.PropertyDescFactory">
+            <summary>
+            Property情報記述クラスファクトリ
+            </summary>
+            <remarks>
+            Genericを使って一つのファクトリクラスにまとめようとも
+            思いましたがコードが読みづらくなるだけと判断し、
+            各XxxDescクラスごとに作成しています。
+            </remarks>
+        </member>
+        <member name="F:Seasar.Framework.Beans.Factory.PropertyDescFactory._propertyDescCache">
+            <summary>
+            BindingFlags -> メソッド情報の検索時に指定した条件
+            string -> メソッド名
+            IPropertyDesc -> プロパティ情報
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.PropertyDescFactory.#ctor(System.Type)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="beanType">プロパティ情報を取り出す型</param>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.PropertyDescFactory.HasProperty(System.String)">
+            <summary>
+            指定した名前のプロパティが存在するか判定
+            </summary>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.PropertyDescFactory.HasProperty(System.String,System.Reflection.BindingFlags)">
+            <summary>
+            指定した名前のプロパティが存在するか判定
+            </summary>
+            <param name="propertyName"></param>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.PropertyDescFactory.GetProperty(System.String)">
+            <summary>
+            プロパティ情報の取得(NotNull)
+            </summary>
+            <param name="propertyName"></param>
+            <returns></returns>
+            <exception cref="T:Seasar.Framework.Beans.PropertyNotFoundRuntimeException"></exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.PropertyDescFactory.GetProperty(System.String,System.Reflection.BindingFlags)">
+            <summary>
+            プロパティ情報の取得(NotNull)
+            </summary>
+            <param name="propertyName"></param>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+            <exception cref="T:Seasar.Framework.Beans.PropertyNotFoundRuntimeException"></exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.PropertyDescFactory.GetPropertyDescs">
+            <summary>
+            プロパティ情報一覧の取得
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.PropertyDescFactory.GetPropertyDescs(System.Reflection.BindingFlags)">
+            <summary>
+            プロパティ情報一覧の取得
+            </summary>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.PropertyDescFactory.CreatePropertyDescsIfNeed(System.Reflection.BindingFlags)">
+            <summary>
+            未登録のプロパティ検索条件の場合、プロパティ情報の新規キャッシュを行う
+            </summary>
+            <param name="bindingFlags"></param>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.PropertyDescFactory.CreatePropertyDescs(System.Type,System.Reflection.BindingFlags)">
+            <summary>
+            プロパティ情報の生成
+            </summary>
+            <param name="beanType"></param>
+            <param name="bindingFlags">プロパティの取り出し条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.PropertyDescFactory.CreatePropertyDesc(System.Reflection.PropertyInfo)">
+            <summary>
+            プロパティ情報インスタンスの生成
+            </summary>
+            <param name="propertyInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.PropertyDescFactory.NewPropertyDesc(System.Reflection.PropertyInfo)">
+            <summary>
+            プロパティ情報インスタンスの生成
+            </summary>
+            <param name="propertyInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Seasar.Framework.Message.MessageFormatter">
+            <summary>
+            メッセージコードと引数をプロパティに登録されている
+            パターンに適用し、メッセージを組み立てます。
+            メッセージコードは、8桁で構成され最初の1桁がメッセージの種別で、
+            E:エラー、W:ワーニング、I:インフォメーションで構成されます。
+            次の3桁がシステム名でSeasarの場合は、SSRになります。
+            最後の4桁は連番です。
+            メッセージ定義ファイルは、システム名 + Messages.resourcesになります。
+            SSRMessages.ja-JP.resourcesなどを用意することで他言語に対応できます。
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.IPropertyDef">
+            <summary>
+            プロパティを定義します。
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.IPropertyDef.PropertyName">
+            <summary>
+            プロパティの名前
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.InitMethodDefImpl.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.InitMethodDefImpl.#ctor(System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="methodName">メソッドの名前</param>
+        </member>
+        <member name="T:Seasar.Framework.Container.AutoRegister.AssemblyComponentAutoRegister">
+            <summary>
+            アセンブリからコンポーネントを検索してコンポーネントを自動登録します。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.AssemblyComponentAutoRegister.RegisterAll">
+            <summary>
+            コンポーネントを自動登録します。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.AssemblyComponentAutoRegister.ProcessAssembly(System.Reflection.Assembly)">
+            <summary>
+            アセンブリを処理してコンポーネントを自動登録します。
+            </summary>
+            <param name="assembly"></param>
+        </member>
+        <member name="P:Seasar.Framework.Container.AutoRegister.AssemblyComponentAutoRegister.AssemblyName">
+            <summary>
+            コンポーネント検索対象のアセンブリ簡易名を取得・設定します。
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Beans.IllegalPropertyRuntimeException">
+            <summary>
+            プロパティの値の設定に失敗したときにスローされる例外です。
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Aop.Interceptors.MockInterceptor">
+            <summary>
+            Interceptの対象となるメソッドとインスタンスをMockにします
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Aop.Interceptors.MockInterceptor._returnValues">
+            <summary>
+            Mockの戻り値
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Aop.Interceptors.MockInterceptor._exceptions">
+            <summary>
+            Mockの例外
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Aop.Interceptors.MockInterceptor._invokedMethods">
+            <summary>
+            メソッドが呼び出し済みかどうか示すフラグ
+            </summary>
+        </member>
+        <member name="F:Seasar.Framework.Aop.Interceptors.MockInterceptor._invokedMethodArgs">
+            <summary>
+            メソッドを呼び出したときの引数
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Interceptors.MockInterceptor.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Interceptors.MockInterceptor.Invoke(Seasar.Framework.Aop.IMethodInvocation)">
+            <summary>
+            メソッドがInterceptされる場合、このメソッドが呼び出されます
+            </summary>
+            <param name="invocation">IMethodInvocation</param>
+            <returns>Interceptされるメソッドの戻り値</returns>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Interceptors.MockInterceptor.#ctor(System.Object)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="value">Mockの戻り値</param>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Interceptors.MockInterceptor.SetReturnValue(System.Object)">
+            <summary>
+            戻り値の設定
+            </summary>
+            <remarks>
+            Mockのすべてのメソッドの戻り値を設定します。
+            </remarks>
+            <param name="returnValue">戻り値</param>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Interceptors.MockInterceptor.SetReturnValue(System.String,System.Object)">
+            <summary>
+            戻り値の設定
+            </summary>
+            <remarks>
+            Mockの指定された名前のメソッドの戻り値を設定します。
+            </remarks>
+            <param name="methodName">戻り値を設定するメソッド名</param>
+            <param name="returnValue">戻り値</param>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Interceptors.MockInterceptor.SetThrowable(System.Exception)">
+            <summary>
+            例外の設定
+            </summary>
+            <remarks>
+            Mockのすべてのメソッドに例外を設定します。
+            </remarks>
+            <param name="exception">例外</param>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Interceptors.MockInterceptor.SetThrowable(System.String,System.Exception)">
+            <summary>
+            例外の設定
+            </summary>
+            <remarks>
+            Mockのすべてのメソッドに例外を設定します。
+            </remarks>
+            <param name="methodName">例外を設定するメソッド名</param>
+            <param name="exception">例外</param>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Interceptors.MockInterceptor.IsInvoked(System.String)">
+            <summary>
+            Mockのメソッドが既に呼び出されているか判定します
+            </summary>
+            <param name="methodName">呼び出されているかどうか判定するメソッド命</param>
+            <returns>Mockのメソッドが既に呼び出されているか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Aop.Interceptors.MockInterceptor.GetArgs(System.String)">
+            <summary>
+            Mockのメソッドが呼ばれたときの引数を取得します
+            </summary>
+            <param name="methodName">引数を取得するメソッド名</param>
+            <returns>引数のリスト</returns>
+        </member>
+        <!-- 正しくない形式の XML コメントがメンバー "T:Seasar.Extension.ADO.Impl.NoReplaceDbParameterParser" で無視されました -->
+        <member name="M:Seasar.Framework.Util.MethodUtil.CanOverride(System.Reflection.MethodBase)">
+            <summary>
+            Override可能かどうか判定する
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Seasar.Framework.Container.AutoRegister.AspectAutoRegister">
+            <summary>
+            アスペクトを自動登録するためのクラスです。
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.AutoRegister.AbstractComponentTargetAutoRegister">
+            <summary>
+            コンポーネントを対象にした自動登録を行うための抽象クラスです。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.AbstractComponentTargetAutoRegister.RegisterAll">
+            <summary>
+            コンポーネントを対象にして自動登録を行います。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.AbstractComponentTargetAutoRegister.Register(Seasar.Framework.Container.IComponentDef)">
+            <summary>
+            <see cref="T:Seasar.Framework.Container.IComponentDef"/>を登録します。
+            </summary>
+            <param name="cd"></param>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.AbstractComponentTargetAutoRegister.IsAppliedComponent(Seasar.Framework.Container.IComponentDef)">
+            <summary>
+            処理対象のコンポーネントかどうかを返します。
+            </summary>
+            <param name="cd">コンポーネント定義</param>
+            <returns>処理対象のコンポーネントかどうか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.AutoRegister.AspectAutoRegister.Register(Seasar.Framework.Container.IComponentDef)">
+            <summary>
+            コンポーネント定義にアスペクトを登録します。
+            </summary>
+            <param name="componentDef">コンポーネント定義</param>
+        </member>
+        <member name="P:Seasar.Framework.Container.AutoRegister.AspectAutoRegister.Interceptor">
+            <summary>
+            インターセプタを設定します。
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.AutoRegister.AspectAutoRegister.Pointcut">
+            <summary>
+            ポイントカットを設定します。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Util.ClassUtil.ForName(System.String)">
+            <summary>
+            現在使用可能なアセンブリの中から、
+            クラス名を使って型を取得する
+            </summary>
+            <param name="className">名前空間を含むクラス名</param>
+            <returns>該当する型</returns>
+        </member>
+        <member name="T:Seasar.Framework.Util.ArrayMap`2">
+            <summary>
+            配列のように順番を保証するHashMap
+            (Java版のように厳密に配列＋Mapのインターフェースをもつわけではなく
+            順番を保証する配列も返せるHashMapとして実装しています）
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="M:Seasar.Framework.Util.ArrayMap`2.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Util.ArrayMap`2.#ctor(System.Int32)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="capacity">想定されるコレクションのサイズ</param>
+        </member>
+        <member name="M:Seasar.Framework.Util.ArrayMap`2.Add(`0,`1)">
+            <summary>
+            要素の追加
+            </summary>
+            <param name="key">要素を一意に特定するキー</param>
+            <param name="val">要素</param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Seasar.Framework.Util.ArrayMap`2.ContainsKey(`0)">
+            <summary>
+            指定したキーがコレクションに含まれているか判定
+            </summary>
+            <param name="key">要素を一意に特定するキー</param>
+            <returns>true=キーが含まれている、false=キーは含まれていない</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Seasar.Framework.Util.ArrayMap`2.Remove(`0)">
+            <summary>
+            指定したキーに該当する要素をコレクションから削除する
+            </summary>
+            <param name="key"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="P:Seasar.Framework.Util.ArrayMap`2.Keys">
+            <summary>
+            キー一覧
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Util.ArrayMap`2.Item(`0)">
+            <summary>
+            キーを使って値を取得
+            </summary>
+            <param name="key">要素を一意に特定するキー</param>
+            <returns></returns>
+            <exception cref="T:System.Collections.Generic.KeyNotFoundException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="P:Seasar.Framework.Util.ArrayMap`2.Item(System.Int32)">
+            <summary>
+            要素番号を使ってキーを取得
+            </summary>
+            <param name="index">要素番号</param>
+            <returns></returns>
+            <exception cref="T:System.IndexOutOfRangeException"></exception>
+        </member>
+        <member name="P:Seasar.Framework.Util.ArrayMap`2.Items">
+            <summary>
+            値の配列を返す
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Seasar.Framework.Container.Util.MetaDefSupport">
+            <summary>
+            IMetaDefの設定をサポートします
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.Util.MetaDefSupport.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.Util.MetaDefSupport.#ctor(Seasar.Framework.Container.IS2Container)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="container">S2Container</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.Util.MetaDefSupport.AddMetaDef(Seasar.Framework.Container.IMetaDef)">
+            <summary>
+            IMetaDefを追加します。
+            </summary>
+            <param name="metaDef"></param>
+        </member>
+        <member name="M:Seasar.Framework.Container.Util.MetaDefSupport.GetMetaDef(System.Int32)">
+            <summary>
+            番号を指定してIMetaDefを取得します。
+            </summary>
+            <param name="index"></param>
+            <returns>IMetaDef</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.Util.MetaDefSupport.GetMetaDef(System.String)">
+            <summary>
+            名前を指定してIMetaDefを取得します。
+            </summary>
+            <param name="name">IMetaDefの名前</param>
+            <returns>IMetaDef</returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.Util.MetaDefSupport.GetMetaDefs(System.String)">
+            <summary>
+            名前を指定してIMetaDefの配列を取得します。
+            </summary>
+            <param name="name">IMetaDefの名前</param>
+            <returns>IMetaDefの配列</returns>
+        </member>
+        <member name="P:Seasar.Framework.Container.Util.MetaDefSupport.MetaDefSize">
+            <summary>
+            IMetaDefの数
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Container.Util.MetaDefSupport.Container">
+            <summary>
+            S2Container
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.Impl.TooManyRegistrationComponentDef">
+            <summary>
+            1つのキーに複数のコンポーネントが登録された場合に利用されます。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.TooManyRegistrationComponentDef.#ctor(System.Object)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="key">キー</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.TooManyRegistrationComponentDef.AddComponentType(System.Type)">
+            <summary>
+            コンポーネントのTypeを追加します。
+            </summary>
+            <param name="componentType">コンポーネントのType</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.PropertyDefImpl.#ctor(System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="propertyName"></param>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.PropertyDefImpl.#ctor(System.String,System.Object)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="propertyName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="T:Seasar.Framework.Beans.Factory.MethodDescFactory">
+            <summary>
+            Method情報記述クラスファクトリ
+            </summary>
+            <remarks>
+            Genericを使って一つのファクトリクラスにまとめようとも
+            思いましたがコードが読みづらくなるだけと判断し、
+            各XxxDescクラスごとに作成しています。
+            </remarks>
+        </member>
+        <member name="F:Seasar.Framework.Beans.Factory.MethodDescFactory._methodDescCache">
+            <summary>
+            BindingFlags -> メソッド情報の検索時に指定した条件
+            string -> メソッド名
+            IMethodDesc -> メソッド情報
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.MethodDescFactory.#ctor(System.Type)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="beanType">メソッド情報を取り出す型</param>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.MethodDescFactory.HasMethod(System.String)">
+            <summary>
+            指定した名前のメソッドが存在するか判定
+            </summary>
+            <remarks>
+            overrideがあるのでメソッド名だけをキーにできないため
+            持っているコレクションを一つずつチェックしています。
+            </remarks>
+            <param name="methodName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.MethodDescFactory.HasMethod(System.String,System.Reflection.BindingFlags)">
+            <summary>
+            指定した名前のメソッドが存在するか判定
+            </summary>
+            <remarks>
+            overrideがあるのでメソッド名だけをキーにできないため
+            持っているコレクションを一つずつチェックしています。
+            </remarks>
+            <param name="methodName"></param>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.MethodDescFactory.HasMethod(System.String,System.Type[])">
+            <summary>
+            指定した名前のメソッドが存在するか判定
+            </summary>
+            <remarks>
+            overrideがあるのでメソッド名だけをキーにできないため
+            一度キーを組み立てています。
+            </remarks>
+            <param name="methodName"></param>
+            <param name="parameterTypes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.MethodDescFactory.HasMethod(System.String,System.Type[],System.Reflection.BindingFlags)">
+            <summary>
+            指定した名前のメソッドが存在するか判定
+            </summary>
+            <remarks>
+            overrideがあるのでメソッド名だけをキーにできないため
+            一度キーを組み立てています。
+            </remarks>
+            <param name="methodName"></param>
+            <param name="parameterTypes"></param>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.MethodDescFactory.GetMethodDesc(System.String,System.Type[])">
+            <summary>
+            メソッド情報の取得
+            </summary>
+            <remarks>
+            overrideがあるのでメソッド名だけをキーにできないため
+            一度キーを組み立てています。
+            </remarks>
+            <param name="methodName"></param>
+            <param name="parameterTypes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.MethodDescFactory.GetMethodDesc(System.String,System.Type[],System.Reflection.BindingFlags)">
+            <summary>
+            メソッド情報の取得
+            </summary>
+            <remarks>
+            overrideがあるのでメソッド名だけをキーにできないため
+            一度キーを組み立てています。
+            </remarks>
+            <param name="methodName"></param>
+            <param name="parameterTypes"></param>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.MethodDescFactory.GetMethodDescs">
+            <summary>
+            メソッド情報の取得
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.MethodDescFactory.GetMethodDescs(System.Reflection.BindingFlags)">
+            <summary>
+            メソッド情報の取得
+            </summary>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.MethodDescFactory.GetMethodDescs(System.String)">
+            <summary>
+            メソッド情報の取得
+            </summary>
+            <param name="methodName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.MethodDescFactory.GetMethodDescs(System.String,System.Reflection.BindingFlags)">
+            <summary>
+            メソッド情報の取得
+            </summary>
+            <param name="methodName"></param>
+            <param name="bindingFlags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.MethodDescFactory.CreateMethodDescsIfNeed(System.Reflection.BindingFlags)">
+            <summary>
+            未登録のプロパティ検索条件の場合、プロパティ情報の新規キャッシュを行う
+            </summary>
+            <param name="bindingFlags"></param>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.MethodDescFactory.CreateMethodDescs(System.Type,System.Reflection.BindingFlags)">
+            <summary>
+            メソッド情報の生成
+            </summary>
+            <param name="beanType"></param>
+            <param name="bindingFlags">メソッド情報取り出し条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.MethodDescFactory.CreateMethodDesc(System.Reflection.MethodInfo)">
+            <summary>
+            メソッド情報の生成
+            </summary>
+            <param name="methodInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.MethodDescFactory.CreateKey(System.Reflection.MethodInfo)">
+            <summary>
+            メソッド情報を一意に識別するためのキーを取得する
+            </summary>
+            <param name="mi"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.MethodDescFactory.CreateKey(System.String,System.Type[])">
+            <summary>
+            メソッド情報を一意に識別するためのキーを取得する
+            </summary>
+            <param name="name"></param>
+            <param name="parameterTypes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.MethodDescFactory.HasParameter(System.Array)">
+            <summary>
+            パラメータをもつかどうか判定
+            </summary>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.MethodDescFactory.NewMethodDesc(System.Reflection.MethodInfo)">
+            <summary>
+            メソッド情報の生成
+            </summary>
+            <param name="methodInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Seasar.Extension.Tx.TransactionInterceptor">
+            <summary>
+            トランザクション処理を行うInterceptor
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Util.FieldUtil">
+            <summary>
+            フィールド（インスタンス変数）情報を取り扱うユーティリティ
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Util.FieldUtil.IsReadOnly(System.Reflection.FieldInfo)">
+            <summary>
+            読み取り専用か判定する
+            </summary>
+            <param name="field"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.ComponentDefImpl.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.ComponentDefImpl.#ctor(System.Type)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="componentType">コンポーネントのType</param>
+        </member>
+        <member name="M:Seasar.Framework.Container.Impl.ComponentDefImpl.#ctor(System.Type,System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="componentType">コンポーネントのType</param>
+            <param name="componentName">コンポーネントの名前</param>
+        </member>
+        <member name="P:Seasar.Framework.Container.Impl.ComponentDefImpl.ComponentDeployer">
+            <summary>
+            ComponentDeployer
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Beans.Impl.MethodDescImpl">
+            <summary>
+            メソッド情報記述クラス
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.MethodDescImpl.#ctor(System.Reflection.MethodInfo)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="methodInfo">メソッド情報</param>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.MethodDescImpl.GetParameterInfos">
+            <summary>
+            パラメータ情報
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.MethodDescImpl.GetReturnType">
+            <summary>
+            戻り値の型を返す
+            </summary>
+            <returns>戻り値の型（voidならnull)</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.MethodDescImpl.CanOverride">
+            <summary>
+            Overridできるかどうか判定する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.MethodDescImpl.Invoke(System.Object,System.Object[])">
+            <summary>
+            メソッド呼び出し
+            </summary>
+            <param name="obj">メソッドをもつオブジェクト</param>
+            <param name="parameters">メソッドに渡す引数</param>
+            <returns>メソッドの戻り値</returns>
+        </member>
+        <member name="P:Seasar.Framework.Beans.Impl.MethodDescImpl.Method">
+            <summary>
+            元となるメソッド情報
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Beans.Impl.MethodDescImpl.Name">
+            <summary>
+            メソッド名
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Beans.FieldNotFoundRuntimeException">
+            <summary>
+            フィールドが見つからない場合にスローされる例外です。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Beans.FieldNotFoundRuntimeException.#ctor(System.Type,System.String)">
+            <summary>
+            FieldNotFoundRuntimeExceptionを作成します。
+            </summary>
+            <param name="componentType"></param>
+            <param name="fieldName"></param>
+        </member>
+        <member name="P:Seasar.Framework.Beans.FieldNotFoundRuntimeException.ComponentType">
+            <summary>
+            ターゲットの型
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Beans.FieldNotFoundRuntimeException.FieldName">
+            <summary>
+            フィールド名
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Container.IllegalConstructorRuntimeException">
+            <summary>
+            コンポーネントのコンストラクタ引数の設定に失敗したときの実行時例外
+            </summary>
+        </member>
+        <member name="T:Seasar.Framework.Beans.Impl.PropertyDescImpl">
+            <summary>
+            プロパティ情報記述クラス
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.PropertyDescImpl.#ctor(System.Reflection.PropertyInfo)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="proeprtyInfo"></param>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.PropertyDescImpl.HasReadMethod">
+            <summary>
+            getterメソッドを持っているかどうか返します。
+            </summary>
+            <returns>getterメソッドを持っているかどうか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.PropertyDescImpl.HasWriteMethod">
+            <summary>
+            setterメソッドを持っているかどうか返します。
+            </summary>
+            <returns>setterメソッドを持っているかどうか</returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.PropertyDescImpl.GetValue(System.Object)">
+            <summary>
+            プロパティの値を返します。
+            </summary>
+            <param name="target">target</param>
+            <returns>プロパティの値</returns>
+            <exception cref="T:Seasar.Framework.Beans.IllegalPropertyRuntimeException">値の設定に失敗した場合。</exception>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Impl.PropertyDescImpl.SetValue(System.Object,System.Object)">
+            <summary>
+            プロパティに値を設定します。
+            </summary>
+            <param name="target"></param>
+            <param name="value"></param>
+            <exception cref="T:Seasar.Framework.Beans.IllegalPropertyRuntimeException">値の設定に失敗した場合。</exception>
+        </member>
+        <member name="P:Seasar.Framework.Beans.Impl.PropertyDescImpl.Property">
+            <summary>
+            元となるプロパティ情報
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Beans.Impl.PropertyDescImpl.Name">
+            <summary>
+            プロパティ名
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Beans.Impl.PropertyDescImpl.PropertyType">
+            <summary>
+            プロパティの型
+            </summary>
+        </member>
+        <member name="P:Seasar.Framework.Beans.Impl.PropertyDescImpl.ReadMethod">
+            <summary>
+            getterメソッド
+            </summary>
+            <exception cref="T:Seasar.Framework.Beans.MethodNotFoundRuntimeException"></exception>
+        </member>
+        <member name="P:Seasar.Framework.Beans.Impl.PropertyDescImpl.WriteMethod">
+            <summary>
+            setterメソッド
+            </summary>
+            <exception cref="T:Seasar.Framework.Beans.MethodNotFoundRuntimeException"></exception>
+        </member>
+        <member name="T:Seasar.Framework.Beans.Factory.BeanDescFactory">
+            <summary>
+            BeanDescを生成するクラスです。
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.BeanDescFactory.#cctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.BeanDescFactory.GetBeanDesc(System.Type)">
+            <summary>
+            BeanDescを返します。
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.BeanDescFactory.Clear">
+            <summary>
+            キャッシュをクリアします
+            </summary>
+        </member>
+        <member name="M:Seasar.Framework.Beans.Factory.BeanDescFactory.CreateBeanDesc(System.Type)">
+            <summary>
+            BeanDescインスタンスを生成します。
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

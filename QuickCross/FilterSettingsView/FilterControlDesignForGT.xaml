@@ -1,0 +1,582 @@
+﻿<UserControl x:Class="FilterSettingsView.FilterControlDesignForGT"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FilterSettingsView"
+             xmlns:res="clr-namespace:FilterSettingsView"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="800" PreviewKeyDown="UserControl_PreviewKeyDown" >
+    <UserControl.Resources>
+        <Style TargetType="TextBox">
+            <EventSetter Event="GotKeyboardFocus" Handler="TextBox_GotKeyboardFocus"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid Margin="10,5,10,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="275*"/> <!--290-->
+                <RowDefinition Height="25*"/>  <!--40-->
+                <RowDefinition Height="400*"/>  <!--450-->
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Margin="10" 
+                            BorderThickness="1" CornerRadius="0"    BorderBrush="LightGray">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="30*"/>
+                        <RowDefinition Height="15*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions >
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="30*"/>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="30*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Text="{x:Static local:LocalResource.LABEL_CRITERION_VARIABLE}" Grid.Column="0" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Text="{x:Static local:LocalResource.LABEL_ANSWERTYPE}" Grid.Column="1" Margin="13,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox TabIndex="2"  Name="TBAnsType" IsReadOnly="True" Grid.Column="2" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Width="110" Height="25"  />
+                        <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Text="{x:Static res:LocalResource.LABEL_CHOICE_COUNT}" Grid.Column="3" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox TabIndex="3"   Name="TBNoOfChoice" IsReadOnly="True" Height="25" Grid.Column="4" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="6,0,0,0" Width="108" />
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="8*"/>
+                            <ColumnDefinition Width="30*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ComboBox TabIndex="1"  ItemsSource="{Binding}"  Height="25" Grid.Column="0" Margin="20,10,0,0" Loaded="Combo_Classify_Item_Loaded"  
+                                  PreviewKeyUp="KeyPress" PreviewKeyDown="Combo_Conditional_Item_1_PreviewKeyDown"
+                                  TextSearch.TextPath="QuestionVariable"     IsTextSearchEnabled="True" IsEditable="True"
+                                VerticalAlignment="Top"  Name="Combo_Classify_Item"   SelectionChanged="OnSelectionChanged"                          
+                                HorizontalAlignment="Left"  IsEnabled="True" GotKeyboardFocus="Combo_Conditional_Item_1_GotFocus"           
+                                IsSynchronizedWithCurrentItem="True" DropDownClosed="Combo_Classify_Item_DropDownClosed"
+                                Width="150" ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                                 >
+                            <ComboBox.Resources>
+                                <Style TargetType="Popup">
+                                    <Setter Property="MaxWidth" Value="508"/>
+                                </Style>
+                            </ComboBox.Resources>
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Margin="2" Text="{Binding QuestionVariable}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                            <ComboBox.ItemContainerStyle>
+                                <Style TargetType="{x:Type ComboBoxItem}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="150"/>
+                                                        <ColumnDefinition Width="80"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Width="150" Margin="5" Grid.Column="0" Text="{Binding QuestionVariable}"/>
+                                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Width="80" Margin="5" Grid.Column="1" Text="{Binding QuestionVariableType}"/>
+                                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Width="Auto" Margin="5" Grid.Column="2" Text="{Binding Question}"/>
+                                                </Grid>
+
+                                                <ControlTemplate.Triggers >
+                                                    <Trigger Property="ComboBoxItem.IsSelected" Value="True">
+                                                        <Setter TargetName="gd"  Property="Background" Value="#F6F6F6"></Setter>
+                                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="#FF333333"></Setter>
+                                                    </Trigger>
+                                                    <Trigger Property="ComboBoxItem.IsMouseOver" Value="True">
+                                                        <Setter TargetName="gd"  Property="Background" Value="#e5f3fb"></Setter>
+                                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="#FF333333"></Setter>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+
+                                            </ControlTemplate>
+
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ComboBox.ItemContainerStyle>
+                        </ComboBox>
+
+                        <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Text="{x:Static res:LocalResource.LABEL_QUESTION}" Grid.Column="1" Margin="5,10,0,0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                        <TextBox TabIndex="4" Grid.Column="2" Name="TAQuestion" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" Width="310" />
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="8*"/>
+                            <RowDefinition Height="12*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition Width="100*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Text="{x:Static res:LocalResource.LABEL_EXPORT_PATH}" Name="Label_Export_Path" Grid.Column="0" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="100"/>
+
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition Width="89*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <!--Text="{x:Static res:LocalResource.TEXT_EXPORT_PATH}"-->
+                            <TextBox Style="{StaticResource NormalTextBox}"  Name="Combo_Classify_FolderPath" Grid.Column="0" BorderThickness="2" IsEnabled="False"  Margin="19,0,0,5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="540" Height="25"/>
+                            <Button Name="exportpathbtn" Margin="0,0,19,5" Content="..."   VerticalContentAlignment="Center" HorizontalContentAlignment= "Center" HorizontalAlignment="Right" Grid.Column="1" Height="20" Width="20" Click="OnClick"/>
+
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Border>
+            <CheckBox Name="Check_Refine_Condition" Checked="OnCheck" Unchecked="OnCheck"  Content="{x:Static res:LocalResource.LABEL_FILTERING_CRITERIA}"  IsEnabled="True" Grid.Row="1" Margin="30,0,0,0"   HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <Border Margin="10,10,10,0" Grid.Row="2" 
+                            BorderThickness="1" CornerRadius="0"    BorderBrush="LightGray">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200*"/>
+                        <RowDefinition Height="200*"/>
+                        <RowDefinition Height="200*"/>
+                        <RowDefinition Height="200*"/>
+                        <RowDefinition Height="200*"/>
+                        <RowDefinition Height="200*"/>
+                        <RowDefinition Height="200*"/>
+                        <RowDefinition Height="200*"/>
+                        <RowDefinition Height="200*"/>
+                        <RowDefinition Height="230*"/>
+                    </Grid.RowDefinitions>
+
+                    <!--COLUMN NAME-->
+                    <Grid Grid.Row="0" Margin="20,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="39*"/>
+                            <ColumnDefinition Width="13*"/>
+                            <ColumnDefinition Width="42*"/>
+                            <ColumnDefinition Width="8*"/>
+                            <ColumnDefinition Width="24*"/>
+                            <ColumnDefinition Width="20*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Name="lblCriteriaVariable" Text="{x:Static res:LocalResource.LABEL_CRITERIA_VARIABLE}" IsEnabled="False" Grid.Column="0" Foreground="Black" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Name="lblOperator" Text="{x:Static res:LocalResource.LABEL_OPERATOR}" Grid.Column="2" IsEnabled="False" Foreground="Black" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Name="lblValue" Text="{x:Static res:LocalResource.LABEL_VALUE}" Grid.Column="4" IsEnabled="False" Foreground="Black" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+
+                    <!--ROW 1 RULES-->
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="50*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ComboBox Height="25" Grid.Column="0" Margin="20,0,0,0"  IsEditable="True" DropDownClosed="Combo_Classify_Item_DropDownClosed"
+                                  TextSearch.TextPath="QuestionVariable"     IsTextSearchEnabled="True" Loaded="Combo_Classify_Item_Loaded"
+                                  PreviewKeyUp="KeyPress" PreviewKeyDown="Combo_Conditional_Item_1_PreviewKeyDown" GotFocus="Combo_Conditional_Item_1_GotFocus"
+                                 ItemsSource="{Binding}" Name="Combo_Conditional_Item_1" IsEnabled="False"  GotKeyboardFocus="Combo_Classify_Item_GotKeyboardFocus"          
+                                IsSynchronizedWithCurrentItem="True"  SelectionChanged="OnSelectionChanged" 
+                                HorizontalAlignment="Left" Width="150" VerticalAlignment="Center" VerticalContentAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                                 >
+                            <ComboBox.Resources>
+                                <Style TargetType="Popup">
+                                    <Setter Property="MaxWidth" Value="508"/>
+                                </Style>
+                            </ComboBox.Resources>
+
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Margin="2" Text="{Binding QuestionVariable}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+
+                            <ComboBox.ItemContainerStyle>
+                                <Style TargetType="{x:Type ComboBoxItem}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="150"/>
+                                                        <ColumnDefinition Width="80"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Width="150" Margin="5" Grid.Column="0" Text="{Binding QuestionVariable}"/>
+                                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Width="80" Margin="5" Grid.Column="1" Text="{Binding QuestionVariableType}"/>
+                                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Width="Auto" Margin="5" Grid.Column="2" Text="{Binding Question}"/>
+                                                </Grid>
+                                                <ControlTemplate.Triggers >
+                                                    <Trigger Property="ComboBoxItem.IsSelected" Value="True">
+                                                        <Setter TargetName="gd"  Property="Background" Value="#F6F6F6"></Setter>
+                                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="#FF333333"></Setter>
+                                                    </Trigger>
+                                                    <Trigger Property="ComboBoxItem.IsMouseOver" Value="True">
+                                                        <Setter TargetName="gd"  Property="Background" Value="#e5f3fb"></Setter>
+                                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="#FF333333"></Setter>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ComboBox.ItemContainerStyle>
+                        </ComboBox>
+
+
+
+
+
+                        <ComboBox Height="25" Grid.Column="1" Margin="20,0,0,0" x:Name="Combo_Conditional_Operator_1"  SelectionChanged="OnSelectionChanged"   IsEnabled="False"  VerticalAlignment="Center" HorizontalAlignment="Left" Width="150">
+                            <!--<ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_EQUALS}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_LESS_OR_GREATER}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_LESS_THAN}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_GREATER_THAN}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_LESS_THAN_OR_EQUAL_TO}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_GREATER_THAN_OR_EQUAL_TO}"/>-->
+                        </ComboBox>
+                        <TextBox Style="{StaticResource NormalTextBox}" Height="25" Grid.Column="2" Name="Combo_Conditional_Value_1" TextChanged="OnTextBoxChange"  HorizontalAlignment="Left" Text="" VerticalAlignment="Center" Width="100" Margin="10,0,0,0" VerticalContentAlignment="Center" IsEnabled="False"/>
+                        <Button Grid.Column="2" Name="BTnFilter1"  Click="OnClick" IsEnabled="False" Width="20" Content="..." Margin="120,0,0,0"   Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                    </Grid>
+
+                    <!-- ROW 2 ANDOR-->
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="127*"/>
+                            <ColumnDefinition Width="424*"/>
+                            <ColumnDefinition Width="84*"/>
+                        </Grid.ColumnDefinitions>
+                        <RadioButton Content="{x:Static res:LocalResource.LABEL_AND}" Name="Option_Conditional_And_1" Checked="OnRadioClick" IsEnabled="False" Grid.Column="0" Margin="20,7,0,7"   VerticalAlignment="Center" HorizontalAlignment="Left" Height="15"></RadioButton>
+                        <RadioButton Content="{x:Static res:LocalResource.LABEL_OR}" Name="Option_Conditional_Or_1" Checked="OnRadioClick" IsEnabled="False" Grid.Column="1" Margin="20,7,0,7"   Height="15" VerticalAlignment="Center" HorizontalAlignment="Left"></RadioButton>
+                    </Grid>
+
+                    <!-- ROW 3 RULES-->
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="50*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ComboBox Height="25" Grid.Column="0" Margin="20,0,0,0" PreviewKeyUp="KeyPress"   DropDownClosed="Combo_Classify_Item_DropDownClosed"
+                                  TextSearch.TextPath="QuestionVariable"     IsTextSearchEnabled="True" IsEditable="True"
+                                   PreviewKeyDown="Combo_Conditional_Item_1_PreviewKeyDown" GotFocus="Combo_Conditional_Item_1_GotFocus"
+                                 ItemsSource="{Binding}" Name="Combo_Conditional_Item_2" IsEnabled="False"  Loaded="Combo_Classify_Item_Loaded"
+                                IsSynchronizedWithCurrentItem="True" SelectionChanged="OnSelectionChanged" GotKeyboardFocus="Combo_Classify_Item_GotKeyboardFocus"
+                                HorizontalAlignment="Left" Width="150"   VerticalAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                                 >
+                            <ComboBox.Resources>
+                                <Style TargetType="Popup">
+                                    <Setter Property="MaxWidth" Value="508"/>
+                                </Style>
+                            </ComboBox.Resources>
+
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Margin="2" Text="{Binding QuestionVariable}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+
+                            <ComboBox.ItemContainerStyle>
+                                <Style TargetType="{x:Type ComboBoxItem}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="150"/>
+                                                        <ColumnDefinition Width="80"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Width="150" Margin="5" Grid.Column="0" Text="{Binding QuestionVariable}"/>
+                                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Width="80" Margin="5" Grid.Column="1" Text="{Binding QuestionVariableType}"/>
+                                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Width="Auto" Margin="5" Grid.Column="2" Text="{Binding Question}"/>
+                                                </Grid>
+                                                <ControlTemplate.Triggers >
+                                                    <Trigger Property="ComboBoxItem.IsSelected" Value="True">
+                                                        <Setter TargetName="gd"  Property="Background" Value="#F6F6F6"></Setter>
+                                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="#FF333333"></Setter>
+                                                    </Trigger>
+                                                    <Trigger Property="ComboBoxItem.IsMouseOver" Value="True">
+                                                        <Setter TargetName="gd"  Property="Background" Value="#e5f3fb"></Setter>
+                                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="#FF333333"></Setter>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ComboBox.ItemContainerStyle>
+                        </ComboBox>
+
+                        <ComboBox Grid.Column="1" Height="25" Margin="20,0,0,0" Name="Combo_Conditional_Operator_2" SelectionChanged="OnSelectionChanged" IsEnabled="False"   HorizontalAlignment="Left" VerticalAlignment="Center" Width="150">
+                            <!--<ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_EQUALS}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_LESS_OR_GREATER}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_LESS_THAN}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_GREATER_THAN}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_LESS_THAN_OR_EQUAL_TO}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_GREATER_THAN_OR_EQUAL_TO}"/>-->
+                        </ComboBox>
+
+                        <TextBox Style="{StaticResource NormalTextBox}" Height="25" Grid.Column="2" Name="Combo_Conditional_Value_2" TextChanged="OnTextBoxChange" HorizontalAlignment="Left" Text="" VerticalAlignment="Center" Width="100" Margin="10,0,0,0" VerticalContentAlignment="Center" IsEnabled="False"/>
+                        <Button Grid.Column="2" Name="BTnFilter2" Click="OnClick" IsEnabled="False" Width="20" Content="..." Margin="120,0,0,0"   Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                    </Grid>
+
+                    <!-- ROW 4 ANDOR-->
+                    <Grid Grid.Row="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="80*"/>
+                        </Grid.ColumnDefinitions>
+                        <RadioButton Content="{x:Static res:LocalResource.LABEL_AND}" Name="Option_Conditional_And_2" Checked="OnRadioClick" IsEnabled="False" Grid.Column="0" Margin="20,0,0,0"  VerticalAlignment="Center" HorizontalAlignment="Left" Height="15"></RadioButton>
+                        <RadioButton Content="{x:Static res:LocalResource.LABEL_OR}" Name="Option_Conditional_Or_2" Checked="OnRadioClick" IsEnabled="False" Grid.Column="2" Margin="20,0,0,0"  Height="15" VerticalAlignment="Center" HorizontalAlignment="Left"></RadioButton>
+                    </Grid>
+
+                    <!-- ROW 5 RULES-->
+                    <Grid Grid.Row="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="50*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ComboBox Height="25" Grid.Column="0" Margin="20,0,0,0"  PreviewKeyUp="KeyPress"  DropDownClosed="Combo_Classify_Item_DropDownClosed"
+                                   PreviewKeyDown="Combo_Conditional_Item_1_PreviewKeyDown" GotFocus="Combo_Conditional_Item_1_GotFocus"
+                                  TextSearch.TextPath="QuestionVariable"     IsTextSearchEnabled="True" IsEditable="True"
+                                 ItemsSource="{Binding}" Name="Combo_Conditional_Item_3" IsEnabled="False"   Loaded="Combo_Classify_Item_Loaded"
+                                IsSynchronizedWithCurrentItem="True" SelectionChanged="OnSelectionChanged" GotKeyboardFocus="Combo_Classify_Item_GotKeyboardFocus"
+                                HorizontalAlignment="Left" Width="150"   VerticalAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                                 >
+                            <ComboBox.Resources>
+                                <Style TargetType="Popup">
+                                    <Setter Property="MaxWidth" Value="508"/>
+                                </Style>
+                            </ComboBox.Resources>
+
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Margin="2" Text="{Binding QuestionVariable}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+
+                            <ComboBox.ItemContainerStyle>
+                                <Style TargetType="{x:Type ComboBoxItem}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="150"/>
+                                                        <ColumnDefinition Width="80"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Width="150" Margin="5" Grid.Column="0" Text="{Binding QuestionVariable}"/>
+                                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Width="80" Margin="5" Grid.Column="1" Text="{Binding QuestionVariableType}"/>
+                                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Width="Auto" Margin="5" Grid.Column="2" Text="{Binding Question}"/>
+                                                </Grid>
+                                                <ControlTemplate.Triggers >
+                                                    <Trigger Property="ComboBoxItem.IsSelected" Value="True">
+                                                        <Setter TargetName="gd"  Property="Background" Value="#F6F6F6"></Setter>
+                                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="#FF333333"></Setter>
+                                                    </Trigger>
+                                                    <Trigger Property="ComboBoxItem.IsMouseOver" Value="True">
+                                                        <Setter TargetName="gd"  Property="Background" Value="#e5f3fb"></Setter>
+                                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="#FF333333"></Setter>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ComboBox.ItemContainerStyle>
+                        </ComboBox>
+
+                        <ComboBox Grid.Column="1" Height="25" Margin="20,0,0,0" Name="Combo_Conditional_Operator_3" SelectionChanged="OnSelectionChanged" IsEnabled="False"   HorizontalAlignment="Left" VerticalAlignment="Center" Width="150">
+                            <!--<ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_EQUALS}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_LESS_OR_GREATER}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_LESS_THAN}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_GREATER_THAN}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_LESS_THAN_OR_EQUAL_TO}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_GREATER_THAN_OR_EQUAL_TO}"/>-->
+                        </ComboBox>
+
+                        <TextBox Style="{StaticResource NormalTextBox}" Height="25" Grid.Column="2" Name="Combo_Conditional_Value_3" TextChanged="OnTextBoxChange" HorizontalAlignment="Left" Text="" VerticalAlignment="Center" Width="100" Margin="10,0,0,0" VerticalContentAlignment="Center" IsEnabled="False"/>
+                        <Button Grid.Column="2" Name="BTnFilter3" Click="OnClick" IsEnabled="False" Width="20" Content="..." Margin="120,0,0,0"   Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                    </Grid>
+
+                    <!-- ROW 6 ANDOR-->
+                    <Grid Grid.Row="6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="80*"/>
+                        </Grid.ColumnDefinitions>
+                        <RadioButton Content="{x:Static res:LocalResource.LABEL_AND}" Name="Option_Conditional_And_3" Checked="OnRadioClick" IsEnabled="False" Grid.Column="0" Margin="20,0,0,0"  VerticalAlignment="Center" HorizontalAlignment="Left" Height="15"></RadioButton>
+                        <RadioButton Content="{x:Static res:LocalResource.LABEL_OR}" Name="Option_Conditional_Or_3" Checked="OnRadioClick" IsEnabled="False" Grid.Column="1" Margin="20,0,0,0"   Height="15" VerticalAlignment="Center" HorizontalAlignment="Left"></RadioButton>
+                    </Grid>
+
+                    <!-- ROW 7 RULES-->
+                    <Grid Grid.Row="7">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="50*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ComboBox Height="25" Grid.Column="0" Margin="20,0,0,0"   PreviewKeyUp="KeyPress"  DropDownClosed="Combo_Classify_Item_DropDownClosed"
+                                   PreviewKeyDown="Combo_Conditional_Item_1_PreviewKeyDown" GotFocus="Combo_Conditional_Item_1_GotFocus"
+                                  TextSearch.TextPath="QuestionVariable"     IsTextSearchEnabled="True" IsEditable="True"
+                                 ItemsSource="{Binding}" Name="Combo_Conditional_Item_4" IsEnabled="False" Loaded="Combo_Classify_Item_Loaded"
+                                IsSynchronizedWithCurrentItem="True" SelectionChanged="OnSelectionChanged" GotKeyboardFocus="Combo_Classify_Item_GotKeyboardFocus"
+                                HorizontalAlignment="Left" Width="150"   VerticalAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                                 >
+                            <ComboBox.Resources>
+                                <Style TargetType="Popup">
+                                    <Setter Property="MaxWidth" Value="508"/>
+                                </Style>
+                            </ComboBox.Resources>
+
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Margin="2" Text="{Binding QuestionVariable}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+
+                            <ComboBox.ItemContainerStyle>
+                                <Style TargetType="{x:Type ComboBoxItem}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="150"/>
+                                                        <ColumnDefinition Width="80"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Width="150" Margin="5" Grid.Column="0" Text="{Binding QuestionVariable}"/>
+                                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Width="80" Margin="5" Grid.Column="1" Text="{Binding QuestionVariableType}"/>
+                                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Width="Auto" Margin="5" Grid.Column="2" Text="{Binding Question}"/>
+                                                </Grid>
+                                                <ControlTemplate.Triggers >
+                                                    <Trigger Property="ComboBoxItem.IsSelected" Value="True">
+                                                        <Setter TargetName="gd"  Property="Background" Value="#F6F6F6"></Setter>
+                                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="#FF333333"></Setter>
+                                                    </Trigger>
+                                                    <Trigger Property="ComboBoxItem.IsMouseOver" Value="True">
+                                                        <Setter TargetName="gd"  Property="Background" Value="#e5f3fb"></Setter>
+                                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="#FF333333"></Setter>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ComboBox.ItemContainerStyle>
+                        </ComboBox>
+
+                        <ComboBox Grid.Column="1" Margin="20,0,0,0" Height="25" Name="Combo_Conditional_Operator_4" SelectionChanged="OnSelectionChanged" IsEnabled="False"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="150">
+                            <!--<ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_EQUALS}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_LESS_OR_GREATER}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_LESS_THAN}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_GREATER_THAN}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_LESS_THAN_OR_EQUAL_TO}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_GREATER_THAN_OR_EQUAL_TO}"/>-->
+                        </ComboBox>
+
+                        <TextBox Style="{StaticResource NormalTextBox}" Height="25" Grid.Column="2" Name="Combo_Conditional_Value_4" TextChanged="OnTextBoxChange" HorizontalAlignment="Left" Text="" VerticalAlignment="Center" Width="100" Margin="10,0,0,0" VerticalContentAlignment="Center" IsEnabled="False"/>
+                        <Button Grid.Column="2" Name="BTnFilter4" Click="OnClick" IsEnabled="False" Width="20" Content="..." Margin="120,0,0,0"   Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                    </Grid>
+
+                    <!-- ROW 8 ANDOR-->
+                    <Grid Grid.Row="8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="80*"/>
+                        </Grid.ColumnDefinitions>
+                        <RadioButton Content="{x:Static res:LocalResource.LABEL_AND}" Name="Option_Conditional_And_4" Checked="OnRadioClick" IsEnabled="False" Grid.Column="0" Margin="20,0,0,0"   VerticalAlignment="Center" HorizontalAlignment="Left" Height="15"></RadioButton>
+                        <RadioButton Content="{x:Static res:LocalResource.LABEL_OR}" Name="Option_Conditional_Or_4" Checked="OnRadioClick" IsEnabled="False" Grid.Column="1" Margin="20,0,0,0"   Height="15" VerticalAlignment="Center" HorizontalAlignment="Left"></RadioButton>
+                    </Grid>
+
+                    <!-- ROW 9 RULES-->
+                    <Grid Grid.Row="9" Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60*"/>
+                            <ColumnDefinition Width="189*"/>
+                            <ColumnDefinition Width="250*"/>
+                            <ColumnDefinition Width="249*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ComboBox Height="25" Grid.Column="0" Margin="20,-2,0,-2" PreviewKeyUp="KeyPress" DropDownClosed="Combo_Classify_Item_DropDownClosed"
+                                   PreviewKeyDown="Combo_Conditional_Item_1_PreviewKeyDown" GotFocus="Combo_Conditional_Item_1_GotFocus"
+                                  TextSearch.TextPath="QuestionVariable"     IsTextSearchEnabled="True" IsEditable="True"
+                                 ItemsSource="{Binding}" Name="Combo_Conditional_Item_5" IsEnabled="False" Loaded="Combo_Classify_Item_Loaded"
+                                IsSynchronizedWithCurrentItem="True" SelectionChanged="OnSelectionChanged" GotKeyboardFocus="Combo_Classify_Item_GotKeyboardFocus"
+                                HorizontalAlignment="Left" Width="150" VerticalAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Visible" Grid.ColumnSpan="2"
+                                 >
+                            <ComboBox.Resources>
+                                <Style TargetType="Popup">
+                                    <Setter Property="MaxWidth" Value="508"/>
+                                </Style>
+                            </ComboBox.Resources>
+
+                            <ComboBox.ItemTemplate >
+                                <DataTemplate >
+                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Margin="2" Text="{Binding QuestionVariable}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+
+                            <ComboBox.ItemContainerStyle >
+                                <Style TargetType="{x:Type ComboBoxItem}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="150"/>
+                                                        <ColumnDefinition Width="80"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Width="150" Margin="5" Grid.Column="0" Text="{Binding QuestionVariable}"/>
+                                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Width="80" Margin="5" Grid.Column="1" Text="{Binding QuestionVariableType}"/>
+                                                    <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Width="Auto" Margin="5" Grid.Column="2" Text="{Binding Question}"/>
+                                                </Grid>
+                                                <ControlTemplate.Triggers >
+                                                    <Trigger Property="ComboBoxItem.IsSelected" Value="True">
+                                                        <Setter TargetName="gd"  Property="Background" Value="#F6F6F6"></Setter>
+                                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="#FF333333"></Setter>
+                                                    </Trigger>
+                                                    <Trigger Property="ComboBoxItem.IsMouseOver" Value="True">
+                                                        <Setter TargetName="gd"  Property="Background" Value="#e5f3fb"></Setter>
+                                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="#FF333333"></Setter>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ComboBox.ItemContainerStyle>
+                        </ComboBox>
+
+                        <ComboBox Grid.Column="2" Height="25" Margin="20,-2,0,-2" Name="Combo_Conditional_Operator_5" SelectionChanged="OnSelectionChanged" IsEnabled="False"   HorizontalAlignment="Left" VerticalAlignment="Center" Width="150">
+                            <!--<ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_EQUALS}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_LESS_OR_GREATER}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_LESS_THAN}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_GREATER_THAN}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_LESS_THAN_OR_EQUAL_TO}"/>
+                                    <ComboBoxItem Content="{x:Static res:LocalResource.GTT_FS_CB_ITEM_VALUE_GREATER_THAN_OR_EQUAL_TO}"/>-->
+                        </ComboBox>
+
+                        <TextBox Style="{StaticResource NormalTextBox}" Height="25" Grid.Column="3" Name="Combo_Conditional_Value_5" HorizontalAlignment="Left" Text="" VerticalAlignment="Center" Width="100" Margin="10,-2,0,-2" VerticalContentAlignment="Center" IsEnabled="False"/>
+                        <Button Grid.Column="3" Name="BTnFilter5" Click="OnClick" IsEnabled="False" Width="20" Content="..." Margin="120,0,0,1"   Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                    </Grid>
+
+                </Grid>
+            </Border>
+        </Grid>
+
+
+    </Grid>
+</UserControl>

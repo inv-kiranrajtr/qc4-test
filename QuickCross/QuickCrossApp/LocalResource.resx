@@ -1,0 +1,5312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ADDQS_ALERT_MSG_COMBO_CATEGORY" xml:space="preserve">
+    <value>カテゴリ数は、1から1000を指定してください</value>
+  </data>
+  <data name="ADDQS_ANSWERTYPE_LABEL" xml:space="preserve">
+    <value>回答タイプ</value>
+  </data>
+  <data name="ADDQS_BTN_SUBTOTALSETTING" xml:space="preserve">
+    <value>小計設定</value>
+  </data>
+  <data name="ADDQS_COUNT_LONG_LABEL" xml:space="preserve">
+    <value>回答個数のベースを指定選択肢の回答者に絞る</value>
+    <comment>Count: Restrict base to the respondents that selected the choice specified below   回答個数のペースを指定選択肢の回答者に絞る</comment>
+  </data>
+  <data name="ADDQS_ERROR_MSG_EMPTY_VARIABLE" xml:space="preserve">
+    <value>アイテム名が入力されていません。</value>
+  </data>
+  <data name="ADDQS_ERROR_MSG_QUSTION_TEXT_MISS" xml:space="preserve">
+    <value>質問文が入力されていません。</value>
+  </data>
+  <data name="ADDQS_INFO_MSG_SUCCESS" xml:space="preserve">
+    <value>登録しました。</value>
+  </data>
+  <data name="ADDQS_LABEL_CHOICE1TO" xml:space="preserve">
+    <value>選択肢1から</value>
+  </data>
+  <data name="ADDQS_LABEL_CHOICE1TO_JP" xml:space="preserve">
+    <value>まで</value>
+  </data>
+  <data name="ADDQS_NOCHOICE_LABEL" xml:space="preserve">
+    <value>選択肢数</value>
+  </data>
+  <data name="ADDQS_QUESTION_LABEL" xml:space="preserve">
+    <value>質問文</value>
+  </data>
+  <data name="ADDQS_SORT_LABEL" xml:space="preserve">
+    <value>並べ替え</value>
+  </data>
+  <data name="ADDQS_SUBTOTAL_CHECK_LABEL" xml:space="preserve">
+    <value>小計出力 (   {0}  件)</value>
+    <comment>小計出力 (      {0}      )</comment>
+  </data>
+  <data name="ADDQS_TABLE_HAEDING_LABEL" xml:space="preserve">
+    <value>表題</value>
+  </data>
+  <data name="ADDQS_VARIABLE_ALREADY_EXIST" xml:space="preserve">
+    <value>入力されたアイテム名と同じアイテム名が存在しています。</value>
+  </data>
+  <data name="ADDQS_VARIABLE_NAME" xml:space="preserve">
+    <value>アイテム名</value>
+  </data>
+  <data name="ADD_DP_RECODE_ERROR_MSG_NO_CHOICE_SET" xml:space="preserve">
+    <value>新アイテムの選択肢が一つも設定されていません。</value>
+  </data>
+  <data name="ADD_DP_RECODE_ERROR_MSG_NO_MATCH_NUMBER_OF_CHOICES" xml:space="preserve">
+    <value>新アイテムの「選択肢数」と「選択肢」の数を一致させてください。</value>
+  </data>
+  <data name="ADD_PROCESS_TYPE" xml:space="preserve">
+    <value>ADD</value>
+  </data>
+  <data name="ADD_SPECIFY_SOURCE_VARIABLE" xml:space="preserve">
+    <value>積み上げアイテムの指定</value>
+  </data>
+  <data name="ALERT_CLEAR_SETTING_FOR_CHOICES" xml:space="preserve">
+    <value>選択肢等の設定をクリアして、再設定します。よろしいですか？</value>
+  </data>
+  <data name="ALERT_CLOSE_QC4" xml:space="preserve">
+    <value>QuickCrossを終了します。</value>
+  </data>
+  <data name="ALERT_DELETE_DATA_PROCESSING" xml:space="preserve">
+    <value>削除してもよろしいですか？</value>
+  </data>
+  <data name="ALERT_DELETE_FROM_QS_DATA_PROCESSING" xml:space="preserve">
+    <value>削除するアイテムは以下の箇所で使用されている可能性があります。
+削除を続行すると以下の設定から該当するアイテムが削除されます。
+　データ加工
+　GT表作成
+　クロス表・グラフ作成
+　FAリスト作成
+加工後データがある場合は加工前に戻します。
+削除してよろしいですか？</value>
+  </data>
+  <data name="ALERT_DP_NO_QUESTION" xml:space="preserve">
+    <value>質問文が入力されていません。</value>
+  </data>
+  <data name="ALERT_EXECUTE_DP_OR_DELET_VAR" xml:space="preserve">
+    <value>データ加工を実行するか、設問設定で新アイテムを削除してください。</value>
+  </data>
+  <data name="ALERT_FS_SAME_TOGETHER" xml:space="preserve">
+    <value>無回答・非該当は、同時に選択する事ができません。</value>
+  </data>
+  <data name="ALERT_REPEAT_RECODE" xml:space="preserve">
+    <value>繰り返しチェックをはずしてから変更してください。</value>
+  </data>
+  <data name="ALERT_REPLACE" xml:space="preserve">
+    <value>{0} はすでに存在します。
+置き換えますか？</value>
+  </data>
+  <data name="ALERT_UNDO_DATA_PROCESSING" xml:space="preserve">
+    <value>加工前に戻します。よろしいですか？</value>
+  </data>
+  <data name="ALERT_UN_PROCESSED_VARIABLE_EXIST" xml:space="preserve">
+    <value>加工されていない新アイテムがあります。
+このまま実行しますか？</value>
+  </data>
+  <data name="ALERT_WANT_TO_CLOSE" xml:space="preserve">
+    <value>{0} を閉じますか?</value>
+  </data>
+  <data name="ALERT_WANT_TO_SAVE" xml:space="preserve">
+    <value>{0} を保存しますか？</value>
+  </data>
+  <data name="ANS_TYPE_NO_OF_CHOICES_QUESTION" xml:space="preserve">
+    <value>回答タイプ/選択肢数</value>
+  </data>
+  <data name="AUT_MSG_CHANGE_FAIL" xml:space="preserve">
+    <value>無効なアクティベーションキーまたはレジストリに無効なアクティベーションキーが含まれています。</value>
+  </data>
+  <data name="AUT_MSG_CHANGE_PRO" xml:space="preserve">
+    <value>Pro版に変更しました。</value>
+  </data>
+  <data name="AUT_MSG_CHANGE_STD" xml:space="preserve">
+    <value>Std版に変更しました。</value>
+  </data>
+  <data name="AUT_MSG_DELETE_KEY" xml:space="preserve">
+    <value>キーを削除しました。</value>
+  </data>
+  <data name="AUT_MSG_FAIL_KEY" xml:space="preserve">
+    <value>キーの登録に失敗しました。</value>
+  </data>
+  <data name="AUT_MSG_INVALID_KEY" xml:space="preserve">
+    <value>無効なキーです。</value>
+  </data>
+  <data name="AUT_MSG_NO_DELETE_KEY" xml:space="preserve">
+    <value>キーを削除できませんでした。</value>
+  </data>
+  <data name="AUT_MSG_PRO_STD" xml:space="preserve">
+    <value>Std版に変更しますか？</value>
+  </data>
+  <data name="AUT_MSG_STD_PRO" xml:space="preserve">
+    <value>Pro版に変更しますか？</value>
+  </data>
+  <data name="AUT_MSG_SUCCESS_KEY" xml:space="preserve">
+    <value>キーが登録されました。</value>
+  </data>
+  <data name="AUT_WANT_TO_CLOSE" xml:space="preserve">
+    <value>を閉じますか?</value>
+  </data>
+  <data name="AUT_WANT_TO_DEL" xml:space="preserve">
+    <value>本当にキーを削除していいですか？</value>
+  </data>
+  <data name="BTN_ADD_TABULATION_TAB" xml:space="preserve">
+    <value>集計タブ追加</value>
+  </data>
+  <data name="BTN_BACK" xml:space="preserve">
+    <value>戻る</value>
+  </data>
+  <data name="BTN_CALCULATE" xml:space="preserve">
+    <value>算出</value>
+  </data>
+  <data name="BTN_CANCEL" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="BTN_CLOSE" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
+  <data name="BTN_CLOSE_FILE" xml:space="preserve">
+    <value>ファイルを閉じる</value>
+  </data>
+  <data name="BTN_COMBINE_SIDEWAYS" xml:space="preserve">
+    <value>横に結合</value>
+  </data>
+  <data name="BTN_COMBINE_VERTICAL" xml:space="preserve">
+    <value>縦に結合</value>
+  </data>
+  <data name="BTN_COPY" xml:space="preserve">
+    <value>コピー</value>
+  </data>
+  <data name="BTN_CREATE_PROCESS" xml:space="preserve">
+    <value>加工作成</value>
+  </data>
+  <data name="BTN_CREATE_QC4" xml:space="preserve">
+    <value>新規qcファイル作成</value>
+  </data>
+  <data name="BTN_CROSS_TABULATION" xml:space="preserve">
+    <value>クロス集計</value>
+  </data>
+  <data name="BTN_DATA_MERGE" xml:space="preserve">
+    <value>データ結合</value>
+  </data>
+  <data name="BTN_DATA_OUTPUT" xml:space="preserve">
+    <value>データ出力</value>
+  </data>
+  <data name="BTN_DATA_PROCESSING" xml:space="preserve">
+    <value>データ加工</value>
+  </data>
+  <data name="BTN_DECISION" xml:space="preserve">
+    <value>決定</value>
+  </data>
+  <data name="BTN_DELETE" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="BTN_EDIT" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="BTN_EDIT_TABULATION_TAB" xml:space="preserve">
+    <value>集計タブ編集</value>
+  </data>
+  <data name="BTN_EXECUTION" xml:space="preserve">
+    <value>実行</value>
+  </data>
+  <data name="BTN_EXIT" xml:space="preserve">
+    <value>終了</value>
+  </data>
+  <data name="BTN_EXTERNAL_DATA" xml:space="preserve">
+    <value>外部データ追加</value>
+  </data>
+  <data name="BTN_HELP" xml:space="preserve">
+    <value>HELP</value>
+  </data>
+  <data name="BTN_INTEGRATE_CRITERIA_VALUE" xml:space="preserve">
+    <value>条件値入力補助</value>
+    <comment>条件値入力補助</comment>
+  </data>
+  <data name="BTN_INTEGRATE_SET_LABELS" xml:space="preserve">
+    <value>名称入力</value>
+  </data>
+  <data name="BTN_NEXT" xml:space="preserve">
+    <value>次へ</value>
+  </data>
+  <data name="BTN_NEXT_DATA" xml:space="preserve">
+    <value>次のデータ</value>
+  </data>
+  <data name="BTN_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="BTN_ON_OR_OFF" xml:space="preserve">
+    <value>O ⇔ X</value>
+  </data>
+  <data name="BTN_OPEN" xml:space="preserve">
+    <value>開く</value>
+  </data>
+  <data name="BTN_PREVIOUS_DATA" xml:space="preserve">
+    <value>前のデータ</value>
+  </data>
+  <data name="BTN_SAMPLE_WEIGHT" xml:space="preserve">
+    <value>ウエイトバック値算出</value>
+  </data>
+  <data name="BTN_SAVE" xml:space="preserve">
+    <value>登録</value>
+    <comment>保存</comment>
+  </data>
+  <data name="BTN_SAVE2" xml:space="preserve">
+    <value>保存</value>
+    <comment>保存</comment>
+  </data>
+  <data name="BTN_SAVE_AS" xml:space="preserve">
+    <value>名前を付けて保存</value>
+  </data>
+  <data name="BTN_SCREEN_MATCH" xml:space="preserve">
+    <value>スクリーニングマッチ</value>
+  </data>
+  <data name="BTN_SELECT" xml:space="preserve">
+    <value>選択</value>
+  </data>
+  <data name="BTN_SET_CHOICE_LABELS" xml:space="preserve">
+    <value>名称入力支援</value>
+  </data>
+  <data name="BTN_SUMMARIZE_CHOICES" xml:space="preserve">
+    <value>スケール設問まとめ</value>
+  </data>
+  <data name="BTN_SWAP_DATA" xml:space="preserve">
+    <value>データ差替</value>
+  </data>
+  <data name="BTN_TOSHEET" xml:space="preserve">
+    <value>シートへ</value>
+  </data>
+  <data name="BTN_UNDO" xml:space="preserve">
+    <value>加工前に戻す</value>
+  </data>
+  <data name="CANNOT_SELECT_TABLE_TYPE_ERROR" xml:space="preserve">
+    <value>集計表種類【GT-RAT】【GT-MTN】は選択できません。</value>
+  </data>
+  <data name="CB_ITEM_01_MA01" xml:space="preserve">
+    <value>マルチ01形式</value>
+  </data>
+  <data name="CB_ITEM_02_MA_COMMA_SEPERATED" xml:space="preserve">
+    <value>マルチセル内カンマ区切り</value>
+  </data>
+  <data name="CB_MA_SPSS_01" xml:space="preserve">
+    <value>変数ラベル(VAR LAB)</value>
+  </data>
+  <data name="CB_MA_SPSS_02" xml:space="preserve">
+    <value>値ラベル(VAL LAB)</value>
+  </data>
+  <data name="CB_WB_ASSIST" xml:space="preserve">
+    <value>算出アシスト</value>
+  </data>
+  <data name="CELL_OFF" xml:space="preserve">
+    <value>×</value>
+  </data>
+  <data name="CELL_ON" xml:space="preserve">
+    <value>○</value>
+  </data>
+  <data name="CHECK_SUMMARY_NON1" xml:space="preserve">
+    <value>集計対象の無回答を表示する</value>
+  </data>
+  <data name="CHECK_SUMMARY_NON2" xml:space="preserve">
+    <value>軸の無回答を表示する</value>
+  </data>
+  <data name="CLOSE_DP_WARNING_MESSAGE" xml:space="preserve">
+    <value>加工文が実行されていません。
+データ加工を閉じますか？</value>
+  </data>
+  <data name="COMBO_VALUE_FLAGFORMAT" xml:space="preserve">
+    <value>マルチ01形式</value>
+  </data>
+  <data name="COMBO_VALUE_INCELLCOMMASEPERATOR" xml:space="preserve">
+    <value>マルチセル内カンマ区切り</value>
+  </data>
+  <data name="COMPLETED" xml:space="preserve">
+    <value>終了しました。</value>
+  </data>
+  <data name="COMPUTE_ADD" xml:space="preserve">
+    <value>加算</value>
+  </data>
+  <data name="COMPUTE_CLEAR_FORMULA" xml:space="preserve">
+    <value>式クリア</value>
+  </data>
+  <data name="COMPUTE_CLEAR_FORMULA_TOOLTIP" xml:space="preserve">
+    <value>入力した「式」を消去します。</value>
+  </data>
+  <data name="COMPUTE_DEVIDE" xml:space="preserve">
+    <value>除算</value>
+  </data>
+  <data name="COMPUTE_ERROR_MSG_CHANGE_VARIABLE_NAME" xml:space="preserve">
+    <value>新アイテムに回答タイプの異なるアイテムは指定できません。</value>
+  </data>
+  <data name="COMPUTE_FORMULA" xml:space="preserve">
+    <value>式</value>
+  </data>
+  <data name="COMPUTE_FOUR_ARTHMETIC" xml:space="preserve">
+    <value>四則演算</value>
+  </data>
+  <data name="COMPUTE_LEFTBRACKET" xml:space="preserve">
+    <value>左括弧</value>
+  </data>
+  <data name="COMPUTE_METHODS" xml:space="preserve">
+    <value>四則演算をします。</value>
+  </data>
+  <data name="COMPUTE_MSG_BX_QST" xml:space="preserve">
+    <value>質問文が入力されていません。</value>
+  </data>
+  <data name="COMPUTE_MSG_INVALID_FORMULA" xml:space="preserve">
+    <value>式の構文が正しくありません。</value>
+  </data>
+  <data name="COMPUTE_MSG_INVALID_VARIABLE" xml:space="preserve">
+    <value>式には回答タイプ 【SA】 , 【N】 以外のアイテムは設定できません。</value>
+  </data>
+  <data name="COMPUTE_MULTIPLY" xml:space="preserve">
+    <value>乗算</value>
+  </data>
+  <data name="COMPUTE_PRECEDENCE" xml:space="preserve">
+    <value>優先演算</value>
+  </data>
+  <data name="COMPUTE_PROCESS_METHOD" xml:space="preserve">
+    <value>四則演算をします。</value>
+  </data>
+  <data name="COMPUTE_RIGHT_BRACKET" xml:space="preserve">
+    <value>右括弧</value>
+  </data>
+  <data name="COMPUTE_SUBSTRACT" xml:space="preserve">
+    <value>減算</value>
+  </data>
+  <data name="COMPUTE_TOOLTIP_ADD" xml:space="preserve">
+    <value>「+」を式に挿入します。</value>
+  </data>
+  <data name="COMPUTE_TOOLTIP_DIV" xml:space="preserve">
+    <value>「/」を式に挿入します。</value>
+  </data>
+  <data name="COMPUTE_TOOLTIP_INSERTBTN" xml:space="preserve">
+    <value>選択した元アイテム名を「式」に挿入します。</value>
+  </data>
+  <data name="COMPUTE_TOOLTIP_LEFT" xml:space="preserve">
+    <value>「(」を式に挿入します。</value>
+  </data>
+  <data name="COMPUTE_TOOLTIP_MULTIPLY" xml:space="preserve">
+    <value>「*」を式に挿入します。</value>
+  </data>
+  <data name="COMPUTE_TOOLTIP_RIGHT" xml:space="preserve">
+    <value>「)」を式に挿入します。</value>
+  </data>
+  <data name="COMPUTE_TOOLTIP_SUBSTRACT" xml:space="preserve">
+    <value>「-」を式に挿入します。</value>
+  </data>
+  <data name="CONFIRMATION_BOX_BUTTON_CANCEL" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="CONFIRMATION_BOX_BUTTON_SAVE" xml:space="preserve">
+    <value>実行</value>
+  </data>
+  <data name="CONFIRMATION_BOX_BUTTON_SAVEAS" xml:space="preserve">
+    <value>名前を付けて保存</value>
+  </data>
+  <data name="CONFIRMATION_BOX_CONTENT_TEXT" xml:space="preserve">
+    <value>データを保存しますか？</value>
+  </data>
+  <data name="CONFIRMATION_BOX_CONTENT_TEXT1" xml:space="preserve">
+    <value>外部データ追加を実行しますか？</value>
+  </data>
+  <data name="CONFIRMATION_BOX_TITLE" xml:space="preserve">
+    <value>確認</value>
+  </data>
+  <data name="COPY_EDIT__SAVE" xml:space="preserve">
+    <value>登録</value>
+  </data>
+  <data name="COPY_ERROR_MSG" xml:space="preserve">
+    <value>コピー領域と貼り付け領域のサイズが異なるため、ここに貼り付けることができません。</value>
+  </data>
+  <data name="COUNT_CHOICE_RANGE" xml:space="preserve">
+    <value>選択肢範囲</value>
+  </data>
+  <data name="COUNT_INPUT_ASSIST" xml:space="preserve">
+    <value>入力アシスト</value>
+  </data>
+  <data name="COUNT_LOWER_LIMIT" xml:space="preserve">
+    <value>下限（以上）</value>
+  </data>
+  <data name="COUNT_UPPER_LIMIT" xml:space="preserve">
+    <value>上限（以下）</value>
+  </data>
+  <data name="CROSS_2WAY_XTAB" xml:space="preserve">
+    <value>2重クロス集計</value>
+  </data>
+  <data name="CROSS_3WAY_XTAB" xml:space="preserve">
+    <value>3重クロス集計</value>
+  </data>
+  <data name="CROSS_AGRIGTN_TRGT" xml:space="preserve">
+    <value>集計対象</value>
+  </data>
+  <data name="CROSS_ANSTYPE_CHOICES" xml:space="preserve">
+    <value>回答タイプ/
+選択肢数</value>
+  </data>
+  <data name="CROSS_ANSTYPE_NO_OF_CHOICE" xml:space="preserve">
+    <value>回答タイプ
+/選択肢数</value>
+  </data>
+  <data name="CROSS_AXIS_1" xml:space="preserve">
+    <value>軸 1</value>
+  </data>
+  <data name="CROSS_AXIS_2" xml:space="preserve">
+    <value>軸 2</value>
+  </data>
+  <data name="CROSS_BTM_LABL" xml:space="preserve">
+    <value>分類アイテム設定　あり</value>
+  </data>
+  <data name="CROSS_BTM_LBL1" xml:space="preserve">
+    <value>絞込み設定           あり</value>
+  </data>
+  <data name="CROSS_BTM_LBL_2" xml:space="preserve">
+    <value>ウエイトバック設定  あり</value>
+  </data>
+  <data name="CROSS_BTM_LBL_3" xml:space="preserve">
+    <value>全数ベース設定　  あり</value>
+  </data>
+  <data name="CROSS_BTM_LBL_4" xml:space="preserve">
+    <value>無回答出力設定   なし</value>
+  </data>
+  <data name="CROSS_CHOICES" xml:space="preserve">
+    <value>選択肢</value>
+  </data>
+  <data name="CROSS_CLASSIFICATION_ITEM" xml:space="preserve">
+    <value>分類アイテム設定　あり</value>
+  </data>
+  <data name="CROSS_COLUMN_PERCENTAGE" xml:space="preserve">
+    <value>縦％表示</value>
+  </data>
+  <data name="CROSS_DELETE_MSG" xml:space="preserve">
+    <value>削除してもよろしいですか？</value>
+  </data>
+  <data name="CROSS_DISPLAY_NO_ANSWER" xml:space="preserve">
+    <value>集計対象の無回答を表示する</value>
+  </data>
+  <data name="CROSS_EDIT_ORDER" xml:space="preserve">
+    <value>表示順</value>
+  </data>
+  <data name="CROSS_GRAPH_BTN" xml:space="preserve">
+    <value>グラフ</value>
+  </data>
+  <data name="CROSS_INAVLID_ITEM_AXIS1" xml:space="preserve">
+    <value>無効なアイテムが軸1に設定されています</value>
+  </data>
+  <data name="CROSS_INAVLID_ITEM_AXIS2" xml:space="preserve">
+    <value>無効なアイテムが軸2に設定されています</value>
+  </data>
+  <data name="CROSS_INAVLID_ITEM_AXIS3" xml:space="preserve">
+    <value>集計対象に無効なアイテムが設定されています</value>
+  </data>
+  <data name="CROSS_ITEM_NAME" xml:space="preserve">
+    <value>アイテム名</value>
+  </data>
+  <data name="CROSS_LINE_GRAPH" xml:space="preserve">
+    <value>折れ線の設定</value>
+  </data>
+  <data name="CROSS_LINE_GRAPH_HEADER" xml:space="preserve">
+    <value>折れ線の設定</value>
+  </data>
+  <data name="CROSS_MESSAGE_BOX_MULTI" xml:space="preserve">
+    <value>選択できるアイテムは1つだけです。</value>
+  </data>
+  <data name="CROSS_MESSAGE_BOX_N" xml:space="preserve">
+    <value>回答タイプNは選択できません。</value>
+  </data>
+  <data name="CROSS_MESSAGE_BOX_REMOVED" xml:space="preserve">
+    <value>回答タイプNが含まれていたため、除きました。</value>
+  </data>
+  <data name="CROSS_MSGBOX_1SIDE" xml:space="preserve">
+    <value>表側1アイテムが設定されていません。</value>
+  </data>
+  <data name="CROSS_MSGBOX_2SIDE" xml:space="preserve">
+    <value>表側2アイテムが設定されていません。</value>
+  </data>
+  <data name="CROSS_MSGBOX_3SIDE" xml:space="preserve">
+    <value>集計対象アイテムが設定されていません。</value>
+  </data>
+  <data name="CROSS_MSGBOX_NTYPE" xml:space="preserve">
+    <value>回答タイプNは選択できません。</value>
+  </data>
+  <data name="CROSS_MSGBOX_UNDETERMINATED" xml:space="preserve">
+    <value>未設定タブ ：</value>
+  </data>
+  <data name="CROSS_MSG_BOX_CHECK_PAR" xml:space="preserve">
+    <value>有意差検定の有意水準が、全て設定されています。</value>
+  </data>
+  <data name="CROSS_MSG_UNCHECK_PAR" xml:space="preserve">
+    <value>有意差検定の有意水準が、一つも設定されていません。</value>
+  </data>
+  <data name="CROSS_NOVALID_SETTING" xml:space="preserve">
+    <value>有効な設定がありません。</value>
+  </data>
+  <data name="CROSS_NO_ANSWER_OUTPUT" xml:space="preserve">
+    <value>無回答出力設定　　なし</value>
+  </data>
+  <data name="CROSS_OUPUT_SETTINGS" xml:space="preserve">
+    <value>出力設定</value>
+  </data>
+  <data name="CROSS_OUTPUT_FORMAT" xml:space="preserve">
+    <value>出力形式</value>
+  </data>
+  <data name="CROSS_OUTPUT_SETTING" xml:space="preserve">
+    <value>マトリクスをまとめて表示</value>
+    <comment>表示文言が同じなのはなぜですか？</comment>
+  </data>
+  <data name="CROSS_OUTPUT_TABLE_FOR_ONE" xml:space="preserve">
+    <value>マトリクスをまとめて表示</value>
+    <comment>表示文言が同じなのはなぜですか？</comment>
+  </data>
+  <data name="CROSS_QSTN_DET" xml:space="preserve">
+    <value>設問詳細</value>
+  </data>
+  <data name="CROSS_RD_BTN_GT" xml:space="preserve">
+    <value>単純集計</value>
+  </data>
+  <data name="CROSS_ROW_PERCENTAGE" xml:space="preserve">
+    <value>横％表示</value>
+  </data>
+  <data name="CROSS_ROW_PERCENTAGE_Column" xml:space="preserve">
+    <value>縦％表示</value>
+  </data>
+  <data name="CROSS_TITLE" xml:space="preserve">
+    <value>表題</value>
+  </data>
+  <data name="CROSS_TOOLTIP_WEIGHT_BACK" xml:space="preserve">
+    <value>ウエイトバック値算出</value>
+  </data>
+  <data name="CROSS_TXTBX_TOT" xml:space="preserve">
+    <value>集計対象</value>
+  </data>
+  <data name="CROSS_TXT_BX_ALL" xml:space="preserve">
+    <value>全体</value>
+  </data>
+  <data name="CROSS_TXT_BX_NOANSWER" xml:space="preserve">
+    <value>無回答</value>
+  </data>
+  <data name="CROSS_UNDETERMINED_VARIABLE" xml:space="preserve">
+    <value>G 列の3重アイテムに不正なアイテムが設定されています。</value>
+    <comment>Exists undetermined breakdown variable. (Column 7)</comment>
+  </data>
+  <data name="CROSS_WAIT_BASE" xml:space="preserve">
+    <value>ウエイトバック設定  あり</value>
+  </data>
+  <data name="CROSS_WITH_REFINEMENT_SETTINGS" xml:space="preserve">
+    <value>絞り込み設定　　　　あり</value>
+  </data>
+  <data name="CROS_TABULATION_TAB" xml:space="preserve">
+    <value>集計タブ</value>
+  </data>
+  <data name="CR_DIR_NOT_EXIST" xml:space="preserve">
+    <value>存在しない場所が保存先に指定されています。</value>
+  </data>
+  <data name="CR_PROCESS_RUNNING" xml:space="preserve">
+    <value>処理の一部が他のインスタンスで実行中です。処理が完了するまでお待ちください。</value>
+  </data>
+  <data name="CR_SHEET_HEADING_BREAKDOWN" xml:space="preserve">
+    <value>分析軸</value>
+  </data>
+  <data name="CR_SHEET_HEADING_COMBINATION" xml:space="preserve">
+    <value>結合</value>
+  </data>
+  <data name="CR_SHEET_HEADING_FILTER" xml:space="preserve">
+    <value>絞込み</value>
+  </data>
+  <data name="CR_SHEET_HEADING_LINE_GRAPH" xml:space="preserve">
+    <value>折れ線</value>
+  </data>
+  <data name="CR_SHEET_HEADING_THREE_WAY_CROSS" xml:space="preserve">
+    <value>3重
+アイテム</value>
+  </data>
+  <data name="Cr_TOP_BOX_TEXT" xml:space="preserve">
+    <value>クロス集計を出力する場合に使用します。</value>
+  </data>
+  <data name="CSP_AND" xml:space="preserve">
+    <value>AND</value>
+  </data>
+  <data name="CSP_CORRELATION" xml:space="preserve">
+    <value>Correlation</value>
+  </data>
+  <data name="CSP_CORRELATION_COEFFICIENT_HORIZONTAL_DIMENSION" xml:space="preserve">
+    <value>Correlation Coefficient
+(Horizontal Dimension)</value>
+  </data>
+  <data name="CSP_CORRELATION_WITH_OVERALL_SATISFACTION" xml:space="preserve">
+    <value>Correlation with Overall Satisfaction (score)</value>
+  </data>
+  <data name="CSP_CSPORTFOLIO" xml:space="preserve">
+    <value>CS Portfolio</value>
+  </data>
+  <data name="CSP_ERRMSG_CANNOT_ANALYSE_VALID_CASES_IS_ZERO" xml:space="preserve">
+    <value>有効なデータがゼロ件のため分析できません。</value>
+  </data>
+  <data name="CSP_ERRMSG_FAILED_TO_CALCULATE_CORREL_COEFF" xml:space="preserve">
+    <value>Failed to calculate a correlation coefficient. (The number of cases is less than 2 or the answers for a variable are the same for everyone, etc.)</value>
+  </data>
+  <data name="CSP_FILTERCRITERIA" xml:space="preserve">
+    <value>絞込み条件</value>
+  </data>
+  <data name="CSP_INDIVIDUAL_EVALUATION_VARIABLE" xml:space="preserve">
+    <value>Individual Evaluation Variable</value>
+  </data>
+  <data name="CSP_OR" xml:space="preserve">
+    <value>OR</value>
+  </data>
+  <data name="CSP_OVERALLSATISFACTION" xml:space="preserve">
+    <value>Overall Satisfaction (%)</value>
+  </data>
+  <data name="CSP_OVERALL_EVALUATION_VARIABLE" xml:space="preserve">
+    <value>Overall Evaluation Variable</value>
+  </data>
+  <data name="CSP_OVERALL_SATISFACTION" xml:space="preserve">
+    <value>Overall
+Satisfaction</value>
+  </data>
+  <data name="CSP_PB_ANALYSING_RESULT" xml:space="preserve">
+    <value>Analysing result</value>
+  </data>
+  <data name="CSP_PB_CALCULATING_CORREL_PER" xml:space="preserve">
+    <value>Calculating correlation and percentage</value>
+  </data>
+  <data name="CSP_PB_CHECKIN_SAME_CHOICES" xml:space="preserve">
+    <value>Checking Same Choices</value>
+  </data>
+  <data name="CSP_PB_CREATING_GRAPH" xml:space="preserve">
+    <value>Creating Graph</value>
+  </data>
+  <data name="CSP_PB_GENERATING_OUTPUT" xml:space="preserve">
+    <value>Generating Output</value>
+  </data>
+  <data name="CSP_SATISFACTION" xml:space="preserve">
+    <value>Satisfaction (%)</value>
+  </data>
+  <data name="CSP_SATISFACTION_VERTICALDIMENSION" xml:space="preserve">
+    <value>Satisfaction
+(Vertical Dimension)</value>
+  </data>
+  <data name="CSP_TOTAL_VALID_CASES" xml:space="preserve">
+    <value>Total (N={0})</value>
+  </data>
+  <data name="DATAMERGE_MESSAGE1" xml:space="preserve">
+    <value>横に結合（qcファイル同士）</value>
+  </data>
+  <data name="DATAMERGE_MESSAGE2" xml:space="preserve">
+    <value>縦に結合（qcファイル同士）</value>
+  </data>
+  <data name="DATAMERGE_MESSAGE3" xml:space="preserve">
+    <value>スクリーニングマッチ</value>
+  </data>
+  <data name="DATAPROCESS_COMPLETED" xml:space="preserve">
+    <value>データ加工を完了しました。</value>
+  </data>
+  <data name="DATAPROCESS_FORM_NAME" xml:space="preserve">
+    <value>新アイテム作成</value>
+  </data>
+  <data name="DATAPROSESS_SAVED_SUCCESSFULLY" xml:space="preserve">
+    <value>登録しました。</value>
+  </data>
+  <data name="DATA_TOP_BOX_TEXT" xml:space="preserve">
+    <value>一人一人の回答状況を確認できます。
+ ※ローデータの直接編集はできません。</value>
+  </data>
+  <data name="DIR_NOT_EXIST" xml:space="preserve">
+    <value>指定されたフォルダは存在しません。</value>
+  </data>
+  <data name="DI_MSG_001" xml:space="preserve">
+    <value>データの読み込みに失敗しました。</value>
+  </data>
+  <data name="DI_MSG_002" xml:space="preserve">
+    <value>この列はすでにMAフラグ形式の一部として設定されています。</value>
+  </data>
+  <data name="DI_MSG_003" xml:space="preserve">
+    <value>データを保存しました。</value>
+  </data>
+  <data name="DI_MSG_004" xml:space="preserve">
+    <value>データの保存に失敗しました。</value>
+  </data>
+  <data name="DI_MSG_005" xml:space="preserve">
+    <value>データの読み込みに失敗しました。</value>
+  </data>
+  <data name="DI_MSG_006" xml:space="preserve">
+    <value>キーはファイル1、2両方に指定してください。</value>
+  </data>
+  <data name="DI_MSG_007" xml:space="preserve">
+    <value>「区切り文字」と「文字列の引用符」が同じです。</value>
+  </data>
+  <data name="DI_MSG_008" xml:space="preserve">
+    <value>サポートされていないファイル内容です。</value>
+  </data>
+  <data name="DI_MSG_009" xml:space="preserve">
+    <value>データのロードに失敗しました。</value>
+  </data>
+  <data name="DI_MSG_010" xml:space="preserve">
+    <value>同じ名前のファイルが開いているため開けません。</value>
+  </data>
+  <data name="DI_MSG_011" xml:space="preserve">
+    <value>ファイル1に有効な値がありません。</value>
+  </data>
+  <data name="DI_MSG_012" xml:space="preserve">
+    <value>ファイル2のデータ取得に失敗しました。</value>
+  </data>
+  <data name="DI_MSG_013" xml:space="preserve">
+    <value>{0} 列目 - アイテム名が空欄です。</value>
+  </data>
+  <data name="DI_MSG_014" xml:space="preserve">
+    <value>{0} 列目 - アイテム名が重複しています。</value>
+  </data>
+  <data name="DI_MSG_015" xml:space="preserve">
+    <value>{0} 列目 - アイテム名に使用できない文字列が含まれています。</value>
+  </data>
+  <data name="DI_MSG_016" xml:space="preserve">
+    <value>{0} 列目 - 選択肢数が空欄です。</value>
+  </data>
+  <data name="DI_MSG_017" xml:space="preserve">
+    <value>{0} 列目 - 選択肢数と選択肢文言の数が一致しません。</value>
+  </data>
+  <data name="DI_MSG_018" xml:space="preserve">
+    <value>{0} 列目 - 選択肢数は1以上の整数のみ指定できます。</value>
+  </data>
+  <data name="DI_MSG_019" xml:space="preserve">
+    <value>列 {0} ： 欄外に選択肢名の記述があります。</value>
+  </data>
+  <data name="DI_MSG_020" xml:space="preserve">
+    <value>{0} 列目 - 回答データに不正な値が含まれています。</value>
+  </data>
+  <data name="DI_MSG_021" xml:space="preserve">
+    <value>{0} 列目 - SAの回答データは1以上の整数でなければなりません。</value>
+  </data>
+  <data name="DI_MSG_022" xml:space="preserve">
+    <value>{0} 列目 - 設定した選択肢数より大きな値の回答データがあります。（SA）</value>
+  </data>
+  <data name="DI_MSG_023" xml:space="preserve">
+    <value>選択肢数が正しくありません。</value>
+  </data>
+  <data name="DI_MSG_024" xml:space="preserve">
+    <value>{0} 列目 - MAの回答データに0または1以外の値があります。</value>
+  </data>
+  <data name="DI_MSG_025" xml:space="preserve">
+    <value>{0} 列目 - データの検証に失敗しました。</value>
+  </data>
+  <data name="DI_MSG_026" xml:space="preserve">
+    <value>{0} 列目 - MAの回答データに整数以外の値があります。</value>
+  </data>
+  <data name="DI_MSG_027" xml:space="preserve">
+    <value>この列はすでにMAフラグ形式の一部として設定されています。</value>
+  </data>
+  <data name="DO_ALERT_CHOICE_MORETHAN_600" xml:space="preserve">
+    <value>アイテム名 {0} の選択肢が600個以上あります。</value>
+  </data>
+  <data name="DO_ALERT_NO_DATA_FOUND" xml:space="preserve">
+    <value>アイテム名  {0} には回答データがないため出力されません。</value>
+  </data>
+  <data name="DO_DIV_WARNING" xml:space="preserve">
+    <value>データがゼロ件のため作成できないファイルがありました。
+分類アイテム : {0}
+選択肢 : {1}</value>
+  </data>
+  <data name="DO_NO_DATA_ALERT" xml:space="preserve">
+    <value>データがゼロ件のため実行できません。</value>
+  </data>
+  <data name="DO_OUTPUT_CHECK_NEW_VARIABLE" xml:space="preserve">
+    <value>加工されていない新アイテムがあります。
+このまま実行しますか？</value>
+  </data>
+  <data name="DO_OUTPUT_FORMAT_CSV" xml:space="preserve">
+    <value>CSV形式</value>
+  </data>
+  <data name="DO_OUTPUT_FORMAT_EXCEL" xml:space="preserve">
+    <value>Excelブック（.xlsx）形式</value>
+  </data>
+  <data name="DO_OUTPUT_FORMAT_QC3" xml:space="preserve">
+    <value>QuickCross3 出力</value>
+  </data>
+  <data name="DO_OUTPUT_FORMAT_QC4" xml:space="preserve">
+    <value>QuickCross4 出力</value>
+  </data>
+  <data name="DO_OUTPUT_FORMAT_QLAYOUT" xml:space="preserve">
+    <value>Qlayout/Qrawdata</value>
+  </data>
+  <data name="DO_OUTPUT_FORMAT_SPSS" xml:space="preserve">
+    <value>SPSS Syntax</value>
+  </data>
+  <data name="DO_OUTPUT_FORMAT_TAB" xml:space="preserve">
+    <value>タブ区切り形式</value>
+  </data>
+  <data name="DO_OUTPUT_NEW_VARIABLE" xml:space="preserve">
+    <value>データ加工を実行するか、設問設定で新アイテムを削除してください。</value>
+  </data>
+  <data name="DP_SHEET_HEADING_SUBSTITUTE" xml:space="preserve">
+    <value>代入</value>
+  </data>
+  <data name="DP_TOP_BOX_TEXT2" xml:space="preserve">
+    <value>ローデータの値を修正・加工する場合に条件・処理内容を指定します。</value>
+  </data>
+  <data name="EDIT_TABULATION_HEADING" xml:space="preserve">
+    <value>集計タブ編集</value>
+  </data>
+  <data name="ERR_EXECUTE_DATA_PROCESSING" xml:space="preserve">
+    <value>加工文にエラーがあります。</value>
+  </data>
+  <data name="ERR_MGS_COUNT_SET_VALUE_LOWER_LIMIT_LESS_THAN_UPPER_LIMIT" xml:space="preserve">
+    <value>「下限」の値は、「上限」の値以下で設定してください。</value>
+  </data>
+  <data name="ERR_MSG_A_BLANK_IS_SET" xml:space="preserve">
+    <value>ブランクが設定されています。</value>
+  </data>
+  <data name="ERR_MSG_CLASS_INPUT_EITHER_LOWER_OR_UPPER_LIMIT" xml:space="preserve">
+    <value>下限か、上限の値を入力して下さい。</value>
+  </data>
+  <data name="ERR_MSG_COUNT_RANGE_OF_CHOICES_ARE_OVERLAPPED" xml:space="preserve">
+    <value>選択肢の範囲が重複しています。</value>
+  </data>
+  <data name="ERR_MSG_COUNT_START_LESS_THAN_RIGHT" xml:space="preserve">
+    <value>選択肢範囲の「開始（左）」は「終了（右）」以下で設定してください。</value>
+  </data>
+  <data name="ERR_MSG_CROSS_MARKING_DIFFERENCE" xml:space="preserve">
+    <value>比率の差の詳細が設定されていません。</value>
+  </data>
+  <data name="ERR_MSG_CROSS_PATH_NULL" xml:space="preserve">
+    <value>分類アイテムの出力先フォルダが指定されていません。</value>
+  </data>
+  <data name="ERR_MSG_CROSS_SIGNIFICANCE_CHECK_ALL" xml:space="preserve">
+    <value>有意水準の設定は2つまでです。</value>
+  </data>
+  <data name="ERR_MSG_DATAEXPORT_FILTER_VALIDATION_VARIABLE" xml:space="preserve">
+    <value>加工アイテムが設定されていません。</value>
+  </data>
+  <data name="ERR_MSG_DATAEXPORT_SET_NUMERIC" xml:space="preserve">
+    <value>条件アイテム :  【{0}】の入力は無効です。「&lt;」、「&lt;=」、「&gt;」、「&gt;=」は、「a,b」、「a/b」、「a-b」、「a-」、「-a」と同時に指定できません。</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_ERROR_NOT_SET" xml:space="preserve">
+    <value>の設定が正しくないか、</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_ERROR_PARAMETER" xml:space="preserve">
+    <value>の引数</value>
+  </data>
+  <data name="ERR_MSG_DELETE_NON_NUMERICAL_VALUES_EXIST_IN_THE_DATA" xml:space="preserve">
+    <value>数値以外のデータがあります</value>
+  </data>
+  <data name="ERR_MSG_DELETE_THE_NUMBER_OF_CASES_CAN_BE_READ_AT_A_TIME_EXCEEDS" xml:space="preserve">
+    <value>一度に読み込むことのできるデータ件数は{0}件までです。
+ファイルを読み込むことができません。</value>
+    <comment>The number of cases that can be read at a time is up to {0}.</comment>
+  </data>
+  <data name="ERR_MSG_FILTER_CRITERIA_INCORRECT_VALUE" xml:space="preserve">
+    <value>条件アイテム：[{0}] の入力は無効です。 *（非該当）と無回答は演算子が「=」、「&lt;&gt;」の時のみ指定可能です。</value>
+  </data>
+  <data name="ERR_MSG_FILTER_CRITERIA_INCORRECT_VALUE_AGAINST_OP" xml:space="preserve">
+    <value>条件アイテム：[{0}]の入力は無効です。「&lt;&gt;」、「&lt;」、「&lt;=」、「&gt;」、「&gt;=」は、「!a」と同時に指定できません。</value>
+  </data>
+  <data name="ERR_MSG_FILTER_CRITERIA_INCORRECT_VALUE_AGAINST_OP2" xml:space="preserve">
+    <value>条件アイテム：[{0}]の入力は無効です。「&lt;&gt;」、「&lt;」、「&lt;=」、「&gt;」、「&gt;=」は、「!a」と同時に指定できません。</value>
+  </data>
+  <data name="ERR_MSG_FILTER_CRITERIA_INVALID_VALUE" xml:space="preserve">
+    <value>条件アイテム : 【{0}】 の入力が不正です。</value>
+  </data>
+  <data name="ERR_MSG_FILTER_CRITERIA_INVALID_VARIABLE_VALUE" xml:space="preserve">
+    <value>"=", "&lt;&gt;" 回答タイプが(SA) ,  (N)のアイテムの値には、回答タイプが(SA) , (FA) , (N)のアイテムしか設定できません。</value>
+  </data>
+  <data name="ERR_MSG_FILTER_CRITERIA_INVALID_VARIABLE_VALUE1" xml:space="preserve">
+    <value>"&lt;", "&lt;=", "&gt;", "&gt;=" 回答タイプが(SA)  , (N)のアイテムの値には、回答タイプが(SA) ,  (N)のアイテムしか設定できません。</value>
+  </data>
+  <data name="ERR_MSG_FILTER_CRITERIA_INVALID_VARIABLE_VALUE2" xml:space="preserve">
+    <value>回答タイプが(MA)のアイテムの値には、回答タイプが(MA)のアイテムしか設定できません。</value>
+  </data>
+  <data name="ERR_MSG_FILTER_CRITERIA_INVALID_VARIABLE_VALUE3" xml:space="preserve">
+    <value>回答タイプが(FA)のアイテムの値には、回答タイプが(SA) , (FA),  (N)のアイテムしか設定できません。</value>
+  </data>
+  <data name="ERR_MSG_FILTER_CRITERIA_NOT_OP" xml:space="preserve">
+    <value>条件アイテム：[{0}]の入力が不正です。数値を設定してください。</value>
+  </data>
+  <data name="ERR_MSG_FILTER_CRITERIA_NOT_OPERATOR_DUPLICATED" xml:space="preserve">
+    <value>条件アイテム：[{0}] の入力は無効です。「!」は先頭以外に設定できません。</value>
+  </data>
+  <data name="ERR_MSG_FILTER_CRITERIA_VARIABLE_MISSING" xml:space="preserve">
+    <value>条件アイテム : 【{0}】 の入力が不正です。
+ブランクが設定されています。</value>
+  </data>
+  <data name="ERR_MSG_INTEGRATE_CANNOT_SET_ALONE" xml:space="preserve">
+    <value>条件アイテム：【{0}】の入力が不正です。 
+[!]のみは設定できません。</value>
+  </data>
+  <data name="ERR_MSG_INTEGRATE_CANNOT_SET_ELSEWHERE_THAN_AT_START" xml:space="preserve">
+    <value>[{0}] は先頭以外設定できません。</value>
+  </data>
+  <data name="ERR_MSG_INTEGRATE_CANNOT_SPECIFY_SPLIT_RANGE" xml:space="preserve">
+    <value>範囲の分割指定はできません。</value>
+  </data>
+  <data name="ERR_MSG_INTEGRATE_CHOICECOUNT_NOT_MATCH_WITH_CHOICES" xml:space="preserve">
+    <value>「 {0} 」と「{1}」の数を一致させてください。</value>
+  </data>
+  <data name="ERR_MSG_INTEGRATE_CHOICE_AUTO" xml:space="preserve">
+    <value>(自動)</value>
+  </data>
+  <data name="ERR_MSG_INTEGRATE_CHOICE_COUNT_EXCEED_LIMIT" xml:space="preserve">
+    <value>選択肢数は、「(自動)」か「1～1000」を指定してください。</value>
+  </data>
+  <data name="ERR_MSG_INTEGRATE_CHOICE_INVALID_VALUE" xml:space="preserve">
+    <value>選択肢数は、「(自動)」か「1～1000」を指定してください。</value>
+  </data>
+  <data name="ERR_MSG_INTEGRATE_CONFIRMATION_ITEM_NAME_ALREADY_EXISTS" xml:space="preserve">
+    <value>入力されたアイテム名と同じアイテム名が存在しています。</value>
+  </data>
+  <data name="ERR_MSG_INTEGRATE_CONFIRMATION_NEW_ITEM_EMPTY" xml:space="preserve">
+    <value>新アイテムが入力されていません。</value>
+  </data>
+  <data name="ERR_MSG_INTEGRATE_CONFIRMATION_RENAME_NEW_VARIABLE_AUTOMATICALLY" xml:space="preserve">
+    <value>自動的にアイテム名を変更しますか？</value>
+  </data>
+  <data name="ERR_MSG_INTEGRATE_MULTIPLE_LIMIT_SET" xml:space="preserve">
+    <value>[-] が、複数設定されています。</value>
+  </data>
+  <data name="ERR_MSG_INTEGRATE_NEW_VARIABLE_INVALID_CHOICE_INPUT" xml:space="preserve">
+    <value>{0}：【{1}】の入力が不正です。</value>
+  </data>
+  <data name="ERR_MSG_INTEGRATE_NEW_VARIABLE_INVALID_CHOICE_INPUT_" xml:space="preserve">
+    <value>[{0}] が入力されていません。</value>
+  </data>
+  <data name="ERR_MSG_INTEGRATE_SET_A_NUMERIC_VALUE" xml:space="preserve">
+    <value>数値を設定してください。</value>
+  </data>
+  <data name="ERR_MSG_INTEGRATE_SET_INTEGER_RANGE_OF" xml:space="preserve">
+    <value>[ {0} - {1}] までの整数を、設定してください。</value>
+  </data>
+  <data name="ERR_MSG_INTEGRATE_SET_LOWER_LIMIT_LESS_THAN_UPPER_LIMIT" xml:space="preserve">
+    <value>「下限」の値は、「上限」の値以下で設定してください。</value>
+  </data>
+  <data name="ERR_MSG_INVALID_FA_ITEM" xml:space="preserve">
+    <value>行目にFA以外のアイテムが設定されています</value>
+  </data>
+  <data name="ERR_MSG_INVALID_ITEM" xml:space="preserve">
+    <value>行目の集計対象アイテムに不正なアイテムが設定されています。</value>
+  </data>
+  <data name="ERR_MSG_LDEL_SAMPLEID_ALREADY_SET" xml:space="preserve">
+    <value>{0} は既に設定されています。</value>
+  </data>
+  <data name="ERR_MSG_LDEL_SAMPLEID_DOESNOT_EXIST" xml:space="preserve">
+    <value>対象サンプルIDが存在しません。</value>
+  </data>
+  <data name="ERR_MSG_LISTUP" xml:space="preserve">
+    <value>1000アイテム以内に設定してください。</value>
+  </data>
+  <data name="ERR_MSG_NO_EXECUTABLE_ENTRIES" xml:space="preserve">
+    <value>実行可能な加工文がありません。</value>
+  </data>
+  <data name="ERR_MSG_OPERATOR_INCLUDED_IN_CRITERIA" xml:space="preserve">
+    <value>条件に[{0}]が含まれています。</value>
+  </data>
+  <data name="ERR_MSG_QUESTION_LENGTH_EXCEED" xml:space="preserve">
+    <value>アイテム名は、 {0} 文字以内にして下さい。</value>
+  </data>
+  <data name="ERR_MSG_RECODE_A_BLANK_IS_SET" xml:space="preserve">
+    <value>ブランクが設定されています。</value>
+  </data>
+  <data name="ERR_MSG_RECODE_CANNOT_SET_ALONE" xml:space="preserve">
+    <value>[!]のみは設定できません。</value>
+  </data>
+  <data name="ERR_MSG_RECODE_CANNOT_SET_ELSEWHERE_THAN_AT_START" xml:space="preserve">
+    <value>[!] は先頭以外設定できません。</value>
+  </data>
+  <data name="ERR_MSG_RECODE_CHOICE_IS_NOT_INPUT" xml:space="preserve">
+    <value>選択肢が入力されていません。</value>
+  </data>
+  <data name="ERR_MSG_RECODE_INCLUDED_IN_THE_CRITERIA" xml:space="preserve">
+    <value>条件に [!] が含まれています。</value>
+  </data>
+  <data name="ERR_MSG_RECODE_INCORRECT_RANGE_SPECIFICATION" xml:space="preserve">
+    <value>範囲指定が正しくありません。</value>
+  </data>
+  <data name="ERR_MSG_RECODE_MULTIPLE_HYPHEN_ARE_SET" xml:space="preserve">
+    <value>[-] が、複数設定されています。</value>
+  </data>
+  <data name="ERR_MSG_RECODE_OPERATOR_SELECTION_IS_INVALID" xml:space="preserve">
+    <value>演算子の設定が正しくありません。</value>
+  </data>
+  <data name="ERR_MSG_RECODE_SET_AN_INTEGER_IN_THE_RANGE_OF" xml:space="preserve">
+    <value>[{0}-{1}] までの整数を、設定してください。</value>
+  </data>
+  <data name="ERR_MSG_REVISEDATA_IMPROPER_CHOICE" xml:space="preserve">
+    <value>修正値：【選択肢】の入力が不正です。</value>
+  </data>
+  <data name="ERR_MSG_WEIGHTING_MISSING" xml:space="preserve">
+    <value>ウエイトバック算出アイテム : 【{0}】の入力が不正です。ブランクが設定されています。</value>
+  </data>
+  <data name="ERR_MSG_WEIGHTING_VALIDATION" xml:space="preserve">
+    <value>ウエイトバック算出アイテム : 【{0}】 の入力が不正です。
+ブランクが設定されています。</value>
+  </data>
+  <data name="EXCEL_GENERATION_FAILED" xml:space="preserve">
+    <value>Excelの生成に失敗しました。</value>
+  </data>
+  <data name="EXCLUDE_TITLE_TEXT" xml:space="preserve">
+    <value>条件に合致する対象アイテムに非該当の処理を行います。
+非該当の回答は、通常集計時の「全体」から除外されます。</value>
+  </data>
+  <data name="EX_EXPORT_FAILED" xml:space="preserve">
+    <value>ファイルの出力に失敗しました。</value>
+  </data>
+  <data name="EX_EXPORT_SUCCESS" xml:space="preserve">
+    <value>ファイルを出力しました。</value>
+  </data>
+  <data name="EX_FILE_ALREADY_EXIST" xml:space="preserve">
+    <value>{0} を置き換えますか？</value>
+  </data>
+  <data name="EX_FILE_OPEN_FAILED" xml:space="preserve">
+    <value>ファイルは既に開いています。</value>
+  </data>
+  <data name="EX_FILE_USED_OTHER" xml:space="preserve">
+    <value>ファイルが他のプロセスで使用されています。</value>
+  </data>
+  <data name="EX_PATH_NOT_FOUND" xml:space="preserve">
+    <value>ファイルパスが見つかりません。</value>
+  </data>
+  <data name="EX_PROGRESSBAR_CANCELED" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="EX_PROGRESSBAR_COMPLETED" xml:space="preserve">
+    <value>データ出力完了</value>
+  </data>
+  <data name="EX_PROGRESSBAR_DS_CREATION" xml:space="preserve">
+    <value>データシート作成</value>
+  </data>
+  <data name="EX_PROGRESSBAR_EXPORT_FAILED" xml:space="preserve">
+    <value>データ出力失敗</value>
+  </data>
+  <data name="EX_PROGRESSBAR_FINISHING" xml:space="preserve">
+    <value>データ出力間もなく完了</value>
+  </data>
+  <data name="EX_PROGRESSBAR_INITIALIZE" xml:space="preserve">
+    <value>データ出力初期化</value>
+  </data>
+  <data name="EX_PROGRESSBAR_LOADING" xml:space="preserve">
+    <value>データのロード中</value>
+  </data>
+  <data name="EX_PROGRESSBAR_LOADING_FLAG" xml:space="preserve">
+    <value>分割フラグのロード中</value>
+  </data>
+  <data name="EX_PROGRESSBAR_PROCESSING" xml:space="preserve">
+    <value>データ出力の処理</value>
+  </data>
+  <data name="EX_PROGRESSBAR_REMOVING_UNWANTED_FILES" xml:space="preserve">
+    <value>不要ファイル削除中</value>
+  </data>
+  <data name="EX_PROGRESSBAR_SUCCESS" xml:space="preserve">
+    <value>成功</value>
+  </data>
+  <data name="EX_PROGRESSBAR_UPDATE_CROSS" xml:space="preserve">
+    <value>クロス更新中</value>
+  </data>
+  <data name="EX_PROGRESSBAR_UPDATE_DB" xml:space="preserve">
+    <value>データベース更新中</value>
+  </data>
+  <data name="EX_PROGRESSBAR_UPDATE_DS" xml:space="preserve">
+    <value>詳細設定更新中</value>
+  </data>
+  <data name="EX_PROGRESSBAR_UPDATE_GT" xml:space="preserve">
+    <value>GT更新中</value>
+  </data>
+  <data name="EX_PROGRESSBAR_UPDATE_LIST" xml:space="preserve">
+    <value>一覧表更新中</value>
+  </data>
+  <data name="EX_PROGRESSBAR_UPDATE_SETTINGS" xml:space="preserve">
+    <value>設定更新中</value>
+  </data>
+  <data name="EX_PROGRESSBAR_UPDATING_QS" xml:space="preserve">
+    <value>設問設定更新中</value>
+  </data>
+  <data name="EX_PROGRESSBAR_UPDATING_QSB" xml:space="preserve">
+    <value>設問設定Bシート更新中</value>
+  </data>
+  <data name="EX_PROGRESSBAR_WRITING" xml:space="preserve">
+    <value>ファイルへデータ書き込み中</value>
+  </data>
+  <data name="FAILED_TO_GENE_EXCEL" xml:space="preserve">
+    <value>Excelの生成に失敗しました。</value>
+  </data>
+  <data name="FALIST_ADDITIONAL_VARIABLE" xml:space="preserve">
+    <value>付加アイテム</value>
+  </data>
+  <data name="FALIST_FA_VARIABLE" xml:space="preserve">
+    <value>FAアイテム</value>
+  </data>
+  <data name="FA_LABEL_ASCENDING_ORDER" xml:space="preserve">
+    <value>付加アイテムで昇順に並べ替える</value>
+  </data>
+  <data name="FA_LIST_SETTING" xml:space="preserve">
+    <value>リスト設定</value>
+  </data>
+  <data name="FA_LIST_TITLE" xml:space="preserve">
+    <value>FAリスト作成</value>
+  </data>
+  <data name="FA_MAX_LEFT_LIST" xml:space="preserve">
+    <value>30アイテム以内に設定してください。</value>
+  </data>
+  <data name="FA_RLIST_EMPTY" xml:space="preserve">
+    <value>FA編集行がありません。</value>
+  </data>
+  <data name="FA_SHEET_HEADING_CRITERION_DEVIDE" xml:space="preserve">
+    <value>分類アイテム</value>
+  </data>
+  <data name="FA_TOP_BOX_TEXT" xml:space="preserve">
+    <value>ＦＡリストを出力する場合に使用します。</value>
+  </data>
+  <data name="FILE_ALERDY_OPENED" xml:space="preserve">
+    <value>同じ名前のファイルが開いています。</value>
+  </data>
+  <data name="FILE_CANNOT_READ" xml:space="preserve">
+    <value>ファイルを読み込めませんでした</value>
+  </data>
+  <data name="FILE_CORRUPTED" xml:space="preserve">
+    <value>ファイルが壊れています。</value>
+  </data>
+  <data name="FILE_LENGTH_TOO_LARGE" xml:space="preserve">
+    <value>ファイル名が長すぎます。</value>
+  </data>
+  <data name="FILE_OPEN" xml:space="preserve">
+    <value>ファイルを開いています。</value>
+  </data>
+  <data name="FILE_OPEN_COMPLETE" xml:space="preserve">
+    <value>ファイルが間もなく開き終わります。</value>
+  </data>
+  <data name="FILE_OPEN_CREATE_EXCEL_APP" xml:space="preserve">
+    <value>新しいExcelを作成しています。</value>
+  </data>
+  <data name="FILE_OPEN_EXCEL" xml:space="preserve">
+    <value>Excelファイルを開いています。</value>
+  </data>
+  <data name="FILE_OPEN_EXCEL_UNPROTECT" xml:space="preserve">
+    <value>Excelファイルの保護を解除しています。</value>
+  </data>
+  <data name="FILE_OPEN_EXTRACTING" xml:space="preserve">
+    <value>ファイルを解凍しています。</value>
+  </data>
+  <data name="FILE_OPEN_FAILED" xml:space="preserve">
+    <value>ファイルを開くことができませんでした。</value>
+  </data>
+  <data name="FILE_OPEN_UPDATE_SETTING" xml:space="preserve">
+    <value>設定を更新しています。</value>
+  </data>
+  <data name="FILE_OPEN_UPDATING_DB_SETTING" xml:space="preserve">
+    <value>データベースの設定を更新しています。</value>
+  </data>
+  <data name="FILE_READONLY_OPEN_MSG" xml:space="preserve">
+    <value>'{0}' は現在 {1} が使用しています。読み取り専用で開きますか?</value>
+  </data>
+  <data name="FILE_READONLY_SAVE_WARNING_MSG" xml:space="preserve">
+    <value>We can't save '{0}' because the file is read-only.To keep your changes you'ill need to save the file with new name or in a different location.</value>
+  </data>
+  <data name="FILE_SAVED" xml:space="preserve">
+    <value>ファイルを保存しました。</value>
+  </data>
+  <data name="FILE_USED_ALERT" xml:space="preserve">
+    <value>このファイルは別のQuickCrossまたは別のアプリケーションで使用中です。</value>
+  </data>
+  <data name="FILE_USED_ANOTHER_PROCESS" xml:space="preserve">
+    <value>一時ファイルは他のプロセスで使用されています。閉じてから再度実行してください。</value>
+  </data>
+  <data name="FILTERSETTINGS_WRONG_ENTRY" xml:space="preserve">
+    <value>無効な入力です。</value>
+  </data>
+  <data name="FILTER_CRITERIA_MSG1" xml:space="preserve">
+    <value>分類アイテム 【{0}】 が設定されています。</value>
+  </data>
+  <data name="FILTER_CRITERIA_MSG2" xml:space="preserve">
+    <value>絞り込み条件が設定されています。</value>
+  </data>
+  <data name="FILTER_CRITERIA_MSG3" xml:space="preserve">
+    <value>変更する場合は､オプションより変更してください。</value>
+  </data>
+  <data name="FOR_MA" xml:space="preserve">
+    <value>マルチ回答用</value>
+  </data>
+  <data name="FOR_MTM" xml:space="preserve">
+    <value>マトリクスのマルチ回答用</value>
+  </data>
+  <data name="FOR_MTN" xml:space="preserve">
+    <value>複数の数値回答を1つにする表</value>
+  </data>
+  <data name="FOR_MTS" xml:space="preserve">
+    <value>マトリクスのシングル回答用</value>
+  </data>
+  <data name="FOR_N" xml:space="preserve">
+    <value>数値回答用</value>
+  </data>
+  <data name="FOR_RAT" xml:space="preserve">
+    <value>割合回答用</value>
+  </data>
+  <data name="FOR_RNK" xml:space="preserve">
+    <value>順位回答用</value>
+  </data>
+  <data name="FOR_SA" xml:space="preserve">
+    <value>シングル回答用</value>
+  </data>
+  <data name="Frame_GraphPattern_PSM_PolygonalLine" xml:space="preserve">
+    <value>グラフオプション</value>
+  </data>
+  <data name="GK_BTN_AUTHENTICATION" xml:space="preserve">
+    <value>認証</value>
+  </data>
+  <data name="GK_BTN_GENERATE" xml:space="preserve">
+    <value>生成</value>
+  </data>
+  <data name="GK_BTN_SWITCHING" xml:space="preserve">
+    <value>切替</value>
+  </data>
+  <data name="GK_DESCRIPTION" xml:space="preserve">
+    <value>※QC4認証キーを取得するには、生成されたシステム識別キーをMacromillに電子メールで送信する必要があります。</value>
+  </data>
+  <data name="GK_LABEL_AUTH_KEY" xml:space="preserve">
+    <value>QC4認証キー</value>
+  </data>
+  <data name="GK_LABEL_IDENTIFICATION_KEY" xml:space="preserve">
+    <value>システム識別キー</value>
+  </data>
+  <data name="GK_TITLE_AUTHORITY" xml:space="preserve">
+    <value>権限</value>
+  </data>
+  <data name="GK_TITLE_AUTH_INFORMATION" xml:space="preserve">
+    <value>認証情報</value>
+  </data>
+  <data name="GK_TITLE_SYSTEM_INFORMATION" xml:space="preserve">
+    <value>システム情報</value>
+  </data>
+  <data name="GRID_LBL_INTEGRATE_LOWER_LIMIT" xml:space="preserve">
+    <value>下限</value>
+  </data>
+  <data name="GRID_LBL_INTEGRATE_SEPERATOR" xml:space="preserve">
+    <value>-</value>
+    <comment>～</comment>
+  </data>
+  <data name="GRID_LBL_INTEGRATE_UPPER_LIMIT" xml:space="preserve">
+    <value>上限</value>
+  </data>
+  <data name="GTMAGraph" xml:space="preserve">
+    <value>横棒グラフ,縦棒グラフ</value>
+  </data>
+  <data name="GTMTMGraph" xml:space="preserve">
+    <value>M横棒グラフ,M縦棒グラフ,横棒グラフ,縦棒グラフ</value>
+  </data>
+  <data name="GTMTSGraph" xml:space="preserve">
+    <value>横帯グラフ,縦帯グラフ,M円グラフ</value>
+  </data>
+  <data name="GTRATGraph" xml:space="preserve">
+    <value>円RATグラフ,横棒RATグラフ,縦棒RATグラフ</value>
+  </data>
+  <data name="GTRNKGraph" xml:space="preserve">
+    <value>積上横棒グラフ,積上縦棒グラフ</value>
+  </data>
+  <data name="GTSAGraph" xml:space="preserve">
+    <value>円グラフ,横帯グラフ,縦帯グラフ,横棒グラフ,縦棒グラフ</value>
+  </data>
+  <data name="GTSA_WARNING_CHOICE_EXCEEDED" xml:space="preserve">
+    <value>帯グラフはカテゴリ数255以上は出力できません。</value>
+  </data>
+  <data name="GTT_FS_CB_ITEM_VALUE_EQUALS" xml:space="preserve">
+    <value>=</value>
+  </data>
+  <data name="GTT_FS_CB_ITEM_VALUE_GREATER_THAN" xml:space="preserve">
+    <value>より大きい</value>
+  </data>
+  <data name="GTT_FS_CB_ITEM_VALUE_GREATER_THAN_OR_EQUAL_TO" xml:space="preserve">
+    <value>以上</value>
+  </data>
+  <data name="GTT_FS_CB_ITEM_VALUE_LESS_OR_GREATER" xml:space="preserve">
+    <value>&lt;&gt;</value>
+  </data>
+  <data name="GTT_FS_CB_ITEM_VALUE_LESS_THAN" xml:space="preserve">
+    <value>未満</value>
+  </data>
+  <data name="GTT_FS_CB_ITEM_VALUE_LESS_THAN_OR_EQUAL_TO" xml:space="preserve">
+    <value>以下</value>
+  </data>
+  <data name="GT_ADD_TABULATION_TITLE" xml:space="preserve">
+    <value>GT表設定_指示設定</value>
+  </data>
+  <data name="GT_AUTO_SETTNG_CONFIRM" xml:space="preserve">
+    <value>今ある設定はすべてクリアされますが、よろしいですか？</value>
+  </data>
+  <data name="GT_EMPTY" xml:space="preserve">
+    <value>集計項目が設定されていません。</value>
+  </data>
+  <data name="GT_GRAPH_TYPE" xml:space="preserve">
+    <value>グラフ種類</value>
+  </data>
+  <data name="GT_INFO_COPY" xml:space="preserve">
+    <value>集計アイテムをコピーして、新しいGT集計アイテムを設定することができます。</value>
+  </data>
+  <data name="GT_INFO_DELETE" xml:space="preserve">
+    <value>集計アイテムを削除します。</value>
+  </data>
+  <data name="GT_INFO_EDIT" xml:space="preserve">
+    <value>グラフの変更ができます。</value>
+  </data>
+  <data name="GT_INFO_INITIALIZE" xml:space="preserve">
+    <value>集計アイテムを再表示します。新アイテムも表示されます。</value>
+  </data>
+  <data name="GT_INFO_ONOFALL" xml:space="preserve">
+    <value>すべての集計設定を〇または×にします。</value>
+  </data>
+  <data name="GT_INFO_ONOFF" xml:space="preserve">
+    <value>GT集計表を出力するか否かを切り替えます。</value>
+  </data>
+  <data name="GT_INFO_OUTPUT" xml:space="preserve">
+    <value>GT集計表の出力順を設定します。</value>
+  </data>
+  <data name="GT_INVALID_FILTER_SETTINGS" xml:space="preserve">
+    <value>無効なフィルター設定</value>
+  </data>
+  <data name="GT_INVALID_ITEM_SETTINGS_IN_ROW" xml:space="preserve">
+    <value>{0} 行目の集計アイテムが正しくありません。</value>
+  </data>
+  <data name="GT_INVALID_TABLE_TYPE" xml:space="preserve">
+    <value>GTのテーブルタイプが正しくありません。</value>
+  </data>
+  <data name="GT_MSG_001" xml:space="preserve">
+    <value>有意水準の設定は2つまでです。</value>
+  </data>
+  <data name="GT_MSG_002" xml:space="preserve">
+    <value>集計項目が設定されていません。</value>
+  </data>
+  <data name="GT_MSG_003" xml:space="preserve">
+    <value>集計表種類が正しくありません。</value>
+  </data>
+  <data name="GT_MSG_004" xml:space="preserve">
+    <value>終了しました。</value>
+  </data>
+  <data name="GT_MSG_005" xml:space="preserve">
+    <value>Excel生成に失敗しました。</value>
+  </data>
+  <data name="GT_MSG_006" xml:space="preserve">
+    <value>[{0}] のデータが無い為、設定できません。
+データ加工を実行してください。</value>
+  </data>
+  <data name="GT_MSG_007" xml:space="preserve">
+    <value>加工されていない新アイテムがあります。
+このまま実行しますか？</value>
+  </data>
+  <data name="GT_MSG_008" xml:space="preserve">
+    <value>データ加工を実行するか、設問設定で新アイテムを削除してください。</value>
+  </data>
+  <data name="GT_NO_WEIGHTING" xml:space="preserve">
+    <value>ウエイトバック変数が設定されていません。</value>
+  </data>
+  <data name="GT_OUTPUT_OPTION" xml:space="preserve">
+    <value>出力オプション</value>
+  </data>
+  <data name="GT_OUTPUT_ORDER" xml:space="preserve">
+    <value>出力順設定</value>
+  </data>
+  <data name="GT_SAMPLE_WEIGHT_NO_DATA" xml:space="preserve">
+    <value>[{0}] のデータが無い為、設定できません。
+データ加工を実行してください。</value>
+  </data>
+  <data name="GT_SELECT_TABLE_TYPE" xml:space="preserve">
+    <value>集計表の種類を選択して下さい。</value>
+  </data>
+  <data name="GT_SELECT_TABULATION_TITLE" xml:space="preserve">
+    <value>GT集計_集計表種類選択</value>
+  </data>
+  <data name="GT_SEPECIFY_SIGNTEST_LEVEL" xml:space="preserve">
+    <value>有意水準を1個または2個指定してください。</value>
+  </data>
+  <data name="GT_SHEET_HEADING_TEST" xml:space="preserve">
+    <value>検定</value>
+  </data>
+  <data name="GT_STATISTICAL_SIGNIFICANCE" xml:space="preserve">
+    <value>有意水準</value>
+  </data>
+  <data name="GT_STATISTICAL_TEST" xml:space="preserve">
+    <value>差の検定</value>
+  </data>
+  <data name="GT_STATISTICAL_TEST_DIFF" xml:space="preserve">
+    <value>選択肢間の差の検定</value>
+  </data>
+  <data name="GT_STATISTICAL_TEST_DIFF_MATRIX" xml:space="preserve">
+    <value>マトリクス設問　項目間の差の検定</value>
+  </data>
+  <data name="GT_TABLE_TITLE" xml:space="preserve">
+    <value>集計表タイトル</value>
+  </data>
+  <data name="GT_TABLE_TYPE" xml:space="preserve">
+    <value>集計表種類</value>
+  </data>
+  <data name="GT_TABULATION_ADD" xml:space="preserve">
+    <value>集計設定追加</value>
+  </data>
+  <data name="GT_TABULATION_ALLO" xml:space="preserve">
+    <value>すべて○</value>
+  </data>
+  <data name="GT_TABULATION_ALLX" xml:space="preserve">
+    <value>すべて×</value>
+  </data>
+  <data name="GT_TABULATION_BASE" xml:space="preserve">
+    <value>全数ベース設定　　あり</value>
+  </data>
+  <data name="GT_TABULATION_DELETE" xml:space="preserve">
+    <value>削除してもよろしいですか？</value>
+  </data>
+  <data name="GT_TABULATION_FILTER" xml:space="preserve">
+    <value>分類アイテム設定　あり</value>
+  </data>
+  <data name="GT_TABULATION_GRAPH" xml:space="preserve">
+    <value>グラフ</value>
+  </data>
+  <data name="GT_TABULATION_INITIALIZE" xml:space="preserve">
+    <value>初期化</value>
+  </data>
+  <data name="GT_TABULATION_LIST" xml:space="preserve">
+    <value>GT集計設定リスト</value>
+  </data>
+  <data name="GT_TABULATION_NOANS" xml:space="preserve">
+    <value>無回答出力設定　　なし</value>
+  </data>
+  <data name="GT_TABULATION_ONOFF" xml:space="preserve">
+    <value>O ⇔ X</value>
+  </data>
+  <data name="GT_TABULATION_ON_OFF" xml:space="preserve">
+    <value>実行</value>
+  </data>
+  <data name="GT_TABULATION_OUTPUT_ORDER" xml:space="preserve">
+    <value>出力順設定</value>
+  </data>
+  <data name="GT_TABULATION_OUTPUT_RESPONDANTS" xml:space="preserve">
+    <value>全数ベースで集計する</value>
+  </data>
+  <data name="GT_TABULATION_REFINE" xml:space="preserve">
+    <value>絞込み設定　あり</value>
+  </data>
+  <data name="GT_TABULATION_SAVE" xml:space="preserve">
+    <value>登録しました。</value>
+  </data>
+  <data name="GT_TABULATION_SAVE_WARNING" xml:space="preserve">
+    <value>データを登録しますか？</value>
+  </data>
+  <data name="GT_TABULATION_SETTING" xml:space="preserve">
+    <value>集計設定</value>
+  </data>
+  <data name="GT_TABULATION_TITLE" xml:space="preserve">
+    <value>GT_集計</value>
+  </data>
+  <data name="GT_TABULATION_VARIABLE" xml:space="preserve">
+    <value>集計アイテム</value>
+  </data>
+  <data name="GT_TABULATION_WB" xml:space="preserve">
+    <value>ウエイトバック設定  あり</value>
+  </data>
+  <data name="GT_TOP_BOX_TEXT" xml:space="preserve">
+    <value>ＧＴ表を出力する場合に使用します。</value>
+  </data>
+  <data name="GT_VALIDATION_SIGNTEST_MAX" xml:space="preserve">
+    <value>有意水準の設定は2つまでです。</value>
+  </data>
+  <data name="GT_VALIDATION_SIGNTEST_MIN" xml:space="preserve">
+    <value>有意差検定の有意水準が、一つも設定されていません。</value>
+  </data>
+  <data name="GT_WARNING_CHOICE_EXCEEDED" xml:space="preserve">
+    <value>カテゴリ数201以上のマトリクス質問のグラフは出力できません。</value>
+  </data>
+  <data name="GV_BASED_ON_POPULATION_SIZE" xml:space="preserve">
+    <value>母集団N数で設定</value>
+  </data>
+  <data name="GV_CHOICE" xml:space="preserve">
+    <value>選択肢</value>
+  </data>
+  <data name="GV_N" xml:space="preserve">
+    <value>N</value>
+  </data>
+  <data name="GV_PER" xml:space="preserve">
+    <value>%</value>
+  </data>
+  <data name="GV_POPULATION_PROPORTION" xml:space="preserve">
+    <value>母集団比率で設定
+（拡大・縮小推計可能）</value>
+  </data>
+  <data name="GV_SL" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="GV_WEIGHT" xml:space="preserve">
+    <value>WB値</value>
+  </data>
+  <data name="HEADER_GRAPH_OPTION" xml:space="preserve">
+    <value>グラフオプション</value>
+  </data>
+  <data name="HEADER_OUTPUT_OPTION" xml:space="preserve">
+    <value>出力オプション</value>
+  </data>
+  <data name="HEADER_TABULATION_SETTING" xml:space="preserve">
+    <value>集計設定</value>
+  </data>
+  <data name="HEADING_PARAMETER" xml:space="preserve">
+    <value>引数 {0}</value>
+  </data>
+  <data name="IM_INCORRECT_PASSWORD" xml:space="preserve">
+    <value>パスワードが正しくありません。</value>
+  </data>
+  <data name="IM_JOINING_DATA" xml:space="preserve">
+    <value>データ結合中</value>
+  </data>
+  <data name="IM_MSG_BLANK_CHOICES" xml:space="preserve">
+    <value>{0} 列：選択肢は空白にできません。</value>
+  </data>
+  <data name="IM_MSG_CHOICE_MISSMATCH" xml:space="preserve">
+    <value>列：{0}列の値と選択肢の文言間のデータの不一致</value>
+  </data>
+  <data name="IM_MSG_CHOICE_NOT_MATCH" xml:space="preserve">
+    <value>列：{0}選択肢の文言と一致しない選択肢の数</value>
+  </data>
+  <data name="IM_MSG_CHOICE_NOT_ZERO" xml:space="preserve">
+    <value>列：{0}選択肢の数を0以下にすることはできません</value>
+  </data>
+  <data name="IM_MSG_CLOSE_FORM" xml:space="preserve">
+    <value>閉じますか？</value>
+  </data>
+  <data name="IM_MSG_DATA_VALIDATION_FAILED" xml:space="preserve">
+    <value>列：{0}データの検証に失敗しました</value>
+  </data>
+  <data name="IM_MSG_FAILED_READ" xml:space="preserve">
+    <value>ファイルの読み込みに失敗しました。</value>
+  </data>
+  <data name="IM_MSG_FILE2_LOAD_FAILED" xml:space="preserve">
+    <value>ファイル2の読み込みに失敗しました。</value>
+  </data>
+  <data name="IM_MSG_FILE_ALREADY_OPEN" xml:space="preserve">
+    <value>同じ名前のファイルが既に開いています。</value>
+  </data>
+  <data name="IM_MSG_FILE_SELECTION_WARN" xml:space="preserve">
+    <value>両方にキーを設定してください。</value>
+  </data>
+  <data name="IM_MSG_IMPORT_COMPLETE" xml:space="preserve">
+    <value>データを保存しました。</value>
+  </data>
+  <data name="IM_MSG_IMPORT_COMPLETE2" xml:space="preserve">
+    <value>外部データ追加が完了しました。</value>
+  </data>
+  <data name="IM_MSG_IMPORT_DUPLICATE" xml:space="preserve">
+    <value>ファイル2のキーが重複しています。</value>
+  </data>
+  <data name="IM_MSG_IMPORT_FAILED" xml:space="preserve">
+    <value>データの保存に失敗しました。</value>
+  </data>
+  <data name="IM_MSG_INVALID_CHARACTERS" xml:space="preserve">
+    <value>{0} 列 : アイテム名に使用できない文字が含まれています。</value>
+  </data>
+  <data name="IM_MSG_INVALID_COLUMN_VALUE" xml:space="preserve">
+    <value>{0} 列目 : 回答データに不正な値が含まれています。</value>
+  </data>
+  <data name="IM_MSG_INVALID_FILE_WARN" xml:space="preserve">
+    <value>サポートされていないファイル内容です。</value>
+  </data>
+  <data name="IM_MSG_INVALID_MA_VALUE" xml:space="preserve">
+    <value>{0} 列 : 0または1以外の値が含まれたデータがMAに設定されています。</value>
+  </data>
+  <data name="IM_MSG_INVALID_NUMBEROF_CHOICES" xml:space="preserve">
+    <value>{0} 列 : 選択肢数が正しくありません。</value>
+  </data>
+  <data name="IM_MSG_INVALID_SA_VALUE" xml:space="preserve">
+    <value>{0} 列 : 0または整数以外の文字列が含まれたデータがSAに設定されています。</value>
+  </data>
+  <data name="IM_MSG_INVALID_WARN" xml:space="preserve">
+    <value>区切り文字と文字列の引用符を同じにすることはできません。</value>
+  </data>
+  <data name="IM_MSG_ITEM_BLANCK" xml:space="preserve">
+    <value>{0} 列 : アイテム名をつけてください。</value>
+  </data>
+  <data name="IM_MSG_ITEM_DUPLICATED" xml:space="preserve">
+    <value>{0} 列 : アイテム名が重複しています。</value>
+  </data>
+  <data name="IM_MSG_LOAD_FAILED" xml:space="preserve">
+    <value>データの読み込みに失敗しました。</value>
+  </data>
+  <data name="IM_MSG_MA_NOT_GRATERTHAN_CHOICE" xml:space="preserve">
+    <value>{0} 列 : MAの選択肢数より大きな値の回答データが含まれています。</value>
+  </data>
+  <data name="IM_MSG_MA_SHOULD_NUMERIC" xml:space="preserve">
+    <value>{0} 列目 : 0または整数以外の文字列が含まれたデータがMAに設定されています。</value>
+  </data>
+  <data name="IM_MSG_NO_DATA" xml:space="preserve">
+    <value>ファイル1に使用可能なデータがありません。</value>
+  </data>
+  <data name="IM_MSG_NO_DATA_AVAILABLE" xml:space="preserve">
+    <value>使用可能なデータがありません。</value>
+  </data>
+  <data name="IM_MSG_SA_NOT_GRATERTHAN_CHOICE" xml:space="preserve">
+    <value>{0} 列 : SAの選択肢数より大きな値の回答データが含まれています。</value>
+  </data>
+  <data name="IM_MSG_WARNING_ALLOCATE_COL" xml:space="preserve">
+    <value>この列はすでにフラグ形式に割り当てられています。</value>
+  </data>
+  <data name="IM_PROGRESSBAR_BUILDING_COL" xml:space="preserve">
+    <value>{0} 列を作成中</value>
+  </data>
+  <data name="IM_PROGRESSBAR_BUILDING_ROW" xml:space="preserve">
+    <value>{0} 行目を作成中</value>
+  </data>
+  <data name="IM_PROGRESSBAR_CACHEING_DATA" xml:space="preserve">
+    <value>データのキャッシュ中：{0}</value>
+  </data>
+  <data name="IM_PROGRESSBAR_CACHEING_FILE" xml:space="preserve">
+    <value>ファイルのキャッシュ中</value>
+  </data>
+  <data name="IM_PROGRESSBAR_CACHEING_LINES" xml:space="preserve">
+    <value>{0} 行目をキャッシュ</value>
+  </data>
+  <data name="IM_PROGRESSBAR_CACHEING_ROWS" xml:space="preserve">
+    <value>{0} 行目をキャッシュ</value>
+  </data>
+  <data name="IM_PROGRESSBAR_COMPLETING" xml:space="preserve">
+    <value>データ解析完了</value>
+  </data>
+  <data name="IM_PROGRESSBAR_COMPLETING_CACHEING" xml:space="preserve">
+    <value>キャッシュ完了</value>
+  </data>
+  <data name="IM_PROGRESSBAR_ENDING" xml:space="preserve">
+    <value>処理を終了しています。</value>
+  </data>
+  <data name="IM_PROGRESSBAR_LOADING" xml:space="preserve">
+    <value>解析済みデータの読み込み中</value>
+  </data>
+  <data name="IM_PROGRESSBAR_LOADING_COL" xml:space="preserve">
+    <value>列の読み込み中</value>
+  </data>
+  <data name="IM_PROGRESSBAR_LOADING_ROWS" xml:space="preserve">
+    <value>行の読み込み中</value>
+  </data>
+  <data name="IM_PROGRESSBAR_OPENING_FILE" xml:space="preserve">
+    <value>ファイルを開いています。</value>
+  </data>
+  <data name="IM_PROGRESSBAR_PARSE" xml:space="preserve">
+    <value>解析済みデータの読み込み中</value>
+  </data>
+  <data name="IM_PROGRESSBAR_PARSING_LINE" xml:space="preserve">
+    <value>解析中：{0} 行目</value>
+  </data>
+  <data name="IM_PROGRESSBAR_READING" xml:space="preserve">
+    <value>ファイル読み込み中</value>
+  </data>
+  <data name="IM_PROGRESSBAR_READING_COMPLETED" xml:space="preserve">
+    <value>ファイル読み込み完了</value>
+  </data>
+  <data name="IM_PROGRESSBAR_READING_LINE" xml:space="preserve">
+    <value>読込中：{0} 行目</value>
+  </data>
+  <data name="IM_PROGRESSBAR_READING_ROW" xml:space="preserve">
+    <value>読込中：{0} 行目</value>
+  </data>
+  <data name="INFO_CROSS_SHEET_MSG_BASE_VARIABLE_SET" xml:space="preserve">
+    <value>分類アイテム 【{0}】 が設定されています。</value>
+  </data>
+  <data name="INFO_CROSS_SHEET_MSG_FILTERING_CRITERIA_SET" xml:space="preserve">
+    <value>絞込み条件が設定されています。</value>
+  </data>
+  <data name="INFO_CROSS_SHEET_MSG_MAKE_CHANGE_FROM_OPTIONS" xml:space="preserve">
+    <value>変更する場合は、オプションより変更してください。</value>
+  </data>
+  <data name="INTEGRATE_NEW_CHOICE_EXCLUDE_CHOICE" xml:space="preserve">
+    <value>|除く{0}|</value>
+    <comment>|{0} を非該当処理しています。|</comment>
+  </data>
+  <data name="INTEGRATE_NTYPE_NEW_CHOICE_OR_OVER" xml:space="preserve">
+    <value>以上</value>
+  </data>
+  <data name="INTEGRATE_NTYPE_NEW_CHOICE_OR_UNDER" xml:space="preserve">
+    <value>以下</value>
+  </data>
+  <data name="INVALID_CLASSIFICATION_VARIABLE" xml:space="preserve">
+    <value>分類アイテムが不正です。</value>
+  </data>
+  <data name="INVALID_FILENAME_START_SEMICOLEN" xml:space="preserve">
+    <value>ファイル名はセミコロン「;」で始めることは出来ません。</value>
+  </data>
+  <data name="LABEL_ADD" xml:space="preserve">
+    <value>＋</value>
+  </data>
+  <data name="LABEL_ADD_MINUS" xml:space="preserve">
+    <value>±</value>
+  </data>
+  <data name="LABEL_ADD_MINUS1" xml:space="preserve">
+    <value>ADD_MINUS</value>
+  </data>
+  <data name="LABEL_AND" xml:space="preserve">
+    <value>AND</value>
+  </data>
+  <data name="LABEL_ANNOTATION_INTEGRATE" xml:space="preserve">
+    <value>元アイテム1～10を条件別に組み合わせ、1つのアイテムを作ります。
+例えば、元アイテム(性別と年齢)から加工アイテム(性年代別)を作成します。</value>
+  </data>
+  <data name="LABEL_ANNOTATION_JOINT" xml:space="preserve">
+    <value>複数のアイテム(SA・MA)を結合して、加工アイテム(MA)を作成します。
+例えば、複数の質問をつなぎ１つのアイテムにするときに使います。</value>
+  </data>
+  <data name="LABEL_ANNOTATION_MCONVERT" xml:space="preserve">
+    <value>元アイテムの同一カテゴリを組み合わせて、加工アイテムを作成します。
+例えば、縦マルチ(表側のアイテムをまとめる)に変換します。</value>
+  </data>
+  <data name="LABEL_ANSWERTYPE" xml:space="preserve">
+    <value>回答タイプ</value>
+  </data>
+  <data name="LABEL_ANSWER_TYPE" xml:space="preserve">
+    <value>回答タイプ</value>
+  </data>
+  <data name="LABEL_BASED_ON_TOTAL_RESPONDANCE" xml:space="preserve">
+    <value>全数ベースで集計する</value>
+  </data>
+  <data name="LABEL_BASED_RESPONDENTS" xml:space="preserve">
+    <value>全数ベースで集計する</value>
+  </data>
+  <data name="LABEL_BLANK" xml:space="preserve">
+    <value>(空白)</value>
+  </data>
+  <data name="LABEL_CB_UNICODE_SPSS" xml:space="preserve">
+    <value>Unicode (SPSSエンコード設定)</value>
+  </data>
+  <data name="LABEL_CHANGE_HEADING" xml:space="preserve">
+    <value>表記の変更</value>
+  </data>
+  <data name="LABEL_CHARACTER_FOR_EXCLUDED" xml:space="preserve">
+    <value>非該当の出力文字</value>
+  </data>
+  <data name="LABEL_CHECK_AFTER_UNFALL" xml:space="preserve">
+    <value>元アイテムがすべて非該当のサンプルは加工後も非該当にする</value>
+  </data>
+  <data name="LABEL_CHECK_LIST" xml:space="preserve">
+    <value>チェックリストあり</value>
+  </data>
+  <data name="LABEL_CHOICE" xml:space="preserve">
+    <value>選択肢</value>
+  </data>
+  <data name="LABEL_CHOICE_COUNT" xml:space="preserve">
+    <value>選択肢数</value>
+  </data>
+  <data name="LABEL_ClASS" xml:space="preserve">
+    <value>回答タイプN（数値回答）をSAカテゴリーのデータに変換します。 
+例えば、年齢を10代、20代、30代などとカテゴリ変換するときに使います。</value>
+  </data>
+  <data name="LABEL_CLOSE" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
+  <data name="LABEL_COMMAND" xml:space="preserve">
+    <value>加工文</value>
+  </data>
+  <data name="LABEL_COMMAND_INTEGRATE" xml:space="preserve">
+    <value>INTEGRATE</value>
+  </data>
+  <data name="LABEL_COMMAND_JOINT" xml:space="preserve">
+    <value>JOINT</value>
+  </data>
+  <data name="LABEL_COMMAND_MCONVERT" xml:space="preserve">
+    <value>MCONVERT</value>
+  </data>
+  <data name="LABEL_COMPUTE" xml:space="preserve">
+    <value>回答タイプＮ（数値回答）やSAのアイテムに対して四則演算を行い、加工アイテムを作成します。</value>
+  </data>
+  <data name="LABEL_CONVERSION_DEFINITION_FILE" xml:space="preserve">
+    <value>変換定義ファイル（任意）</value>
+  </data>
+  <data name="LABEL_CREATEREPORT" xml:space="preserve">
+    <value>グラフ作成</value>
+  </data>
+  <data name="LABEL_CRITERIA" xml:space="preserve">
+    <value>条件あり</value>
+    <comment>条件あり</comment>
+  </data>
+  <data name="LABEL_CRITERIA1" xml:space="preserve">
+    <value>条件指定</value>
+  </data>
+  <data name="LABEL_CRITERIA_VARIABLE" xml:space="preserve">
+    <value>条件アイテム</value>
+  </data>
+  <data name="LABEL_CRITERION_VARIABLE" xml:space="preserve">
+    <value>分類アイテム</value>
+  </data>
+  <data name="LABEL_CROSSTABULATE" xml:space="preserve">
+    <value>クロス集計</value>
+  </data>
+  <data name="LABEL_CROSS_TABULATE" xml:space="preserve">
+    <value>クロス集計</value>
+  </data>
+  <data name="LABEL_DATA_PROCESSING_INSTRUCTION" xml:space="preserve">
+    <value>※前回の加工後のデータは上書きされます。</value>
+  </data>
+  <data name="LABEL_DATA_PROCESSING_LIST_HEADER" xml:space="preserve">
+    <value>データ加工一覧</value>
+  </data>
+  <data name="LABEL_DBL_LEFT_ARROW" xml:space="preserve">
+    <value>&lt;&lt;</value>
+  </data>
+  <data name="LABEL_DBL_RIGHT_ARROW" xml:space="preserve">
+    <value>&gt;&gt;</value>
+  </data>
+  <data name="LABEL_DELETE" xml:space="preserve">
+    <value>DELETE</value>
+  </data>
+  <data name="LABEL_DELETE_FROM_QUESTION_SETTING" xml:space="preserve">
+    <value>設問設定からも削除</value>
+  </data>
+  <data name="LABEL_DIFFERENCE_BETWEEN" xml:space="preserve">
+    <value>比率の差</value>
+  </data>
+  <data name="LABEL_DK" xml:space="preserve">
+    <value>DK</value>
+  </data>
+  <data name="LABEL_DP_HEADER_NEW_VARIABLE" xml:space="preserve">
+    <value>新アイテム</value>
+  </data>
+  <data name="LABEL_DP_HEADER_ON_OR_OF" xml:space="preserve">
+    <value>実行</value>
+  </data>
+  <data name="LABEL_DP_HEADER_ORIGINAL_ITEM" xml:space="preserve">
+    <value>元アイテム</value>
+  </data>
+  <data name="LABEL_DP_HEADER_PROCESSING_METHOD" xml:space="preserve">
+    <value>処理方法</value>
+  </data>
+  <data name="LABEL_DP_HEADER_QUESTION_STATEMENT" xml:space="preserve">
+    <value>質問文</value>
+  </data>
+  <data name="LABEL_DP_HEADER_REPEATS" xml:space="preserve">
+    <value>繰り返し回数</value>
+  </data>
+  <data name="LABEL_EQUALTO_MORETHAN" xml:space="preserve">
+    <value>以上</value>
+  </data>
+  <data name="LABEL_EXCLUDE" xml:space="preserve">
+    <value>非該当アイテム</value>
+  </data>
+  <data name="LABEL_EXCLUDED" xml:space="preserve">
+    <value>非該当（*）</value>
+  </data>
+  <data name="LABEL_EXECUTE" xml:space="preserve">
+    <value>実行</value>
+  </data>
+  <data name="LABEL_EXECUTE_GT" xml:space="preserve">
+    <value>実行</value>
+  </data>
+  <data name="LABEL_EXPORT" xml:space="preserve">
+    <value>出力</value>
+  </data>
+  <data name="LABEL_EXPORT_PATH" xml:space="preserve">
+    <value>出力先パス</value>
+  </data>
+  <data name="LABEL_EXPORT_SETTING" xml:space="preserve">
+    <value>出力設定</value>
+  </data>
+  <data name="LABEL_EXPORT_TYPE" xml:space="preserve">
+    <value>出力タイプ</value>
+  </data>
+  <data name="LABEL_FILE_FORMAT" xml:space="preserve">
+    <value>出力ファイル形式</value>
+  </data>
+  <data name="LABEL_FILTERING_CRITERIA" xml:space="preserve">
+    <value>絞込み条件</value>
+  </data>
+  <data name="LABEL_FILTER_SETTING" xml:space="preserve">
+    <value>絞込み設定</value>
+  </data>
+  <data name="LABEL_FREE_ENTRY" xml:space="preserve">
+    <value>フリー入力</value>
+  </data>
+  <data name="LABEL_GRAPH_OPTIONS" xml:space="preserve">
+    <value>グラフオプション</value>
+  </data>
+  <data name="LABEL_GROSSTABULATE" xml:space="preserve">
+    <value>GT</value>
+  </data>
+  <data name="LABEL_GT_CHECK_OUTPUT_GRAPHS" xml:space="preserve">
+    <value>グラフを出力する</value>
+  </data>
+  <data name="LABEL_GT_CHECK_OUTPUT_HIDE_CHOICE_PIECHART" xml:space="preserve">
+    <value>円グラフの選択肢名を非表示　　比率</value>
+  </data>
+  <data name="LABEL_HYPHEN" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="LABEL_INDICATOR_FNA_SA_MA_SPSS" xml:space="preserve">
+    <value>非該当の出力文字</value>
+  </data>
+  <data name="LABEL_INDICATOR_FOR_NO_ANSWER" xml:space="preserve">
+    <value>無回答の出力文(SA/MA)</value>
+  </data>
+  <data name="LABEL_INTEGRATE_SOURCE_VARIABLE" xml:space="preserve">
+    <value>元アイテム</value>
+    <comment>組合せ元アイテム</comment>
+  </data>
+  <data name="LABEL_LISTUP" xml:space="preserve">
+    <value>LISTUP</value>
+  </data>
+  <data name="LABEL_MARKING" xml:space="preserve">
+    <value>マーキング</value>
+  </data>
+  <data name="LABEL_MAX_INTEGRATE" xml:space="preserve">
+    <value>最大値</value>
+  </data>
+  <data name="LABEL_MA_VARIABLES" xml:space="preserve">
+    <value>マルチアイテム</value>
+  </data>
+  <data name="LABEL_MEAN_INTEGRATE" xml:space="preserve">
+    <value>平均値</value>
+  </data>
+  <data name="LABEL_MIN_INTEGRATE" xml:space="preserve">
+    <value>最小値</value>
+  </data>
+  <data name="LABEL_MULTIDIGIT_NUMBERS" xml:space="preserve">
+    <value>ラベル付</value>
+  </data>
+  <data name="LABEL_N" xml:space="preserve">
+    <value>n =</value>
+  </data>
+  <data name="LABEL_NEW_VARIABLE" xml:space="preserve">
+    <value>新アイテム</value>
+  </data>
+  <data name="LABEL_NO_ANSWER" xml:space="preserve">
+    <value>無回答</value>
+  </data>
+  <data name="LABEL_NO_ANSWER1" xml:space="preserve">
+    <value>無回答 (DK)</value>
+  </data>
+  <data name="LABEL_NO_OF_CHOICES" xml:space="preserve">
+    <value>選択肢数</value>
+  </data>
+  <data name="LABEL_N_" xml:space="preserve">
+    <value>N表</value>
+  </data>
+  <data name="LABEL_N_PER" xml:space="preserve">
+    <value>N％表</value>
+  </data>
+  <data name="LABEL_OMIT" xml:space="preserve">
+    <value>OMIT</value>
+  </data>
+  <data name="LABEL_OPERATOR" xml:space="preserve">
+    <value>演算子</value>
+  </data>
+  <data name="LABEL_OPTION_TOTAL" xml:space="preserve">
+    <value>全体</value>
+  </data>
+  <data name="LABEL_OP_CHOICE_NUMBERS" xml:space="preserve">
+    <value>数値をそのまま出力</value>
+  </data>
+  <data name="LABEL_OP_MA_CHOICE_SPSS" xml:space="preserve">
+    <value>MA選択肢文出力先</value>
+  </data>
+  <data name="LABEL_OP_ON_OFF_0" xml:space="preserve">
+    <value>オン(1)オフ(0)で出力</value>
+  </data>
+  <data name="LABEL_OP_ON_OFF_BLANK" xml:space="preserve">
+    <value>オン(1)オフ(ブランク)で出力</value>
+  </data>
+  <data name="LABEL_OR" xml:space="preserve">
+    <value>OR</value>
+  </data>
+  <data name="LABEL_OUTPUT_OPTIONS" xml:space="preserve">
+    <value>出力オプション</value>
+  </data>
+  <data name="LABEL_OUTPUT_UNWEIGHT_BACKED_TOTAL" xml:space="preserve">
+    <value>ウエイトバック前n数も出力</value>
+  </data>
+  <data name="LABEL_PAD_WITH_LEADING_SPACES" xml:space="preserve">
+    <value>前にブランクを付ける</value>
+  </data>
+  <data name="LABEL_PAD_WITH_LEADING_ZEROES" xml:space="preserve">
+    <value>前にゼロを付ける</value>
+  </data>
+  <data name="LABEL_PER" xml:space="preserve">
+    <value>%表</value>
+  </data>
+  <data name="LABEL_PROCESSING_METHOD" xml:space="preserve">
+    <value>処理方法</value>
+  </data>
+  <data name="LABEL_PROCESSING_METHOD_INTEGRATE" xml:space="preserve">
+    <value>複数の質問を組み合わせて新しいアイテムを作ります。</value>
+  </data>
+  <data name="LABEL_PROCESSING_METHOD_JOINT" xml:space="preserve">
+    <value>複数のアイテムを結合します。</value>
+  </data>
+  <data name="LABEL_PROCESSING_METHOD_MCONVERT" xml:space="preserve">
+    <value>複数の同一選択肢を持つSA/MAアイテムをMAにします。</value>
+  </data>
+  <data name="LABEL_PROCESSING_ORDER" xml:space="preserve">
+    <value>加工順</value>
+  </data>
+  <data name="LABEL_PROCESSING_TYPE" xml:space="preserve">
+    <value>加工種別</value>
+  </data>
+  <data name="LABEL_QUESTION" xml:space="preserve">
+    <value>質問文</value>
+  </data>
+  <data name="LABEL_RANKING" xml:space="preserve">
+    <value>ランキング</value>
+  </data>
+  <data name="LABEL_RATIOS_EQUALTO_LESSTHAN" xml:space="preserve">
+    <value>円グラフの選択肢名を非表示　　比率</value>
+  </data>
+  <data name="LABEL_RATIOS_EQUALTO_LESSTHAN1" xml:space="preserve">
+    <value>%以下非表示</value>
+  </data>
+  <data name="LABEL_READFILE" xml:space="preserve">
+    <value>ファイル読込み</value>
+  </data>
+  <data name="LABEL_RECODE" xml:space="preserve">
+    <value>元アイテムのコードを新たに振り直し、加工アイテムを作成します。
+例えば、年齢5才刻み(SA/8カテゴリ)を10才刻み(SA/4カテゴリ)に振り直します。</value>
+  </data>
+  <data name="LABEL_REFERNCE_VALUE" xml:space="preserve">
+    <value>参考値</value>
+  </data>
+  <data name="LABEL_REGARD_NO_ANSWER" xml:space="preserve">
+    <value>無回答を0として扱う</value>
+  </data>
+  <data name="LABEL_REVISED_VALUE" xml:space="preserve">
+    <value>修正値</value>
+  </data>
+  <data name="LABEL_REVISE_DATA_DESC" xml:space="preserve">
+    <value>データに修正値を付け加えたり、代入したりすることができます。</value>
+  </data>
+  <data name="LABEL_REVISION_METHOD" xml:space="preserve">
+    <value>修正方法</value>
+  </data>
+  <data name="LABEL_SAMPLEID_LISTFILE" xml:space="preserve">
+    <value>サンプルIDリストファイル</value>
+  </data>
+  <data name="LABEL_SAMPLE_WEIGHTING" xml:space="preserve">
+    <value>ウエイトバック設定</value>
+  </data>
+  <data name="LABEL_SHOW_NO_ANSWER" xml:space="preserve">
+    <value>無回答の表示</value>
+  </data>
+  <data name="LABEL_SIGNIFICANCE_LEVEL" xml:space="preserve">
+    <value>有意水準</value>
+  </data>
+  <data name="LABEL_SIGNIFICANCE_LEVEL1" xml:space="preserve">
+    <value>1%</value>
+  </data>
+  <data name="LABEL_SIGNIFICANCE_LEVEL10" xml:space="preserve">
+    <value>10%</value>
+  </data>
+  <data name="LABEL_SIGNIFICANCE_LEVEL5" xml:space="preserve">
+    <value>5%</value>
+  </data>
+  <data name="LABEL_SIGNIFICANCE_TEST" xml:space="preserve">
+    <value>差の検定</value>
+  </data>
+  <data name="LABEL_SINGLE_LEFT_ARROW" xml:space="preserve">
+    <value>&lt;</value>
+  </data>
+  <data name="LABEL_SINGLE_RIGHT_ARROW" xml:space="preserve">
+    <value>&gt;</value>
+  </data>
+  <data name="LABEL_SOURCE_VARIABLE" xml:space="preserve">
+    <value>元アイテム</value>
+  </data>
+  <data name="LABEL_SOURCE_VARIABLE_MCONVERT" xml:space="preserve">
+    <value>入力基準アイテム</value>
+  </data>
+  <data name="LABEL_SPFY_SAMPLEID" xml:space="preserve">
+    <value>サンプルID指定</value>
+  </data>
+  <data name="LABEL_SPFY_SAMPLEID1" xml:space="preserve">
+    <value>追加ID指定</value>
+  </data>
+  <data name="LABEL_SPLIT_BY_256" xml:space="preserve">
+    <value>256列ごとに分割</value>
+  </data>
+  <data name="LABEL_STAR" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="LABEL_TABULATION_OPTION" xml:space="preserve">
+    <value>集計オプション</value>
+  </data>
+  <data name="LABEL_TOTAL_COLUMN" xml:space="preserve">
+    <value>集計対象全体</value>
+  </data>
+  <data name="LABEL_TOTAL_ROW" xml:space="preserve">
+    <value>軸全体</value>
+  </data>
+  <data name="LABEL_UNWEIGHT_BACKED_BASE" xml:space="preserve">
+    <value>マーキングはウエイトバック前ｎ数を参照</value>
+  </data>
+  <data name="LABEL_VALUE" xml:space="preserve">
+    <value>値</value>
+  </data>
+  <data name="LABEL_VARIABLES_TO_EXPORT" xml:space="preserve">
+    <value>出力項目（SAMPLEIDは必須）</value>
+  </data>
+  <data name="LABEL_VARIABLE_TO_REVISE" xml:space="preserve">
+    <value>修正
+アイテム</value>
+  </data>
+  <data name="LABEL_VERICAL_LAYOUT" xml:space="preserve">
+    <value>縦型レイアウト出力</value>
+  </data>
+  <data name="LABEL_VERSION_DATE" xml:space="preserve">
+    <value>有効期限</value>
+  </data>
+  <data name="LABEL_VERSION_TYPE" xml:space="preserve">
+    <value>Pro版</value>
+  </data>
+  <data name="LABEL_WB_N" xml:space="preserve">
+    <value>N</value>
+  </data>
+  <data name="LABEL_WB_PER" xml:space="preserve">
+    <value>%</value>
+  </data>
+  <data name="LABEL_WEIGHTING_VARIABLE" xml:space="preserve">
+    <value>ウェイトバック値
+算出アイテム</value>
+  </data>
+  <data name="LABEL_ZERO" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="LABLE_CREATED_PROCESS_INSTRUCTION" xml:space="preserve">
+    <value>作成したデータ加工は↓データ加工一覧に表示されます。</value>
+  </data>
+  <data name="LBL_ADD_DESCRIPTION" xml:space="preserve">
+    <value>同一のカテゴリを持つ元アイテム（SA・MA）を積み上げ、MAアイテムをつくります。</value>
+  </data>
+  <data name="LBL_ADD_MINUS_DESCRIPTION" xml:space="preserve">
+    <value>データに修正値を付け加えたり、代入したりすることができます。</value>
+  </data>
+  <data name="LBL_ANSWER_TYPE" xml:space="preserve">
+    <value>回答タイプ</value>
+  </data>
+  <data name="LBL_AUTO" xml:space="preserve">
+    <value>（自動）</value>
+  </data>
+  <data name="LBL_BOTTOM" xml:space="preserve">
+    <value>Bottom</value>
+  </data>
+  <data name="LBL_CATEGORY_COUNT" xml:space="preserve">
+    <value>カテゴリ数</value>
+  </data>
+  <data name="LBL_CHOICES_TO_BE_SUMMARIZED" xml:space="preserve">
+    <value>まとめ上げ項目</value>
+  </data>
+  <data name="LBL_CHOICE_LABEL_PIECES" xml:space="preserve">
+    <value>個</value>
+  </data>
+  <data name="LBL_CHOICE_NUMBER" xml:space="preserve">
+    <value>選択肢番号</value>
+  </data>
+  <data name="LBL_CHOICE_WORDING" xml:space="preserve">
+    <value>選択肢文言</value>
+  </data>
+  <data name="LBL_CLASS_DESCRIPTION" xml:space="preserve">
+    <value>数値データをカテゴリ化します。</value>
+  </data>
+  <data name="LBL_CLASS_OR_UNDER" xml:space="preserve">
+    <value>以下</value>
+  </data>
+  <data name="LBL_CLASS_TEENS" xml:space="preserve">
+    <value>代</value>
+  </data>
+  <data name="LBL_COLUMN" xml:space="preserve">
+    <value>カラム</value>
+  </data>
+  <data name="LBL_COLUMN_NUMBER" xml:space="preserve">
+    <value>列番号</value>
+  </data>
+  <data name="LBL_COLUMN_SELECTION_SPECIFY" xml:space="preserve">
+    <value>取り込むデータを指定します。Excelは1シート目のみ取込対象として読み込まれます。</value>
+  </data>
+  <data name="LBL_COMBINE_SIDEWAYS" xml:space="preserve">
+    <value>2つのqcファイル同士を横方向にマッチングし、1つのqcファイルを作成します。閉じているファイルのみ指定できます。</value>
+  </data>
+  <data name="LBL_COMBINE_VERTICAL" xml:space="preserve">
+    <value>2つのqcファイル同士を縦方向にマージし、1つのqcファイルを作成します。閉じているファイルのみ指定できます。</value>
+  </data>
+  <data name="LBL_COMMA" xml:space="preserve">
+    <value>カンマ</value>
+  </data>
+  <data name="LBL_COMMAND_ADD_DESC" xml:space="preserve">
+    <value>同一のカテゴリーを持つ元アイテム(SA・MA)を積み上げ、
+加工アイテム(MA)を作成します。</value>
+  </data>
+  <data name="LBL_COMMAND_ADD_PROCESS" xml:space="preserve">
+    <value>MAかSAの積み上げをMAにします。</value>
+    <comment>MAかSAの積み上げをMAにします。</comment>
+  </data>
+  <data name="LBL_COMMAND_AVG_DESC" xml:space="preserve">
+    <value>回答タイプN(数値回答)またはSAの元アイテム(数値)の平均値を求め、加工アイテムを作成します。</value>
+  </data>
+  <data name="LBL_COMMAND_AVG_METHOD" xml:space="preserve">
+    <value>数値アイテムの平均値を求めます。</value>
+  </data>
+  <data name="LBL_COMMAND_COUNT_DESC" xml:space="preserve">
+    <value>回答タイプMAの元アイテムの回答個数を調べ、その個数をN(数量)またはSAの加工アイテムを作成します。</value>
+  </data>
+  <data name="LBL_COMMAND_MAX_DESC" xml:space="preserve">
+    <value>回答タイプN(数値回答)またはSAの元アイテム(数値)の最大値を求め、加工アイテムを作成します。</value>
+  </data>
+  <data name="LBL_COMMAND_MAX_METHOD" xml:space="preserve">
+    <value>数値アイテムの最大値を求めます。</value>
+  </data>
+  <data name="LBL_COMMAND_MIN_DESC" xml:space="preserve">
+    <value>回答タイプN(数値回答)またはSAの元アイテム(数値)の最小値を求め、加工アイテムを作成します。</value>
+  </data>
+  <data name="LBL_COMMAND_MIN_METHOD" xml:space="preserve">
+    <value>数値アイテムの最小値を求めます。</value>
+  </data>
+  <data name="LBL_COMMAND_MTOS" xml:space="preserve">
+    <value>回答タイプMAの元アイテムから、回答タイプSAの加工アイテムを作成します。</value>
+  </data>
+  <data name="LBL_COMMAND_SUM_DESC" xml:space="preserve">
+    <value>回答タイプN(数値回答)またはSAの元アイテム(数値)の合計値を求め、加工アイテムを作成します。</value>
+  </data>
+  <data name="LBL_COMMAND_SUM_METHOD" xml:space="preserve">
+    <value>数値アイテムの合計を求めます。</value>
+  </data>
+  <data name="LBL_COMPUTE_DESCRIPTION" xml:space="preserve">
+    <value>四則演算をします。</value>
+  </data>
+  <data name="LBL_COUNT_DESCRIPTION" xml:space="preserve">
+    <value>MAの回答個数を計算します。</value>
+  </data>
+  <data name="LBL_CREATE_NEW_VARIABLE" xml:space="preserve">
+    <value>新アイテム作成</value>
+  </data>
+  <data name="LBL_CREATE_QC4" xml:space="preserve">
+    <value>QlayoutファイルとQrawdataファイルからqc4ファイルを作成します。</value>
+  </data>
+  <data name="LBL_CRITERIA" xml:space="preserve">
+    <value>条件</value>
+  </data>
+  <data name="LBL_DATA_IMPORT_TITILE" xml:space="preserve">
+    <value>外部データ追加</value>
+  </data>
+  <data name="LBL_DATA_MERGE_TITLE" xml:space="preserve">
+    <value>データ結合</value>
+  </data>
+  <data name="LBL_DATA_PROCESSING_LIST_EMPTY_MESSAGE" xml:space="preserve">
+    <value>作成済みの加工はありません。</value>
+  </data>
+  <data name="LBL_DELETE_CASES" xml:space="preserve">
+    <value>サンプル削除</value>
+  </data>
+  <data name="LBL_DELETE_CASES_DESCRIPTION" xml:space="preserve">
+    <value>条件に合致するデータのサンプル削除を行います。</value>
+  </data>
+  <data name="LBL_DELIMITTER_SPECIFY" xml:space="preserve">
+    <value>データの文字コード、区切り文字等を指定します。1行目はタイトル行として認識されます。</value>
+  </data>
+  <data name="LBL_DO_CSV_FORMAT" xml:space="preserve">
+    <value>CSV形式</value>
+  </data>
+  <data name="LBL_DO_EXCEL_2007_FORMAT" xml:space="preserve">
+    <value>Excelブック（.xlsx）形式</value>
+  </data>
+  <data name="LBL_DO_TAB_FORMAT" xml:space="preserve">
+    <value>タブ区切り形式</value>
+  </data>
+  <data name="LBL_END" xml:space="preserve">
+    <value>末尾</value>
+  </data>
+  <data name="LBL_EXCLUDE" xml:space="preserve">
+    <value>非該当処理</value>
+  </data>
+  <data name="LBL_EXTERNAL_DATA" xml:space="preserve">
+    <value>qcファイル以外の形式のファイルをqc4ファイルに追加します。横方向にマッチングすることができます。</value>
+  </data>
+  <data name="LBL_FILE1" xml:space="preserve">
+    <value>ファイル1</value>
+  </data>
+  <data name="LBL_FILE1_KEY1" xml:space="preserve">
+    <value>キー1</value>
+  </data>
+  <data name="LBL_FILE1_KEY2" xml:space="preserve">
+    <value>キー2</value>
+  </data>
+  <data name="LBL_FILE2" xml:space="preserve">
+    <value>ファイル2</value>
+  </data>
+  <data name="LBL_FILE2_KEY1" xml:space="preserve">
+    <value>キー1</value>
+  </data>
+  <data name="LBL_FILE2_KEY2" xml:space="preserve">
+    <value>キー2</value>
+  </data>
+  <data name="LBL_FILE2_PREVIEW" xml:space="preserve">
+    <value>ファイル2のプレビュー （先頭100件まで）</value>
+  </data>
+  <data name="LBL_FILE_NAME" xml:space="preserve">
+    <value>ファイル名</value>
+  </data>
+  <data name="LBL_FILE_NAME2" xml:space="preserve">
+    <value>ファイル名</value>
+  </data>
+  <data name="LBL_FROM" xml:space="preserve">
+    <value>から</value>
+  </data>
+  <data name="LBL_GROUP_ANSWER_TYPE" xml:space="preserve">
+    <value>回答タイプ</value>
+  </data>
+  <data name="LBL_GROUP_COMMAND" xml:space="preserve">
+    <value>加工文</value>
+  </data>
+  <data name="LBL_GROUP_DESC" xml:space="preserve">
+    <value>回答タイプN(数値回答)またはSAの元アイテム(数値)の最大値を求め、加工アイテムを作成します。</value>
+  </data>
+  <data name="LBL_GROUP_DESCRIPTION" xml:space="preserve">
+    <value>数値アイテムの最大値、最小値、平均値、合計を求めます。</value>
+  </data>
+  <data name="LBL_GROUP_N0_OF_CHOICES" xml:space="preserve">
+    <value>選択肢数</value>
+  </data>
+  <data name="LBL_GROUP_NEW_VARIABLE" xml:space="preserve">
+    <value>新アイテム</value>
+  </data>
+  <data name="LBL_GROUP_PROCESSING_METHOD" xml:space="preserve">
+    <value>処理方法</value>
+  </data>
+  <data name="LBL_GROUP_QUESTION" xml:space="preserve">
+    <value>質問文</value>
+  </data>
+  <data name="LBL_GROUP_SOURCE_VARIABLE" xml:space="preserve">
+    <value>元アイテム</value>
+  </data>
+  <data name="LBL_IMPORTED_INFORMATION_SPECIFY" xml:space="preserve">
+    <value>取り込むデータの情報を設定します。フラグ形式のMAを設定する場合は、先頭の列で設定します。</value>
+  </data>
+  <data name="LBL_INCLUDE_SOURCE_CHOICES" xml:space="preserve">
+    <value>元の選択肢を含める。</value>
+  </data>
+  <data name="LBL_INPUT_UNITS" xml:space="preserve">
+    <value>単位一括入力</value>
+  </data>
+  <data name="LBL_INPUT_UNITS_SUPPORT" xml:space="preserve">
+    <value>例：歳、円、品目など</value>
+  </data>
+  <data name="LBL_INTEGRATE_CHOICE_CRITERIA_HEADING" xml:space="preserve">
+    <value>選択肢条件</value>
+  </data>
+  <data name="LBL_INTEGRATE_DESCRIPTION" xml:space="preserve">
+    <value>複数の質問を組み合わせて新しいアイテムを作ります。</value>
+  </data>
+  <data name="LBL_INTEGRATE_ENTRY_VARIABLE_HEADING" xml:space="preserve">
+    <value>入力アイテム</value>
+  </data>
+  <data name="LBL_INTEGRATE_SUPPORT_FORM_CRITERIA_VALUE" xml:space="preserve">
+    <value>条件値</value>
+    <comment>値</comment>
+  </data>
+  <data name="LBL_ISNOTPROCESSED_DESCRIPTION" xml:space="preserve">
+    <value>数値は該当件数を表します。</value>
+  </data>
+  <data name="LBL_ISPROCESSED_DESCRIPTION" xml:space="preserve">
+    <value>数値は該当件数を表します。データ加工実行済みの場合、上段には加工後、下段には加工前の件数が表示されます。</value>
+  </data>
+  <data name="LBL_ITEM_NAME" xml:space="preserve">
+    <value>アイテム名</value>
+  </data>
+  <data name="LBL_JOINT_DESCRIPTION" xml:space="preserve">
+    <value>複数のアイテムを結合します。</value>
+  </data>
+  <data name="LBL_LABEL" xml:space="preserve">
+    <value>ラベル</value>
+  </data>
+  <data name="LBL_MA_FORMAT" xml:space="preserve">
+    <value>MAの形式</value>
+  </data>
+  <data name="LBL_MCONVERT_DESCRIPTION" xml:space="preserve">
+    <value>複数の同一選択肢を持つSA/MAアイテムをMAにします。</value>
+  </data>
+  <data name="LBL_MTOS_BOTTOM_FIRST" xml:space="preserve">
+    <value>後優先</value>
+  </data>
+  <data name="LBL_MTOS_DESCRIPTION" xml:space="preserve">
+    <value>MAからSAへ変換します。</value>
+  </data>
+  <data name="LBL_MTOS_TOP_FIRST" xml:space="preserve">
+    <value>前優先</value>
+  </data>
+  <data name="LBL_NEW_ITEM_SELECTION" xml:space="preserve">
+    <value>新アイテム選択</value>
+  </data>
+  <data name="LBL_NOT_APPLICABLE_CHAR" xml:space="preserve">
+    <value>非該当文字</value>
+  </data>
+  <data name="LBL_NOT_EQUAL" xml:space="preserve">
+    <value>&lt;&gt;</value>
+  </data>
+  <data name="LBL_NO_OF_CHOICES" xml:space="preserve">
+    <value>選択肢数</value>
+  </data>
+  <data name="LBL_NUMBER_OF_ANSWERS" xml:space="preserve">
+    <value>（回答個数）</value>
+  </data>
+  <data name="LBL_OMIT_DESCRIPTION" xml:space="preserve">
+    <value>対象アイテムに非該当の処理を行います。</value>
+  </data>
+  <data name="LBL_ONE_BY_ONE" xml:space="preserve">
+    <value>{0}個ずつ</value>
+  </data>
+  <data name="LBL_OPERATOR" xml:space="preserve">
+    <value>演算子</value>
+  </data>
+  <data name="LBL_OTHER" xml:space="preserve">
+    <value>その他</value>
+  </data>
+  <data name="LBL_OUTPUT_LIST" xml:space="preserve">
+    <value>リスト出力</value>
+  </data>
+  <data name="LBL_OUTPUT_LIST_DESCRIPTION" xml:space="preserve">
+    <value>対象データをリスト出力します。</value>
+  </data>
+  <data name="LBL_POSITION" xml:space="preserve">
+    <value>位置</value>
+  </data>
+  <data name="LBL_QUESTION_A" xml:space="preserve">
+    <value>質問文A</value>
+  </data>
+  <data name="LBL_QUESTION_B" xml:space="preserve">
+    <value>質問文B</value>
+  </data>
+  <data name="LBL_QUESTION_CHOICE" xml:space="preserve">
+    <value>質問文／選択肢</value>
+  </data>
+  <data name="LBL_QUESTION_COUNT" xml:space="preserve">
+    <value>質問数</value>
+  </data>
+  <data name="LBL_QUESTION_NUMBER" xml:space="preserve">
+    <value>質問番号</value>
+  </data>
+  <data name="LBL_QUESTION_SENTENCE" xml:space="preserve">
+    <value>質問文</value>
+  </data>
+  <data name="LBL_QUESTION_SETTING" xml:space="preserve">
+    <value>設問設定</value>
+  </data>
+  <data name="LBL_QUESTION_TYPE" xml:space="preserve">
+    <value>質問タイプ</value>
+  </data>
+  <data name="LBL_RECODE_DESCRIPTION" xml:space="preserve">
+    <value>SA/MA回答の選択肢をまとめあげます。</value>
+  </data>
+  <data name="LBL_REFERENCE_VALUE" xml:space="preserve">
+    <value>参考値</value>
+  </data>
+  <data name="LBL_REPEAT_ITEMS" xml:space="preserve">
+    <value>回繰り返し設定</value>
+  </data>
+  <data name="LBL_REPEAT_STRING" xml:space="preserve">
+    <value>\</value>
+  </data>
+  <data name="LBL_REVISE_DATA" xml:space="preserve">
+    <value>データ修正</value>
+  </data>
+  <data name="LBL_SAMPLE_WEIGHT_BACK_TITLE" xml:space="preserve">
+    <value>ウエイトバック設定</value>
+  </data>
+  <data name="LBL_SCORE" xml:space="preserve">
+    <value>ＷＴ</value>
+  </data>
+  <data name="LBL_SCREEN_MATCH" xml:space="preserve">
+    <value>SCRのQlayoutデータ、Qrawdataと本調査用qcデータをマッチングします。</value>
+  </data>
+  <data name="LBL_SELECT_ALL" xml:space="preserve">
+    <value>全選択</value>
+  </data>
+  <data name="LBL_SELECT_CHARCODE" xml:space="preserve">
+    <value>文字コード</value>
+  </data>
+  <data name="LBL_SELECT_DELIMITTER" xml:space="preserve">
+    <value>区切り文字</value>
+  </data>
+  <data name="LBL_SELECT_STRINGQUOTES" xml:space="preserve">
+    <value>文字列の引用符</value>
+  </data>
+  <data name="LBL_SEPERATOR_FOR_DISPLAY" xml:space="preserve">
+    <value>～</value>
+  </data>
+  <data name="LBL_SEPERATOR_SLASH" xml:space="preserve">
+    <value>/</value>
+  </data>
+  <data name="LBL_SHEET_NUMBER" xml:space="preserve">
+    <value>シート番号</value>
+  </data>
+  <data name="LBL_SORT" xml:space="preserve">
+    <value>並べ替え</value>
+  </data>
+  <data name="LBL_SORTING" xml:space="preserve">
+    <value>並べ替え</value>
+  </data>
+  <data name="LBL_SOURCE_MERGE" xml:space="preserve">
+    <value>積み上げるアイテム</value>
+  </data>
+  <data name="LBL_SPACE" xml:space="preserve">
+    <value>スペース</value>
+  </data>
+  <data name="LBL_START" xml:space="preserve">
+    <value>先頭</value>
+  </data>
+  <data name="LBL_SWAP_ERROR" xml:space="preserve">
+    <value>データが一致しないため差替できません。</value>
+  </data>
+  <data name="LBL_TAB" xml:space="preserve">
+    <value>タブ</value>
+  </data>
+  <data name="LBL_THOUSAND_SEPARATOR" xml:space="preserve">
+    <value>桁区切り</value>
+  </data>
+  <data name="LBL_TILDE" xml:space="preserve">
+    <value>～</value>
+  </data>
+  <data name="LBL_TITLE" xml:space="preserve">
+    <value>表題</value>
+  </data>
+  <data name="LBL_TOP" xml:space="preserve">
+    <value>Top</value>
+  </data>
+  <data name="LBL_VARIABLE" xml:space="preserve">
+    <value>アイテム名</value>
+  </data>
+  <data name="LBL_WT" xml:space="preserve">
+    <value>WT</value>
+  </data>
+  <data name="LDEL_MSG_ADDED" xml:space="preserve">
+    <value>追加しました。</value>
+  </data>
+  <data name="LDEL_SHEET_HEADING_FILE_NAME" xml:space="preserve">
+    <value>ファイル名</value>
+  </data>
+  <data name="LDEL_SHEET_HEADING_PARAMETER_NAME" xml:space="preserve">
+    <value>引数名</value>
+  </data>
+  <data name="LDEL_SHEET_HEADING_SUBJECT_DELETE" xml:space="preserve">
+    <value>削除対象</value>
+  </data>
+  <data name="LDEL_SHOW_SAMPLEID_COUNT" xml:space="preserve">
+    <value>該当対象サンプルID({0}件/{1}件中)</value>
+  </data>
+  <data name="LISTUP_TEXT" xml:space="preserve">
+    <value>リストアップアイテム</value>
+  </data>
+  <data name="LISTUP_TITLE_TEXT" xml:space="preserve">
+    <value>条件に合致するデータをリスト出力します。</value>
+  </data>
+  <data name="LOADING" xml:space="preserve">
+    <value>ロード中</value>
+  </data>
+  <data name="LOADING_FILE" xml:space="preserve">
+    <value>ファイルを読み込んでいます。</value>
+  </data>
+  <data name="MAINWINDOW_BUTTON_CROSS_TABLE" xml:space="preserve">
+    <value>  クロス表
+グラフ作成</value>
+    <comment>クロス表・グラフ作成</comment>
+  </data>
+  <data name="MAINWINDOW_BUTTON_DATABROWSE" xml:space="preserve">
+    <value>データ参照</value>
+  </data>
+  <data name="MAINWINDOW_BUTTON_DATAPROCESSING" xml:space="preserve">
+    <value>データ加工</value>
+  </data>
+  <data name="MAINWINDOW_BUTTON_FA_LIST" xml:space="preserve">
+    <value>     FA                   リスト作成</value>
+  </data>
+  <data name="MAINWINDOW_BUTTON_GT_TABLE" xml:space="preserve">
+    <value>GT表作成</value>
+  </data>
+  <data name="MAINWINDOW_BUTTON_MULTI_VARIOUS" xml:space="preserve">
+    <value>多変量解析</value>
+  </data>
+  <data name="MAINWINDOW_BUTTON_QS" xml:space="preserve">
+    <value>設問設定</value>
+  </data>
+  <data name="MAINWINDOW_GROUP_HEADER1" xml:space="preserve">
+    <value>設定・編集</value>
+  </data>
+  <data name="MAINWINDOW_GROUP_HEADER2" xml:space="preserve">
+    <value>集計</value>
+  </data>
+  <data name="MAINWINDOW_GROUP_HEADER3" xml:space="preserve">
+    <value>出力</value>
+  </data>
+  <data name="MAINWINDOW_GROUP_HEADER4" xml:space="preserve">
+    <value>解析</value>
+  </data>
+  <data name="MAIN_MSG_APP_RESET" xml:space="preserve">
+    <value>QuickCrossは前回正常に終了しませんでした。 アプリケーションをリセットしています…</value>
+  </data>
+  <data name="MAX" xml:space="preserve">
+    <value>最大値</value>
+  </data>
+  <data name="MCONVERT_CLOSE_SQUARE_BRACKET" xml:space="preserve">
+    <value>]</value>
+  </data>
+  <data name="MCONVERT_NEW_QUESTION_CHOICE_VALIDATION" xml:space="preserve">
+    <value>新アイテムに選択肢数の異なるアイテムは指定できません。</value>
+  </data>
+  <data name="MCONVERT_NEW_QUESTION_CHOICE_VALIDATION_WITH_ENTRY_VARIABLES" xml:space="preserve">
+    <value>元アイテムで設定した選択肢条件以上のカテゴリ数のアイテムを選択して下さい。</value>
+  </data>
+  <data name="MCONVERT_OPEN_SQUARE_BRACKET" xml:space="preserve">
+    <value>[</value>
+  </data>
+  <data name="MEAN" xml:space="preserve">
+    <value>平均値</value>
+  </data>
+  <data name="MIN" xml:space="preserve">
+    <value>最小値</value>
+  </data>
+  <data name="MSG_ALERT_COMBOBOXLIMIT" xml:space="preserve">
+    <value>選択肢数は、「(自動)」か「1～1000」を指定してください。</value>
+  </data>
+  <data name="MSG_FILE_CANNOT_PROCESS" xml:space="preserve">
+    <value>選択されたファイルを使用または処理することができません。</value>
+  </data>
+  <data name="MSG_OUTPUT_ABORTED" xml:space="preserve">
+    <value>出力を中止しました。</value>
+  </data>
+  <data name="MSG_PATH_TOO_LONG" xml:space="preserve">
+    <value>出力先パスは259文字以下としてください。</value>
+    <comment>出力先パスまたはファイル名が長すぎます。</comment>
+  </data>
+  <data name="MSO_LICENCE_FAILED" xml:space="preserve">
+    <value>MS Officeのライセンスが有効でないため、実行に失敗しました。</value>
+  </data>
+  <data name="MS_OFFICE_LICENCE_ERR" xml:space="preserve">
+    <value>ライセンス認証されていないMS Officeが原因で、実行に失敗しました。</value>
+  </data>
+  <data name="MTOS_ALERT_MSG_TEXTBOX" xml:space="preserve">
+    <value>アイテム名は、25文字以内にして下さい。</value>
+  </data>
+  <data name="MTOS_MA_TO_SA" xml:space="preserve">
+    <value>回答タイプMAの元アイテムから、回答タイプSAの加工アイテムを作成します。</value>
+  </data>
+  <data name="MULTIVARIATE_MAIN_HEADER" xml:space="preserve">
+    <value>分析</value>
+  </data>
+  <data name="MULTI_ANALYSIS_SETTINGS" xml:space="preserve">
+    <value>分析設定</value>
+  </data>
+  <data name="MULTI_CLUSTOR" xml:space="preserve">
+    <value>クラスター分析</value>
+  </data>
+  <data name="MULTI_CLUSTOR_ANALYSIS" xml:space="preserve">
+    <value>非階層型クラスター分析を用いて、サンプルをグループ分けします。</value>
+  </data>
+  <data name="MULTI_CLUSTOR_ANALYSIS_VARIABLE" xml:space="preserve">
+    <value>クラスター分析アイテム</value>
+  </data>
+  <data name="MULTI_CLUSTOR_EXCLUDE_CASES" xml:space="preserve">
+    <value>※欠陥値を含むサンプルを除く</value>
+  </data>
+  <data name="MULTI_CLUSTOR_HEADING" xml:space="preserve">
+    <value>クラスター分析</value>
+  </data>
+  <data name="MULTI_CLUSTOR_MSGBX_WITHIN_100" xml:space="preserve">
+    <value>100アイテム以内に設定してください。</value>
+  </data>
+  <data name="MULTI_CLUSTOR_NO_OF_CLUSTOR" xml:space="preserve">
+    <value>クラスター数</value>
+  </data>
+  <data name="MULTI_CORRESPONDANCE" xml:space="preserve">
+    <value>コレスポンデンス分析</value>
+  </data>
+  <data name="MULTI_CORRESPONDANT_MSGBX_3OR_MORE" xml:space="preserve">
+    <value>マトリクス分析アイテムは 3 つ以上設定してください。</value>
+  </data>
+  <data name="MULTI_CORRESPONDENCE_ANALYSIS" xml:space="preserve">
+    <value>複数の項目間の相関関係を分析し、マップで結果を表示します。</value>
+  </data>
+  <data name="MULTI_CORRES_ANALYSIS_BASED_ON" xml:space="preserve">
+    <value>分析対象</value>
+  </data>
+  <data name="MULTI_CORRES_ANALYSIS_WITH_FREQUENCY" xml:space="preserve">
+    <value>N値で分析</value>
+  </data>
+  <data name="MULTI_CORRES_ANALYSIS_WITH_PERCENTAGE" xml:space="preserve">
+    <value>％値で分析</value>
+  </data>
+  <data name="MULTI_CORRES_CHOICE_ONE_TO" xml:space="preserve">
+    <value>選択肢1から</value>
+  </data>
+  <data name="MULTI_CORRES_COLUMN_VARIABLE" xml:space="preserve">
+    <value>表頭アイテム</value>
+  </data>
+  <data name="MULTI_CORRES_CROSS_TABULATE" xml:space="preserve">
+    <value>クロス集計</value>
+  </data>
+  <data name="MULTI_CORRES_DIMENSION_NUMBER_TO_OUTPUT" xml:space="preserve">
+    <value>軸の指定</value>
+  </data>
+  <data name="MULTI_CORRES_GT_MATRIX" xml:space="preserve">
+    <value>GTマトリクス</value>
+  </data>
+  <data name="MULTI_CORRES_HEADER" xml:space="preserve">
+    <value>コレスポンデンス分析</value>
+  </data>
+  <data name="MULTI_CORRES_HORIZONTAL" xml:space="preserve">
+    <value>横の軸</value>
+  </data>
+  <data name="MULTI_CORRES_MATRIX_VARIABLE" xml:space="preserve">
+    <value>マトリクスアイテム</value>
+  </data>
+  <data name="MULTI_CORRES_NO_OF_DIMENSIONS" xml:space="preserve">
+    <value>分析軸数（2～5）</value>
+  </data>
+  <data name="MULTI_CORRES_ROW_VARIABLE_SIDE" xml:space="preserve">
+    <value>表側アイテム</value>
+  </data>
+  <data name="MULTI_CORRES_UPTO" xml:space="preserve">
+    <value>まで</value>
+  </data>
+  <data name="MULTI_CORRES_USE_REVERSED_DATA_SCORE" xml:space="preserve">
+    <value>反転する</value>
+  </data>
+  <data name="MULTI_CORRES_VERTICAL" xml:space="preserve">
+    <value>縦の軸</value>
+  </data>
+  <data name="MULTI_CSPORTFOLIO_ANALYSIS" xml:space="preserve">
+    <value>カテゴリーの総合満足度に相関が高い項目を把握することができます。</value>
+  </data>
+  <data name="MULTI_CS_HEADING" xml:space="preserve">
+    <value>CSポートフォリオ分析</value>
+  </data>
+  <data name="MULTI_CS_HORIZONTAL_AXIS" xml:space="preserve">
+    <value>横軸</value>
+  </data>
+  <data name="MULTI_CS_INDIVIDUAL_EVALUATION_VARIABLE" xml:space="preserve">
+    <value>個別評価アイテム</value>
+  </data>
+  <data name="MULTI_CS_MSGBX_INDIVIDUAL_EVALUATION" xml:space="preserve">
+    <value>個別評価アイテム{0}のカテゴリ数が他のカテゴリ数と違います。</value>
+  </data>
+  <data name="MULTI_CS_MSGBX_NUMB_OVERALL_EVALUATION_DONOT_MATCH" xml:space="preserve">
+    <value>総合評価アイテムと、個別評価アイテムのカテゴリ数が違います。</value>
+  </data>
+  <data name="MULTI_CS_MSGBX_ONLY_ONE_VARIABLE_CAN_BE_SELECTED" xml:space="preserve">
+    <value>選択できるアイテムは1つだけです。</value>
+  </data>
+  <data name="MULTI_CS_OVERALL_EVALUATION_VARIABLE" xml:space="preserve">
+    <value>総合評価アイテム</value>
+  </data>
+  <data name="MULTI_CS_PORTFOLIO" xml:space="preserve">
+    <value>CSポートフォリオ分析</value>
+  </data>
+  <data name="MULTI_CS_TOP_SATISFACTION" xml:space="preserve">
+    <value>TOP満足アイテムまとめ</value>
+  </data>
+  <data name="MULTI_CS_VERTICAL_AXIS" xml:space="preserve">
+    <value>縦軸</value>
+  </data>
+  <data name="MULTI_FACTOR_ANALYSIS" xml:space="preserve">
+    <value>複数の変数の背後にある、潜在的な共通因子（要素）を分析します。</value>
+  </data>
+  <data name="MULTI_FACTOR_ANALYSIS_FOR_ANSWER_HEADING" xml:space="preserve">
+    <value>※回答タイプSA（単一回答）とN（数値回答）のみの分析となります。</value>
+  </data>
+  <data name="MULTI_FACTOR_ASSIGN_SCORES_REVERSE_ORDER" xml:space="preserve">
+    <value>スケール設問逆値で分析する</value>
+  </data>
+  <data name="MULTI_FACTOR_EXTRACTION" xml:space="preserve">
+    <value>抽出方法</value>
+  </data>
+  <data name="MULTI_FACTOR_FACTOR_TO_EXTRACTED" xml:space="preserve">
+    <value>抽出する因子数</value>
+  </data>
+  <data name="MULTI_FACTOR_HEADING" xml:space="preserve">
+    <value>因子分析</value>
+  </data>
+  <data name="MULTI_FACTOR_MAXIMUM_LIKEHOOD" xml:space="preserve">
+    <value>最尤法</value>
+  </data>
+  <data name="MULTI_FACTOR_MSGBX_SET_3OR_MORE" xml:space="preserve">
+    <value>因子分析アイテムは3つ以上設定してください。</value>
+  </data>
+  <data name="MULTI_FACTOR_NONE" xml:space="preserve">
+    <value>回転なし</value>
+  </data>
+  <data name="MULTI_FACTOR_OBLIQUE_ROTATION" xml:space="preserve">
+    <value>斜交回転</value>
+  </data>
+  <data name="MULTI_FACTOR_ORTHOGONAL_ROTATION" xml:space="preserve">
+    <value>直交回転</value>
+  </data>
+  <data name="MULTI_FACTOR_PRINCIPLE_COMPONENTS" xml:space="preserve">
+    <value>主因子法</value>
+  </data>
+  <data name="MULTI_FACTOR_PROMAX" xml:space="preserve">
+    <value>プロマックス</value>
+  </data>
+  <data name="MULTI_FACTOR_ROTATION" xml:space="preserve">
+    <value>因子の回転を行う</value>
+  </data>
+  <data name="MULTI_FACTOR_ROTATION_HEADER" xml:space="preserve">
+    <value>回転方法</value>
+  </data>
+  <data name="MULTI_FACTOR_ROTATION_METHOD" xml:space="preserve">
+    <value>回転の方法</value>
+  </data>
+  <data name="MULTI_FACTOR_SAVE_RESULT" xml:space="preserve">
+    <value>結果を保存する</value>
+  </data>
+  <data name="MULTI_FACTOR_VARIABLE_FOR_USE" xml:space="preserve">
+    <value>因子分析アイテム  </value>
+  </data>
+  <data name="MULTI_FACTOR_VARIMAX" xml:space="preserve">
+    <value>バリマックス</value>
+  </data>
+  <data name="MULTI_FACTOR_WITH_EIGN" xml:space="preserve">
+    <value>固有値1以上</value>
+  </data>
+  <data name="MULTI_MAIN_ANALYSIS_NAME" xml:space="preserve">
+    <value>分析名</value>
+  </data>
+  <data name="MULTI_MAIN_EXECUTED_ANALYSIS_RESULT" xml:space="preserve">
+    <value>実行した分析はありません。</value>
+  </data>
+  <data name="MULTI_MAIN_MSGBX_EXECUTE_DATAPROCESSING" xml:space="preserve">
+    <value>データ加工を実行するか、設問設定で新アイテムを削除してください。</value>
+  </data>
+  <data name="MULTI_MAIN_MSGBX_NOTEXECUTED_SOMEDATA" xml:space="preserve">
+    <value>"加工されていない新アイテムがあります。
+このまま実行しますか？"</value>
+  </data>
+  <data name="MULTI_MAIN_NEW_VARIABLE" xml:space="preserve">
+    <value>新アイテム数</value>
+  </data>
+  <data name="MULTI_MAIN_RESET" xml:space="preserve">
+    <value>初期化</value>
+  </data>
+  <data name="MULTI_MAIN_SETTING" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="MULTI_PSM" xml:space="preserve">
+    <value>PSM分析</value>
+  </data>
+  <data name="MULTI_PSM_ANALYSIS" xml:space="preserve">
+    <value>受容帯価格を抽出します。</value>
+  </data>
+  <data name="MULTI_PSM_CHEAP" xml:space="preserve">
+    <value>【安い】アイテム</value>
+  </data>
+  <data name="MULTI_PSM_EXPENSIVE" xml:space="preserve">
+    <value>【高い】アイテム</value>
+  </data>
+  <data name="MULTI_PSM_GRAPH_DISPLAY_RANGE" xml:space="preserve">
+    <value>グラフ表示範囲に設定されていない箇所があります。</value>
+  </data>
+  <data name="MULTI_PSM_GRAPH_DISPLAY_RANGE_TOO_LIMITED" xml:space="preserve">
+    <value>グラフ表示範囲は 4 以上の数値の差が出るよう設定してください。</value>
+  </data>
+  <data name="MULTI_PSM_HEADING" xml:space="preserve">
+    <value>PSM分析</value>
+  </data>
+  <data name="MULTI_PSM_INVERT_FOR_OUTPUT" xml:space="preserve">
+    <value>【高い】と【安い】を反転して出力</value>
+  </data>
+  <data name="MULTI_PSM_MAX" xml:space="preserve">
+    <value>最大値</value>
+  </data>
+  <data name="MULTI_PSM_MEAN" xml:space="preserve">
+    <value>平均値</value>
+  </data>
+  <data name="MULTI_PSM_MEAN_PLUS_DEVIATION" xml:space="preserve">
+    <value>平均＋2σ</value>
+  </data>
+  <data name="MULTI_PSM_MEDIAN" xml:space="preserve">
+    <value>中央値</value>
+  </data>
+  <data name="MULTI_PSM_MIN" xml:space="preserve">
+    <value>最小値</value>
+  </data>
+  <data name="MULTI_PSM_MODE" xml:space="preserve">
+    <value>最頻値</value>
+  </data>
+  <data name="MULTI_PSM_MSGBX_CHANGING_AN_ANSWERTYPE" xml:space="preserve">
+    <value>回答タイプを変更すると設定されているアイテムが初期化されますが、よろしいですか？</value>
+  </data>
+  <data name="MULTI_PSM_MSGBX_RESTRICTIONS_WILL_NOT_APPLIED" xml:space="preserve">
+    <value>未入力の価格には有効値の制限を設けませんがよろしいですか？</value>
+  </data>
+  <data name="MULTI_PSM_MSGBX_SCALE_INTERVAL_TOO_LARGE" xml:space="preserve">
+    <value>目盛間隔が大きすぎます。</value>
+  </data>
+  <data name="MULTI_PSM_MSGBX_SCALE_INTERVAL_TOO_SMALL" xml:space="preserve">
+    <value>目盛間隔が小さすぎます。</value>
+  </data>
+  <data name="MULTI_PSM_MSGBX_SET_NUMERIC_VALUE_EQUAL_TO" xml:space="preserve">
+    <value>目盛間隔には1以上の数値を設定してください。</value>
+  </data>
+  <data name="MULTI_PSM_MSGBX_SET_NUMERIC_VALUE_GREATER_ZERO" xml:space="preserve">
+    <value>有効値には0以上の数値を設定してください。</value>
+  </data>
+  <data name="MULTI_PSM_MSGBX_SET_NUMERIC_VALUE_INGRAPH_DISPLAY" xml:space="preserve">
+    <value>グラフ表示範囲には数値を設定してください。</value>
+  </data>
+  <data name="MULTI_PSM_MSGBX_UPDATE_GRAPH_DISPLAY_RANGE" xml:space="preserve">
+    <value>グラフ表示範囲と目盛間隔を更新します。</value>
+  </data>
+  <data name="MULTI_PSM_REFERENCE_VALUE" xml:space="preserve">
+    <value>基準値</value>
+  </data>
+  <data name="MULTI_PSM_SCALE_DECIMAL" xml:space="preserve">
+    <value>グラフ表示範囲には小数点は設定できません。</value>
+  </data>
+  <data name="MULTI_PSM_SCALE_INTERVAL" xml:space="preserve">
+    <value>目盛間隔</value>
+  </data>
+  <data name="MULTI_PSM_SCALE_LESS_ZERO" xml:space="preserve">
+    <value>目盛間隔には1以上の数値を設定してください。</value>
+  </data>
+  <data name="MULTI_PSM_SET_VALID_VALUES" xml:space="preserve">
+    <value>有効値を設定する</value>
+  </data>
+  <data name="MULTI_PSM_STANDARD_DEVIATION" xml:space="preserve">
+    <value>標準偏差</value>
+  </data>
+  <data name="MULTI_PSM_TOO_CHEAP" xml:space="preserve">
+    <value>【安すぎる】アイテム</value>
+  </data>
+  <data name="MULTI_PSM_TOO_EXPENSIVE" xml:space="preserve">
+    <value>【高すぎる】アイテム</value>
+  </data>
+  <data name="MULTI_PSM_UPDATE_PRICE_RANGE" xml:space="preserve">
+    <value>グラフ表示範囲と目盛間隔、有効値の設定を更新します。</value>
+  </data>
+  <data name="MULTI_PSM_UPDATE_VALID_VALUE_SETTING" xml:space="preserve">
+    <value>有効値の設定を更新します。</value>
+  </data>
+  <data name="MULTI_PSM_VALIDVALUE_DECIMAL" xml:space="preserve">
+    <value>有効値には小数点は設定できません。</value>
+  </data>
+  <data name="MULTI_PSM_VALID_VALUE_SETTING" xml:space="preserve">
+    <value>有効値設定</value>
+  </data>
+  <data name="MULTI_VARIATE_ANALYSIS_PROCESS" xml:space="preserve">
+    <value>分析処理</value>
+  </data>
+  <data name="MULTI_VARIATE_PROCESS_TYPE" xml:space="preserve">
+    <value>分析を行うには、各分析用に設計された調査データ（質問と選択肢）が必要です。</value>
+  </data>
+  <data name="MULT_FACTOR" xml:space="preserve">
+    <value>因子分析</value>
+  </data>
+  <data name="MW_ALERT_ALREADY_OPENED" xml:space="preserve">
+    <value>同じ名前のファイルが既に開いています。</value>
+  </data>
+  <data name="NO_VALID_SETTINGS_FOUND" xml:space="preserve">
+    <value>有効な設定がありません。</value>
+  </data>
+  <data name="OUTPUT_SHEET_IS_NOT_SET" xml:space="preserve">
+    <value>出力シートが設定されていません。</value>
+  </data>
+  <data name="PB_CHECKCROSS_CALC" xml:space="preserve">
+    <value>チェッククロス計算中</value>
+  </data>
+  <data name="PB_CHECK_LIST_INIT" xml:space="preserve">
+    <value>チェックリストの設定を初期化しています。</value>
+  </data>
+  <data name="PB_CHECK_LIST_PROCESSING_QSTNS" xml:space="preserve">
+    <value>処理中： 質問 {0} / {1}</value>
+  </data>
+  <data name="PB_CHECK_LIST_TABLE" xml:space="preserve">
+    <value>チェックリストの生成 : テーブル {0} / {1}</value>
+  </data>
+  <data name="PB_CREATING_REPORT" xml:space="preserve">
+    <value>チェッククロス作成中</value>
+  </data>
+  <data name="PB_CROSS_CALC" xml:space="preserve">
+    <value>クロス集計の計算</value>
+  </data>
+  <data name="PB_CROSS_CALC_TABLE" xml:space="preserve">
+    <value>クロス集計の計算 : テーブル {0}/{1}</value>
+  </data>
+  <data name="PB_CROSS_TAB_COMPLETED" xml:space="preserve">
+    <value>クロス集計が完了しました。</value>
+  </data>
+  <data name="PB_EXCEL_GEN" xml:space="preserve">
+    <value>Excelの生成</value>
+  </data>
+  <data name="PB_EXCEL_GEN_TABLE" xml:space="preserve">
+    <value>Excelの生成 : テーブル {0}/{1}</value>
+  </data>
+  <data name="PB_GENERATING_REPORT" xml:space="preserve">
+    <value>ファイル作成中</value>
+  </data>
+  <data name="PB_GENERATING_TSV" xml:space="preserve">
+    <value>TSV作成中</value>
+  </data>
+  <data name="PB_GENE_CHECK_COMPLETE" xml:space="preserve">
+    <value>チェックリストの作成が完了しました。</value>
+  </data>
+  <data name="PB_GENE_CHECK_LIST" xml:space="preserve">
+    <value>チェックリスト生成</value>
+  </data>
+  <data name="PB_GT_COMPLETED" xml:space="preserve">
+    <value>GTの処理が完了しました。</value>
+  </data>
+  <data name="PB_GT_GENE_RPTS_TABLE" xml:space="preserve">
+    <value>ファイル作成中 : ファイル :  {0}| テーブル : {1}/{2}</value>
+  </data>
+  <data name="PB_GT_PROCESSING" xml:space="preserve">
+    <value>GTを処理しています。</value>
+  </data>
+  <data name="PB_GT_PROCESSING_INPUTS" xml:space="preserve">
+    <value>インプット処理中 : {0}/{1}</value>
+  </data>
+  <data name="PB_PROCESS_INPUTS" xml:space="preserve">
+    <value>インプット処理中</value>
+  </data>
+  <data name="PB_READING_SETTINGS" xml:space="preserve">
+    <value>設定読み込み中</value>
+  </data>
+  <data name="PB_SD_FAILED" xml:space="preserve">
+    <value>失敗しました。</value>
+  </data>
+  <data name="PB_SD_START" xml:space="preserve">
+    <value>データ差替を開始します。</value>
+  </data>
+  <data name="PB_SWITCH_COMPLETED" xml:space="preserve">
+    <value>Switching Completed.</value>
+  </data>
+  <data name="PB_SWITCH_LANGUAGE" xml:space="preserve">
+    <value>Switching language.</value>
+  </data>
+  <data name="ProcessingMethod_MCONVERT" xml:space="preserve">
+    <value>MCONVERT</value>
+  </data>
+  <data name="PROCESSING_TYPE_CODING" xml:space="preserve">
+    <value>Coding</value>
+  </data>
+  <data name="PROCESSING_TYPE_CREATE_NEW_VARIABLE" xml:space="preserve">
+    <value>新アイテム作成</value>
+  </data>
+  <data name="PROCESSING_TYPE_DELETE_CASES" xml:space="preserve">
+    <value>サンプル削除</value>
+  </data>
+  <data name="PROCESSING_TYPE_EXCLUDE" xml:space="preserve">
+    <value>非該当処理</value>
+  </data>
+  <data name="PROCESSING_TYPE_OUTPUT_LIST" xml:space="preserve">
+    <value>リスト出力</value>
+  </data>
+  <data name="PROCESSING_TYPE_REVISE_DATA" xml:space="preserve">
+    <value>データ修正</value>
+  </data>
+  <data name="PSM_CANNOT_CALC_STASTICS" xml:space="preserve">
+    <value>以下の統計量が計算できませんでした。
+</value>
+  </data>
+  <data name="PSM_CANNOT_CALC_STASTICS_KURT" xml:space="preserve">
+    <value>【 {0} 】アイテムの尖度　：　有効なデータが3件以下、または標準偏差が0のため計算できませんでした。</value>
+  </data>
+  <data name="PSM_CANNOT_CALC_STASTICS_MOD" xml:space="preserve">
+    <value>【 {0} 】アイテムの最頻値　：　全てのデータが異なるため計算できませんでした。</value>
+  </data>
+  <data name="PSM_CANNOT_CALC_STASTICS_SKEW" xml:space="preserve">
+    <value>【 {0} 】アイテムの歪度　：　有効なデータが2件以下、または標準偏差が0のため計算できませんでした。</value>
+  </data>
+  <data name="PSM_CANNOT_CALC_STASTICS_STD_DEV" xml:space="preserve">
+    <value>【 {0} 】アイテムの標準偏差　：　有効なデータが1件以下のため計算できませんでした。</value>
+  </data>
+  <data name="PSM_CANNOT_CALC_STASTICS_STD_ERR" xml:space="preserve">
+    <value>【 {0} 】アイテムの標準誤差　：　標準偏差が計算できないため計算できませんでした。</value>
+  </data>
+  <data name="PSM_CANNOT_CALC_STASTICS_VARNCE" xml:space="preserve">
+    <value>【 {0} 】アイテムの分散　：　標準偏差が計算できないため計算できませんでした。</value>
+  </data>
+  <data name="PSM_CHEAP" xml:space="preserve">
+    <value>安い</value>
+  </data>
+  <data name="PSM_EXPENSIVE" xml:space="preserve">
+    <value>高い</value>
+  </data>
+  <data name="PSM_FILTER_AND" xml:space="preserve">
+    <value>かつ、</value>
+  </data>
+  <data name="PSM_FILTER_CRITREA" xml:space="preserve">
+    <value>絞込み条件</value>
+  </data>
+  <data name="PSM_FILTER_G" xml:space="preserve">
+    <value>より大きい</value>
+  </data>
+  <data name="PSM_FILTER_GE" xml:space="preserve">
+    <value>以上</value>
+  </data>
+  <data name="PSM_FILTER_L" xml:space="preserve">
+    <value>より小さい</value>
+  </data>
+  <data name="PSM_FILTER_LE" xml:space="preserve">
+    <value>以下</value>
+  </data>
+  <data name="PSM_FILTER_LG" xml:space="preserve">
+    <value>を除く</value>
+  </data>
+  <data name="PSM_FILTER_NOT_APPLY" xml:space="preserve">
+    <value>非該当</value>
+  </data>
+  <data name="PSM_FILTER_NO_ANSWER" xml:space="preserve">
+    <value>無回答</value>
+  </data>
+  <data name="PSM_FILTER_OR" xml:space="preserve">
+    <value>または、</value>
+  </data>
+  <data name="PSM_FILTER_VAL" xml:space="preserve">
+    <value>の値が</value>
+  </data>
+  <data name="PSM_NOT_CHEAP" xml:space="preserve">
+    <value>安くない</value>
+  </data>
+  <data name="PSM_NOT_HIGH" xml:space="preserve">
+    <value>高くない</value>
+  </data>
+  <data name="PSM_NO_DATA" xml:space="preserve">
+    <value>データがゼロ件のため実行できません。</value>
+  </data>
+  <data name="PSM_NO_INTERSECTION" xml:space="preserve">
+    <value>分析範囲内で価格を求めることができませんでした。</value>
+  </data>
+  <data name="PSM_PB_CALC_PSM" xml:space="preserve">
+    <value>計算中　-PSM解析中</value>
+  </data>
+  <data name="PSM_PB_CALC_STAT" xml:space="preserve">
+    <value>計算中　-基本統計量</value>
+  </data>
+  <data name="PSM_PB_RESLT_OUT" xml:space="preserve">
+    <value>結果出力中</value>
+  </data>
+  <data name="PSM_PB_VERIFY_DATA" xml:space="preserve">
+    <value>データチェック中</value>
+  </data>
+  <data name="PSM_RETRY_AFTER_NARROW_RANGE" xml:space="preserve">
+    <value>グラフの出力範囲を狭めて再度出力してください。</value>
+  </data>
+  <data name="PSM_TOO_CHEAP" xml:space="preserve">
+    <value>安すぎる</value>
+  </data>
+  <data name="PSM_TOO_EXPENSIEVE" xml:space="preserve">
+    <value>高すぎる</value>
+  </data>
+  <data name="PSM_VLD_CASE_IS_ZERO" xml:space="preserve">
+    <value>有効なデータがゼロ件のため分析できません。</value>
+  </data>
+  <data name="QC3PARSE_ALERT_CONTAIN_INVALID_VARIABLE" xml:space="preserve">
+    <value>先頭のアイテム名がSAMPLEIDではありません。</value>
+  </data>
+  <data name="QC3PARSE_ALERT_CONTAIN_INVALID_VARIABLE1" xml:space="preserve">
+    <value>このファイルには不正なアイテム名が含まれています。</value>
+  </data>
+  <data name="QC3PARSE_ALERT_CONTAIN_MULTI_SHEET" xml:space="preserve">
+    <value>このファイルには多変量シートが含まれており、読み込むことができません。{改行}Quick-CROSS3で多変量解析の「初期化」を行い、QuickCrossに再度読み込んでください。</value>
+  </data>
+  <data name="QC3PARSE_ALERT_NOT_CONTAIN_SAMPLEID" xml:space="preserve">
+    <value>先頭のアイテム名がSAMPLEIDではありません。</value>
+  </data>
+  <data name="QC3PARSE_ALERT_UNEXPECTED" xml:space="preserve">
+    <value>QC3からQC4へのデータ変換に失敗しました。ファイルが破損しているか、予期しないエラーが発生しました。</value>
+  </data>
+  <data name="QC3PARSE_PB_ALERT_NOT_CONVERTED_ITEM" xml:space="preserve">
+    <value>次の変数は変換されません。{0}</value>
+  </data>
+  <data name="QC3PARSE_PB_ALMOST_FINISH" xml:space="preserve">
+    <value>ファイルの生成が間もなく終わります。</value>
+  </data>
+  <data name="QC3PARSE_PB_CLOSE_SOURCE_FILE" xml:space="preserve">
+    <value>元ファイルを閉じています。</value>
+  </data>
+  <data name="QC3PARSE_PB_FAILED" xml:space="preserve">
+    <value>データ変換に失敗しました。</value>
+  </data>
+  <data name="QC3PARSE_PB_FINISH" xml:space="preserve">
+    <value>データ変換が完了し、ファイルを保存しました。</value>
+  </data>
+  <data name="QC3PARSE_PB_INIT_CR" xml:space="preserve">
+    <value>Crossシートを初期化しています。</value>
+  </data>
+  <data name="QC3PARSE_PB_INIT_GT" xml:space="preserve">
+    <value>GTシートを初期化しています。</value>
+  </data>
+  <data name="QC3PARSE_PB_INIT_LIST" xml:space="preserve">
+    <value>SummaryTシートを初期化しています。</value>
+  </data>
+  <data name="QC3PARSE_PB_INIT_SETTING" xml:space="preserve">
+    <value>Q Settingシートを初期化しています。</value>
+  </data>
+  <data name="QC3PARSE_PB_LOADING_QC3FILE" xml:space="preserve">
+    <value>qc3ファイルを読み込んでいます。</value>
+  </data>
+  <data name="QC3PARSE_PB_LOADING_QS_DATASHEET" xml:space="preserve">
+    <value>Excelから設問設定データを取得しています。</value>
+  </data>
+  <data name="QC3PARSE_PB_LOADING_TEMPLATE" xml:space="preserve">
+    <value>テンプレートを開いています。</value>
+  </data>
+  <data name="QC3PARSE_PB_PROCESS_DATA_UPDATION" xml:space="preserve">
+    <value>データを更新中</value>
+  </data>
+  <data name="QC3PARSE_PB_PROCESS_QS_UPDATION" xml:space="preserve">
+    <value>設問設定を更新中</value>
+  </data>
+  <data name="QC3PARSE_PB_QC3OPEN_FAILED" xml:space="preserve">
+    <value>ファイルを開くことができませんでした。</value>
+  </data>
+  <data name="QC3PARSE_PB_QC3_UNPROTECT" xml:space="preserve">
+    <value>Excelファイルの保護を解除しています。</value>
+  </data>
+  <data name="QC3PARSE_PB_UPDATE_SETTNIG" xml:space="preserve">
+    <value>設定を更新中</value>
+  </data>
+  <data name="QC4_INTEGRITYCHECK_FAIL" xml:space="preserve">
+    <value>整合性チェックに失敗しました。</value>
+  </data>
+  <data name="QCM_ALERT_FILEEXIST" xml:space="preserve">
+    <value>指定されたファイルは既に存在します。上書きしますか？</value>
+  </data>
+  <data name="QCM_ALERT_FILE_OPEN" xml:space="preserve">
+    <value>ファイルを閉じてください。</value>
+  </data>
+  <data name="QCM_BTN_CANCEL" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="QCM_BTN_START_CONVERSION" xml:space="preserve">
+    <value>変換開始</value>
+  </data>
+  <data name="QCM_CHOICE_MNDTRY_SAMA" xml:space="preserve">
+    <value>回答タイプSA、MAには選択肢がありません。</value>
+  </data>
+  <data name="QCM_CHOICE_NDFA_NOTACCPTD" xml:space="preserve">
+    <value>回答タイプN、D、FAに選択肢が設定されています。</value>
+  </data>
+  <data name="QCM_CHOICE_NMBROFCATGRY_NOTMATCH" xml:space="preserve">
+    <value>「選択肢」と「カテゴリ数」の数を一致させてください。</value>
+  </data>
+  <data name="QCM_DUPLICATE_ITEM_QLAYOUTDATA" xml:space="preserve">
+    <value>Qlayoutに重複したアイテム名があります。</value>
+  </data>
+  <data name="QCM_DUPLICATE_ITEM_QRAWDATA" xml:space="preserve">
+    <value>Qrawdataに重複したアイテム名があります。</value>
+  </data>
+  <data name="QCM_FILEEND_NOTSET_QLAYOUT" xml:space="preserve">
+    <value>QlayoutのFILEENDが設定されていません。</value>
+  </data>
+  <data name="QCM_FILEEND_NOTSET_QRAWDATA" xml:space="preserve">
+    <value>QrawdataのFILEENDが設定されていません。</value>
+  </data>
+  <data name="QCM_FILENAME_MISMATCH" xml:space="preserve">
+    <value>QlayoutとQrawdataのリサーチIDが不一致です。</value>
+  </data>
+  <data name="QCM_FILE_CORREPTED" xml:space="preserve">
+    <value>ファイルが壊れています。</value>
+  </data>
+  <data name="QCM_INPUT_FILE_NOTEXIST" xml:space="preserve">
+    <value>入力ファイルがありません。</value>
+  </data>
+  <data name="QCM_INVALID_ANSWERTYPE" xml:space="preserve">
+    <value>回答タイプに不正な値があります。</value>
+  </data>
+  <data name="QCM_INVALID_CHOICE" xml:space="preserve">
+    <value>選択肢に不正な値があります。</value>
+  </data>
+  <data name="QCM_INVALID_COLUMN" xml:space="preserve">
+    <value>カラムに不正な値があります。</value>
+  </data>
+  <data name="QCM_INVALID_NMBROFCATGRY" xml:space="preserve">
+    <value>カテゴリ数に不正な値があります。</value>
+  </data>
+  <data name="QCM_INVALID_NUMBROFQSTN" xml:space="preserve">
+    <value>質問数に不正な値があります。</value>
+  </data>
+  <data name="QCM_INVALID_PATH" xml:space="preserve">
+    <value>出力先のパスが不正です。</value>
+  </data>
+  <data name="QCM_INVALID_QRAWDATA" xml:space="preserve">
+    <value>Qrawdataファイルに不正なデータがあります。</value>
+  </data>
+  <data name="QCM_INVALID_QSTNTYPE" xml:space="preserve">
+    <value>質問タイプに不正な値があります。</value>
+  </data>
+  <data name="QCM_INVALID_QUESTION_NUMBER" xml:space="preserve">
+    <value>質問番号に不正な値があります。</value>
+  </data>
+  <data name="QCM_INVALID_SORT" xml:space="preserve">
+    <value>並替表示に不正な値があります。</value>
+  </data>
+  <data name="QCM_INVALID_SUBQSTNTYPE_SAPSARMACSAS" xml:space="preserve">
+    <value>【質問数】欄は空欄である必要があります。</value>
+  </data>
+  <data name="QCM_INVALID_SUBQSTN_ANSTYPE" xml:space="preserve">
+    <value>【回答タイプ】がマトリクス内で一致していません。</value>
+  </data>
+  <data name="QCM_INVALID_SUBQSTN_CATGRYNUMB" xml:space="preserve">
+    <value>【選択肢数】欄がマトリクス内で一致していません。</value>
+  </data>
+  <data name="QCM_INVALID_SUBQSTN_QNMBR_QTYPE_NMBRQSTN" xml:space="preserve">
+    <value>【質問数】欄の値がマトリクス内のアイテム数を超えています。</value>
+  </data>
+  <data name="QCM_INVALID_SUBQSTN_SORT" xml:space="preserve">
+    <value>【並替表示】欄の設定がマトリクス内で一致していません。</value>
+  </data>
+  <data name="QCM_INVALID_SUBQSTN_WT" xml:space="preserve">
+    <value>【WT】欄の設定がマトリクス内で一致していません。</value>
+  </data>
+  <data name="QCM_INVALID_SURVEY_ID" xml:space="preserve">
+    <value>に調査IDに不正な値があります。</value>
+  </data>
+  <data name="QCM_INVALID_WT" xml:space="preserve">
+    <value>WTに不正な値があります。</value>
+  </data>
+  <data name="QCM_ITEM_NOTMATCH" xml:space="preserve">
+    <value>QlayoutとQrawdataのアイテムが一致しません。</value>
+  </data>
+  <data name="QCM_OUT_LABEL" xml:space="preserve">
+    <value>保存用ファイル名：QuickCrossファイル(qc4)</value>
+  </data>
+  <data name="QCM_PB_INPUTFILE_VALIDATE" xml:space="preserve">
+    <value>入力ファイルを検証しています</value>
+  </data>
+  <data name="QCM_PB_PARSE_QLAYOUT" xml:space="preserve">
+    <value>Qlayoutファイルを解析しています</value>
+  </data>
+  <data name="QCM_PB_PARSE_QRAWDATA" xml:space="preserve">
+    <value>Qrawdataファイルを解析しています</value>
+  </data>
+  <data name="QCM_PB_PROCESS_QLAYOUT" xml:space="preserve">
+    <value>Qlayoutデータを処理しています</value>
+  </data>
+  <data name="QCM_PB_PROCESS_QRAWDATA" xml:space="preserve">
+    <value>Qrawdataを処理しています</value>
+  </data>
+  <data name="QCM_QLAYOUT_LABEL" xml:space="preserve">
+    <value>_Qlayoutファイル(*_Qlayout.csv)</value>
+  </data>
+  <data name="QCM_QRAWDATA_LABEL" xml:space="preserve">
+    <value>_Qrawdataファイル(*_Qrawdata.tsv)</value>
+  </data>
+  <data name="QCM_QSTNTYPE_ANSTYPE_NOTMATCH" xml:space="preserve">
+    <value>質問タイプと回答タイプが一致しません。</value>
+  </data>
+  <data name="QCM_SET_WT_SAMA" xml:space="preserve">
+    <value>WTはSAとMAのみに設定できます。</value>
+  </data>
+  <data name="QCM_SURVEY_NUMB_MISSING" xml:space="preserve">
+    <value>Qlayoutに調査IDが設定されていません。</value>
+  </data>
+  <data name="QCM_SURVEY_TITLE_MISSING" xml:space="preserve">
+    <value>Qlayoutに調査名が設定されていません。</value>
+  </data>
+  <data name="QCM_TITLE" xml:space="preserve">
+    <value>QuickCrossデータ作成</value>
+  </data>
+  <data name="QCM_WRNG_ENCODING" xml:space="preserve">
+    <value>エンコードの指定が正しくありません。</value>
+  </data>
+  <data name="QCM_ZERO_DATA" xml:space="preserve">
+    <value>０件のデータファイルです。</value>
+  </data>
+  <data name="QCM_ZERO_QLAYOUT_DATA" xml:space="preserve">
+    <value>Qlayoutファイルにデータがありません。</value>
+  </data>
+  <data name="QCM_ZERO_QRAWDATA" xml:space="preserve">
+    <value>Qrawdataファイルのデータがゼロ件です。</value>
+  </data>
+  <data name="QC_100PCT_STACKED_BAR_CHART" xml:space="preserve">
+    <value>横帯グラフ</value>
+  </data>
+  <data name="QC_100PCT_STACKED_COLUMN_CHART" xml:space="preserve">
+    <value>縦帯グラフ</value>
+  </data>
+  <data name="QC_BAR_CHART" xml:space="preserve">
+    <value>横棒グラフ</value>
+  </data>
+  <data name="QC_COLUMN_CHART" xml:space="preserve">
+    <value>縦棒グラフ</value>
+  </data>
+  <data name="QC_MBAR_CHART" xml:space="preserve">
+    <value>M横棒グラフ</value>
+  </data>
+  <data name="QC_MCOLUMN_CHART" xml:space="preserve">
+    <value>M縦棒グラフ</value>
+  </data>
+  <data name="QC_MPIE_CHART" xml:space="preserve">
+    <value>M円グラフ</value>
+  </data>
+  <data name="QC_PIE_CHART" xml:space="preserve">
+    <value>円グラフ</value>
+  </data>
+  <data name="QC_PIE_RAT_CHART" xml:space="preserve">
+    <value>円RATグラフ</value>
+  </data>
+  <data name="QC_RAT_BAR_CHART" xml:space="preserve">
+    <value>円RATグラフ</value>
+  </data>
+  <data name="QC_RAT_COLUMN_CHART" xml:space="preserve">
+    <value>縦棒RATグラフ</value>
+  </data>
+  <data name="QC_STACKED_BAR_CHART" xml:space="preserve">
+    <value>積上横棒グラフ</value>
+  </data>
+  <data name="QC_STACKED_COLUMN_CHART" xml:space="preserve">
+    <value>積上縦棒グラフ</value>
+  </data>
+  <data name="QSUI_ADD_QUESTION_BTN" xml:space="preserve">
+    <value>設問の追加</value>
+  </data>
+  <data name="QSUI_AN" xml:space="preserve">
+    <value>多変量解析結果アイテム</value>
+  </data>
+  <data name="QSUI_ANSWR_TYPE_NO_CHOICE" xml:space="preserve">
+    <value>回答タイプ/選択肢数</value>
+  </data>
+  <data name="QSUI_CLOSE" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
+  <data name="QSUI_EXPORT_QUS_EXCEL" xml:space="preserve">
+    <value>Excel調査票出力</value>
+  </data>
+  <data name="QSUI_IMP" xml:space="preserve">
+    <value>外部データ追加アイテム</value>
+  </data>
+  <data name="QSUI_NEW" xml:space="preserve">
+    <value>新アイテム</value>
+  </data>
+  <data name="QSUI_NO_ANSWER" xml:space="preserve">
+    <value>回答個数</value>
+  </data>
+  <data name="QSUI_ORG" xml:space="preserve">
+    <value>既存アイテム</value>
+  </data>
+  <data name="QSUI_SETTING_STATUS" xml:space="preserve">
+    <value>設定状況</value>
+  </data>
+  <data name="QSUI_SUBTOTAL" xml:space="preserve">
+    <value>小計</value>
+  </data>
+  <data name="QSUI_TITLE" xml:space="preserve">
+    <value>調査名</value>
+  </data>
+  <data name="QSUI_WEIGHT_VALUE" xml:space="preserve">
+    <value>ウエイト値</value>
+  </data>
+  <data name="QS_ADDQS_TOOLTIP" xml:space="preserve">
+    <value>新しいアイテムを作成します。</value>
+  </data>
+  <data name="QS_ADD_SUBTOTAL_CHECK_LABEL" xml:space="preserve">
+    <value>小計出力 ([{Textbox}　件)</value>
+    <comment>{Textbox}の部分に、UIのテキストボックスが入り、その後ろに「件)」が表示されるように作成してください。</comment>
+  </data>
+  <data name="QS_ALERT_ADD_SUBTOTAL_COUNT_NOT_SET" xml:space="preserve">
+    <value>以下のアイテムの回答データを削除しますか？
+{0}</value>
+  </data>
+  <data name="QS_ALERT_ADD_SUBTOTAL_CRITERIA_NOT_SET" xml:space="preserve">
+    <value>セル {0} に小計条件が設定されていません。</value>
+  </data>
+  <data name="QS_ALERT_ADD_SUBTOTAL_NAME_NOT_SET" xml:space="preserve">
+    <value>セル {0} に小計名が設定されていません。</value>
+  </data>
+  <data name="QS_ALERT_ANIMPNEW_DATA_DELETE" xml:space="preserve">
+    <value>下記アイテムのデータを削除しますか{0}</value>
+  </data>
+  <data name="QS_ALERT_AN_IMP_ROW_DELETE" xml:space="preserve">
+    <value>DB反映時に回答データも削除され、復元できません。本当に削除しますか？</value>
+  </data>
+  <data name="QS_ALERT_COUNTBASE_VALUE_NOT_SET" xml:space="preserve">
+    <value>セル {0} にCount Baseが設定されていません。</value>
+  </data>
+  <data name="QS_ALERT_DELETE_ORG_QUESTION" xml:space="preserve">
+    <value>既存アイテムは削除できません。</value>
+  </data>
+  <data name="QS_ALERT_INVALID_ADDSUBTOTAL" xml:space="preserve">
+    <value>小計出力の値が正しくありません。</value>
+  </data>
+  <data name="QS_ALERT_INVALID_COUNTBASE" xml:space="preserve">
+    <value>Count Baseの値が正しくありません。</value>
+  </data>
+  <data name="QS_ALERT_INVALID_COUNTBASE_FLAG" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目のCount Baseが正しくありません。</value>
+  </data>
+  <data name="QS_ALERT_INVALID_QUESTION_FLAG" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目の「New」欄のフラグに不正な値が設定されています。</value>
+  </data>
+  <data name="QS_ALERT_INVALID_QUESTION_FLAG_EMPTY" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目の「New」欄が空欄です。</value>
+  </data>
+  <data name="QS_ALERT_INVALID_QUESTION_TYPE" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目の質問タイプが正しくありません。</value>
+  </data>
+  <data name="QS_ALERT_INVALID_VALUE" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目 {1} 列に不正な値が設定されています。</value>
+  </data>
+  <data name="QS_ALERT_INVALID_VALUE_NOT_BETWEEN" xml:space="preserve">
+    <value>設問設定エラー
+[1 - {0}] の間の値を設定してください。</value>
+  </data>
+  <data name="QS_ALERT_NO_CHOICE" xml:space="preserve">
+    <value>選択肢が一つも設定されていません。</value>
+  </data>
+  <data name="QS_ALERT_ORG_DELETE" xml:space="preserve">
+    <value>既存アイテムは削除できません。</value>
+  </data>
+  <data name="QS_ALERT_QTITLE_NOT_EMPTY" xml:space="preserve">
+    <value>表題を空にすることはできません。</value>
+  </data>
+  <data name="QS_ALERT_WEIGHTBACK" xml:space="preserve">
+    <value>「WeightBack」という文字列はアイテム名に指定できません。</value>
+  </data>
+  <data name="QS_ALERT_WT" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目のWT値が正しくありません。
+アイテム名 : {1}</value>
+  </data>
+  <data name="QS_ANSWER_TYPE_RULE" xml:space="preserve">
+    <value>設問設定エラー
+回答タイプの変更ルール違反です。
+{0} 行目の回答タイプが変更されました。
+アイテム名 : {1}
+回答タイプ : {2}
+変更前の回答タイプ : {3}</value>
+  </data>
+  <data name="QS_BTN_BACK" xml:space="preserve">
+    <value>前へ</value>
+  </data>
+  <data name="QS_BTN_NEXT" xml:space="preserve">
+    <value>次へ</value>
+  </data>
+  <data name="QS_BUTTON_MAIN_FORM" xml:space="preserve">
+    <value>設問設定</value>
+  </data>
+  <data name="QS_BUTTON_SUBTOTAL_SETTING" xml:space="preserve">
+    <value>小計設定</value>
+  </data>
+  <data name="QS_CHECK_SORT_LABEL" xml:space="preserve">
+    <value>並べ替え</value>
+  </data>
+  <data name="QS_CHOICE_LINE_ERROR" xml:space="preserve">
+    <value>選択肢: 【 {0} 】に入力されていない箇所があります。</value>
+  </data>
+  <data name="QS_CHOICE_NOT_SET" xml:space="preserve">
+    <value>選択肢が、一つも設定されていません。</value>
+  </data>
+  <data name="QS_CHOICE_VALUE_MORETHAN_COUNT" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目 {1} 列にカテゴリ数以上の選択肢が設定されています。</value>
+  </data>
+  <data name="QS_CLOSE_TOOLTIP" xml:space="preserve">
+    <value>設問設定を終了します</value>
+  </data>
+  <data name="QS_COMBO_CHOICE_ONE_TO" xml:space="preserve">
+    <value>選択肢１から</value>
+  </data>
+  <data name="QS_COMBO_LABEL_ANSWERTYPE" xml:space="preserve">
+    <value>回答タイプ</value>
+  </data>
+  <data name="QS_COMBO_LABEL_NO_OF_CHOICE" xml:space="preserve">
+    <value>選択肢数</value>
+  </data>
+  <data name="QS_CONFM_ALERT_IMPAN_DELETE" xml:space="preserve">
+    <value>次のアイテムの回答データを削除してもいいですか？ \ n {0}</value>
+  </data>
+  <data name="QS_COPY_TOOLTIP" xml:space="preserve">
+    <value>アイテムをコピーして、新しいアイテムを作成します。</value>
+  </data>
+  <data name="QS_DATAGRID_CHOICE" xml:space="preserve">
+    <value>選択肢</value>
+  </data>
+  <data name="QS_DATAGRID_COUNTFORMEAN" xml:space="preserve">
+    <value>回答個数</value>
+  </data>
+  <data name="QS_DATAGRID_SCOREOFMEAN" xml:space="preserve">
+    <value>ウエイト値</value>
+  </data>
+  <data name="QS_DATA_INTEGRITY_CHECK" xml:space="preserve">
+    <value>データの整合性チェック</value>
+  </data>
+  <data name="QS_DELETE_CONFIRM2" xml:space="preserve">
+    <value>該当アイテムに関連するデータ加工文を削除します。加工後データを加工前に戻します。よろしいですか？</value>
+  </data>
+  <data name="QS_DELETE_INFO1" xml:space="preserve">
+    <value>アイテムを削除しました。</value>
+  </data>
+  <data name="QS_DELETE_OK" xml:space="preserve">
+    <value>Ok?</value>
+  </data>
+  <data name="QS_DELETE_WARNING" xml:space="preserve">
+    <value>削除してもよろしいですか？</value>
+  </data>
+  <data name="QS_DELETE_WARNING1" xml:space="preserve">
+    <value>削除を続行すると、</value>
+  </data>
+  <data name="QS_DELETE_WARNING2" xml:space="preserve">
+    <value>該当アイテムに関連するデータ加工文を削除します。</value>
+  </data>
+  <data name="QS_DELETE_WARNING3" xml:space="preserve">
+    <value>該当アイテムのGT表の設定を削除します。</value>
+  </data>
+  <data name="QS_DELETE_WARNING4" xml:space="preserve">
+    <value>該当アイテムのクロス集計の設定を削除します。</value>
+  </data>
+  <data name="QS_DELETE_WARNING5" xml:space="preserve">
+    <value>該当アイテムの一覧表の設定を削除します。</value>
+  </data>
+  <data name="QS_DELETE_WARNING6" xml:space="preserve">
+    <value>該当アイテムのFAリストの設定を削除します。</value>
+  </data>
+  <data name="QS_DELETE_WARNING7" xml:space="preserve">
+    <value>加工後データを加工前に戻します。</value>
+  </data>
+  <data name="QS_DELETE_WARNING8" xml:space="preserve">
+    <value>よろしいですか？</value>
+  </data>
+  <data name="QS_DEL_TOOLTIP" xml:space="preserve">
+    <value>アイテムを削除します</value>
+  </data>
+  <data name="QS_EDIT_BACK_BTN" xml:space="preserve">
+    <value>前へ</value>
+  </data>
+  <data name="QS_EDIT_NEXT_BTN" xml:space="preserve">
+    <value>次へ</value>
+  </data>
+  <data name="QS_EDIT_RESET_CONFIRMATION" xml:space="preserve">
+    <value>表題、質問文、選択肢を初期状態に戻します。</value>
+  </data>
+  <data name="QS_EDIT_RESET_CONTI" xml:space="preserve">
+    <value>よろしいですか？</value>
+  </data>
+  <data name="QS_EDIT_TOOLTIP" xml:space="preserve">
+    <value>アイテムを編集・修正します</value>
+  </data>
+  <data name="QS_EDIT_TOOLTIP_BACK" xml:space="preserve">
+    <value>前のアイテムの編集画面を開きます。</value>
+  </data>
+  <data name="QS_EDIT_TOOLTIP_NEXT" xml:space="preserve">
+    <value>次のアイテムの編集画面を開きます。</value>
+  </data>
+  <data name="QS_EDIT_TOOLTIP_RESET" xml:space="preserve">
+    <value>設定内容を初期状態に戻します。</value>
+  </data>
+  <data name="QS_ERROR_CONFI_SUBTOTAL" xml:space="preserve">
+    <value>「小計設定」を登録してください。</value>
+  </data>
+  <data name="QS_ERROR_IN_MATRIX_QUESTION" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目 {1} 列に複数のエラーが発生しています。</value>
+  </data>
+  <data name="QS_ERROR_IN_MATRIX_SUBTOTAL" xml:space="preserve">
+    <value>マトリクス内の小計設定が一致していません。
+{0} 行目 {1} 列</value>
+  </data>
+  <data name="QS_ERROR_IN_MATRIX_SUBTOTAL_ADDSUB" xml:space="preserve">
+    <value>マトリクス内の小計出力欄が一致していません。
+{0} 行目 {1} 列</value>
+  </data>
+  <data name="QS_ERROR_IN_MATRIX_SUBTOTAL_ADDSUBCOUNT" xml:space="preserve">
+    <value>マトリクス内の小計設定数欄が一致していません。
+{0} 行目 {1} 列</value>
+  </data>
+  <data name="QS_ERROR_IN_MATRIX_SUBTOTAL_COUNT" xml:space="preserve">
+    <value>マトリクス内のCount欄が一致していません。
+{0} 行目 {1} 列</value>
+  </data>
+  <data name="QS_ERROR_IN_MATRIX_SUBTOTAL_COUNTBASE" xml:space="preserve">
+    <value>マトリクス内のCount Base欄が一致していません。
+{0} 行目 {1} 列</value>
+  </data>
+  <data name="QS_EXCEL_EXPORT_TOOLTIP" xml:space="preserve">
+    <value>調査票をExcel形式で出力します。</value>
+  </data>
+  <data name="QS_FIX_DELETED_QUESTIONS" xml:space="preserve">
+    <value>削除された質問を修正してください。</value>
+  </data>
+  <data name="QS_INEGRITY_CHECK_SUCCESS" xml:space="preserve">
+    <value>データ整合性チェックが完了しました。</value>
+  </data>
+  <data name="QS_INTEGIRITY_VARIABLE_CHANGED" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目のアイテム名が通常モードで変更されました。
+アイテム名 : {1}
+変更前のアイテム名 : {2}</value>
+  </data>
+  <data name="QS_INTEGRITY_CHOICE_COUNT_LESS" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目のカテゴリ数より大きな値の回答データが存在します。
+アイテム名 : {1}
+変更前のカテゴリ数 : {2}
+回答データ最大値 : {3}</value>
+  </data>
+  <data name="QS_INVALID_ANSWER_TYPE" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目の回答タイプが正しくありません。
+アイテム名 : {1}</value>
+  </data>
+  <data name="QS_MATRIX_CHOICE_COUNT_NOT_EQUAL" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目のカテゴリ数が上のアイテムと違います。</value>
+  </data>
+  <data name="QS_MATRIX_CHOICE_NOT_EQUAL" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目 {1} 列の選択肢名が上のアイテムと違います。</value>
+  </data>
+  <data name="QS_MATRIX_QUESTION_LESS" xml:space="preserve">
+    <value>設問設定エラー
+質問数の値がマトリクスアイテム数を超えています。
+{1} 行目
+質問 : {0} </value>
+  </data>
+  <data name="QS_MATRIX_SORT_NOT_EQUAL" xml:space="preserve">
+    <value>マトリクス内の並替表示欄が一致していません。
+{0} 行目 {1} 列</value>
+  </data>
+  <data name="QS_MATRIX_TITLE_NOT_EQUAL" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目 {1} 列の表題が上のアイテムと違います。</value>
+  </data>
+  <data name="QS_MATRIX_WT_NOT_EQUAL" xml:space="preserve">
+    <value>マトリクス内のWT欄が一致していません。
+{0} 行目 {1} 列</value>
+  </data>
+  <data name="QS_NO_VALUE_REQUIRED" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目 {1} 列に値は不要です。</value>
+  </data>
+  <data name="QS_NULL_ANSWER_TYPE" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目の回答タイプが空欄です。
+アイテム名 : {1}</value>
+  </data>
+  <data name="QS_NUMBER_OF_CHOICE_NOT_SET" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目のカテゴリ数が空欄です。
+アイテム名 : {1}</value>
+  </data>
+  <data name="QS_NUMBER_OF_CHOICE_SET" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目のカテゴリ数に値があります。
+回答タイプ : {1}
+アイテム名 : {2}</value>
+  </data>
+  <data name="QS_QUESTION_CONFIGURATION_CHECK" xml:space="preserve">
+    <value>質問構成チェック</value>
+  </data>
+  <data name="QS_QUESTION_COUNT_INTEGER" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目の質問数の値が整数ではありません。</value>
+  </data>
+  <data name="QS_QUESTION_COUNT_MORETHAN_201" xml:space="preserve">
+    <value>{0} 行目の質問数の値が200を超えています。
+質問タイプ : {1}</value>
+  </data>
+  <data name="QS_QUESTION_COUNT_NEGATIVE" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目の質問数の値がマイナスの値です。</value>
+  </data>
+  <data name="QS_QUESTION_COUNT_SHOULD_EMPTY" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目の質問数欄は空欄でなければなりません。
+質問タイプ : {1}</value>
+  </data>
+  <data name="QS_RAWDATA_ANSWER_TYPE_NOT_MATCH" xml:space="preserve">
+    <value>回答タイプの変更ルール違反です。 {0} 行目に不正な値が含まれています。アイテム名 : {1} 回答タイプ : {2} , 前のカテゴリ数 : {3}</value>
+  </data>
+  <data name="QS_RAWDATA_CATEGORY_NOT_MATCH" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目のカテゴリ数がデータと一致しません。
+アイテム名 : {1}</value>
+  </data>
+  <data name="QS_REFRESH_TOOLTIP" xml:space="preserve">
+    <value>調査名を初期状態に戻します。</value>
+  </data>
+  <data name="QS_RENAME_VARIABLE_AUTOMATIC" xml:space="preserve">
+    <value>自動的にアイテム名を変更しますか？</value>
+  </data>
+  <data name="QS_SCORE_INVALID_VALUE" xml:space="preserve">
+    <value>WT値には、数値を設定してください。</value>
+  </data>
+  <data name="QS_SET_INTEGER" xml:space="preserve">
+    <value>設問設定エラー
+{2} 行目 {3} 列には [ {0} - {1} ] までの整数を設定してください。</value>
+  </data>
+  <data name="QS_SHEET_CHANGE_ALERT" xml:space="preserve">
+    <value>データ加工結果が不正になっている可能性があります。再度データ加工を実行してください。</value>
+  </data>
+  <data name="QS_SHEET_HEADING_ADD_SUBTOTALS" xml:space="preserve">
+    <value>小計
+出力</value>
+  </data>
+  <data name="QS_SHEET_HEADING_COLUMN" xml:space="preserve">
+    <value>並替
+表示</value>
+  </data>
+  <data name="QS_SHEET_HEADING_CRITERION" xml:space="preserve">
+    <value>条件 {0}</value>
+  </data>
+  <data name="QS_SHEET_HEADING_NO_OF_QUESTIONS" xml:space="preserve">
+    <value>質問
+数</value>
+  </data>
+  <data name="QS_SHEET_HEADING_NO_SUBTOTALS" xml:space="preserve">
+    <value>小計
+設定数</value>
+  </data>
+  <data name="QS_SHEET_HEADING_SUBTOTALS" xml:space="preserve">
+    <value>小計 {0}</value>
+  </data>
+  <data name="QS_START_VARIABLE_EDIT_MODE" xml:space="preserve">
+    <value>アイテム名編集モードを開始</value>
+  </data>
+  <data name="QS_STOP_VARIABLE_EDIT_MODE" xml:space="preserve">
+    <value>アイテム名編集モードを終了</value>
+  </data>
+  <data name="QS_SUBTOTAL_ADD" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="QS_SUBTOTAL_BTN_ADD" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="QS_SUBTOTAL_BTN_DELETEROW" xml:space="preserve">
+    <value>行削除</value>
+  </data>
+  <data name="QS_SUBTOTAL_BTN_INSERTROW" xml:space="preserve">
+    <value>行挿入</value>
+  </data>
+  <data name="QS_SUBTOTAL_BTN_MOVEDOWN" xml:space="preserve">
+    <value>下に移動</value>
+  </data>
+  <data name="QS_SUBTOTAL_BTN_MOVEUP" xml:space="preserve">
+    <value>上に移動</value>
+  </data>
+  <data name="QS_SUBTOTAL_CANCEL" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="QS_SUBTOTAL_COMBO_LABEL_BOTTOM" xml:space="preserve">
+    <value>Bottom</value>
+  </data>
+  <data name="QS_SUBTOTAL_COMBO_LABEL_TOP" xml:space="preserve">
+    <value>Top</value>
+  </data>
+  <data name="QS_SUBTOTAL_CONFIRMATION" xml:space="preserve">
+    <value>小計設定は先に設問データを登録してから行ってください。
+データを登録しますか？</value>
+  </data>
+  <data name="QS_SUBTOTAL_DATAGRID_OPERATOR" xml:space="preserve">
+    <value>演算子</value>
+  </data>
+  <data name="QS_SUBTOTAL_DATAGRID_VALUE" xml:space="preserve">
+    <value>条件値</value>
+  </data>
+  <data name="QS_SUBTOTAL_DELETE_ALL" xml:space="preserve">
+    <value>全行削除</value>
+  </data>
+  <data name="QS_SUBTOTAL_DELETE_ROW" xml:space="preserve">
+    <value>行削除</value>
+  </data>
+  <data name="QS_SUBTOTAL_INSERT_ROW" xml:space="preserve">
+    <value>行挿入</value>
+  </data>
+  <data name="QS_SUBTOTAL_ITEM_VARIABLE" xml:space="preserve">
+    <value>アイテム</value>
+  </data>
+  <data name="QS_SUBTOTAL_MOVEDOWN" xml:space="preserve">
+    <value>下に移動</value>
+  </data>
+  <data name="QS_SUBTOTAL_MOVEUP" xml:space="preserve">
+    <value>上に移動</value>
+  </data>
+  <data name="QS_SUBTOTAL_TITLE" xml:space="preserve">
+    <value>小計設定</value>
+  </data>
+  <data name="QS_TOOLTIP_SAVE" xml:space="preserve">
+    <value>編集内容を登録します。</value>
+  </data>
+  <data name="QS_TOP_BOX_TEXT" xml:space="preserve">
+    <value>データの設問設定リストです。質問文や選択肢の編集、新アイテムの設定が可能です。</value>
+  </data>
+  <data name="QS_TOP_LABEL_TEXT" xml:space="preserve">
+    <value>調査タイトル</value>
+  </data>
+  <data name="QS_TXT_LABEL_QUESTION" xml:space="preserve">
+    <value>質問文</value>
+  </data>
+  <data name="QS_TXT_LABEL_TABLEHEADING" xml:space="preserve">
+    <value>表題</value>
+  </data>
+  <data name="QS_TXT_LABEL_VARIABLE" xml:space="preserve">
+    <value>変数</value>
+  </data>
+  <data name="QS_VARIABLE_DUPLICATED" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目 のアイテム名が重複しています。</value>
+  </data>
+  <data name="QS_VARIABLE_EDIT_MODE" xml:space="preserve">
+    <value>アイテム名編集モードを</value>
+  </data>
+  <data name="QS_VARIABLE_INCREMENT" xml:space="preserve">
+    <value>入力されたアイテム名と同じアイテム名が存在しています。
+自動的にアイテム名を変更しますか？</value>
+  </data>
+  <data name="QS_VARIABLE_LINEFEED_CHARACTER" xml:space="preserve">
+    <value>CR、LF、CRLFはアイテム名に使用できません。</value>
+  </data>
+  <data name="QS_VARIABLE_MAX_LENGTH" xml:space="preserve">
+    <value>アイテム名は25文字以下に設定してください。</value>
+  </data>
+  <data name="QS_VARIABLE_MODE_SHEET_CHANGE" xml:space="preserve">
+    <value>アイテム名編集モード時はシートを移動できません。</value>
+  </data>
+  <data name="QS_VARIABLE_NULL_NOT_ALLOWED" xml:space="preserve">
+    <value>設問設定エラー
+{0} 行目 のアイテム名が空です。</value>
+  </data>
+  <data name="QS_VARIABLE_NUMBER_ONLY" xml:space="preserve">
+    <value>設問設定エラー
+数字のみのアイテム名は設定できません。</value>
+  </data>
+  <data name="QS_VARIABLE_SPECIAL_CHARACTER" xml:space="preserve">
+    <value>アイテム名に記号は設定できません。</value>
+  </data>
+  <data name="QS_WARN_SAVE_CHANGE" xml:space="preserve">
+    <value>データを登録しますか？</value>
+  </data>
+  <data name="QS_WARN_SAVE_CHANGE_NO" xml:space="preserve">
+    <value>いいえ</value>
+  </data>
+  <data name="QS_WARN_SAVE_CHANGE_YES" xml:space="preserve">
+    <value>はい</value>
+  </data>
+  <data name="QUESTION_SETTING_FORM_TITLE" xml:space="preserve">
+    <value>設問設定</value>
+  </data>
+  <data name="QUSI_COPY" xml:space="preserve">
+    <value>コピー</value>
+  </data>
+  <data name="QUSI_DELETE" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="QUSI_EDIT" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="QUSI_VARIABLE" xml:space="preserve">
+    <value>アイテム</value>
+  </data>
+  <data name="RB_INTEGRATE_AND" xml:space="preserve">
+    <value>「AND（かつ）」で組み合わせる</value>
+  </data>
+  <data name="RB_INTEGRATE_OR" xml:space="preserve">
+    <value>「OR（または）」で組み合わせる</value>
+  </data>
+  <data name="RB_OUTPUT_SHEET_TYPE_ONE" xml:space="preserve">
+    <value>1シートに1クロス表</value>
+  </data>
+  <data name="RB_OUTPUT_SHEET_TYPE_PLURAL" xml:space="preserve">
+    <value>1シートに複数クロス表</value>
+  </data>
+  <data name="RECODE_ALERT_MSG_COMBO_CATEGORY" xml:space="preserve">
+    <value>選択肢数は、「(自動)」か「1～1000」を指定してください。</value>
+  </data>
+  <data name="RECODE_OVERLAPPING_CHOICE_WARNING_MESSAGE" xml:space="preserve">
+    <value>選択肢に重なりがあるので、回答タイプをMAに変更します。</value>
+  </data>
+  <data name="REPORT_AND_CONJUNCTION" xml:space="preserve">
+    <value>および</value>
+  </data>
+  <data name="REPORT_AVERAGE_DESCRIPTION_DEFAULT" xml:space="preserve">
+    <value>平均</value>
+  </data>
+  <data name="REPORT_AXIS_WHOLE_DESCRIPTION_DEFAULT" xml:space="preserve">
+    <value>全体</value>
+  </data>
+  <data name="REPORT_CHECK_LIST_BOOK_NAME_PREFIX" xml:space="preserve">
+    <value>比較GT</value>
+  </data>
+  <data name="REPORT_CHECK_LIST_NEW_ITEMS_SHEET_NAME" xml:space="preserve">
+    <value>新アイテム</value>
+  </data>
+  <data name="REPORT_CHECK_LIST_NEW_ITEMS_SHEET_NAME_WITH_INDEX_FORMAT" xml:space="preserve">
+    <value>新アイテム_{0}</value>
+  </data>
+  <data name="REPORT_CHECK_LIST_ORIGINAL_ITEMS_SHEET_NAME" xml:space="preserve">
+    <value>比較GT</value>
+  </data>
+  <data name="REPORT_CHECK_LIST_ORIGINAL_ITEMS_SHEET_NAME_WITH_INDEX_FORMAT" xml:space="preserve">
+    <value>比較GT_{0}</value>
+  </data>
+  <data name="REPORT_CLASSIFICATION_ITEM_KEYWORD" xml:space="preserve">
+    <value>分類アイテム</value>
+  </data>
+  <data name="REPORT_COLUMNS_COUNT_OVER_DETAIL_MESSAGE" xml:space="preserve">
+    <value>'{0}' の{1}表ですべての列を出力できませんでした</value>
+  </data>
+  <data name="REPORT_COLUMNS_COUNT_OVER_INDIVIDUAL_CROSSES_NP_MESSAGE" xml:space="preserve">
+    <value>列数超過のため、次のN%表を出力できませんでした。 {0}</value>
+  </data>
+  <data name="REPORT_COLUMNS_COUNT_OVER_INDIVIDUAL_CROSSES_P_MESSAGE" xml:space="preserve">
+    <value>列数超過のため、次の%表を出力できませんでした。 {0}</value>
+  </data>
+  <data name="REPORT_COLUMNS_COUNT_OVER_INDIVIDUAL_CROSSES_SIGNIFICANCE_TEST_MESSAGE" xml:space="preserve">
+    <value>列数超過のため、次の項目間検定表出力できませんでした。 {0}</value>
+  </data>
+  <data name="REPORT_COLUMNS_COUNT_OVER_KEYWORD" xml:space="preserve">
+    <value>列数超過</value>
+  </data>
+  <data name="REPORT_COMPLEX_DESCRIPTION_KEYWORD" xml:space="preserve">
+    <value>混在</value>
+  </data>
+  <data name="REPORT_COUNT_AVERAGE_DENOMINATOR_KEYWORD" xml:space="preserve">
+    <value>回答個数有効ケース数</value>
+  </data>
+  <data name="REPORT_COUNT_AVERAGE_KEYWORD" xml:space="preserve">
+    <value>回答個数平均</value>
+  </data>
+  <data name="REPORT_CRITERION_BETWEEN_NUMBER_FORMAT" xml:space="preserve">
+    <value>{0}以上{1}以下</value>
+  </data>
+  <data name="REPORT_CRITERION_EQUAL_ANYONE_KEYWORD" xml:space="preserve">
+    <value>のいずれかである</value>
+  </data>
+  <data name="REPORT_CRITERION_EQUAL_KEYWORD" xml:space="preserve">
+    <value>である</value>
+  </data>
+  <data name="REPORT_CRITERION_FORMAT" xml:space="preserve">
+    <value>{0}が{1}{2}</value>
+  </data>
+  <data name="REPORT_CRITERION_GREATER_EQUAL_KEYWORD" xml:space="preserve">
+    <value>以上である</value>
+  </data>
+  <data name="REPORT_CRITERION_GREATER_KEYWORD" xml:space="preserve">
+    <value>より大きい</value>
+  </data>
+  <data name="REPORT_CRITERION_INCLUDE_ANYONE_KEYWORD" xml:space="preserve">
+    <value>のいずれかを含む</value>
+  </data>
+  <data name="REPORT_CRITERION_INCLUDE_KEYWORD" xml:space="preserve">
+    <value>を含む</value>
+  </data>
+  <data name="REPORT_CRITERION_ITEM_VALUE_FORMAT" xml:space="preserve">
+    <value>{0}の値</value>
+  </data>
+  <data name="REPORT_CRITERION_LESS_EQUAL_KEYWORD" xml:space="preserve">
+    <value>以下である</value>
+  </data>
+  <data name="REPORT_CRITERION_LESS_KEYWORD" xml:space="preserve">
+    <value>より小さい</value>
+  </data>
+  <data name="REPORT_CRITERION_MATCH_KEYWORD" xml:space="preserve">
+    <value>と一致する</value>
+  </data>
+  <data name="REPORT_CRITERION_NOT_EQUAL_ANYONE_KEYWORD" xml:space="preserve">
+    <value>のいずれでもない</value>
+  </data>
+  <data name="REPORT_CRITERION_NOT_EQUAL_KEYWORD" xml:space="preserve">
+    <value>ではない</value>
+  </data>
+  <data name="REPORT_CRITERION_NOT_INCLUDE_ANYONE_KEYWORD" xml:space="preserve">
+    <value>のいずれも含まない</value>
+  </data>
+  <data name="REPORT_CRITERION_NOT_INCLUDE_KEYWORD" xml:space="preserve">
+    <value>を含まない</value>
+  </data>
+  <data name="REPORT_CRITERION_OPERATOR_AND_KEYWORD" xml:space="preserve">
+    <value>、かつ、</value>
+  </data>
+  <data name="REPORT_CRITERION_OPERATOR_OR_KEYWORD" xml:space="preserve">
+    <value>、または、</value>
+  </data>
+  <data name="REPORT_CRITERION_UNMATCH_KEYWORD" xml:space="preserve">
+    <value>と一致しない</value>
+  </data>
+  <data name="REPORT_CROSS_CONTENTS_SHEET_NAME" xml:space="preserve">
+    <value>INDEX</value>
+  </data>
+  <data name="REPORT_CROSS_GRAPH_SHEET_NAME" xml:space="preserve">
+    <value>グラフ</value>
+  </data>
+  <data name="REPORT_CROSS_NP_SHEET_NAME" xml:space="preserve">
+    <value>N%表</value>
+  </data>
+  <data name="REPORT_CROSS_N_SHEET_NAME" xml:space="preserve">
+    <value>N表</value>
+  </data>
+  <data name="REPORT_CROSS_PAGE_SETUP_SHEET_SUFFIX" xml:space="preserve">
+    <value>(ページ設定)</value>
+  </data>
+  <data name="REPORT_CROSS_P_SHEET_NAME" xml:space="preserve">
+    <value>%表</value>
+  </data>
+  <data name="REPORT_CROSS_SIGNIFICANCE_TEST_SHEET_NAME" xml:space="preserve">
+    <value>検定</value>
+  </data>
+  <data name="REPORT_DEVIATION_DESCRIPTION_DEFAULT" xml:space="preserve">
+    <value>標準偏差</value>
+  </data>
+  <data name="REPORT_FILTER_CRITERION_KEYWORD" xml:space="preserve">
+    <value>絞込み条件</value>
+  </data>
+  <data name="REPORT_FROM_BEFORE_TABLE_MARK_AT_TURN_KEYWORD" xml:space="preserve">
+    <value>(前表から)</value>
+  </data>
+  <data name="REPORT_GRAPH_KEYWORD" xml:space="preserve">
+    <value>グラフ</value>
+  </data>
+  <data name="REPORT_GT_N_COLUMN_CAPTION" xml:space="preserve">
+    <value>n</value>
+  </data>
+  <data name="REPORT_GT_PAGE_SETUP_SHEET_SUFFIX" xml:space="preserve">
+    <value>(ページ設定)</value>
+  </data>
+  <data name="REPORT_GT_P_COLUMN_CAPTION" xml:space="preserve">
+    <value>％</value>
+  </data>
+  <data name="REPORT_HATCHING_LEVEL1_HIGH_COLOR_INDEX_DEFAULT" xml:space="preserve">
+    <value>36</value>
+  </data>
+  <data name="REPORT_HATCHING_LEVEL1_LOW_COLOR_INDEX_DEFAULT" xml:space="preserve">
+    <value>34</value>
+  </data>
+  <data name="REPORT_HATCHING_LEVEL1_PERCENT_DEFAULT" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="REPORT_HATCHING_LEVEL2_HIGH_COLOR_INDEX_DEFAULT" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="REPORT_HATCHING_LEVEL2_LOW_COLOR_INDEX_DEFAULT" xml:space="preserve">
+    <value>37</value>
+  </data>
+  <data name="REPORT_HATCHING_LEVEL2_PERCENT_DEFAULT" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="REPORT_IV_DESCRIPTION_DEFAULT" xml:space="preserve">
+    <value>非該当</value>
+  </data>
+  <data name="REPORT_IV_DESCRIPTION_KEYWORD" xml:space="preserve">
+    <value>非該当</value>
+  </data>
+  <data name="REPORT_LAYOUT_QC3_DESCRIPTION_2COLUMN_CAPTION" xml:space="preserve">
+    <value>質問文</value>
+  </data>
+  <data name="REPORT_LAYOUT_QUESTION_NUMBER_COLUMN_CAPTION" xml:space="preserve">
+    <value>質問番号</value>
+  </data>
+  <data name="REPORT_MARKING_LEGEND_MIN_BASE_AFTER_WB" xml:space="preserve">
+    <value>(WB後)</value>
+  </data>
+  <data name="REPORT_MARKING_LEGEND_MIN_BASE_BEFORE_WB" xml:space="preserve">
+    <value>(WB前)</value>
+  </data>
+  <data name="REPORT_MARKING_LEGEND_MIN_BASE_PROMPT" xml:space="preserve">
+    <value>n{0} = {1} 以上</value>
+  </data>
+  <data name="REPORT_MARKING_LEGEND_RANKING_1ST_CAPTION" xml:space="preserve">
+    <value>1位</value>
+  </data>
+  <data name="REPORT_MARKING_LEGEND_RANKING_2ND_CAPTION" xml:space="preserve">
+    <value>2位</value>
+  </data>
+  <data name="REPORT_MARKING_LEGEND_RANKING_3RD_CAPTION" xml:space="preserve">
+    <value>3位</value>
+  </data>
+  <data name="REPORT_MARKING_LEGEND_RANKING_CAPTION" xml:space="preserve">
+    <value>[ランキング]</value>
+  </data>
+  <data name="REPORT_MARKING_LEGEND_RATE_DIFFERENCE_CAPTION" xml:space="preserve">
+    <value>[比率の差]</value>
+  </data>
+  <data name="REPORT_MARKING_LEGEND_RATE_DIFFERENCE_HIGH_CAPTION" xml:space="preserve">
+    <value>全体＋{0}％</value>
+  </data>
+  <data name="REPORT_MARKING_LEGEND_RATE_DIFFERENCE_LOW_CAPTION" xml:space="preserve">
+    <value>全体－{0}％</value>
+  </data>
+  <data name="REPORT_MARKING_LEGEND_SIGNIFICANCE_TEST_AT_10CAPTION" xml:space="preserve">
+    <value>   10%    ABCD...</value>
+  </data>
+  <data name="REPORT_MARKING_LEGEND_SIGNIFICANCE_TEST_AT_1CAPTION" xml:space="preserve">
+    <value>    1%    ABCD...</value>
+  </data>
+  <data name="REPORT_MARKING_LEGEND_SIGNIFICANCE_TEST_AT_5CAPTION" xml:space="preserve">
+    <value>    5%    ABCD...</value>
+  </data>
+  <data name="REPORT_MARKING_LEGEND_SIGNIFICANCE_TEST_CAPTION" xml:space="preserve">
+    <value>[差の検定]\n 有意水準</value>
+  </data>
+  <data name="REPORT_MARKING_LEGEND_SIGNIFICANCE_TEST_TO_WHOLE_AT_10CAPTION" xml:space="preserve">
+    <value>   10%     ∴  ∵</value>
+  </data>
+  <data name="REPORT_MARKING_LEGEND_SIGNIFICANCE_TEST_TO_WHOLE_AT_1CAPTION" xml:space="preserve">
+    <value>    1%     ▲  ▼</value>
+  </data>
+  <data name="REPORT_MARKING_LEGEND_SIGNIFICANCE_TEST_TO_WHOLE_AT_5CAPTION" xml:space="preserve">
+    <value>    5%     △  ▽</value>
+  </data>
+  <data name="REPORT_MARKING_LEGEND_SIGNIFICANCE_TEST_TO_WHOLE_CAPTION" xml:space="preserve">
+    <value>[全体との差の検定]\n 有意水準  高  低</value>
+  </data>
+  <data name="REPORT_MARKING_LEGEND_WEIGHTBACK_ON_PROMPT" xml:space="preserve">
+    <value>&lt;ウエイトバック設定 あり&gt;</value>
+  </data>
+  <data name="REPORT_MATRIX_DESCRIPTION_KEYWORD" xml:space="preserve">
+    <value>マトリクス</value>
+  </data>
+  <data name="REPORT_MAXIMUM_DESCRIPTION_DEFAULT" xml:space="preserve">
+    <value>最大値</value>
+  </data>
+  <data name="REPORT_MAX_COLUMNS_COUNT_PER_SHEET_KEYWORD" xml:space="preserve">
+    <value>250</value>
+  </data>
+  <data name="REPORT_MA_DESCRIPTION_KEYWORD" xml:space="preserve">
+    <value>複数回答</value>
+  </data>
+  <data name="REPORT_MEDIAN_DESCRIPTION_DEFAULT" xml:space="preserve">
+    <value>中央値</value>
+  </data>
+  <data name="REPORT_MINIMUM_DESCRIPTION_DEFAULT" xml:space="preserve">
+    <value>最小値</value>
+  </data>
+  <data name="REPORT_NA_DESCRIPTION_DEFAULT" xml:space="preserve">
+    <value>無回答</value>
+  </data>
+  <data name="REPORT_NA_DESCRIPTION_KEYWORD" xml:space="preserve">
+    <value>無回答</value>
+  </data>
+  <data name="REPORT_NP_KEYWORD" xml:space="preserve">
+    <value>N%</value>
+  </data>
+  <data name="REPORT_NP_TABLE_KEYWORD" xml:space="preserve">
+    <value>N%表</value>
+  </data>
+  <data name="REPORT_N_DESCRIPTION_KEYWORD" xml:space="preserve">
+    <value>数値回答</value>
+  </data>
+  <data name="REPORT_N_KEYWORD" xml:space="preserve">
+    <value>N</value>
+  </data>
+  <data name="REPORT_N_MATRIX_DESCRIPTION_KEYWORD" xml:space="preserve">
+    <value>数値回答マトリクス</value>
+  </data>
+  <data name="REPORT_N_TABLE_KEYWORD" xml:space="preserve">
+    <value>N表</value>
+  </data>
+  <data name="REPORT_OUTPUT_INDIVIDUAL_CROSS_ERROR_MESSAGE" xml:space="preserve">
+    <value>{0}のため、出力できませんでした</value>
+  </data>
+  <data name="REPORT_OUTPUT_INDIVIDUAL_CROSS_NP_MESSAGE" xml:space="preserve">
+    <value>{0}のため、N%表を出力出力できませんでした</value>
+  </data>
+  <data name="REPORT_OUTPUT_INDIVIDUAL_CROSS_P_MESSAGE" xml:space="preserve">
+    <value>{0}のため、%表を出力できませんでした。 {0}</value>
+  </data>
+  <data name="REPORT_OUTPUT_INDIVIDUAL_CROSS_SIGNIFICANCE_TEST_MESSAGE" xml:space="preserve">
+    <value>{0}のため、項目間検定表を出力できませんでした</value>
+  </data>
+  <data name="REPORT_PAGE_KEYWORD" xml:space="preserve">
+    <value>ページ</value>
+  </data>
+  <data name="REPORT_PARAMETER_DESCRIPTION_DEFAULT" xml:space="preserve">
+    <value>有効ケース数</value>
+  </data>
+  <data name="REPORT_PRE_WB_WHOLE_DESCRIPTION_DEFAULT" xml:space="preserve">
+    <value>WB前全体</value>
+  </data>
+  <data name="REPORT_P_KEYWORD" xml:space="preserve">
+    <value>%</value>
+  </data>
+  <data name="REPORT_P_TABLE_KEYWORD" xml:space="preserve">
+    <value>%表</value>
+  </data>
+  <data name="REPORT_ROWS_COUNT_OVER_INDIVIDUAL_CROSSES_NP_MESSAGE" xml:space="preserve">
+    <value>行数超過のため、次のN%表を出力できませんでした。 {0}</value>
+  </data>
+  <data name="REPORT_ROWS_COUNT_OVER_INDIVIDUAL_CROSSES_P_MESSAGE" xml:space="preserve">
+    <value>行数超過のため、次の%表を出力できませんでした。 {0}</value>
+  </data>
+  <data name="REPORT_ROWS_COUNT_OVER_INDIVIDUAL_CROSSES_SIGNIFICANCE_TEST_MESSAGE" xml:space="preserve">
+    <value>行数超過のため、次の項目間検定表出力できませんでした。 {0}</value>
+  </data>
+  <data name="REPORT_ROWS_COUNT_OVER_KEYWORD" xml:space="preserve">
+    <value>行数超過のため '{0}' の{1}表を出力できませんでした</value>
+  </data>
+  <data name="REPORT_SA_DESCRIPTION_KEYWORD" xml:space="preserve">
+    <value>単一回答</value>
+  </data>
+  <data name="REPORT_SECTOR_KEYWORD" xml:space="preserve">
+    <value>選択肢</value>
+  </data>
+  <data name="REPORT_SIGNATURE_KEYWORD" xml:space="preserve">
+    <value>株式会社マクロミル</value>
+  </data>
+  <data name="REPORT_SIGNIFICANCE_TEST_KEYWORD" xml:space="preserve">
+    <value>検定</value>
+  </data>
+  <data name="REPORT_SIGNIFICANCE_TEST_ROW_COLUMN_CAPTION" xml:space="preserve">
+    <value>検定結果</value>
+  </data>
+  <data name="REPORT_SUMMARY_DESCRIPTION_DEFAULT" xml:space="preserve">
+    <value>合計</value>
+  </data>
+  <data name="REPORT_TARGET_WHOLE_DESCRIPTION_DEFAULT" xml:space="preserve">
+    <value>全体</value>
+  </data>
+  <data name="REPORT_TO_AFTER_TABLE_MARK_AT_TURN_KEYWORD" xml:space="preserve">
+    <value>(後表へ)</value>
+  </data>
+  <data name="REPORT_UNJUST_DATA_MESSAGE" xml:space="preserve">
+    <value>データが不正です</value>
+  </data>
+  <data name="REPORT_UNJUST_QUESTION_TYPE_MESSAGE" xml:space="preserve">
+    <value>質問タイプ値がです不正</value>
+  </data>
+  <data name="REPORT_WEIGHT_AVERAGE_DENOMINATOR_KEYWORD" xml:space="preserve">
+    <value>ウエイト有効ケース数</value>
+  </data>
+  <data name="REPORT_WEIGHT_AVERAGE_KEYWORD" xml:space="preserve">
+    <value>ウエイト平均</value>
+  </data>
+  <data name="REVISION_METHOD_ADD_DESC" xml:space="preserve">
+    <value>修正値をつけ加える</value>
+  </data>
+  <data name="REVISION_METHOD_EQUAL_DESC" xml:space="preserve">
+    <value>修正値を代入する</value>
+  </data>
+  <data name="REVISION_METHOD_MINUS_DESC" xml:space="preserve">
+    <value>修正値を除外する</value>
+  </data>
+  <data name="SD_ALERT_CHOOSE_OTHER_FILE" xml:space="preserve">
+    <value>別のファイルを指定してください。</value>
+  </data>
+  <data name="SD_ALERT_MISMATCH_VARIABLES" xml:space="preserve">
+    <value>以下のアイテムでデータが一致しません。
+{0}</value>
+  </data>
+  <data name="SD_ALERT_SAME_FILENAME" xml:space="preserve">
+    <value>ファイル名を変更して再度お試しください。</value>
+  </data>
+  <data name="SD_ALERT_SUCESS" xml:space="preserve">
+    <value>データ差替が完了しました。</value>
+  </data>
+  <data name="SD_ERROR_FAILED" xml:space="preserve">
+    <value>シートのチェックに失敗しました。
+他のファイルを選択してください。</value>
+  </data>
+  <data name="SD_PB_DELETE_QUESTIONS" xml:space="preserve">
+    <value>不要な質問を削除しています。</value>
+  </data>
+  <data name="SD_PB_DELETE_SHEET" xml:space="preserve">
+    <value>Dataシートを削除しています。</value>
+  </data>
+  <data name="SD_PB_DONE_INTEGRITY_CHECK" xml:space="preserve">
+    <value>データの整合性チェックが完了しました。</value>
+  </data>
+  <data name="SD_PB_DONE_QS_UPDATE" xml:space="preserve">
+    <value>設問設定シートの更新が完了しました。</value>
+  </data>
+  <data name="SD_PB_DONE_SHEETCHECK" xml:space="preserve">
+    <value>シートのチェックが完了しました。</value>
+  </data>
+  <data name="SD_PB_FAILD" xml:space="preserve">
+    <value>データ差替に失敗しました。</value>
+  </data>
+  <data name="SD_PB_FINALIZING" xml:space="preserve">
+    <value>データ差替の最終処理中</value>
+  </data>
+  <data name="SD_PB_PROCESS_DB_UPDATE" xml:space="preserve">
+    <value>データ差替データベースの更新中</value>
+  </data>
+  <data name="SD_PB_PROCESS_INTEGRITY_CHECK" xml:space="preserve">
+    <value>データの整合性チェック中</value>
+  </data>
+  <data name="SD_PB_PROCESS_QS_UPDATE" xml:space="preserve">
+    <value>設問設定シートを更新中</value>
+  </data>
+  <data name="SD_PB_PROCESS_SHEETCHECK" xml:space="preserve">
+    <value>シートをチェック中</value>
+  </data>
+  <data name="SET_INTEGER_BETWEEN" xml:space="preserve">
+    <value>「{0}～{1}」までの整数を設定してください。</value>
+  </data>
+  <data name="SET_NUMERIC_VALUE_RANGE" xml:space="preserve">
+    <value>{0} 行目{1} 列には数値を設定してください。</value>
+  </data>
+  <data name="SL_TOP_BOX_TEXT" xml:space="preserve">
+    <value>一覧表を出力する場合に使用します。</value>
+  </data>
+  <data name="SP_PB_ALMOST_FINISH" xml:space="preserve">
+    <value>間もなく完了します。</value>
+  </data>
+  <data name="SP_PB_COMPLETED" xml:space="preserve">
+    <value>データ差替が完了しました。</value>
+  </data>
+  <data name="STATUS_SAVING" xml:space="preserve">
+    <value>保存中</value>
+  </data>
+  <data name="STD_DB_CREATE_DATASHEET" xml:space="preserve">
+    <value>Dataシート作成中</value>
+  </data>
+  <data name="STD_DB_CREATE_DATASHEET1" xml:space="preserve">
+    <value>Data（Processed）シート作成中</value>
+  </data>
+  <data name="STD_DB_CREATE_DATASHEET_FINISH" xml:space="preserve">
+    <value>データロード完了</value>
+  </data>
+  <data name="STD_DB_CREATE_EXCEL" xml:space="preserve">
+    <value>Excelファイル作成中</value>
+  </data>
+  <data name="STD_DB_CREATE_EXCEL_WB" xml:space="preserve">
+    <value>Excelブック作成中</value>
+  </data>
+  <data name="STD_DB_LOAD" xml:space="preserve">
+    <value>ロード中</value>
+  </data>
+  <data name="STD_DB_LOAD_DATA" xml:space="preserve">
+    <value>データロード中</value>
+  </data>
+  <data name="ST_FINISHED_SUMMARY" xml:space="preserve">
+    <value>一覧表の作成が完了しました。</value>
+  </data>
+  <data name="ST_SHEET_HEADING_OUTPUT" xml:space="preserve">
+    <value>出力</value>
+  </data>
+  <data name="ST_SHEET_HEADING_OUTPUT_NAME" xml:space="preserve">
+    <value>出力名</value>
+  </data>
+  <data name="ST_SUMMARY_CALC" xml:space="preserve">
+    <value>一覧表の計算中</value>
+  </data>
+  <data name="ST_VALIDATION_CHECKS" xml:space="preserve">
+    <value>データを検証しています。</value>
+  </data>
+  <data name="SUBTOTAL_ALERT_MISSING_COLUMN" xml:space="preserve">
+    <value>選択肢: 【 {0} 】に入力されていない箇所があります。</value>
+  </data>
+  <data name="SUBTOTAL_EROOR_ALERT_EXCLA_START" xml:space="preserve">
+    <value>[!]は先頭以外設定できません。</value>
+  </data>
+  <data name="SUBTOTAL_ERROR_ALERT_MULTIPLE_MINUS" xml:space="preserve">
+    <value>[-] が、複数設定されています。</value>
+  </data>
+  <data name="SUBTOTAL_ERROR_ALERT_NUMERIC" xml:space="preserve">
+    <value>数値を設定してください。</value>
+  </data>
+  <data name="SUBTOTAL_GRID_CHOICE" xml:space="preserve">
+    <value>選択肢</value>
+  </data>
+  <data name="SUBTOTAL_GRID_OPERATOR" xml:space="preserve">
+    <value>演算子</value>
+  </data>
+  <data name="SUBTOTAL_GRID_VALUE" xml:space="preserve">
+    <value>条件値</value>
+  </data>
+  <data name="SUBTOTAL_RANGE_EXCEED" xml:space="preserve">
+    <value>[ {0} - {1} ] までの整数を、設定してください。</value>
+  </data>
+  <data name="SUBTOTAL_SAVE" xml:space="preserve">
+    <value>登録</value>
+  </data>
+  <data name="TABLE_TYPES_EXCLUDED_WARNING" xml:space="preserve">
+    <value>集計表種類【GT-RAT】【GT-MTN】が含まれていたため、除きました。</value>
+  </data>
+  <data name="TABULATION_GRP_HEAD" xml:space="preserve">
+    <value>集計方法：</value>
+  </data>
+  <data name="TABULATION_SETTING" xml:space="preserve">
+    <value>集計設定</value>
+  </data>
+  <data name="TARGET_CHOICES" xml:space="preserve">
+    <value>対象選択肢</value>
+  </data>
+  <data name="TBLTN_RDO_GT" xml:space="preserve">
+    <value>GT</value>
+  </data>
+  <data name="TEST_FOR_DIFFERENT_BETWEEN_AXIS_ITEMS" xml:space="preserve">
+    <value>軸の項目間の検定</value>
+  </data>
+  <data name="TEST_OVERALL_DIFFERENCE" xml:space="preserve">
+    <value>全体との差の検定</value>
+  </data>
+  <data name="TEXT_COMPLETED" xml:space="preserve">
+    <value>終了しました。</value>
+  </data>
+  <data name="TEXT_COUNT_PROCESSING_METHOD" xml:space="preserve">
+    <value>MAの回答個数を計算します。</value>
+  </data>
+  <data name="TEXT_FILTER_VALUE_DK_NO_ANSWER" xml:space="preserve">
+    <value>DK. （無回答）</value>
+  </data>
+  <data name="TEXT_FILTER_VALUE_STAR_EXCLUDED" xml:space="preserve">
+    <value>*. （非該当）</value>
+  </data>
+  <data name="TEXT_GROUP_PROCESSING_METHOD" xml:space="preserve">
+    <value>数値アイテムの平均、最小、最大、合計を求めます。</value>
+  </data>
+  <data name="TEXT_MTOS" xml:space="preserve">
+    <value>MTOS</value>
+  </data>
+  <data name="TEXT_MTOS_PROCESSING_METHOD" xml:space="preserve">
+    <value>MAからSAへ変換します。</value>
+  </data>
+  <data name="TEXT_SA" xml:space="preserve">
+    <value>SA</value>
+  </data>
+  <data name="THE_NO_OF_CHOICE_SHOULD_BE_EQUAL_LESS_THAN" xml:space="preserve">
+    <value>選択肢の合計数が {0} になってしまいます。</value>
+  </data>
+  <data name="THE_NO_OF_CHOICE_WILL_BE" xml:space="preserve">
+    <value>選択肢の数は {0} までに設定してください。</value>
+  </data>
+  <data name="TITLE_CREATE_NEW_VARIABLE" xml:space="preserve">
+    <value>新アイテム作成</value>
+  </data>
+  <data name="TITLE_CROSS_TAB" xml:space="preserve">
+    <value>クロス集計</value>
+  </data>
+  <data name="TITLE_DATA_EXPORT" xml:space="preserve">
+    <value>データ出力</value>
+  </data>
+  <data name="TITLE_DATA_IMPORT" xml:space="preserve">
+    <value>外部データ追加</value>
+  </data>
+  <data name="TITLE_DATA_MERGE" xml:space="preserve">
+    <value>データ結合</value>
+  </data>
+  <data name="TITLE_DATA_PROCESSING" xml:space="preserve">
+    <value>データ加工</value>
+  </data>
+  <data name="TITLE_DATA_SHEET" xml:space="preserve">
+    <value>ローデータ</value>
+  </data>
+  <data name="TITLE_DP_CHECK_CROSS" xml:space="preserve">
+    <value>データ加工 チェッククロスあり/チェックリストあり</value>
+  </data>
+  <data name="TITLE_EXCLUDE" xml:space="preserve">
+    <value>非該当処理</value>
+  </data>
+  <data name="TITLE_FA_SHEET" xml:space="preserve">
+    <value>ＦＡ作成</value>
+  </data>
+  <data name="TITLE_FILTER_SETTING" xml:space="preserve">
+    <value>絞り込み設定値</value>
+  </data>
+  <data name="TITLE_GROSS_TAB" xml:space="preserve">
+    <value>GT集計</value>
+  </data>
+  <data name="TITLE_GT_SHEET" xml:space="preserve">
+    <value>ＧＴ集計</value>
+  </data>
+  <data name="TITLE_QC" xml:space="preserve">
+    <value>Quick Cross</value>
+  </data>
+  <data name="TITLE_REVISE_DATA" xml:space="preserve">
+    <value>データ修正</value>
+  </data>
+  <data name="TITLE_SAMPLE_WEIGH" xml:space="preserve">
+    <value>ウエイトバック</value>
+  </data>
+  <data name="TITLE_SDE_WINDOW" xml:space="preserve">
+    <value>データ差替</value>
+  </data>
+  <data name="TITLE_SUMMARIZE_CHOICES" xml:space="preserve">
+    <value>スケール設問まとめ</value>
+  </data>
+  <data name="TITLE_SUMMARY_FORM" xml:space="preserve">
+    <value>一覧表</value>
+  </data>
+  <data name="TITLE_VALUE" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="TOOLTIP_ADDTAB" xml:space="preserve">
+    <value>集計タブの追加を行います。</value>
+  </data>
+  <data name="TOOLTIP_CLASS_SET_CHOICE_LABELS" xml:space="preserve">
+    <value>下限～上限に設定した数値をもとに選択肢を自動入力します。</value>
+  </data>
+  <data name="TOOLTIP_DP_COPY" xml:space="preserve">
+    <value>データ加工設定をコピーして、新しいデータ加工設定を作成します。</value>
+  </data>
+  <data name="TOOLTIP_DP_CREATE_PROCESS" xml:space="preserve">
+    <value>加工処理設定画面を開きます。</value>
+  </data>
+  <data name="TOOLTIP_DP_DELETE" xml:space="preserve">
+    <value>データ加工設定を削除します。</value>
+  </data>
+  <data name="TOOLTIP_DP_EDIT" xml:space="preserve">
+    <value>データ加工設定を編集・修正します。</value>
+  </data>
+  <data name="TOOLTIP_DP_EXECUTE" xml:space="preserve">
+    <value>データ加工を実行します。</value>
+  </data>
+  <data name="TOOLTIP_DP_LEFT_ARROW" xml:space="preserve">
+    <value>加工順を１つ下に移動します。</value>
+  </data>
+  <data name="TOOLTIP_DP_ONOROFF" xml:space="preserve">
+    <value>データ加工設定を実行するか否かを切り替えます</value>
+  </data>
+  <data name="TOOLTIP_DP_RIGHT_ARROW" xml:space="preserve">
+    <value>加工順を１つ上に移動します。</value>
+  </data>
+  <data name="TOOLTIP_DP_UNDO" xml:space="preserve">
+    <value>ローデータをデータ加工前の状態に戻します。</value>
+  </data>
+  <data name="TOOLTIP_EDITTAB" xml:space="preserve">
+    <value>クロス集計表の出力順の変更などを行います。</value>
+  </data>
+  <data name="TOOLTIP_HELP" xml:space="preserve">
+    <value>HELP</value>
+  </data>
+  <data name="TOOLTIP_INTEGRATE_CRITERIA_VALUE" xml:space="preserve">
+    <value>元アイテムの選択肢から条件値を設定します。</value>
+  </data>
+  <data name="TOOLTIP_INTEGRATE_SEARCH_NEW_VARIABLE" xml:space="preserve">
+    <value>新アイテムを検索します</value>
+  </data>
+  <data name="TOOLTIP_INTEGRATE_SET_LABELS" xml:space="preserve">
+    <value>元アイテムの条件値の内容で、選択肢名称を自動入力します。</value>
+  </data>
+  <data name="TOOLTIP_QS_NEXT_BTN" xml:space="preserve">
+    <value>次のアイテムの編集画面を開きます。</value>
+  </data>
+  <data name="TOOLTIP_QS_PREVIOUS_BTN" xml:space="preserve">
+    <value>前のアイテムの編集画面を開きます。</value>
+  </data>
+  <data name="TOOLTIP_RESTORE_BTN" xml:space="preserve">
+    <value>設定内容を初期状態に戻します。</value>
+  </data>
+  <data name="TOOLTIP_SAVE_BTN" xml:space="preserve">
+    <value>編集内容を登録します。</value>
+  </data>
+  <data name="TOOLTIP_SUMMARIZE_CHOICES" xml:space="preserve">
+    <value>TOP2やBOTTM2などの
+まとめ上げ設定を行います。</value>
+  </data>
+  <data name="TOOLTIP_WEIGHTBAG" xml:space="preserve">
+    <value>ウエイトバック値算出</value>
+  </data>
+  <data name="TOTAL_TABLE_TYPES_CANNOT_BE_SELECTED_ERROR" xml:space="preserve">
+    <value>集計表種類【GT-SA】【GT-MA】は選択できません。</value>
+  </data>
+  <data name="TOTAL_TABLE_TYPES_CANNOT_BE_SELECTED_WARNING" xml:space="preserve">
+    <value>集計表種類【GT-SA】【GT-MA】が含まれていたため、除きました。</value>
+  </data>
+  <data name="WB_NEGATIVE_VALIDATION" xml:space="preserve">
+    <value>ウエイトバックの設定が正しくありません。</value>
+  </data>
+  <data name="WB_TOTAL_NUMBER_BASE" xml:space="preserve">
+    <value>＜全数ベース＞</value>
+  </data>
+  <data name="WEIGHT_BACK" xml:space="preserve">
+    <value>＜ウエイトバック＞</value>
+  </data>
+  <data name="WEIGHT_BACK_MESSAGE" xml:space="preserve">
+    <value>登録しました。</value>
+  </data>
+  <data name="WEIGHT_BACK_NO_DATA_MESSAGE" xml:space="preserve">
+    <value>[{0}]のデータが無い為、設定できません。
+データ加工を実行してください。</value>
+  </data>
+  <data name="WRONG_FILEPATH" xml:space="preserve">
+    <value>ファイルにアクセスできませんでした。次のいずれかを行ってみてください。
+
+• 指定したフォルダーがあることを確認します。 
+• ファイルを含むフォルダーが読み取り専用になっていないことを確認します。
+• 指定したファイルの名前に次のいずれかの文字も含まれていないことを確認します : &lt;  &gt; ? [ ] : | *
+• ファイル名およびパス名が半角で 218 文字より長くないことを確認します。</value>
+  </data>
+  <data name="ADD_CHECKBOX_EXCLUDE" xml:space="preserve">
+    <value>元アイテムがすべて非該当のサンプルは加工後も非該当にする</value>
+  </data>
+  <data name="QS_MAX_NO_EXCEED" xml:space="preserve">
+    <value>Maximum number of questions exceed</value>
+  </data>
+  <data name="CROSS_COLUMN_PERCENTAGE_CANNOT_SET_THREEWAY" xml:space="preserve">
+    <value>[3重クロス]と[縦％表示]が同時に設定されています。</value>
+  </data>
+  <data name="LABEL_CB_UTF_8_CSVTABQLAYOUT" xml:space="preserve">
+    <value>UTF-8</value>
+  </data>
+  <data name="CA_HEADING_ANALYSIS_SETTING" xml:space="preserve">
+    <value>Analysis Setting</value>
+  </data>
+  <data name="CA_HEADING_CENTROID" xml:space="preserve">
+    <value>Centroid</value>
+  </data>
+  <data name="CA_HEADING_CLUSTERSIZE_PROPORTION" xml:space="preserve">
+    <value>Cluster Size and Proportion</value>
+  </data>
+  <data name="CA_HEADING_MAX_NO_ITERATIONS" xml:space="preserve">
+    <value>Max No. of Iterations</value>
+  </data>
+  <data name="CA_HEADING_NOF_INVALIDCASES" xml:space="preserve">
+    <value>No. of Invalid Cases</value>
+  </data>
+  <data name="CA_HEADING_NOOF_CASES_USED_FOR_ANALYSIS" xml:space="preserve">
+    <value>No. of Cases Used for Analysis</value>
+  </data>
+  <data name="CA_HEADING_NOOF_CLUSTERS" xml:space="preserve">
+    <value>No. of Clusters</value>
+  </data>
+  <data name="CA_HEADING_NOOF_ITERATIONS" xml:space="preserve">
+    <value>No. of Iterations</value>
+  </data>
+  <data name="CA_HEADING_NOOF_VALIDCASES" xml:space="preserve">
+    <value>No. of Valid Cases</value>
+  </data>
+  <data name="CA_HEADING_PROPORTION_ON_VALID_CASES" xml:space="preserve">
+    <value>Proportion on Valid Cases</value>
+  </data>
+  <data name="CA_HEADING_QUESTION" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="CA_HEADING_VALID_CASES_FOR_ANALYSIS" xml:space="preserve">
+    <value>Valid Cases for Analysis</value>
+  </data>
+  <data name="CA_HEADING_VARIABLE" xml:space="preserve">
+    <value>Variable</value>
+  </data>
+  <data name="CA_SUB_HEADING_NOOF_ITERATIONS" xml:space="preserve">
+    <value>No. of Iterations</value>
+  </data>
+  <data name="CLUSTER_HEADING" xml:space="preserve">
+    <value>Cluster</value>
+  </data>
+  <data name="PSM_GRAPHDISPLAY_RANGE" xml:space="preserve">
+    <value>グラフの表示範囲</value>
+  </data>
+  <data name="LBL_ANSWER_TYPE_SHORT" xml:space="preserve">
+    <value>回答タイプ</value>
+  </data>
+  <data name="LBL_NO_OF_CHOICES_SHORT" xml:space="preserve">
+    <value>選択肢数</value>
+  </data>
+  <data name="MV_MAINWINDOW_RESET" xml:space="preserve">
+    <value>初期化してもよろしいですか？</value>
+  </data>
+  <data name="ST_AGGRAVATED_AVERAGE" xml:space="preserve">
+    <value>ウエイト平均</value>
+  </data>
+  <data name="ST_WEIGHTED_AVERAGE_NUMBER" xml:space="preserve">
+    <value>ウエイト有効ケース数</value>
+  </data>
+  <data name="REPORT_CHECK_LIST_CHANGED_INDEX" xml:space="preserve">
+    <value>Changed
+Index</value>
+  </data>
+  <data name="REPORT_CHECK_LIST_NUM_SAMPLE_AFTER" xml:space="preserve">
+    <value>加工後サンプル数</value>
+  </data>
+  <data name="REPORT_CHECK_LIST_NUM_SAMPLE_BEFORE" xml:space="preserve">
+    <value>加工前サンプル数</value>
+  </data>
+  <data name="CSP_ERRMSG_1_VALIDCASE_FAILED_TO_CALCULATE_CORREL_COEFF" xml:space="preserve">
+    <value>相関係数が計算できませんでした。</value>
+  </data>
+  <data name="CR_SHEET_HEADING_CRITERIA_VALUE" xml:space="preserve">
+    <value>条件値入力補助</value>
+  </data>
+  <data name="REPORT_CHECK_CROSS_SHEET_NAME" xml:space="preserve">
+    <value>Check Cross</value>
+  </data>
+  <data name="R_COMMAND" xml:space="preserve">
+    <value>[R コマンド]</value>
+  </data>
+  <data name="R_RUNTIME_ERROR" xml:space="preserve">
+    <value>[R 実行時エラー]</value>
+  </data>
+  <data name="DELETING" xml:space="preserve">
+    <value>Deleting...</value>
+  </data>
+  <data name="QS_SHEET_ANS_TYPE_TOOLTIP_DESC" xml:space="preserve">
+    <value>回答タイプを指定してください。</value>
+  </data>
+  <data name="QS_SHEET_ANS_TYPE_TOOLTIP_HEADER" xml:space="preserve">
+    <value>【回答タイプ】</value>
+  </data>
+  <data name="STD_DB_CREATE_MULTIVARIATESHEET" xml:space="preserve">
+    <value>Multivariate シート作成中</value>
+  </data>
+  <data name="SPSS_RULE_MESSAGE" xml:space="preserve">
+    <value>SPSSの仕様に従い、以下の内容を変更して出力します。</value>
+  </data>
+  <data name="FACTOR_EXTRACTION_METHOD_HEADING" xml:space="preserve">
+    <value>抽出法</value>
+  </data>
+  <data name="FACTOR_NO_OF_FACTORS_ADOPT" xml:space="preserve">
+    <value>固有値1以上</value>
+  </data>
+  <data name="FACTOR_REVERSE_VALUE_NO" xml:space="preserve">
+    <value>なし</value>
+  </data>
+  <data name="FACTOR_REVERSE_VALUE_YES" xml:space="preserve">
+    <value>あり</value>
+  </data>
+  <data name="FACTOR_ROTATION_METHOD" xml:space="preserve">
+    <value>基準化バリマックス</value>
+  </data>
+  <data name="FACTOR_ROTATION_METHOD_NONE" xml:space="preserve">
+    <value>回転せず</value>
+  </data>
+  <data name="FACTOR_ROTATION_METHOD_NOTE" xml:space="preserve">
+    <value>注：斜交回転の場合、回転後の負荷量平方和を加算しても総分散とは一致しません。</value>
+  </data>
+  <data name="FACTOR_ROTATION_METHOD_PROMAX" xml:space="preserve">
+    <value>プロマックス(m={0})</value>
+  </data>
+  <data name="FACTOR_ROTATION_METHOD_VARIMAX" xml:space="preserve">
+    <value>基準化バリマックス</value>
+  </data>
+  <data name="FACTOR_ROTATION_HEADING_FACTOR" xml:space="preserve">
+    <value>因子</value>
+  </data>
+  <data name="FACTOR_P_StrCr_Af_Communalities" xml:space="preserve">
+    <value>共通性</value>
+  </data>
+  <data name="FACTOR_P_StrCr_Af_FactorLoadings" xml:space="preserve">
+    <value>回転後因子負荷量</value>
+  </data>
+  <data name="FACTOR_P_StrCr_Af_FactorLoadings_Pattern" xml:space="preserve">
+    <value>回転後因子負荷量(パターン行列)</value>
+  </data>
+  <data name="FACTOR_P_StrCr_Af_FactorSumSquares" xml:space="preserve">
+    <value>回転後因子負荷量平方和</value>
+  </data>
+  <data name="FACTOR_P_StrCr_Bf_Communalities" xml:space="preserve">
+    <value>共通性</value>
+  </data>
+  <data name="FACTOR_P_StrCr_Bf_FactorLoadings" xml:space="preserve">
+    <value>回転前因子負荷量</value>
+  </data>
+  <data name="FACTOR_P_StrCr_Bf_FactorSumSquares" xml:space="preserve">
+    <value>抽出後の負荷量平方和</value>
+  </data>
+  <data name="FACTOR_P_StrCr_ContributionalAmounts" xml:space="preserve">
+    <value>Amount of Variance</value>
+  </data>
+  <data name="FACTOR_P_StrCr_Contributions" xml:space="preserve">
+    <value>% of variance</value>
+  </data>
+  <data name="FACTOR_P_StrCr_ContributionsTotal" xml:space="preserve">
+    <value>Cumulative % of variance</value>
+  </data>
+  <data name="FACTOR_P_StrCr_EigenVals" xml:space="preserve">
+    <value>固有値</value>
+  </data>
+  <data name="FACTOR_P_StrCr_EigenVecMat" xml:space="preserve">
+    <value>Eigenvectors</value>
+  </data>
+  <data name="FACTOR_P_StrCr_FactorCount" xml:space="preserve">
+    <value>Number of factors</value>
+  </data>
+  <data name="FACTOR_P_StrCr_FactorLoadings" xml:space="preserve">
+    <value>Factor loadings</value>
+  </data>
+  <data name="FACTOR_P_StrCr_FactorScore" xml:space="preserve">
+    <value>Factor Scores</value>
+  </data>
+  <data name="FACTOR_P_StrCr_FactorScoreCoefficient" xml:space="preserve">
+    <value>Factor Score Coefficients</value>
+  </data>
+  <data name="FACTOR_P_StrCr_FirstCommunalities" xml:space="preserve">
+    <value>共通性</value>
+  </data>
+  <data name="FACTOR_P_StrCr_FirstContributionalAmounts" xml:space="preserve">
+    <value>Initial Amount of Variance</value>
+  </data>
+  <data name="FACTOR_P_StrCr_FirstContributions" xml:space="preserve">
+    <value>Initial % of variance</value>
+  </data>
+  <data name="FACTOR_P_StrCr_FirstContributionsTotal" xml:space="preserve">
+    <value>Initial Cumulative % of variance</value>
+  </data>
+  <data name="FACTOR_P_StrCr_FirstEigenVals" xml:space="preserve">
+    <value>初期固有値</value>
+  </data>
+  <data name="FACTOR_P_StrCr_FirstEigenVecMat" xml:space="preserve">
+    <value>初期固有値</value>
+  </data>
+  <data name="FACTOR_P_StrCr_FirstFactorLoadings" xml:space="preserve">
+    <value>Initial values of factor loadings</value>
+  </data>
+  <data name="FACTOR_P_StrCr_MethodForRAster" xml:space="preserve">
+    <value>Reduced correlation matrix</value>
+  </data>
+  <data name="FACTOR_P_StrCr_R" xml:space="preserve">
+    <value>相関係数行列</value>
+  </data>
+  <data name="FACTOR_P_StrCr_RAster" xml:space="preserve">
+    <value>Reduced correlation matrix</value>
+  </data>
+  <data name="FACTOR_P_StrCr_RBtwFactor" xml:space="preserve">
+    <value>因子相関</value>
+  </data>
+  <data name="FACTOR_P_StrCr_Rotation" xml:space="preserve">
+    <value>Rotation</value>
+  </data>
+  <data name="FACTOR_P_StrCr_StandardScoreMat" xml:space="preserve">
+    <value>Standardized Scores</value>
+  </data>
+  <data name="FACTOR_P_StrIn_BfFactorLodingMatCalcLim" xml:space="preserve">
+    <value>The maximum number of iterations for factor extraction</value>
+  </data>
+  <data name="FACTOR_P_StrIn_BfFactorLodingMatEps" xml:space="preserve">
+    <value>Convergence Criteria for Factor Loading Matrices</value>
+  </data>
+  <data name="FACTOR_P_StrIn_EigenCalcLim" xml:space="preserve">
+    <value>The maximum number of iterations for Eigen decomposition</value>
+  </data>
+  <data name="FACTOR_P_StrIn_EigenEps" xml:space="preserve">
+    <value>Convergence criteria for Eigen-decomposition</value>
+  </data>
+  <data name="FACTOR_P_StrIn_FactorCount" xml:space="preserve">
+    <value>Number of factors to be extracted</value>
+  </data>
+  <data name="FACTOR_P_StrIn_RotationCalcLim" xml:space="preserve">
+    <value> The maximum number of iterations for factor rotation</value>
+  </data>
+  <data name="FACTOR_P_StrIn_RotationEps" xml:space="preserve">
+    <value> Convergence criterion for factor rotation</value>
+  </data>
+  <data name="FACTOR_P_StrIn_RotationType" xml:space="preserve">
+    <value>Rotation Method</value>
+  </data>
+  <data name="FACTOR_P_StrIn_Target" xml:space="preserve">
+    <value>Analysis based on</value>
+  </data>
+  <data name="FACTOR_P_Str_Eigen1Over" xml:space="preserve">
+    <value>固有値1以上</value>
+  </data>
+  <data name="FACTOR_P_Str_EstimationUse1" xml:space="preserve">
+    <value>Used </value>
+  </data>
+  <data name="FACTOR_P_Str_EstimationUse2" xml:space="preserve">
+    <value> for calculating a reduced correlation matrix.</value>
+  </data>
+  <data name="FACTOR_P_Str_RMax" xml:space="preserve">
+    <value>Rmax Method</value>
+  </data>
+  <data name="FACTOR_P_Str_SMC" xml:space="preserve">
+    <value>SMC Method</value>
+  </data>
+  <data name="MULTI_ALERT_DELETE_VARIABLE" xml:space="preserve">
+    <value>削除を続行すると、
+該当アイテムの多変量データを削除します。
+よろしいですか？</value>
+  </data>
+  <data name="CR_SHEET_HEADING_CROSS_TABULATE" xml:space="preserve">
+    <value>クロス集計</value>
+  </data>
+  <data name="QS_DELETE_WARNING_MULTIVARIATE" xml:space="preserve">
+    <value>該当アイテムの多変量データを削除します。</value>
+  </data>
+  <data name="CORRES_PERCENTAGE_OF_VARIANCE" xml:space="preserve">
+    <value>【各軸の説明度】</value>
+  </data>
+  <data name="CR_FILTER_PREFIX" xml:space="preserve">
+    <value>【絞込条件】</value>
+  </data>
+  <data name="MULTI_CLUSTER" xml:space="preserve">
+    <value>クラスター</value>
+  </data>
+  <data name="MULTI_FACTOR" xml:space="preserve">
+    <value>因子</value>
+  </data>
+  <data name="MULTI_CORRESS_AXIS_ERROR_MSG" xml:space="preserve">
+    <value>分析軸数が大きすぎます。
+
+マトリクスアイテムの数と選択肢範囲の最大の、より小さい数から 1 を引いた数までの値で設定してください。</value>
+  </data>
+  <data name="MULTI_CORRES_AXIS_LESS_DIOMESION" xml:space="preserve">
+    <value>分散グラフの横の軸と縦の軸は、分析軸数の値以下で設定してください。</value>
+  </data>
+  <data name="MULTI_CORRES_DIOMENSION_EQUAL" xml:space="preserve">
+    <value>分散グラフの横の軸と縦の軸に同じ値は設定できません。</value>
+  </data>
+  <data name="MULTI_PSM_GRAPH_ERROR" xml:space="preserve">
+    <value>グラフ表示範囲は 下限＜上限 となるように設定してください。</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MULTI_MAIN_EDIT_VARIABLE" xml:space="preserve">
+    <value>[{0}]は存在しないアイテムです。</value>
+  </data>
+  <data name="MULTI_VARIABLE_NOTEXIST" xml:space="preserve">
+    <value>多変量シートにアイテム名[{0}]が存在しません。</value>
+  </data>
+  <data name="ADDQS_QUESTION_LABEL_RECODE" xml:space="preserve">
+    <value>質問文</value>
+  </data>
+  <data name="CLUSTER_QUESTIONTEXT" xml:space="preserve">
+    <value>クラスター分析　解析結果</value>
+  </data>
+  <data name="FACTOR_QUESTIONTEXT" xml:space="preserve">
+    <value>因子分析　解析結果</value>
+  </data>
+  <data name="MULTI_CORRES_VALIDCASES_FEW" xml:space="preserve">
+    <value>有効なカテゴリー数が少なすぎます。</value>
+  </data>
+  <data name="DP_PROCESSED" xml:space="preserve">
+    <value>☆</value>
+  </data>
+  <data name="ERRMSG_MULTIVARIATE_FAILED_TO_GET_DATA" xml:space="preserve">
+    <value>データの取得に失敗しました。</value>
+  </data>
+  <data name="MULTI_DIMENSION_1" xml:space="preserve">
+    <value>軸</value>
+  </data>
+  <data name="MULTI_DIMENSION_2" xml:space="preserve">
+    <value>軸2</value>
+  </data>
+  <data name="MULTI_DIMENSION_3" xml:space="preserve">
+    <value>軸3</value>
+  </data>
+  <data name="MULTI_DIMENSION_4" xml:space="preserve">
+    <value>軸4</value>
+  </data>
+  <data name="MULTI_DIMENSION_5" xml:space="preserve">
+    <value>軸5</value>
+  </data>
+  <data name="MULTI_FACTOR_ERROR_ROTATION" xml:space="preserve">
+    <value>抽出する因子が1つだけだと回転は行えません。</value>
+  </data>
+  <data name="FILTER_SA_MA_INVALID" xml:space="preserve">
+    <value>条件アイテム：【{0}】の入力が不正です。
+[{1}] までの整数を、設定してください。</value>
+  </data>
+  <data name="MULTI_PSM_SCALE_INTERVAL_DECIMAL" xml:space="preserve">
+    <value>目盛間隔には小数点は設定できません。</value>
+  </data>
+  <data name="MULTI_PSM_SCALE_NON_NUMERIC" xml:space="preserve">
+    <value>目盛間隔には数値を設定してください。</value>
+  </data>
+  <data name="PSM_CORRESS_TO_MANY" xml:space="preserve">
+    <value>有効なカテゴリー数が多すぎます。</value>
+  </data>
+  <data name="QC_WEB_WEIGHTBACK_EXCEPTION" xml:space="preserve">
+    <value>ウエイトバックの設定が正しくありません。</value>
+  </data>
+  <data name="EX_DIFFERENCE_BETWEEN_DATASHEET_AND_MULTIVARIATE" xml:space="preserve">
+    <value>多変量解析実行後にデータ加工でサンプル削除が行われました。
+削除されたサンプルの多変量解析結果は出力されません。</value>
+  </data>
+  <data name="OUTOFMEMORY_EXCEPTION_MESSAGE" xml:space="preserve">
+    <value>メモリ不足により処理を中断しました。出力するデータ量を減らすか、他のアプリケーションを終了し、再実行してください。</value>
+  </data>
+  <data name="MARKING_SYMBOL_1MINUZ" xml:space="preserve">
+    <value>∵</value>
+  </data>
+  <data name="MARKING_SYMBOL_1PLUS" xml:space="preserve">
+    <value>∴</value>
+  </data>
+  <data name="MARKING_SYMBOL_2MINUZ" xml:space="preserve">
+    <value>▽</value>
+  </data>
+  <data name="MARKING_SYMBOL_2PLUS" xml:space="preserve">
+    <value>△</value>
+  </data>
+  <data name="MARKING_SYMBOL_3MINUZ" xml:space="preserve">
+    <value>▼</value>
+  </data>
+  <data name="MARKING_SYMBOL_3PLUS" xml:space="preserve">
+    <value>▲</value>
+  </data>
+  <data name="MULTI_ITEM_DELETE_MSG" xml:space="preserve">
+    <value>削除を続行すると、該当アイテムの多変量データを削除します。
+削除するアイテムは以下の箇所で使用されている可能性があります。
+削除を続行すると以下の設定から該当するアイテムが削除されます。
+　データ加工
+　GT表作成
+　クロス表・グラフ作成
+　FAリスト作成
+削除してよろしいですか？</value>
+  </data>
+  <data name="QS_REGISTER" xml:space="preserve">
+    <value>登録</value>
+  </data>
+  <data name="LABEL_ST_TABULATE" xml:space="preserve">
+    <value>出力設定</value>
+  </data>
+  <data name="IM_KEY_SELECTION_WARNING_MESSAGE" xml:space="preserve">
+    <value>キー変数が指定されておりません。処理を続けますか？</value>
+  </data>
+  <data name="CELL_OFF_EN" xml:space="preserve">
+    <value>×</value>
+  </data>
+  <data name="CELL_ON_EN" xml:space="preserve">
+    <value>○</value>
+  </data>
+  <data name="FILE_READONLY_ATTRIBUTE_FILE_OPEN_MSG" xml:space="preserve">
+    <value>このファイルは保存できません。
+（編集中、ZIP未解凍、書込権限無し、等。）
+
+読み取り専用で開きます。</value>
+  </data>
+  <data name="CSP_AVG" xml:space="preserve">
+    <value>平均</value>
+  </data>
+  <data name="CSP_MAX" xml:space="preserve">
+    <value>最大</value>
+  </data>
+  <data name="CSP_MIN" xml:space="preserve">
+    <value>最小</value>
+  </data>
+  <data name="CLUSTER_ERRMSG_TOO_MANY_CLUSTERS" xml:space="preserve">
+    <value>クラスタ数が多すぎます。</value>
+  </data>
+  <data name="FACTOR_E10" xml:space="preserve">
+    <value>反復計算の途中で共通性の推定値が１を超えました。</value>
+  </data>
+  <data name="FACTOR_E11" xml:space="preserve">
+    <value>不適解ですので、解釈・使用はおすすめしません。</value>
+  </data>
+  <data name="REPORT_LAYOUT_TABLE_HEADING_COLUMN_CAPTION" xml:space="preserve">
+    <value>表題</value>
+  </data>
+  <data name="IM_QLAYOUT_READ" xml:space="preserve">
+    <value>Qlayout読込</value>
+  </data>
+  <data name="IM_QLAYOUT_READ_TOOLTIP" xml:space="preserve">
+    <value>既に設定した情報がある場合、Qlayout読込を実行すると上書きされます。</value>
+  </data>
+  <data name="IM_QLAYOUT_READ_WARNING_ANS_TYPE" xml:space="preserve">
+    <value>回答タイプ</value>
+  </data>
+  <data name="IM_QLAYOUT_READ_WARNING_MESSAGE1" xml:space="preserve">
+    <value>Qlayout読込時に設定不可能な情報が含まれていました。
+Qlayoutの以下の箇所を確認してください。</value>
+  </data>
+  <data name="IM_QLAYOUT_READ_WARNING_MESSAGE2" xml:space="preserve">
+    <value>{0}行目：{1}</value>
+  </data>
+  <data name="IM_QLAYOUT_READ_WARNING_NO_CHOICES" xml:space="preserve">
+    <value>選択肢数</value>
+  </data>
+  <data name="IM_QLAYOUT_READ_WARNING_VARIABLE" xml:space="preserve">
+    <value>アイテム名</value>
+  </data>
+  <data name="ALERT_CULTURE" xml:space="preserve">
+    <value>Windowsの数値の書式設定を、地域設定「日本語（日本）」または「英語（米国）」のデフォルト値にしてから起動してください。</value>
+  </data>
+  <data name="LABEL_COLOR_SETTINGS" xml:space="preserve">
+    <value>カラー設定</value>
+  </data>
+  <data name="CROSS_DISPLAY_COMBINE_BANNERS" xml:space="preserve">
+    <value>共通する集計軸の表をまとめる</value>
+  </data>
+  <data name="PB_COMBINE__BANNERS" xml:space="preserve">
+    <value>バナーの結合</value>
+  </data>
+  <data name="DO_OUTPUT_FORMAT_R2D3" xml:space="preserve">
+    <value>R2D3用レイアウト</value>
+  </data>
+</root>

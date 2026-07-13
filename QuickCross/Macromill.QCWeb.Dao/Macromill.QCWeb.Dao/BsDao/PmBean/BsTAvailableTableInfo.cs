@@ -1,0 +1,72 @@
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+using Macromill.QCWeb.Dao.AllCommon;
+using Macromill.QCWeb.Dao.AllCommon.CBean.COption;
+
+namespace Macromill.QCWeb.Dao.ExDao.PmBean {
+
+    /// <summary>
+    /// The parametaer-bean of TAvailableTableInfo.
+    /// Author: DBFlute(AutoGenerator)
+    /// </summary>
+    [System.Serializable]
+    public partial class TAvailableTableInfo {
+
+        // ===============================================================================
+        //                                                                       Attribute
+        //                                                                       =========
+        protected Decimal _qCWebID;
+        protected int _tableNo;
+    
+        // ===============================================================================
+        //                                                                   Assist Helper
+        //                                                                   =============
+        protected String ConvertEmptyToNullIfString(String value) {
+            return FilterRemoveEmptyString(value);
+        }
+
+        protected String FilterRemoveEmptyString(String value) {
+            return ((value != null && !"".Equals(value)) ? value : null);
+        }
+
+        protected String FormatByteArray(byte[] bytes) {
+            return "byte[" + (bytes != null ? bytes.Length.ToString() : "null") + "]";
+        }
+
+        // ===============================================================================
+        //                                                                  Basic Override
+        //                                                                  ==============
+        public override String ToString() {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("TAvailableTableInfo:");
+            sb.Append(xbuildColumnString());
+            return sb.ToString();
+        }
+        private String xbuildColumnString() {
+            String c = ", ";
+            StringBuilder sb = new StringBuilder();
+            sb.Append(c).Append(_qCWebID);
+            sb.Append(c).Append(_tableNo);
+            if (sb.Length > 0) { sb.Remove(0, c.Length); }
+            sb.Insert(0, "{").Append("}");
+            return sb.ToString();
+        }
+
+        // ===============================================================================
+        //                                                                        Accessor
+        //                                                                        ========
+        public Decimal QCWebID {
+            get { return _qCWebID; }
+            set { _qCWebID = value; }
+        }
+
+        public int TableNo {
+            get { return _tableNo; }
+            set { _tableNo = value; }
+        }
+
+    }
+}

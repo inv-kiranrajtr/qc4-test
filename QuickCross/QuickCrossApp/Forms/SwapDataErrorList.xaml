@@ -1,0 +1,43 @@
+﻿<Window x:Class="Qc4Launcher.Forms.SwapDataErrorList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Qc4Launcher.Forms"
+		xmlns:res="clr-namespace:Qc4Launcher"
+        mc:Ignorable="d"
+        Title="{x:Static res:LocalResource.TITLE_SDE_WINDOW}" Height="630" Width="500" ResizeMode="NoResize" WindowStyle="None" 
+			WindowStartupLocation="CenterScreen">
+	<Window.Resources>
+		<ResourceDictionary>
+			<Style TargetType="Button" x:Key="Button">
+				<Setter Property="Foreground" Value="White"/>
+				<Setter Property="FontSize" Value="11"/>
+				<Setter Property="Template">
+					<Setter.Value>
+						<ControlTemplate TargetType="Button">
+							<Border Background="{TemplateBinding Background}" CornerRadius="5" BorderThickness="0" Padding="5">
+								<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+							</Border>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</ResourceDictionary>
+	</Window.Resources>
+	
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="35"/>
+			<RowDefinition Height="15*"/>
+			<RowDefinition Height="55"/>
+		</Grid.RowDefinitions>
+		<Grid Grid.Row="0" Background="#3467b0" MouseDown="DragableGridMouseDown">
+			<TextBlock Text="{x:Static res:LocalResource.LBL_SWAP_ERROR}" Foreground="White" Margin="15,0" VerticalAlignment="Center" FontSize="15"/>
+		</Grid>
+		<Border CornerRadius="10" Background="#f5f5f5" Grid.Row="1" Margin="30,10">
+			<ListView x:Name="listView" Grid.Row="1" Margin="10"/>
+		</Border>
+		<Button x:Name="btn_Close" Style="{StaticResource Button}" Content="{x:Static res:LocalResource.BTN_EXIT}" Grid.Row="2" Margin="0,12,30,15" Width="100" HorizontalAlignment="Right" Click="btn_Close_Click" Background="#aeaeae"/>
+	</Grid>
+</Window>

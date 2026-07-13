@@ -1,0 +1,1 @@
+signtool sign /f 2020_macromill.com.codesign.pfx /p ma96mill /t http://timestamp.globalsign.com/scripts/timestamp.dll /d "Quick CROSS" %1

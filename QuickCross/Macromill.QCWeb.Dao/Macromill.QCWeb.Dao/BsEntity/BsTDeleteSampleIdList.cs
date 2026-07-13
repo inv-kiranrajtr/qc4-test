@@ -1,0 +1,227 @@
+
+
+using System;
+using System.Reflection;
+using System.Collections.Generic;
+using System.Text;
+
+using Macromill.QCWeb.Dao.AllCommon;
+using Macromill.QCWeb.Dao.AllCommon.CBean;
+using Macromill.QCWeb.Dao.AllCommon.Dbm;
+using Macromill.QCWeb.Dao.AllCommon.Helper;
+using Macromill.QCWeb.Dao.ExEntity;
+using Macromill.QCWeb.Dao.BsEntity.Dbm;
+
+
+namespace Macromill.QCWeb.Dao.ExEntity {
+
+    /// <summary>
+    /// The entity of T_DELETE_SAMPLE_ID_LIST as TABLE. (partial class for auto-generation)
+    /// <![CDATA[
+    /// [primary-key]
+    ///     DELETE_SAMPLE_ID
+    /// 
+    /// [column]
+    ///     DELETE_SAMPLE_ID, DATA_EDIT_ID, DELETE_SAMPLE_ID_TEXT
+    /// 
+    /// [sequence]
+    ///     T_Delete_Sample_ID_List_SEQ_01
+    /// 
+    /// [identity]
+    ///     
+    /// 
+    /// [version-no]
+    ///     
+    /// 
+    /// [foreign-table]
+    ///     T_DELETE_DATA
+    /// 
+    /// [referrer-table]
+    ///     
+    /// 
+    /// [foreign-property]
+    ///     tDeleteData
+    /// 
+    /// [referrer-property]
+    ///     
+    /// ]]>
+    /// Author: DBFlute(AutoGenerator)
+    /// </summary>
+    [Seasar.Dao.Attrs.Table("T_DELETE_SAMPLE_ID_LIST")]
+    [System.Serializable]
+    public partial class TDeleteSampleIdList : Entity {
+
+        // ===============================================================================
+        //                                                                       Attribute
+        //                                                                       =========
+        #region Attribute
+        /// <summary>DELETE_SAMPLE_ID: {PK, NotNull, NUMBER(27)}</summary>
+        protected decimal? _deleteSampleId;
+
+        /// <summary>DATA_EDIT_ID: {IX, NotNull, NUMBER(27), FK to T_DELETE_DATA}</summary>
+        protected decimal? _dataEditId;
+
+        /// <summary>DELETE_SAMPLE_ID_TEXT: {NCLOB(4000)}</summary>
+        protected String _deleteSampleIdText;
+
+        protected EntityModifiedProperties __modifiedProperties = new EntityModifiedProperties();
+        #endregion
+
+        // ===============================================================================
+        //                                                                      Table Name
+        //                                                                      ==========
+        public String TableDbName { get { return "T_DELETE_SAMPLE_ID_LIST"; } }
+        public String TablePropertyName { get { return "TDeleteSampleIdList"; } }
+
+        // ===============================================================================
+        //                                                                          DBMeta
+        //                                                                          ======
+        public DBMeta DBMeta { get { return DBMetaInstanceHandler.FindDBMeta(TableDbName); } }
+
+        // ===============================================================================
+        //                                                                Foreign Property
+        //                                                                ================
+        #region Foreign Property
+        protected TDeleteData _tDeleteData;
+
+        /// <summary>T_DELETE_DATA as 'TDeleteData'.</summary>
+        [Seasar.Dao.Attrs.Relno(0), Seasar.Dao.Attrs.Relkeys("DATA_EDIT_ID:DATA_EDIT_ID")]
+        public TDeleteData TDeleteData {
+            get { return _tDeleteData; }
+            set { _tDeleteData = value; }
+        }
+
+        #endregion
+
+        // ===============================================================================
+        //                                                               Referrer Property
+        //                                                               =================
+        #region Referrer Property
+        #endregion
+
+        // ===============================================================================
+        //                                                                   Determination
+        //                                                                   =============
+        public virtual bool HasPrimaryKeyValue {
+            get {
+                if (_deleteSampleId == null) { return false; }
+                return true;
+            }
+        }
+
+        // ===============================================================================
+        //                                                             Modified Properties
+        //                                                             ===================
+        public virtual IDictionary<String, Object> ModifiedPropertyNames {
+            get { return __modifiedProperties.PropertyNames; }
+        }
+
+        public virtual void ClearModifiedPropertyNames() {
+            __modifiedProperties.Clear();
+        }
+
+        // ===============================================================================
+        //                                                                  Basic Override
+        //                                                                  ==============
+        #region Basic Override
+        public override bool Equals(Object other) {
+            if (other == null || !(other is TDeleteSampleIdList)) { return false; }
+            TDeleteSampleIdList otherEntity = (TDeleteSampleIdList)other;
+            if (!xSV(this.DeleteSampleId, otherEntity.DeleteSampleId)) { return false; }
+            return true;
+        }
+        protected bool xSV(Object value1, Object value2) { // isSameValue()
+            if (value1 == null && value2 == null) { return true; }
+            if (value1 == null || value2 == null) { return false; }
+            return value1.Equals(value2);
+        }
+
+        public override int GetHashCode() {
+            int result = 17;
+            result = xCH(result, _deleteSampleId);
+            return result;
+        }
+        protected int xCH(int result, Object value) { // calculateHashcode()
+            if (value == null) { return result; }
+            return (31*result) + (value is byte[] ? ((byte[])value).Length : value.GetHashCode());
+        }
+
+        public override String ToString() {
+            return "TDeleteSampleIdList:" + BuildColumnString() + BuildRelationString();
+        }
+
+        public virtual String ToStringWithRelation() {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(ToString());
+            String l = "\n  ";
+            if (_tDeleteData != null)
+            { sb.Append(l).Append(xbRDS(_tDeleteData, "TDeleteData")); }
+            return sb.ToString();
+        }
+        protected String xbRDS(Entity e, String name) { // buildRelationDisplayString()
+            return e.BuildDisplayString(name, true, true);
+        }
+
+        public virtual String BuildDisplayString(String name, bool column, bool relation) {
+            StringBuilder sb = new StringBuilder();
+            if (name != null) { sb.Append(name).Append(column || relation ? ":" : ""); }
+            if (column) { sb.Append(BuildColumnString()); }
+            if (relation) { sb.Append(BuildRelationString()); }
+            return sb.ToString();
+        }
+        protected virtual String BuildColumnString() {
+            String c = ", ";
+            StringBuilder sb = new StringBuilder();
+            sb.Append(c).Append(this.DeleteSampleId);
+            sb.Append(c).Append(this.DataEditId);
+            sb.Append(c).Append(this.DeleteSampleIdText);
+            if (sb.Length > 0) { sb.Remove(0, c.Length); }
+            sb.Insert(0, "{").Append("}");
+            return sb.ToString();
+        }
+        protected virtual String BuildRelationString() {
+            StringBuilder sb = new StringBuilder();
+            String c = ",";
+            if (_tDeleteData != null) { sb.Append(c).Append("TDeleteData"); }
+            if (sb.Length > 0) { sb.Remove(0, c.Length).Insert(0, "(").Append(")"); }
+            return sb.ToString();
+        }
+        #endregion
+
+        // ===============================================================================
+        //                                                                        Accessor
+        //                                                                        ========
+        #region Accessor
+        /// <summary>DELETE_SAMPLE_ID: {PK, NotNull, NUMBER(27)}</summary>
+        [Seasar.Dao.Attrs.Column("DELETE_SAMPLE_ID")]
+        public decimal? DeleteSampleId {
+            get { return _deleteSampleId; }
+            set {
+                __modifiedProperties.AddPropertyName("DeleteSampleId");
+                _deleteSampleId = value;
+            }
+        }
+
+        /// <summary>DATA_EDIT_ID: {IX, NotNull, NUMBER(27), FK to T_DELETE_DATA}</summary>
+        [Seasar.Dao.Attrs.Column("DATA_EDIT_ID")]
+        public decimal? DataEditId {
+            get { return _dataEditId; }
+            set {
+                __modifiedProperties.AddPropertyName("DataEditId");
+                _dataEditId = value;
+            }
+        }
+
+        /// <summary>DELETE_SAMPLE_ID_TEXT: {NCLOB(4000)}</summary>
+        [Seasar.Dao.Attrs.Column("DELETE_SAMPLE_ID_TEXT")]
+        public String DeleteSampleIdText {
+            get { return _deleteSampleIdText; }
+            set {
+                __modifiedProperties.AddPropertyName("DeleteSampleIdText");
+                _deleteSampleIdText = value;
+            }
+        }
+
+        #endregion
+    }
+}

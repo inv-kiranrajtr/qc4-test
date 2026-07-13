@@ -1,0 +1,1013 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ADD1MINUS1_PARAM2_TOOLTIPDESC" xml:space="preserve">
+    <value>Specify Choice</value>
+  </data>
+  <data name="ADD1MINUS1_PARAM2_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Choice)</value>
+  </data>
+  <data name="ADD1_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>Specify variable subject to addition</value>
+  </data>
+  <data name="ADD1_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Variable subject to addition)</value>
+  </data>
+  <data name="ADD1_PM1_ERRORMESSAGE" xml:space="preserve">
+    <value>Unregistered Variable Subject To Addition</value>
+  </data>
+  <data name="ADD2_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>Specify Substitution value</value>
+  </data>
+  <data name="ADD2_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Substitution value)</value>
+  </data>
+  <data name="ADD3_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>0: No Stack checked
+1: Stack Checked</value>
+  </data>
+  <data name="ADD3_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Base Options)</value>
+  </data>
+  <data name="ADD3_PARAM_N_TOOLTIPHEADER" xml:space="preserve">
+    <value>Specify Piling Variable</value>
+  </data>
+  <data name="AGGREGATE_PARAMS_TOOTTIPDESC" xml:space="preserve">
+    <value>Specify Target variables</value>
+  </data>
+  <data name="AGGREGATE_PARAMS_TOOTTIPDESC_" xml:space="preserve">
+    <value>Specify target variables.</value>
+  </data>
+  <data name="AGGREGATE_PARAMS_TOOTTIPDESC_ADD3" xml:space="preserve">
+    <value>Specify Piling Variable</value>
+  </data>
+  <data name="ALERT_EXECUTE_DP_OR_DELET_VAR" xml:space="preserve">
+    <value>Execute the data processing or delete the new variable in the question setting.</value>
+  </data>
+  <data name="ALERT_UNDO_DATA_PROCESSING" xml:space="preserve">
+    <value>Restore the raw data back to the state before data processing. Continue?</value>
+  </data>
+  <data name="ALERT_UN_PROCESSED_VARIABLE_EXIST" xml:space="preserve">
+    <value>Unexecuted data processing entries to set new variables value.
+Continue?</value>
+  </data>
+  <data name="AVG_VALIDATION_ERRORMESSAGE" xml:space="preserve">
+    <value>Unregistered AVG</value>
+  </data>
+  <data name="BTN_CANCEL" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CALL_PARAM1_TOOLTIP_DESC" xml:space="preserve">
+    <value>Specify Program Name</value>
+  </data>
+  <data name="CALL_PARAM1_TOOLTIP_HEADER" xml:space="preserve">
+    <value>(Program Name)</value>
+  </data>
+  <data name="CALL_PARAMN_TOOLTIP_DESC" xml:space="preserve">
+    <value>Specify Variable{0}</value>
+  </data>
+  <data name="CALL_PARAMN_TOOLTIP_HEADER" xml:space="preserve">
+    <value>(Variable{0})</value>
+  </data>
+  <data name="CANNOT_SPECIFY_MULTIPLE_RANGE" xml:space="preserve">
+    <value>Cannot specify multiple range.</value>
+  </data>
+  <data name="CELL_OFF" xml:space="preserve">
+    <value>×</value>
+  </data>
+  <data name="CELL_ON" xml:space="preserve">
+    <value>○</value>
+  </data>
+  <data name="CLASS_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>Specify class source item</value>
+  </data>
+  <data name="CLASS_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Class Source Item)</value>
+  </data>
+  <data name="CLASS_PARAM2_TOOLTIPDESC" xml:space="preserve">
+    <value>1:equal to or more than equal to or less than 
+2:equal to or more than - less than 
+3: more than - equal to or less than 
+4: more than - less than</value>
+  </data>
+  <data name="CLASS_PARAM2_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Specify upper/lower limit)</value>
+  </data>
+  <data name="CLASS_PARAM3_TOOLTIPDESC" xml:space="preserve">
+    <value>1:No answer 
+2:Treat as 0</value>
+  </data>
+  <data name="CLASS_PARAM3_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Treat as No Answer)</value>
+  </data>
+  <data name="CLASS_PARAM_N_TOOLTIPDESC" xml:space="preserve">
+    <value>Subject Range for [ {0} ]</value>
+  </data>
+  <data name="CLASS_PARAM_N_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Class Criteria)</value>
+  </data>
+  <data name="COMPUTE_TOOLTIP_DESC" xml:space="preserve">
+    <value>Input the formula to be computed.
+Enclose the variable name in [ ].</value>
+  </data>
+  <data name="COMPUTE_TOOLTIP_DESC_" xml:space="preserve">
+    <value>Input the formula to be computed.
+Enclose the variable name in [ ].</value>
+  </data>
+  <data name="COMPUTE_TOOLTIP_HEADER" xml:space="preserve">
+    <value>COMPUTE</value>
+  </data>
+  <data name="COUNT_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>Specify the source variable for number of answer responses</value>
+  </data>
+  <data name="COUNT_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Specify the variable for n..)</value>
+  </data>
+  <data name="COUNT_PARAM2_TOOLTIPDESC" xml:space="preserve">
+    <value>Specify range specification for choices to count</value>
+  </data>
+  <data name="COUNT_PARAM2_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Range specification for c..)</value>
+  </data>
+  <data name="COUNT_PARAM_N_TOOLTIPDESC" xml:space="preserve">
+    <value>Specify the number of answers for [ {0} ]</value>
+  </data>
+  <data name="COUNT_PARAM_N_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Number of responses)</value>
+  </data>
+  <data name="CR_3WAY_VARIABLE_CATEGORY_CNT_INVALID" xml:space="preserve">
+    <value>Invalid tripple item category count is set in col{0}</value>
+  </data>
+  <data name="CR_3WAY_VARIABLE_INVALID" xml:space="preserve">
+    <value>Invalid tripple item is set in col{0}</value>
+  </data>
+  <data name="CR_3WAY_VARIABLE_TYPE_INVALID" xml:space="preserve">
+    <value>Invalid answer type is set in col{0}</value>
+  </data>
+  <data name="CR_AXES_VARIABLE_CATEGORY_CNT_INVALID" xml:space="preserve">
+    <value>Invalid analysis axes category count is set in col{0}</value>
+  </data>
+  <data name="CR_AXES_VARIABLE_INVALID" xml:space="preserve">
+    <value>Invalid analysis axes is set in col{0}</value>
+  </data>
+  <data name="CR_AXES_VARIABLE_NOT_PRESENT" xml:space="preserve">
+    <value>Exists undetermined banner variable. (Column {0})</value>
+  </data>
+  <data name="CR_AXES_VARIABLE_TYPE_INVALID" xml:space="preserve">
+    <value>Invalid answer type is set in col{0}</value>
+  </data>
+  <data name="CR_COL_CHART_3WAY_INVALID" xml:space="preserve">
+    <value>Can't set 3-way cross and line chart simultaneously. col{0}</value>
+  </data>
+  <data name="CR_COL_CHART_INVALID" xml:space="preserve">
+    <value>Invalid chart setting is set in col{0}</value>
+  </data>
+  <data name="CR_COL_DIV_INVALID" xml:space="preserve">
+    <value>Invalid div setting is set in col{0}</value>
+  </data>
+  <data name="CR_COL_GT_INVALID" xml:space="preserve">
+    <value>Invalid GT setting is set in col{0}</value>
+  </data>
+  <data name="CR_NARROW_CRITERIA_INVALID" xml:space="preserve">
+    <value>Invalid narrow criteria is set in col{0}</value>
+  </data>
+  <data name="CR_NARROW_VARIABLE_INVALID" xml:space="preserve">
+    <value>Invalid narrow variable is set in col{0}</value>
+  </data>
+  <data name="CR_ROW_DIV_INVALID" xml:space="preserve">
+    <value>Invalid div setting is set in row{0}</value>
+  </data>
+  <data name="CR_VARIABLE_CATEGORY_CNT_INVALID" xml:space="preserve">
+    <value>Invalid variable category count is set in row{0}</value>
+  </data>
+  <data name="CR_VARIABLE_CATEGORY_CNT_INVALID_RPT" xml:space="preserve">
+    <value>Cannot output charts where a variable with more than 255 choices is set asa stub.
+[{0}]</value>
+  </data>
+  <data name="CR_VARIABLE_INVALID" xml:space="preserve">
+    <value>Invalid variable is set in row{0}</value>
+  </data>
+  <data name="CR_VARIABLE_TYPE_INVALID" xml:space="preserve">
+    <value>Invalid variable type is set in row{0}</value>
+  </data>
+  <data name="DATAPROCESS_COMPLETED" xml:space="preserve">
+    <value>Completed data processing.</value>
+  </data>
+  <data name="DECST_ALREADY_EXISTS" xml:space="preserve">
+    <value>A variable with the input name already exists.</value>
+  </data>
+  <data name="DECST_NOTFOUND" xml:space="preserve">
+    <value>No DECST found</value>
+  </data>
+  <data name="DECST_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>Specify Program Name</value>
+  </data>
+  <data name="DECST_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Program Name)</value>
+  </data>
+  <data name="DECST_PARAM2_TOOLTIPDESC" xml:space="preserve">
+    <value>Specify No. Of Variables</value>
+  </data>
+  <data name="DECST_PARAM2_TOOLTIPHEADER" xml:space="preserve">
+    <value>(No. Of Variables)</value>
+  </data>
+  <data name="DECST_PARAMN_TOOLTIPDESC" xml:space="preserve">
+    <value>Specify Variable</value>
+  </data>
+  <data name="DECST_PARAMN_TOOLTIPHEADER" xml:space="preserve">
+    <value>Variable</value>
+  </data>
+  <data name="DECST_PARAM_ENTRY_RESTRICT" xml:space="preserve">
+    <value>Editing this value is restricted</value>
+  </data>
+  <data name="DECST_PM2_ERRORMESSAGE" xml:space="preserve">
+    <value>Set an integer in the range of[ {0} to {1}]</value>
+  </data>
+  <data name="DP_PROGRESS_MSG_10" xml:space="preserve">
+    <value>Processing Operation</value>
+  </data>
+  <data name="DP_PROGRESS_MSG_5" xml:space="preserve">
+    <value>Loading Data</value>
+  </data>
+  <data name="DP_PROGRESS_MSG_95" xml:space="preserve">
+    <value>Writing Data</value>
+  </data>
+  <data name="EQUAL_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>Specify target variables.</value>
+  </data>
+  <data name="EQUAL_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>({0})</value>
+  </data>
+  <data name="ERR_CALL_METHODNOTFOUND" xml:space="preserve">
+    <value>An executable that can be called does not exist.</value>
+  </data>
+  <data name="ERR_DECST_NESTED" xml:space="preserve">
+    <value>DECST~DECEND and FOR~NEXT statements cannot be nested</value>
+  </data>
+  <data name="ERR_FOR_NESTED" xml:space="preserve">
+    <value>Invalid FOR statement found before NEXT</value>
+  </data>
+  <data name="ERR_INVALID_DECEND" xml:space="preserve">
+    <value>Invalid DECEND entry!</value>
+  </data>
+  <data name="ERR_INVALID_DECST" xml:space="preserve">
+    <value>Invalid DECST entry!</value>
+  </data>
+  <data name="ERR_INVALID_NEXT" xml:space="preserve">
+    <value>Invalid NEXT instruction</value>
+  </data>
+  <data name="ERR_MSG_COMPUTE_MA_FA_NOT_ALLOWED" xml:space="preserve">
+    <value>Items with answer types other than [N] [SA] cannot be specified.</value>
+  </data>
+  <data name="ERR_MSG_COMPUTE_MA_NOT_ALLOWED" xml:space="preserve">
+    <value>A variable for an answer type other than[{0}] cannot be specified.</value>
+  </data>
+  <data name="ERR_MSG_COMPUTE_NOT_NUMERIC" xml:space="preserve">
+    <value>{0} processing includes a data that cannot be calculated.
+Continue?
+New variable name: [{1}]</value>
+  </data>
+  <data name="ERR_MSG_CONTENT_INVALID" xml:space="preserve">
+    <value>The content is invalid</value>
+  </data>
+  <data name="ERR_MSG_COUNT_PARAM_OVERLAP" xml:space="preserve">
+    <value>The parameter of {0} is not set properly or the answer type is invalid when a variable is set.</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_CRITERIA_VARIABLE_NOT_SET" xml:space="preserve">
+    <value>A variable used for the criteria is not set properly</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_CRITERIA_VARIABLE_PARAM_MISSING" xml:space="preserve">
+    <value>A variable used for the criteria is not set properly</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_DIRECTION" xml:space="preserve">
+    <value>The "Direction" column for data processing is not set</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_EMPTY" xml:space="preserve">
+    <value>Not found executable data processing entries</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_ERROR_JOINT" xml:space="preserve">
+    <value>The sum of the number of choices for a parameter exceeds the number of choices for a substitution parameter</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_ERROR_JOINT_VALUE_MISSING" xml:space="preserve">
+    <value>Parameters to be determined exist</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_ERROR_NOT_SET" xml:space="preserve">
+    <value>is not set properly or the answer type is invalid when a variable is set.</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_ERROR_NOT_SET_MCONVERT" xml:space="preserve">
+    <value>The parameter of {0} is not set properly or the answer type is invalid when a variable is set.</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_ERROR_OPERATOR" xml:space="preserve">
+    <value>A processing operator is not set</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_ERROR_PARAMETER" xml:space="preserve">
+    <value>The parameter of</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_ERROR_ROW" xml:space="preserve">
+    <value>Error in row</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_ERROR_ROW_LINE_NUMBER" xml:space="preserve">
+    <value>Error in row {0}</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_INVALID_VARIABLE" xml:space="preserve">
+    <value>Invalid substitute variable !</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_OMIT_PARAM1" xml:space="preserve">
+    <value>Parameters to be determined exist.</value>
+  </data>
+  <data name="ERR_MSG_DATAPROCESS_VALIDATION_VARIABLE" xml:space="preserve">
+    <value>A variable to be processed is not set</value>
+  </data>
+  <data name="ERR_MSG_DP_INVALID_ENTRY" xml:space="preserve">
+    <value>Invalid entry in row {0}</value>
+  </data>
+  <data name="ERR_MSG_FAILED_TO_GET_DATA" xml:space="preserve">
+    <value>Failed to get data</value>
+  </data>
+  <data name="ERR_MSG_FAILED_TO_GET_DATA_" xml:space="preserve">
+    <value>Failed to get data</value>
+  </data>
+  <data name="ERR_MSG_INEQUALITY_SIGN_CANNOT_BE_USED_MA_FA" xml:space="preserve">
+    <value>Cannot use the inequality sign (&lt;,&gt;, &lt;=,&gt; =) for {0}.</value>
+  </data>
+  <data name="ERR_MSG_INPUT_NUMERIC_OR_SELECT_VALUE_FROM_LIST" xml:space="preserve">
+    <value>Input numeric value or select a value from the list</value>
+  </data>
+  <data name="ERR_MSG_INTEGRATE_PARAM_VALUE_COMBINATIONS" xml:space="preserve">
+    <value>The criteria are inconstitent with the No. of combinations</value>
+  </data>
+  <data name="ERR_MSG_INVALID_FA_ITEM" xml:space="preserve">
+    <value>Invalid variable is set in row{0}</value>
+  </data>
+  <data name="ERR_MSG_INVALID_FORNEXT" xml:space="preserve">
+    <value>Invalid FOR NEXT</value>
+  </data>
+  <data name="ERR_MSG_INVALID_ITEM" xml:space="preserve">
+    <value>Invalid variable is set in row{0}</value>
+  </data>
+  <data name="ERR_MSG_NO_PARAMETER_TO_PROCESS" xml:space="preserve">
+    <value>No parameter to process</value>
+  </data>
+  <data name="ERR_MSG_RANGE_CANNOT_BE_DESIGNATED" xml:space="preserve">
+    <value>Range cannot be designated.</value>
+  </data>
+  <data name="ERR_MSG_SET_AN_INTEGER_IN_THE_RANGE" xml:space="preserve">
+    <value>Set an integer in the range [{0}]</value>
+  </data>
+  <data name="ERR_MSG_SET_AN_INTEGER_IN_THE_RANGE_OF" xml:space="preserve">
+    <value>Set an integer in the range of</value>
+  </data>
+  <data name="ERR_MSG_SET_NUMERIC_VALUE" xml:space="preserve">
+    <value>Set a numeric value</value>
+  </data>
+  <data name="ERR_MSG_THE_COMBINING_CRITERIA" xml:space="preserve">
+    <value>The combining criteria [{0}] is</value>
+  </data>
+  <data name="ERR_MSG_THE_COMBINING_CRITERIA_IS" xml:space="preserve">
+    <value>The combining criteria [{0}] is</value>
+  </data>
+  <data name="ERR_MSG_VALIDATION_CORRECTDATA" xml:space="preserve">
+    <value>[{0}] cannot be set other than at the start.</value>
+  </data>
+  <data name="ERR_MSG_VARIABLE_NOT_SET_IN_QUESTION_SETTING" xml:space="preserve">
+    <value>The variable [{0}] of Dataprocess is not set in the question setting</value>
+  </data>
+  <data name="ERR_NEXT_NOTFOUND" xml:space="preserve">
+    <value>NEXT Statement not found</value>
+  </data>
+  <data name="ERR_UNMATCHING_DECST" xml:space="preserve">
+    <value>Unmatching {0} entry</value>
+  </data>
+  <data name="EXPORT_QUESTIONNAIRE" xml:space="preserve">
+    <value>Export Questionnaire</value>
+  </data>
+  <data name="FILE_ALERDY_OPENED" xml:space="preserve">
+    <value>File with same name is already opened.</value>
+  </data>
+  <data name="FILE_USED_ALERT" xml:space="preserve">
+    <value>File already used by some other process</value>
+  </data>
+  <data name="FOR_NEXT_PARAM3_INVALID" xml:space="preserve">
+    <value>Increment / Decrement param not proper</value>
+  </data>
+  <data name="GTMAGraph" xml:space="preserve">
+    <value>Bar Chart,Column Chart</value>
+  </data>
+  <data name="GTMTMGraph" xml:space="preserve">
+    <value>M Bar Chart,M Column Chart,Bar Chart,Column Chart</value>
+  </data>
+  <data name="GTMTSGraph" xml:space="preserve">
+    <value>100 pct Stacked bar chart,100 pct Stacked column chart,M Pie Chart</value>
+  </data>
+  <data name="GTRATGraph" xml:space="preserve">
+    <value>Pie RAT Chart,RAT Bar Chart,RAT Column Chart</value>
+  </data>
+  <data name="GTRNKGraph" xml:space="preserve">
+    <value>Stacked Bar Chart,Stacked Column Chart</value>
+  </data>
+  <data name="GTSAGraph" xml:space="preserve">
+    <value>Pie Chart,100 pct Stacked bar chart,100 pct Stacked column chart,Bar Chart,Column Chart</value>
+  </data>
+  <data name="GT_PROGRESS_MSG1" xml:space="preserve">
+    <value>Start loading Settings</value>
+  </data>
+  <data name="GT_PROGRESS_MSG2" xml:space="preserve">
+    <value>Fetching data from settings</value>
+  </data>
+  <data name="GT_PROGRESS_MSG3" xml:space="preserve">
+    <value>Fetching data from settings completed</value>
+  </data>
+  <data name="GT_PROGRESS_MSG4" xml:space="preserve">
+    <value>Copying default data from GT</value>
+  </data>
+  <data name="GT_PROGRESS_MSG5" xml:space="preserve">
+    <value>Copying completed</value>
+  </data>
+  <data name="GT_PROGRESS_MSG6" xml:space="preserve">
+    <value>Loading settings process completed</value>
+  </data>
+  <data name="IM_MSG_CLOSE_FORM" xml:space="preserve">
+    <value>Do you want to close?</value>
+  </data>
+  <data name="INFO_TOOLTIP_TARGET_VARIABLE" xml:space="preserve">
+    <value>Target Variable</value>
+  </data>
+  <data name="INTEGRATE_CRITERIA_PARAMN_TOOLTIPDESC" xml:space="preserve">
+    <value>Specify Criteria for source variable</value>
+  </data>
+  <data name="INTEGRATE_CRITERIA_PARAMN_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Criteria for source variable)</value>
+  </data>
+  <data name="INTEGRATE_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>0: Not Checked 
+1: Checked</value>
+  </data>
+  <data name="INTEGRATE_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Base Option)</value>
+  </data>
+  <data name="INTEGRATE_PARAM2_TOOLTIPDESC" xml:space="preserve">
+    <value>Specify number of source variables</value>
+  </data>
+  <data name="INTEGRATE_PARAM2_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Number of Source variables)</value>
+  </data>
+  <data name="INTEGRATE_PARAMN_TOOLTIPDESC" xml:space="preserve">
+    <value>Subject range for [{0}]</value>
+  </data>
+  <data name="INTEGRATE_PARAMN_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Combining Criteria)</value>
+  </data>
+  <data name="INTEGRATE_SRC_PARAMN_TOOLTIPDESC" xml:space="preserve">
+    <value>Specify source variable</value>
+  </data>
+  <data name="INTEGRATE_SRC_PARAMN_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Source Variable)</value>
+  </data>
+  <data name="JOINT_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>Specify variables subject to joint</value>
+  </data>
+  <data name="JOINT_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>Variables subject to joint</value>
+  </data>
+  <data name="JOINT_PARAM2_TOOLTIPDESC" xml:space="preserve">
+    <value>Minimum choice -
+Maximum choice</value>
+  </data>
+  <data name="JOINT_PARAM2_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Target choices)</value>
+  </data>
+  <data name="LBL_AUTO" xml:space="preserve">
+    <value>(Auto)</value>
+  </data>
+  <data name="LDEL_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>Specify a parameter.</value>
+  </data>
+  <data name="LDEL_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>()</value>
+  </data>
+  <data name="LDEL_VALIDATION_ERROR1" xml:space="preserve">
+    <value>Parameter of {0} is not set properly</value>
+  </data>
+  <data name="LDEL_VALIDATION_ERROR2" xml:space="preserve">
+    <value>Set a numeric value</value>
+  </data>
+  <data name="LISTUP_LIST" xml:space="preserve">
+    <value>LIST</value>
+  </data>
+  <data name="LISTUP_TOOLTIP_DESC" xml:space="preserve">
+    <value>Specify a variable for LISTUP</value>
+  </data>
+  <data name="LISTUP_TOOLTIP_HEADER" xml:space="preserve">
+    <value>(LISTUP)</value>
+  </data>
+  <data name="LISTUP_VALUE" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="LISTUP_VARIABLE" xml:space="preserve">
+    <value>Variable</value>
+  </data>
+  <data name="LOADING" xml:space="preserve">
+    <value>Loading</value>
+  </data>
+  <data name="MarkBlackCircle" xml:space="preserve">
+    <value>●</value>
+  </data>
+  <data name="MarkOFF" xml:space="preserve">
+    <value>×</value>
+  </data>
+  <data name="MarkWhiteCircle" xml:space="preserve">
+    <value>○</value>
+  </data>
+  <data name="MAX_VALIDATION_ERRORMESSAGE" xml:space="preserve">
+    <value>Unregistered MAX</value>
+  </data>
+  <data name="MCONVERT_ARG_TOOLTIP_DESC" xml:space="preserve">
+    <value>Subject variable for [{0}]</value>
+  </data>
+  <data name="MCONVERT_ARG_TOOLTIP_HEADER" xml:space="preserve">
+    <value>(Variable to Substitute)</value>
+  </data>
+  <data name="MCONVERT_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>0: Not Checked 
+1: Checked</value>
+  </data>
+  <data name="MCONVERT_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Base Option)</value>
+  </data>
+  <data name="MCONVERT_PARAM2_TOOLTIPDESC" xml:space="preserve">
+    <value>Input a choice or condition for selection of variables to merge</value>
+  </data>
+  <data name="MCONVERT_PARAM2_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Choice Criteria)</value>
+  </data>
+  <data name="MCONVERT_PARAMMISMATCH_VALIDATION" xml:space="preserve">
+    <value>Select a variable with the number of choices equal to that of variable as an input bias [{0}]</value>
+  </data>
+  <data name="MCONVERT_PARAMRANGE_VALIDATION" xml:space="preserve">
+    <value>Select a variable with choices equal to or more than the number of choices specified by parameter 1</value>
+  </data>
+  <data name="MCONVERT_TOOLTIP_DESC" xml:space="preserve">
+    <value>Subject variable for [{0}]</value>
+  </data>
+  <data name="MCONVERT_TOOLTIP_HEADER" xml:space="preserve">
+    <value>(Variable to Substitute)</value>
+  </data>
+  <data name="MINUS1_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>Specify removable variable</value>
+  </data>
+  <data name="MINUS1_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Removable Variable)</value>
+  </data>
+  <data name="MINUS1_PM1_ERRORMESSAGE" xml:space="preserve">
+    <value>Unregistered Removable Variable</value>
+  </data>
+  <data name="MINUS1_PM1_ERRORMESSAGE1" xml:space="preserve">
+    <value>Unregistered Removable Variable</value>
+  </data>
+  <data name="MINUS2_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>Specify Exclusion</value>
+  </data>
+  <data name="MINUS2_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Exclusion)</value>
+  </data>
+  <data name="MIN_VALIDATION_ERRORMESSAGE" xml:space="preserve">
+    <value>Unregistered MIN</value>
+  </data>
+  <data name="MSG_OUTPUT_ABORTED" xml:space="preserve">
+    <value>Output has been aborted</value>
+  </data>
+  <data name="MTOS_PARAM1_TOOTIPDESC" xml:space="preserve">
+    <value>Specify Extraction Source Variable</value>
+  </data>
+  <data name="MTOS_PARAM1_TOOTIPHEADER" xml:space="preserve">
+    <value>(Extraction Source Variable)</value>
+  </data>
+  <data name="MTOS_PARAM2_TOOTIPDESC" xml:space="preserve">
+    <value>1. Top 1'st 
+2. Bottom 1'st
+3. Random</value>
+  </data>
+  <data name="MTOS_PARAM2_TOOTIPHEADER" xml:space="preserve">
+    <value>(Extraction Criteria)</value>
+  </data>
+  <data name="MTOS_PM1_ERRORMESSAGE" xml:space="preserve">
+    <value>Unregistered Extraction Source Variable</value>
+  </data>
+  <data name="MTOS_PM2_ERRORMESSAGE" xml:space="preserve">
+    <value>Unregistered Extraction Criteria</value>
+  </data>
+  <data name="MULTI_INSTANCE_PROCESS_RUNNING_MSG" xml:space="preserve">
+    <value>Some process is still running in other instances.Please wait for the process to be completed</value>
+  </data>
+  <data name="OMIT2_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>Select a &lt;start&gt; variable to OMIT 2</value>
+  </data>
+  <data name="OMIT2_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>(OMIT 2)</value>
+  </data>
+  <data name="OMIT2_PARAM2_TOOLTIPDESC1" xml:space="preserve">
+    <value>Select a &lt;end&gt; variable to OMIT 2</value>
+  </data>
+  <data name="OMIT2_PARAM2_TOOLTIPHEADER1" xml:space="preserve">
+    <value>(OMIT 2)</value>
+  </data>
+  <data name="OMIT2_VALIDATION_ERRORMESSAGE" xml:space="preserve">
+    <value>Unregistered OMIT2</value>
+  </data>
+  <data name="OMIT_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>Select a variable to OMIT</value>
+  </data>
+  <data name="OMIT_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>(OMIT)</value>
+  </data>
+  <data name="PROGRESSBAR_ERROR" xml:space="preserve">
+    <value>Unknown error has occurred</value>
+  </data>
+  <data name="QS_ALERT_ADD_SUBTOTAL_COUNT_NOT_SET" xml:space="preserve">
+    <value>Is it OK to delete the answer data of the following variable? 
+{0}</value>
+  </data>
+  <data name="QS_ALERT_ADD_SUBTOTAL_CRITERIA_NOT_SET" xml:space="preserve">
+    <value>Sub total criteria is not set in cell {0}</value>
+  </data>
+  <data name="QS_ALERT_ADD_SUBTOTAL_NAME_NOT_SET" xml:space="preserve">
+    <value>Sub total name is not set in cell {0}</value>
+  </data>
+  <data name="QS_ALERT_AN_IMP_ROW_DELETE" xml:space="preserve">
+    <value>The answer data will be deleted and cannot be restored. Continue?</value>
+  </data>
+  <data name="QS_ALERT_INVALID_COUNTBASE_FLAG" xml:space="preserve">
+    <value>Error in Question settings
+Invalid Count Base in row {0}</value>
+  </data>
+  <data name="QS_ALERT_INVALID_QUESTION_TYPE" xml:space="preserve">
+    <value>Error in Question settings
+Invalid question type in row {0}</value>
+  </data>
+  <data name="QS_ALERT_INVALID_VALUE" xml:space="preserve">
+    <value>Error in Question settings
+invalid value in row {0} and column {1}</value>
+  </data>
+  <data name="QS_ALERT_INVALID_VALUE_NOT_BETWEEN" xml:space="preserve">
+    <value>Error in Question settings
+value is not between [1 - {0}]</value>
+  </data>
+  <data name="QS_ALERT_ORG_DELETE" xml:space="preserve">
+    <value>Deleting existing variable is not allowed, 
+Variable {0} is deleted.</value>
+  </data>
+  <data name="QS_ALERT_QTITLE_NOT_EMPTY" xml:space="preserve">
+    <value>Question title cannot be empty</value>
+  </data>
+  <data name="QS_ALERT_WEIGHTBACK" xml:space="preserve">
+    <value>WeightBack cannot be variable name</value>
+  </data>
+  <data name="QS_ALERT_WT" xml:space="preserve">
+    <value>Error in Question settings
+WT value is not correct in row {0}
+Variable Name {1}</value>
+  </data>
+  <data name="QS_CHOICE_VALUE_MORETHAN_COUNT" xml:space="preserve">
+    <value>Error in Question settings
+Extra choice in row {0} Column {1}</value>
+  </data>
+  <data name="QS_ERROR_IN_MATRIX_QUESTION" xml:space="preserve">
+    <value>Error in Question settings
+Some error occured in row {0} and column {1}</value>
+  </data>
+  <data name="QS_ERROR_IN_MATRIX_SUBTOTAL" xml:space="preserve">
+    <value>Subtotal settings not match in matrix type question 
+ in row{0} column{1}</value>
+  </data>
+  <data name="QS_ERROR_IN_MATRIX_SUBTOTAL_ADDSUB" xml:space="preserve">
+    <value>AddSubtotal not match in matrix type question 
+ in row{0} column{1}</value>
+  </data>
+  <data name="QS_ERROR_IN_MATRIX_SUBTOTAL_ADDSUBCOUNT" xml:space="preserve">
+    <value>Number of subtotal not match in matrix type question 
+ in row{0} column{1}</value>
+  </data>
+  <data name="QS_ERROR_IN_MATRIX_SUBTOTAL_COUNT" xml:space="preserve">
+    <value>Count not match in matrix type question 
+ in row{0} column{1}</value>
+  </data>
+  <data name="QS_ERROR_IN_MATRIX_SUBTOTAL_COUNTBASE" xml:space="preserve">
+    <value>CountBase not match in matrix type question 
+ in row{0} column{1}</value>
+  </data>
+  <data name="QS_INVALID_ANSWER_TYPE" xml:space="preserve">
+    <value>Error in Question settings
+Invalid answer type in row {0}
+Variable name {1}</value>
+  </data>
+  <data name="QS_INVALID_QUSTIONNUMBER" xml:space="preserve">
+    <value>Invalid data in Question number</value>
+  </data>
+  <data name="QS_MATRIX_CHOICE_COUNT_NOT_EQUAL" xml:space="preserve">
+    <value>Error in Question settings
+Category count is not same as above in row {0}</value>
+  </data>
+  <data name="QS_MATRIX_QUESTION_LESS" xml:space="preserve">
+    <value>Error in Question settings
+Sub questions is lessthan question count
+Question is {0} in row {1}</value>
+  </data>
+  <data name="QS_MATRIX_SORT_NOT_EQUAL" xml:space="preserve">
+    <value>Sort in tabs' setting in matrix question is inconsistent.
+Row {0} Column {1}</value>
+  </data>
+  <data name="QS_MATRIX_WT_NOT_EQUAL" xml:space="preserve">
+    <value>Score' setting in matrix question is inconsistent.
+Row {0} Column {1}</value>
+  </data>
+  <data name="QS_NO_VALUE_REQUIRED" xml:space="preserve">
+    <value>Error in Question settings
+No value is required in row {0} and column {1}</value>
+  </data>
+  <data name="QS_NULL_ANSWER_TYPE" xml:space="preserve">
+    <value>Error in Question settings
+Answer type is empty in row {0}
+Variable name {1}</value>
+  </data>
+  <data name="QS_NUMBER_OF_CHOICE_NOT_SET" xml:space="preserve">
+    <value>Error in Question settings
+The number of choice is not set for row {0}
+Variable Name {1}</value>
+  </data>
+  <data name="QS_NUMBER_OF_CHOICE_SET" xml:space="preserve">
+    <value>Error in Question settings
+The number of choice is not empty in row {0}
+Answer type {1}
+Variable Name {2}</value>
+  </data>
+  <data name="QS_QUESTIONIRE_SHEET_NAME" xml:space="preserve">
+    <value>Questionnaire</value>
+  </data>
+  <data name="QS_QUESTIONIRE_TITLE1" xml:space="preserve">
+    <value>Shrink/Collapse</value>
+  </data>
+  <data name="QS_QUESTIONIRE_TITLE2" xml:space="preserve">
+    <value>Description of choice symbols</value>
+  </data>
+  <data name="QS_QUESTIONIRE_TITLE3" xml:space="preserve">
+    <value>Multiple Choice (Multiple Answers Allowed)</value>
+  </data>
+  <data name="QS_QUESTIONIRE_TITLE4" xml:space="preserve">
+    <value>Single Choice (Only One Answer Allowed)</value>
+  </data>
+  <data name="QS_QUESTIONIRE_TITLE5" xml:space="preserve">
+    <value>Single Drop-down Choice (Only One Answer Allowed)</value>
+  </data>
+  <data name="QS_QUESTIONIRE_TITLE6" xml:space="preserve">
+    <value>Matrix of Items</value>
+  </data>
+  <data name="QS_QUESTIONIRE_TITLE7" xml:space="preserve">
+    <value>Matrix of Choices</value>
+  </data>
+  <data name="QS_QUESTIONIRE_TITLE8" xml:space="preserve">
+    <value>Ranking</value>
+  </data>
+  <data name="QS_QUESTIONIRE_TITLE9" xml:space="preserve">
+    <value>Top {0} choices</value>
+  </data>
+  <data name="QS_QUESTION_COUNT_INTEGER" xml:space="preserve">
+    <value>Error in Question settings
+The question count is not intger in row {0}</value>
+  </data>
+  <data name="QS_QUESTION_COUNT_MORETHAN_201" xml:space="preserve">
+    <value>Question Count should be less than 201 in row {0}
+Question Type : {1}</value>
+  </data>
+  <data name="QS_QUESTION_COUNT_NEGATIVE" xml:space="preserve">
+    <value>Error in Question settings
+The question count is negative number in row {0}</value>
+  </data>
+  <data name="QS_QUESTION_COUNT_SHOULD_EMPTY" xml:space="preserve">
+    <value>Error in Question settings
+The question count should be empty in row {0}
+Question type {1}</value>
+  </data>
+  <data name="QS_RAWDATA_ANSWER_TYPE_NOT_MATCH" xml:space="preserve">
+    <value>Answer type rule violation
+Invalid value in row {0}
+Variable Name {1}
+Answer Type {2}
+Previous Answer Type {3}</value>
+  </data>
+  <data name="QS_SET_INTEGER" xml:space="preserve">
+    <value>Error in Question settings
+Set and integer between [{0} - {1}] in row {2} and column {3}</value>
+  </data>
+  <data name="QS_VARIABLE_DUPLICATED" xml:space="preserve">
+    <value>Error in Question settings
+Variable is duplicated in row {0}</value>
+  </data>
+  <data name="QS_VARIABLE_LINEFEED_CHARACTER" xml:space="preserve">
+    <value>CR,LF or CRLF cannot be used for variable name.</value>
+  </data>
+  <data name="QS_VARIABLE_MAX_LENGTH" xml:space="preserve">
+    <value>Specify New variable name with 25 or less characters.</value>
+  </data>
+  <data name="QS_VARIABLE_NULL_NOT_ALLOWED" xml:space="preserve">
+    <value>Error in Question settings
+Variable is empty in row {0}</value>
+  </data>
+  <data name="QS_VARIABLE_NUMBER_ONLY" xml:space="preserve">
+    <value>Error Question Settings
+Cannot save a New variable name of numbers only.</value>
+  </data>
+  <data name="QS_VARIABLE_SPECIAL_CHARACTER" xml:space="preserve">
+    <value>Symbols cannot be used for New variable name.</value>
+  </data>
+  <data name="QS_VARIABLE_TAB_CHARACTER" xml:space="preserve">
+    <value>Tab cannot be used for variable name</value>
+  </data>
+  <data name="RECODE_PARAM1_TOOLTIPDESC" xml:space="preserve">
+    <value>Specify the recode source variable</value>
+  </data>
+  <data name="RECODE_PARAM1_TOOLTIPHEADER" xml:space="preserve">
+    <value>Recode Source Variable</value>
+  </data>
+  <data name="RECODE_PARM_N_TOOLTIPDESC" xml:space="preserve">
+    <value>Subject Range for [ {0} ]</value>
+  </data>
+  <data name="RECODE_PARM_N_TOOLTIPHEADER" xml:space="preserve">
+    <value>(Recoding Criteria)</value>
+  </data>
+  <data name="RECODE_PM1_ERRORMESSAGE" xml:space="preserve">
+    <value>Unregistered Recording Source Item</value>
+  </data>
+  <data name="REPLACE_ALERT" xml:space="preserve">
+    <value>The file {0} already exists.</value>
+  </data>
+  <data name="SAVE_FILE_RESTART_ALERT" xml:space="preserve">
+    <value>Saved successfully, but the application may be unstable. Please restart it.</value>
+  </data>
+  <data name="SAVE_FILE_RETRY_ALERT" xml:space="preserve">
+    <value>Failed to save file. Please retry.</value>
+  </data>
+  <data name="SET_INETGER_BETWEEN" xml:space="preserve">
+    <value>Set an integer in the range of [ {0} - {1} ].</value>
+  </data>
+  <data name="SET_NUMERIC_VALUE_RANGE" xml:space="preserve">
+    <value>Set a numeric value. in Row {0} and Column {1}</value>
+  </data>
+  <data name="SL_INPUT_INVALID" xml:space="preserve">
+    <value>Invalid input setting is set in row{0} column{1}</value>
+  </data>
+  <data name="SL_MED_IN_WEIGTBACK" xml:space="preserve">
+    <value>Cannot out put MED when Sample Weighting : ON  </value>
+  </data>
+  <data name="SL_OUPUT_NAME_DUPLICATE" xml:space="preserve">
+    <value>Duplicate name, Row:{0}.Please click ok for generating new name</value>
+  </data>
+  <data name="SL_OUPUT_NAME_DUPLICATE_DEFAULT" xml:space="preserve">
+    <value>Duplicate default name found, Row:{0}.Please click ok for generating name</value>
+  </data>
+  <data name="SL_OUPUT_NAME_MULTIPLE" xml:space="preserve">
+    <value>Multiple output name is set,Row:{0}.Please click ok for using first one</value>
+  </data>
+  <data name="SL_OUPUT_NAME_NOT_SET_FIRST" xml:space="preserve">
+    <value>Output name is not set in first variable, Row:{0}.Please click ok for generating name in first varaible</value>
+  </data>
+  <data name="SL_OUTPUT_ENABLE_INVALID" xml:space="preserve">
+    <value>Invalid ouput enable setting in col{0}</value>
+  </data>
+  <data name="SL_OUTPUT_NAME_CHAR_LENGTH" xml:space="preserve">
+    <value>Specify output name with 25 or less characters.</value>
+  </data>
+  <data name="SL_VARIABLE_SEP_NO_MATCH" xml:space="preserve">
+    <value>Not matching variable in row{0}</value>
+  </data>
+  <data name="STD_DB_LOAD" xml:space="preserve">
+    <value>Loading</value>
+  </data>
+  <data name="TITLE_QC" xml:space="preserve">
+    <value>Quick Cross</value>
+  </data>
+  <data name="VALIDATION_FAIL_SHEET" xml:space="preserve">
+    <value>Validation failed in row{0} column{1}</value>
+  </data>
+  <data name="VALIDATION_MESSAGE_CALL" xml:space="preserve">
+    <value>Specify Target variables</value>
+  </data>
+  <data name="VALIDATION_SUCCESS_SHEET" xml:space="preserve">
+    <value>Validation check success</value>
+  </data>
+</root>

@@ -1,0 +1,6 @@
+﻿option echo off
+option confirm off
+open %1% -hostkey="%2% %3% %4%"
+put "%5%" "%6%"
+close
+exit

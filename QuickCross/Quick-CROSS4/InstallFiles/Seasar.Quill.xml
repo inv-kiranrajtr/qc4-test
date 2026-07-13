@@ -1,0 +1,1929 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Seasar.Quill</name>
+    </assembly>
+    <members>
+        <member name="T:Seasar.Quill.Xml.QuillSection">
+            <summary>
+            Quillの構成セクション
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Xml.QuillSection.ToString">
+            <summary>
+            セクション情報を文字列で返す
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Seasar.Quill.Xml.QuillSection.DaoSetting">
+            <summary>
+            S2Dao関係設定クラス
+            </summary>
+        </member>
+        <member name="P:Seasar.Quill.Xml.QuillSection.TransactionSetting">
+            <summary>
+            トランザクション関係設定クラス
+            </summary>
+        </member>
+        <member name="P:Seasar.Quill.Xml.QuillSection.DataSources">
+            <summary>
+            データソースリスト
+            </summary>
+        </member>
+        <member name="P:Seasar.Quill.Xml.QuillSection.Assemblys">
+            <summary>
+            アセンブリリスト
+            </summary>
+        </member>
+        <member name="T:Seasar.Quill.Util.TypeUtil">
+            <summary>
+            Typeを扱うユーティリティクラス
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Util.TypeUtil.GetType(System.Object)">
+            <summary>
+            指定されたオブジェクトのTypeを取得する
+            </summary>
+            <remarks>
+            オブジェクトが透過プロキシの場合はAopProxyからTypeを取得する
+            </remarks>
+            <param name="obj">オブジェクト</param>
+            <returns>Type</returns>
+        </member>
+        <member name="M:Seasar.Quill.Util.TypeUtil.HasNamespace(System.String)">
+            <summary>
+            名称に名前空間を含むかどうか判定
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Seasar.Quill.Database.Provider.Oracle">
+            <summary>
+            Oracle用データプロバイダ設定クラス
+            </summary>
+        </member>
+        <member name="T:Seasar.Quill.Attrs.S2DaoAttribute">
+            <summary>
+            属性を使ってDaoInterceptorをかけるための属性
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Attrs.S2DaoAttribute.#ctor">
+            <summary>
+            デフォルトコンストラクタ
+            (標準の設定を使います)
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Attrs.S2DaoAttribute.#ctor(System.Type)">
+            <summary>
+            カスタムコンストラクタ
+            (指定したDao設定クラスを使います)
+            (IDaoSetting実装クラスではない場合実行時例外を投げます）
+            </summary>
+            <param name="settingType"></param>
+        </member>
+        <member name="T:Seasar.Quill.Util.AttributeUtil">
+            <summary>
+            Quillで用意されている属性を扱うクラス
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Util.AttributeUtil.GetImplementationAttr(System.Type)">
+            <summary>
+            実装クラスを指定する為に設定されている属性
+            (<see cref="T:Seasar.Quill.Attrs.ImplementationAttribute"/>)を取得する
+            </summary>
+            <param name="type">属性を確認するクラスもしくはインターフェースのType</param>
+            <returns>実装クラスが指定された属性</returns>
+        </member>
+        <member name="M:Seasar.Quill.Util.AttributeUtil.GetAspectAttrs(System.Type)">
+            <summary>
+            Aspectを指定する為にクラスやインターフェースに設定されている属性
+            (<see cref="T:Seasar.Quill.Attrs.AspectAttribute"/>)を取得する
+            </summary>
+            <param name="type">属性を確認するType</param>
+            <returns>Aspectが指定された属性の配列</returns>
+        </member>
+        <member name="M:Seasar.Quill.Util.AttributeUtil.GetAspectAttrsByMethod(System.Reflection.MethodInfo)">
+            <summary>
+            Aspectを指定する為にメソッドに設定されている属性
+            (<see cref="T:Seasar.Quill.Attrs.AspectAttribute"/>)を取得する
+            </summary>
+            <param name="method">属性を確認するメソッド</param>
+            <returns>Aspectが指定された属性の配列</returns>
+        </member>
+        <member name="M:Seasar.Quill.Util.AttributeUtil.GetAspectAttrsByMember(System.Reflection.MemberInfo)">
+            <summary>
+            Aspectを指定する為にメンバに設定されている属性
+            (<see cref="T:Seasar.Quill.Attrs.AspectAttribute"/>)を取得する
+            </summary>
+            <param name="member">属性を確認するメンバ</param>
+            <returns>Aspectが指定された属性の配列</returns>
+        </member>
+        <member name="M:Seasar.Quill.Util.AttributeUtil.GetTransactionAttr(System.Type)">
+            <summary>
+            Transactionを指定する為にクラスやインターフェースに設定されている属性
+            (<see cref="T:Seasar.Quill.Attrs.TransactionAttribute"/>)を取得する
+            </summary>
+            <param name="type">属性を確認するType</param>
+            <returns>Aspectが指定された属性の配列</returns>
+        </member>
+        <member name="M:Seasar.Quill.Util.AttributeUtil.GetTransactionAttrs(System.Type)">
+            <summary>
+            Transactionを指定する為にクラスやインターフェースに設定されている属性
+            (<see cref="T:Seasar.Quill.Attrs.TransactionAttribute"/>)を取得する
+            </summary>
+            <param name="type">属性を確認するType</param>
+            <returns>Aspectが指定された属性の配列</returns>
+        </member>
+        <member name="M:Seasar.Quill.Util.AttributeUtil.GetTransactionAttrByMethod(System.Reflection.MethodInfo)">
+            <summary>
+            Aspectを指定する為にメソッドに設定されている属性
+            (<see cref="T:Seasar.Quill.Attrs.TransactionAttribute"/>)を取得する
+            </summary>
+            <param name="method">属性を確認するメソッド</param>
+            <returns>Aspectが指定された属性の配列</returns>
+        </member>
+        <member name="M:Seasar.Quill.Util.AttributeUtil.GetTransactionAttrsByMethod(System.Reflection.MethodInfo)">
+            <summary>
+            Aspectを指定する為にメソッドに設定されている属性
+            (<see cref="T:Seasar.Quill.Attrs.TransactionAttribute"/>)を取得する
+            </summary>
+            <param name="method">属性を確認するメソッド</param>
+            <returns>Aspectが指定された属性の配列</returns>
+        </member>
+        <member name="M:Seasar.Quill.Util.AttributeUtil.GetTransactionAttrByMember(System.Reflection.MemberInfo)">
+            <summary>
+            Aspectを指定する為にメンバに設定されている属性
+            (<see cref="T:Seasar.Quill.Attrs.TransactionAttribute"/>)を取得する
+            </summary>
+            <param name="member">属性を確認するメンバ</param>
+            <returns>Aspectが指定された属性の配列</returns>
+        </member>
+        <member name="M:Seasar.Quill.Util.AttributeUtil.GetTransactionAttrsByMember(System.Reflection.MemberInfo)">
+            <summary>
+            Aspectを指定する為にメンバに設定されている属性
+            (<see cref="T:Seasar.Quill.Attrs.TransactionAttribute"/>)を取得する
+            </summary>
+            <param name="member">属性を確認するメンバ</param>
+            <returns>Aspectが指定された属性の配列</returns>
+        </member>
+        <member name="M:Seasar.Quill.Util.AttributeUtil.GetS2DaoAttr(System.Type)">
+            <summary>
+            DaoInterceptorを指定する為にクラスやインターフェースに設定されている属性
+            (<see cref="T:Seasar.Quill.Attrs.S2DaoAttribute"/>)を取得する
+            </summary>
+            <param name="type">属性を確認するType</param>
+            <returns>Aspectが指定された属性の配列</returns>
+        </member>
+        <member name="M:Seasar.Quill.Util.AttributeUtil.GetS2DaoAttrByMethod(System.Reflection.MethodInfo)">
+            <summary>
+            Aspectを指定する為にメソッドに設定されている属性
+            (<see cref="T:Seasar.Quill.Attrs.S2DaoAttribute"/>)を取得する
+            </summary>
+            <param name="method">属性を確認するメソッド</param>
+            <returns>Aspectが指定された属性の配列</returns>
+        </member>
+        <member name="M:Seasar.Quill.Util.AttributeUtil.GetS2DaoAttrByMember(System.Reflection.MemberInfo)">
+            <summary>
+            Aspectを指定する為にメンバに設定されている属性
+            (<see cref="T:Seasar.Quill.Attrs.S2DaoAttribute"/>)を取得する
+            </summary>
+            <param name="member">属性を確認するメンバ</param>
+            <returns>Aspectが指定された属性の配列</returns>
+        </member>
+        <member name="M:Seasar.Quill.Util.AttributeUtil.GetBindingAttr(System.Reflection.FieldInfo)">
+            <summary>
+            S2ContainerのコンポーネントのBindingを指定する為にフィールドに設定されている
+            属性(<see cref="T:Seasar.Quill.Attrs.BindingAttribute"/>)を取得する
+            </summary>
+            <param name="field">フィールド</param>
+            <returns>Bindingコンポーネントが指定されたBinding属性</returns>
+        </member>
+        <member name="M:Seasar.Quill.Util.AttributeUtil.GetMockAttr(System.Type)">
+            <summary>
+            Mockを指定する為に設定されている属性
+            (<see cref="T:Seasar.Quill.Attrs.MockAttribute"/>)を取得する
+            </summary>
+            <param name="type">属性を確認するクラスのType</param>
+            <returns>Mockクラスが指定された属性</returns>
+        </member>
+        <member name="M:Seasar.Quill.Util.AttributeUtil.ValidateMethodInfo(System.Reflection.MethodInfo)">
+            <summary>
+            メソッドにAspectを適用できるか検証
+            </summary>
+            <param name="method">検証対象のメソッド情報</param>
+        </member>
+        <member name="T:Seasar.Quill.Util.AttributeUtil.AspectAttributeComparer">
+            <summary>
+            AspectAttributeを比較するクラス
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Util.AttributeUtil.AspectAttributeComparer.Compare(Seasar.Quill.Attrs.AspectAttribute,Seasar.Quill.Attrs.AspectAttribute)">
+            <summary>
+            2つのAspectAttributeを比較する
+            （並び順は<see cref="P:Seasar.Quill.Attrs.AspectAttribute.Ordinal"/>で
+            決定する)
+            <para>
+            xとyが等しい場合は0, xがyより大きい場合は正の値,
+            xがyより小さい場合は負の値を返す
+            </para>
+            </summary>
+            <param name="x">比較対象の第1オブジェクト</param>
+            <param name="y">比較対象の第2オブジェクト</param>
+            <returns>xとyが等しい場合は0, xがyより大きい場合は正の値,
+            xがyより小さい場合は負の値を返す</returns>
+        </member>
+        <member name="T:Seasar.Quill.QuillComponent">
+            <summary>
+            QuillContainerに格納するコンポーネント定義クラス
+            </summary>
+            <remarks>
+            コンストラクタで初期化を行う際にコンポーネントのオブジェクト
+            をインスタンス化する
+            </remarks>
+        </member>
+        <member name="F:Seasar.Quill.QuillComponent.componentType">
+            <summary>
+            コンポーネントのType
+            </summary>
+        </member>
+        <member name="F:Seasar.Quill.QuillComponent.receiptType">
+            <summary>
+            コンポーネントを受け取るフィールドのType
+            </summary>
+        </member>
+        <member name="F:Seasar.Quill.QuillComponent.componentObjects">
+            <summary>
+            コンポーネントのObjectを格納するコレクション
+            </summary>
+            <remarks>
+            Aspectが適用される場合にはプロキシオブジェクトを格納する
+            </remarks>
+        </member>
+        <member name="M:Seasar.Quill.QuillComponent.#ctor(System.Type,System.Type,Seasar.Framework.Aop.IAspect[])">
+            <summary>
+            QuillComponentを初期化するコンストラクタ
+            </summary>
+            <param name="componentType">コンポーネントのType</param>
+            <param name="receiptType">コンポーネントを受け取るフィールドのType</param>
+            <param name="aspects">Aspect定義の配列</param>
+        </member>
+        <member name="M:Seasar.Quill.QuillComponent.GetComponentObject(System.Type)">
+            <summary>
+            コンポーネントのオブジェクトを取得する
+            </summary>
+            <param name="type">コンポーネントを受け取るフィールドのType</param>
+            <returns>
+            コンポーネントのオブジェクト
+            <para>typeに対応するオブジェクトがない場合はnullを返す</para>
+            </returns>
+        </member>
+        <member name="M:Seasar.Quill.QuillComponent.Destroy">
+            <summary>
+            QuillComponentが持つ参照を破棄する
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.QuillComponent.Dispose">
+            <summary>
+            コンポーネントがIDisposableを実装している場合はDisposeを呼び出す
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.QuillComponent.CreateObject(System.Type,System.Type)">
+            <summary>
+            実装クラスのインスタンスを作成する
+            </summary>
+            <remarks>
+            インスタンスを作成するクラスにはパラメータ(引数)無しでpublicである
+            コンストラクタが必要とする
+            </remarks>
+            <param name="componentType">コンポーネントのType</param>
+        </member>
+        <member name="M:Seasar.Quill.QuillComponent.CreateProxyObject(System.Type,System.Type,Seasar.Framework.Aop.IAspect[])">
+            <summary>
+            プロキシオブジェクトを作成する
+            </summary>
+            <param name="componentType">コンポーネントのType</param>
+            <param name="receiptType">コンポーネントを受け取るフィールドのType</param>
+            <param name="aspects">適用するAspectの配列</param>
+            <returns>作成されたプロキシオブジェクト</returns>
+        </member>
+        <member name="P:Seasar.Quill.QuillComponent.ComponentType">
+            <summary>
+            コンポーネントのTypeを取得する
+            </summary>
+            <value>コンポーネントのType</value>
+        </member>
+        <member name="P:Seasar.Quill.QuillComponent.ReceiptType">
+            <summary>
+            コンポーネントを受け取るフィールドのTypeを取得する
+            </summary>
+            <value>コンポーネントを受け取るフィールドのType</value>
+        </member>
+        <member name="T:Seasar.Quill.Database.DataSource.Connection.IConnectionString">
+            <summary>
+            接続文字列取得インターフェース
+            </summary>
+            <remarks>
+            外部ファイルからの読み込み、暗号・復号など
+            接続文字列の取得に何らかのロジックを使用する場合は
+            このインターフェースを実装してapp.configの
+            quillセクション内に名前空間付でクラス名を記述して下さい。
+            </remarks>
+        </member>
+        <member name="M:Seasar.Quill.Database.DataSource.Connection.IConnectionString.GetConnectionString">
+            <summary>
+            接続文字列の取得
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Seasar.Quill.Dao.Impl.TypicalDaoSetting">
+            <summary>
+            一般的なDaoSetting実装クラス
+            </summary>
+        </member>
+        <member name="T:Seasar.Quill.Dao.Impl.AbstractDaoSetting">
+            <summary>
+            Dao設定抽象クラス
+            </summary>
+        </member>
+        <member name="T:Seasar.Quill.Dao.IDaoSetting">
+            <summary>
+            S2Dao機能利用時に使用するクラスのインスタンスを保持する
+            インターフェース
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Dao.IDaoSetting.Setup(Seasar.Extension.ADO.IDataSource)">
+            <summary>
+            Dao関係の設定を行います
+            </summary>
+            <param name="dataSource"></param>
+        </member>
+        <member name="M:Seasar.Quill.Dao.IDaoSetting.IsNeedSetup">
+            <summary>
+            Setupメソッドの実行が必要かどうか判定
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Seasar.Quill.Dao.IDaoSetting.DataSourceName">
+            <summary>
+            使用するデータソース登録名
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Dao.Impl.AbstractDaoSetting.SetupDao(Seasar.Extension.ADO.IDataSource)">
+            <summary>
+            Dao関係の設定を行う
+            </summary>
+            <param name="dataSource"></param>
+        </member>
+        <member name="T:Seasar.Quill.InjectionMap">
+            <summary>
+            インターフェースとその実装型の対応情報（Singleton）
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.InjectionMap.GetInstance">
+            <summary>
+            Singletonなインスタンスを取得
+            InjectionMapは基本的にアプリ起動時の設定を推奨します。
+            （Mockとの使い分けを行いやすくするため）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Quill.InjectionMap.#ctor">
+            <summary>
+            Singletonとするためのコンストラクタ
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.InjectionMap.Add(System.Type,System.Type)">
+            <summary>
+            インターフェースとその実装型の登録
+            </summary>
+            <remarks>Implementation属性(引数あり)とほぼ同じ働き</remarks>
+            <param name="interfaceType"></param>
+            <param name="implType"></param>
+        </member>
+        <member name="M:Seasar.Quill.InjectionMap.Add(System.Collections.Generic.IDictionary{System.Type,System.Type})">
+            <summary>
+            インターフェースとその実装型の登録
+            </summary>
+            <remarks>Implementation属性(引数あり)とほぼ同じ働き</remarks>
+            <param name="map"></param>
+        </member>
+        <member name="M:Seasar.Quill.InjectionMap.Add(System.Type)">
+            <summary>
+            インターフェースを指定しない実装型の登録
+            </summary>
+            <remarks>Implementation属性(引数なし)とほぼ同じ働き</remarks>
+            <param name="componentType"></param>
+        </member>
+        <member name="M:Seasar.Quill.InjectionMap.Add(System.Collections.Generic.IList{System.Type})">
+            <summary>
+            インターフェースを指定しない実装型の登録
+            </summary>
+            <remarks>Implementation属性(引数なし)とほぼ同じ働き</remarks>
+            <param name="componentTypeList"></param>
+        </member>
+        <member name="M:Seasar.Quill.InjectionMap.GetComponentType(System.Type)">
+            <summary>
+            実装型の取得
+            </summary>
+            <param name="registedType">インターフェース型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Quill.InjectionMap.HasComponentType(System.Type)">
+            <summary>
+            実装型が登録されているか判定
+            </summary>
+            <param name="type"></param>
+            <returns>true=登録されている、false=登録されていない</returns>
+        </member>
+        <member name="M:Seasar.Quill.InjectionMap.Clear">
+            <summary>
+            インターフェースとその実装型の対応情報をクリア
+            </summary>
+        </member>
+        <member name="T:Seasar.Quill.Database.Provider.ODP">
+            <summary>
+            ODP.NET(Oracle)用データプロバイダ設定クラス
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Xml.DataSourceSection.ToString">
+            <summary>
+            インスタンスがもつ情報を文字列で返す
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Seasar.Quill.Xml.DataSourceSection.DataSourceName">
+            <summary>
+            データソース名
+            </summary>
+        </member>
+        <member name="P:Seasar.Quill.Xml.DataSourceSection.ConnectionString">
+            <summary>
+            接続文字列
+            </summary>
+        </member>
+        <member name="P:Seasar.Quill.Xml.DataSourceSection.ProviderName">
+            <summary>
+            DataProviderクラス名
+            </summary>
+        </member>
+        <member name="P:Seasar.Quill.Xml.DataSourceSection.DataSourceClassName">
+            <summary>
+            DataSourceクラス名
+            </summary>
+        </member>
+        <member name="F:Seasar.Quill.Database.DataSource.Impl.SelectableDataSourceProxyWithDictionary._dataSourceName">
+            <summary>
+            データソース名
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Database.DataSource.Impl.SelectableDataSourceProxyWithDictionary.RegistDataSource(System.String,Seasar.Extension.ADO.IDataSource)">
+            <summary>
+            データソースを登録
+            </summary>
+            <remarks>後勝ちで登録します</remarks>
+            <param name="dataSourceName"></param>
+            <param name="dataSource"></param>
+        </member>
+        <member name="M:Seasar.Quill.Database.DataSource.Impl.SelectableDataSourceProxyWithDictionary.SetTransactionContext(Seasar.Extension.Tx.ITransactionContext)">
+            <summary>
+            保持しているデータソースにTransactionContextを適用します。
+            </summary>
+            <param name="txContext"></param>
+        </member>
+        <member name="P:Seasar.Quill.Database.DataSource.Impl.SelectableDataSourceProxyWithDictionary.DataSourceSelector">
+            <summary>
+            データソース選択ロジックインターフェース
+            </summary>
+        </member>
+        <member name="T:Seasar.Quill.Exception.QuillApplicationException">
+            <summary>
+            Quillでアプリケーションエラーが発生した場合にスローされる例外クラス
+            </summary>
+        </member>
+        <member name="F:Seasar.Quill.Exception.QuillApplicationException.messageCode">
+            <summary>
+            メッセージコード
+            </summary>
+        </member>
+        <member name="F:Seasar.Quill.Exception.QuillApplicationException.args">
+            <summary>
+            メッセージに埋め込む値の配列
+            </summary>
+        </member>
+        <member name="F:Seasar.Quill.Exception.QuillApplicationException.message">
+            <summary>
+            メッセージ(メッセージコードを含む)
+            </summary>
+        </member>
+        <member name="F:Seasar.Quill.Exception.QuillApplicationException.simpleMessage">
+            <summary>
+            簡単なメッセージ(メッセージコードを含まない)
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Exception.QuillApplicationException.#ctor(System.String)">
+            <summary>
+            メッセージコードを指定してQuillApplicationExceptionを初期化する
+            </summary>
+            <param name="messageCode">メッセージコード</param>
+        </member>
+        <member name="M:Seasar.Quill.Exception.QuillApplicationException.#ctor(System.String,System.String)">
+            <summary>
+            メッセージコードとメッセージを指定してQuillApplicationExceptionを初期化する
+            </summary>
+            <param name="messageCode">メッセージコード</param>
+            <param name="message">メッセージ</param>
+        </member>
+        <member name="M:Seasar.Quill.Exception.QuillApplicationException.#ctor(System.String,System.Object[])">
+            <summary>
+            メッセージコード・メッセージ中に埋め込む文字列の配列を指定して
+            QuillApplicationExceptionを初期化する
+            </summary>
+            <param name="messageCode">メッセージコード</param>
+            <param name="args">メッセージ中に埋め込む文字列の配列</param>
+        </member>
+        <member name="M:Seasar.Quill.Exception.QuillApplicationException.#ctor(System.String,System.Object[],System.Exception)">
+            <summary>
+            メッセージコード・メッセージ中に埋め込む文字列の配列・元となった例外
+            を指定してQuillApplicationExceptionを初期化する
+            </summary>
+            <param name="messageCode">メッセージコード</param>
+            <param name="args">メッセージ中に埋め込む値の配列</param>
+            <param name="cause">元となった例外</param>
+        </member>
+        <member name="P:Seasar.Quill.Exception.QuillApplicationException.MessageCode">
+            <summary>
+            メッセージコードを取得する
+            </summary>
+            <value>メッセージコード</value>
+        </member>
+        <member name="P:Seasar.Quill.Exception.QuillApplicationException.Args">
+            <summary>
+            メッセージに埋め込む値の配列を取得する
+            </summary>
+            <value>メッセージに埋め込む値の配列</value>
+        </member>
+        <member name="P:Seasar.Quill.Exception.QuillApplicationException.Message">
+            <summary>
+            メッセージ(メッセージコードを含む)を取得・設定する
+            </summary>
+            <value>メッセージ(メッセージコードを含む)</value>
+        </member>
+        <member name="P:Seasar.Quill.Exception.QuillApplicationException.SimpleMessage">
+            <summary>
+            簡単なメッセージ(メッセージコードを含まない)を取得する
+            </summary>
+            <value>簡単なメッセージ(メッセージコードを含まない)</value>
+        </member>
+        <member name="T:Seasar.Quill.Database.Provider.SqlServer">
+            <summary>
+            SQLServer用プロバイダ設定クラス
+            </summary>
+        </member>
+        <member name="T:Seasar.Quill.Unit.MockInjector">
+            <summary>
+            MockをInjectするためのクラス
+            </summary>
+        </member>
+        <member name="T:Seasar.Quill.QuillInjector">
+            <summary>
+            DependencyInjectionを行うクラス
+            </summary>
+            <remarks>
+            <see cref="M:Seasar.Quill.QuillInjector.GetInstance"/>
+            でQuillInjectorのインスタンスを作成して、
+            <see cref="M:Seasar.Quill.QuillInjector.Inject(System.Object)"/>を使用してDIを行う。
+            </remarks>
+        </member>
+        <member name="F:Seasar.Quill.QuillInjector._context">
+            <summary>
+            インジェクション管理
+            </summary>
+            <remarks>
+            相互参照があるオブジェクトへのインジェクション時に
+            再帰呼び出しで無限ループとならないよう管理します。
+            無限ループ防止のみが目的のため、
+            スレッドセーフにはしていません。
+            </remarks>
+        </member>
+        <member name="M:Seasar.Quill.QuillInjector.#ctor">
+            <summary>
+            QuillInjectorを初期化するコンストラクタ
+            </summary>
+            <remarks>
+            <see cref="M:Seasar.Quill.QuillInjector.GetInstance"/>からインスタンスを生成する
+            </remarks>
+            <seealso cref="M:Seasar.Quill.QuillInjector.GetInstance"/>
+        </member>
+        <member name="M:Seasar.Quill.QuillInjector.GetInstance">
+            <summary>
+            QuillInjectorのインスタンスを取得する
+            </summary>
+            <remarks>
+            <para>
+            QuillInjectorのコンストラクタのアクセス修飾子はprotectedに設定されている為、
+            直接QuillInjectorのインスタンスを生成することはできない。
+            </para>
+            <para>
+            QuillInjectorのインスタンスを取得する場合は当メソッドを使用する。
+            </para>
+            <para>
+            基本的に同じインスタンスを返すが、DestroyメソッドによってQuillが持つ
+            参照が破棄されている場合は新しいQuillInjectorのインスタンスを作成する。
+            </para>
+            </remarks>
+            <returns>QuillInjectorのインスタンス</returns>
+        </member>
+        <member name="M:Seasar.Quill.QuillInjector.Inject(System.Object)">
+            <summary>
+            引数で渡される<code>target</code>のオブジェクトのフィールドに
+            必要なコンポーネントをセット（DI）する
+            </summary>
+            <remarks>
+            <para>
+            DIを行うことのできるフィールドの条件はインスタンスメンバとする。
+            （パブリックメンバ、非パブリックメンバは問わない）
+            </para>
+            <para>
+            DIを行う場合はフィールドの型に
+            <see cref="T:Seasar.Quill.Attrs.ImplementationAttribute"/>(属性)か
+            InjectionMapに設定されている必要がある。
+            </para>
+            <para>
+            Aspectを適用する場合はインターフェース・クラスもしくはメソッドに
+            <see cref="T:Seasar.Quill.Attrs.AspectAttribute"/>(属性)
+            設定されている必要がある。
+            </para>
+            </remarks>
+            <param name="target">
+            この<code>target</code>のフィールドに必要なコンポーネントがセットされる
+            </param>
+        </member>
+        <member name="M:Seasar.Quill.QuillInjector.Destroy">
+            <summary>
+            QuillInjectorが持つ参照を破棄する
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.QuillInjector.ClearInjected">
+            <summary>
+            Inject済情報のクリア
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.QuillInjector.InjectField(System.Object,System.Reflection.FieldInfo)">
+            <summary>
+            指定するフィールドにDIする
+            </summary>
+            <remarks>QuillもしくはS2ContainerのコンポーネントをDIする</remarks>
+            <param name="target">DIが行われるオブジェクト</param>
+            <param name="field">DIが行われるフィールド情報</param>
+        </member>
+        <member name="M:Seasar.Quill.QuillInjector.InjectField(System.Object,System.Reflection.FieldInfo,Seasar.Quill.Attrs.ImplementationAttribute)">
+            <summary>
+            フィールドにImplementation属性で指定されたコンポーネントをInjectする
+            </summary>
+            <remarks>QuillのコンポーネントをDIする</remarks>
+            <param name="target">DIが行われるオブジェクト</param>
+            <param name="field">DIが行われるフィールド情報</param>
+            <param name="implAttr">実装クラスを指定する属性</param>
+        </member>
+        <member name="M:Seasar.Quill.QuillInjector.InjectField(System.Object,System.Reflection.FieldInfo,System.Type)">
+            <summary>
+            フィールドに指定されたType(implType)のコンポーネントをInjectする
+            </summary>
+            <remarks>QuillのコンポーネントをDIする</remarks>
+            <param name="target">DIが行われるオブジェクト</param>
+            <param name="field">DIが行われるフィールド情報</param>
+            <param name="implType">実装クラスのType</param>
+        </member>
+        <member name="M:Seasar.Quill.QuillInjector.Dispose">
+            <summary>
+            保持しているQuillContainerのDisposeを呼び出す
+            </summary>
+        </member>
+        <member name="P:Seasar.Quill.QuillInjector.Container">
+            <summary>
+            QuillInjector内で使用するQuillContainer
+            (取得専用）
+            </summary>
+        </member>
+        <member name="P:Seasar.Quill.QuillInjector.InjectionMap">
+            <summary>
+            インターフェース型と実装型の対応情報
+            </summary>
+        </member>
+        <member name="T:Seasar.Quill.QuillInjector.QuillInjectionContext">
+            <summary>
+            インジェクション管理クラス
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.QuillInjector.QuillInjectionContext.IsAlreadyInjected(System.Type)">
+            <summary>
+            既にインジェクション済の型か判定
+            </summary>
+            <param name="targetType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Quill.QuillInjector.QuillInjectionContext.AddInjectedType(System.Type)">
+            <summary>
+            インジェクション済の型を登録する
+            </summary>
+            <param name="targetType"></param>
+        </member>
+        <member name="M:Seasar.Quill.QuillInjector.QuillInjectionContext.BeginInjection">
+            <summary>
+            インジェクション中状態に遷移
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.QuillInjector.QuillInjectionContext.EndInjection">
+            <summary>
+            インジェクション終了
+            </summary>
+        </member>
+        <member name="P:Seasar.Quill.QuillInjector.QuillInjectionContext.IsInInjection">
+            <summary>
+            インジェクション中（再帰）中か判定
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Unit.MockInjector.#ctor">
+            <summary>
+            MockInjectorを初期化するコンストラクタ
+            </summary>
+            <remarks>
+            <see cref="M:Seasar.Quill.Unit.MockInjector.GetInstance"/>からインスタンスを生成する
+            </remarks>
+            <seealso cref="M:Seasar.Quill.Unit.MockInjector.GetInstance"/>
+        </member>
+        <member name="M:Seasar.Quill.Unit.MockInjector.GetInstance">
+            <summary>
+            MockInjectorのインスタンスを取得する
+            </summary>
+            <remarks>
+            <para>
+            MockInjectorのコンストラクタのアクセス修飾子はprotectedに設定されている為、
+            直接MockInjectorのインスタンスを生成することはできない。
+            </para>
+            <para>
+            MockInjectorのインスタンスを取得する場合は当メソッドを使用する。
+            </para>
+            <para>
+            基本的に同じインスタンスを返すが、DestroyメソッドによってQuillが持つ
+            参照が破棄されている場合は新しいMockInjectorのインスタンスを作成する。
+            </para>
+            </remarks>
+            <returns>QuillInjectorのインスタンス</returns>
+        </member>
+        <member name="M:Seasar.Quill.Unit.MockInjector.Destroy">
+            <summary>
+            QuillInjectorが持つ参照を破棄する
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Unit.MockInjector.InjectField(System.Object,System.Reflection.FieldInfo)">
+            <summary>
+            指定するフィールドにDIする。
+            </summary>
+            <remarks>Mock属性が指定されている場合はMock属性で指定されているMockクラスを
+            優先してInjectする。</remarks>
+            <param name="target">DIが行われるオブジェクト</param>
+            <param name="field">DIが行われるフィールド情報</param>
+        </member>
+        <member name="T:Seasar.Quill.QuillContainer">
+            <summary>
+            コンポーネントを格納するコンテナクラス
+            </summary>
+            <remarks>
+            <para>
+            格納するコンポーネントのインスタンスは1度生成されると
+            同じものが使用される(singleton)</para>
+            </remarks>
+        </member>
+        <member name="F:Seasar.Quill.QuillContainer._log">
+            <summary>
+            ログ
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.QuillContainer.#ctor">
+            <summary>
+            QuillContainerの初期化を行うコンストラクタ
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.QuillContainer.GetComponent(System.Type)">
+            <summary>
+            Quillコンポーネントを取得する
+            </summary>
+            <remarks>
+            <para>インスタンスの受け側のTypeとインスタンスのTypeが同じ場合の
+            QuillComponentを取得する。</para>
+            <para>Quillコンポーネントが生成済みの場合は生成済みの
+            Quillコンポーネントを返す。</para>        
+            </remarks>
+            <param name="type">インスタンスの受け側のType</param>
+            <returns>Quillコンポーネント</returns>
+        </member>
+        <member name="M:Seasar.Quill.QuillContainer.GetComponent(System.Type,System.Type)">
+            <summary>
+            Quillコンポーネントを取得する
+            </summary>
+            <remarks>
+            Quillコンポーネントが生成済みの場合は生成済みの
+            Quillコンポーネントを返す。
+            </remarks>
+            <param name="type">インスタンスの受け側のType</param>
+            <param name="implType">インスタンスのType</param>
+            <returns>Quillコンポーネント</returns>
+        </member>
+        <member name="M:Seasar.Quill.QuillContainer.Destroy">
+            <summary>
+            QuillContainerが持つ参照を破棄する
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.QuillContainer.RegistDataSource(System.Collections.Generic.IDictionary{System.String,Seasar.Extension.ADO.IDataSource},System.Type)">
+            <summary>
+            データソースを登録
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.QuillContainer.Dispose">
+            <summary>
+            保持しているQuillComponentのDisposeを呼び出す
+            </summary>
+        </member>
+        <member name="T:Seasar.Quill.Database.Provider.SQLite">
+            <summary>
+            SQLite用データプロバイダ設定クラス
+            </summary>
+        </member>
+        <member name="T:Seasar.Quill.Database.Provider.PostgreSQL">
+            <summary>
+            PostgreSQL用データプロバイダ設定クラス
+            </summary>
+        </member>
+        <member name="T:Seasar.Quill.Database.Provider.DB2">
+            <summary>
+            DB2用データプロバイダ設定クラス
+            </summary>
+        </member>
+        <member name="T:Seasar.Quill.Attrs.TransactionAttribute">
+            <summary>
+            トランザクション境界を指定するための属性
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Attrs.TransactionAttribute.#ctor">
+            <summary>
+            デフォルトコンストラクタ
+            (標準の設定を使います)
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Attrs.TransactionAttribute.#ctor(System.Type)">
+            <summary>
+            カスタムコンストラクタ
+            (指定した設定を使います)
+            (ITransactionSettingクラスではない場合実行時例外を投げます）
+            </summary>
+            <param name="settingType"></param>
+        </member>
+        <member name="T:Seasar.Quill.Util.LogUtil">
+            <summary>
+            ログユーティリティクラス
+            </summary>
+            <remarks>
+            Quill用にログ出力メソッドに渡す情報を局所化しています。
+            </remarks>
+        </member>
+        <member name="T:Seasar.Quill.SingletonS2ContainerConnector">
+            <summary>
+            S2Containerと連携する為の静的クラスです
+            </summary>
+            <remarks>
+            <see cref="T:Seasar.Framework.Container.Factory.SingletonS2ContainerFactory"/>
+            で作成された<see cref="T:Seasar.Framework.Container.IS2Container"/>を扱います
+            </remarks>
+        </member>
+        <member name="M:Seasar.Quill.SingletonS2ContainerConnector.GetComponent(System.String)">
+            <summary>
+            S2Containerのコンポーネントをコンポーネント名を指定して取得します
+            </summary>
+            <remarks>
+            see cref="Seasar.Framework.Container.Factory.SingletonS2ContainerFactory"/&gt;
+            で作成された<see cref="T:Seasar.Framework.Container.IS2Container"/>
+            からコンポーネントを取得します
+            </remarks>
+            <param name="componentName">コンポーネント名</param>
+            <returns>コンポーネントのインスタンス</returns>
+        </member>
+        <member name="M:Seasar.Quill.SingletonS2ContainerConnector.GetComponent(System.String,System.Type)">
+            <summary>
+            S2Containerのコンポーネントをコンポーネント名を指定して取得します
+            </summary>
+            <remarks>
+            see cref="Seasar.Framework.Container.Factory.SingletonS2ContainerFactory"/&gt;
+            で作成された<see cref="T:Seasar.Framework.Container.IS2Container"/>
+            からコンポーネントを取得します
+            </remarks>
+            <param name="componentName">コンポーネント名</param>
+            <param name="receiptType">受け側のType</param>
+            <returns>コンポーネントのインスタンス</returns>
+        </member>
+        <member name="M:Seasar.Quill.SingletonS2ContainerConnector.GetComponent(System.Type)">
+            <summary>
+            S2Containerのコンポーネントをコンポーネント名を指定して取得します
+            </summary>
+            <remarks>
+            see cref="Seasar.Framework.Container.Factory.SingletonS2ContainerFactory"/&gt;
+            で作成された<see cref="T:Seasar.Framework.Container.IS2Container"/>
+            からコンポーネントを取得します
+            </remarks>
+            <param name="componentType">コンポーネントの型</param>
+            <returns>コンポーネントのインスタンス</returns>
+        </member>
+        <member name="M:Seasar.Quill.SingletonS2ContainerConnector.HasComponentDef(System.Object)">
+            <summary>
+            S2Container上に指定したコンポーネントが存在するか
+            </summary>
+            <param name="componentKey"></param>
+            <returns>true=存在する、false=存在しない</returns>
+        </member>
+        <member name="T:Seasar.Quill.Properties.Resources">
+            <summary>
+              ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+            </summary>
+        </member>
+        <member name="P:Seasar.Quill.Properties.Resources.ResourceManager">
+            <summary>
+              このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+            </summary>
+        </member>
+        <member name="P:Seasar.Quill.Properties.Resources.Culture">
+            <summary>
+              厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
+              現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+            </summary>
+        </member>
+        <member name="T:Seasar.Quill.AspectBuilder">
+            <summary>
+            Aspect定義を構築するクラス
+            </summary>
+            <remarks>
+            <para>
+            Aspectを適用する場合はインターフェース・クラスもしくはメソッドに
+            <see cref="T:Seasar.Quill.Attrs.AspectAttribute"/>(属性)が
+            設定されている必要がある。
+            </para>
+            <para>
+            S2Daoの機能を(diconなしで)使用するにはインターフェース・クラスもしくはメソッドに
+            <see cref="T:Seasar.Quill.Attrs.S2DaoAttribute"/>(属性)が
+            設定されている必要がある。
+            </para>
+            <para>
+            Transactionを(diconなしで)使用するにはインターフェース・クラスもしくはメソッドに
+            <see cref="T:Seasar.Quill.Attrs.TransactionAttribute"/>(属性)が
+            設定されている必要がある。
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.#ctor(Seasar.Quill.QuillContainer)">
+            <summary>
+            AspectBuilderを初期化するためのコンストラクタ
+            </summary>
+            <param name="container">AspectBuilder内で使用するQuillContainer</param>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.CreateAspects(System.Type)">
+            <summary>
+            指定された<code>type</code>の属性を確認して
+            Aspect定義の配列を作成する
+            </summary>
+            <param name="type">Aspect定義を確認するType</param>
+            <returns>作成されたAspect定義の配列</returns>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.CreateFromAspectAttribute(System.Type,System.Reflection.MethodInfo[],System.Collections.Generic.List{Seasar.Framework.Aop.IAspect})">
+            <summary>
+            Aspect属性からアスペクトを作成する
+            </summary>
+            <param name="targetType">Aspectを適用するメソッドをもつ型</param>
+            <param name="methods">Aspectを適用するメソッド</param>
+            <param name="aspectList">適用するAspectのリスト</param>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.CreateFromTransactionAttribute(System.Type,System.Reflection.MethodInfo[],System.Collections.Generic.List{Seasar.Framework.Aop.IAspect})">
+            <summary>
+            Transaction属性からアスペクトを作成する
+            </summary>
+            <param name="targetType">Aspectを適用するメソッドをもつ型</param>
+            <param name="methods">Aspectを適用するメソッド</param>
+            <param name="aspectList">適用するAspectのリスト</param>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.CreateFromS2DaoAttribute(System.Type,System.Reflection.MethodInfo[],System.Collections.Generic.List{Seasar.Framework.Aop.IAspect})">
+            <summary>
+            S2Dao属性からアスペクトを作成する
+            </summary>
+            <param name="targetType">Aspectを適用するメソッドをもつ型</param>
+            <param name="methods">Aspectを適用するメソッド</param>
+            <param name="aspectList">適用するAspectのリスト</param>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.GetDataSourceSelectInterceptor(Seasar.Quill.Attrs.S2DaoAttribute,System.Reflection.MemberInfo)">
+            <summary>
+            データソース選択Interceptorの取得
+            </summary>
+            <param name="daoAttr">S2Dao属性</param>
+            <param name="targetMember">Interceptorをかける対象</param>
+            <returns>データソース選択Interceptor</returns>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.GetDataSourceSelectInterceptor(Seasar.Quill.Attrs.TransactionAttribute)">
+            <summary>
+            データソース選択Interceptorの取得
+            </summary>
+            <param name="txAttr">Transaction属性</param>
+            <returns>データソース選択Interceptor</returns>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.GetDataSourceSelectInterceptor(Seasar.Quill.Attrs.TransactionAttribute,System.Reflection.MemberInfo)">
+            <summary>
+            データソース選択Interceptorの取得
+            </summary>
+            <param name="txAttr">Transaction属性</param>
+            <param name="targetMember">Interceptorをかける対象</param>
+            <returns>データソース選択Interceptor</returns>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.GetDataSourceSelectAspect(Seasar.Quill.Attrs.S2DaoAttribute,System.Reflection.MemberInfo)">
+            <summary>
+            データソース選択Aspectの取得
+            </summary>
+            <param name="daoAttr">S2Dao属性</param>
+            <param name="targetMember">Aspectをかける対象</param>
+            <returns>データソース選択Aspect</returns>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.GetDataSourceSelectAspect(Seasar.Quill.Attrs.TransactionAttribute,System.Reflection.MemberInfo)">
+            <summary>
+            データソース選択Aspectの取得
+            </summary>
+            <param name="txAttr">Transaction属性</param>
+            <param name="targetMember">Aspectをかける対象</param>
+            <returns>データソース選択Aspect</returns>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.GetDataSourceSelectAspect(Seasar.Quill.Attrs.TransactionAttribute)">
+            <summary>
+            データソース選択Aspectの取得
+            </summary>
+            <param name="txAttr">Transaction属性</param>
+            <returns>データソース選択Aspect</returns>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.CreateAspectList(System.Reflection.MethodInfo[])">
+            <summary>
+            指定されたメソッドからAspectが有効となるAspect定義のリストを作成する
+            </summary>
+            <param name="methods">メソッド情報の配列</param>
+            <returns>指定されたメソッドにAspectが有効となるAspect定義のリスト</returns>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.CreateAspect(Seasar.Quill.Attrs.AspectAttribute)">
+            <summary>
+            全てのメソッドにAspectが有効となるAspect定義を作成する
+            </summary>
+            <param name="aspectAttr">Aspectを設定する属性</param>
+            <returns>全てのメソッドにAspectが有効となるAspect定義</returns>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.CreateAspect(Seasar.Framework.Aop.IMethodInterceptor,System.String[])">
+            <summary>
+            インターセプターとメソッドを指定してAspect定義を作成する
+            </summary>
+            <param name="interceptor">インターセプター</param>
+            <param name="methodNames">Aspectを適用するメソッド名の配列</param>
+            <returns>指定されたメソッドにAspectが有効となるAspect定義</returns>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.CreateTxAspectList(System.Reflection.MethodInfo[])">
+            <summary>
+            Aspect属性を確認してPointcutを作成する為のメソッド名を追加する
+            </summary>
+            <param name="methods">対象クラスのメソッド情報</param>
+            <returns>適用するAspectのリスト</returns>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.CreateTxAspect(Seasar.Quill.Attrs.TransactionAttribute)">
+            <summary>
+            全てのメソッドにAspectが有効となるAspect定義を作成する
+            </summary>
+            <param name="txAttr">Aspectを設定する属性</param>
+            <returns>全てのメソッドにAspectが有効となるAspect定義</returns>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.CreateS2DaoAspectList(System.Reflection.MethodInfo[])">
+            <summary>
+            メソッド情報から追加するためのAspectのリストを作成する
+            </summary>
+            <param name="methods">対象クラスのメソッド情報</param>
+            <returns>適用するAspectのリスト</returns>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.CreateS2DaoAspect(Seasar.Quill.Attrs.S2DaoAttribute)">
+            <summary>
+            全てのメソッドにAspectが有効となるAspect定義を作成する
+            </summary>
+            <param name="daoAttr">Aspectを設定する属性</param>
+            <returns>全てのメソッドにAspectが有効となるAspect定義</returns>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.AddMethodNamesForPointcut(System.Collections.Generic.IDictionary{Seasar.Framework.Aop.IMethodInterceptor,System.Collections.Generic.List{System.String}},System.Reflection.MethodInfo)">
+            <summary>
+            Aspect属性を確認してPointcutを作成する為のメソッド名を追加する
+            </summary>
+            <param name="methodNames">
+            Interceptor毎にpointcutとなるメソッド名を格納したコレクション
+            </param>
+            <param name="method">メソッド情報</param>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.AddMethodNamesForPointcut(System.Collections.Generic.IDictionary{Seasar.Framework.Aop.IMethodInterceptor,System.Collections.Generic.List{System.String}},System.String,Seasar.Quill.Attrs.AspectAttribute)">
+            <summary>
+            Aspect属性を確認してPointcutを作成する為のメソッド名を追加する
+            </summary>
+            <param name="methodNames">
+            Interceptor毎にpointcutとなるメソッド名を格納したコレクション
+            </param>
+            <param name="methodName">メソッド名</param>
+            <param name="aspectAttr">Aspect属性</param>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.AddMethodNamesForTxPointcut(System.Collections.Generic.IDictionary{Seasar.Framework.Aop.IMethodInterceptor,System.Collections.Generic.List{System.String}},System.String,Seasar.Quill.Attrs.TransactionAttribute)">
+            <summary>
+            Aspect属性を確認してPointcutを作成する為のメソッド名を追加する
+            </summary>
+            <param name="methodNames">
+            Interceptor毎にpointcutとなるメソッド名を格納したコレクション
+            </param>
+            <param name="methodName">メソッド名</param>
+            <param name="txAttr">Aspect属性</param>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.AddMethodNamesForDataSourceSelectPointcut(System.Collections.Generic.IDictionary{Seasar.Framework.Aop.IMethodInterceptor,System.Collections.Generic.List{System.String}},System.Reflection.MethodInfo,Seasar.Quill.Attrs.S2DaoAttribute)">
+            <summary>
+            S2Dao属性のデータソース名定義を確認してPointcutを作成する為のメソッド名を追加する
+            </summary>
+            <param name="methodNames">
+            Interceptor毎にpointcutとなるメソッド名を格納したコレクション
+            </param>
+            <param name="method">Aspectを適用するメソッド情報</param>
+            <param name="daoAttr">S2Dao属性</param>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.AddMethodNamesForDataSourceSelectPointcut(System.Collections.Generic.IDictionary{Seasar.Framework.Aop.IMethodInterceptor,System.Collections.Generic.List{System.String}},System.Reflection.MethodInfo,Seasar.Quill.Attrs.TransactionAttribute)">
+            <summary>
+            S2Dao属性のデータソース名定義を確認してPointcutを作成する為のメソッド名を追加する
+            </summary>
+            <param name="methodNames">
+            Interceptor毎にpointcutとなるメソッド名を格納したコレクション
+            </param>
+            <param name="method">Aspectを適用するメソッド情報</param>
+            <param name="txAttr">Transaction属性</param>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.AddMethodNamesForDataSourceSelectPointcut(System.Collections.Generic.IDictionary{Seasar.Framework.Aop.IMethodInterceptor,System.Collections.Generic.List{System.String}},System.String,Seasar.Quill.Attrs.TransactionAttribute)">
+            <summary>
+            S2Dao属性のデータソース名定義を確認してPointcutを作成する為のメソッド名を追加する
+            </summary>
+            <param name="methodNames">
+            Interceptor毎にpointcutとなるメソッド名を格納したコレクション
+            </param>
+            <param name="methodName">Aspectを適用するメソッド名</param>
+            <param name="txAttr">S2Dao属性</param>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.AddMethodNamesForS2DaoPointcut(System.Collections.Generic.IDictionary{Seasar.Framework.Aop.IMethodInterceptor,System.Collections.Generic.List{System.String}},System.String,Seasar.Quill.Attrs.S2DaoAttribute)">
+            <summary>
+            S2Dao属性を確認してPointcutを作成する為のメソッド名を追加する
+            </summary>
+            <param name="methodNames">
+            Interceptor毎にpointcutとなるメソッド名を格納したコレクション
+            </param>
+            <param name="methodName">メソッド名</param>
+            <param name="daoAttr">S2Dao属性</param>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.GetMethodInterceptor(Seasar.Quill.Attrs.AspectAttribute)">
+            <summary>
+            Aspect属性からインターセプターを取得する
+            </summary>
+            <param name="aspectAttr">Aspect属性</param>
+            <returns>インターセプター</returns>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.GetMethodInterceptor(System.Type)">
+            <summary>
+            QuillからTypeを指定してインターセプターを取得する
+            </summary>
+            <param name="interceptorType">インターセプターのType</param>
+            <returns>インターセプター</returns>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.GetMethodInterceptor(Seasar.Quill.Attrs.TransactionAttribute)">
+            <summary>
+            Transaction属性からインターセプターを取得する
+            </summary>
+            <param name="txAttr">Transaction属性</param>
+            <returns>インターセプター</returns>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.GetMethodInterceptor(Seasar.Quill.Attrs.S2DaoAttribute)">
+            <summary>
+            S2Dao属性からインターセプターを取得する
+            </summary>
+            <param name="daoAttr">S2Dao属性</param>
+            <returns>インターセプター</returns>
+        </member>
+        <member name="M:Seasar.Quill.AspectBuilder.CreateDataSourceSelectInterceptor(System.String)">
+            <summary>
+            DataSourceSelectInterceptorを作って返す
+            </summary>
+            <param name="dataSourceName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Seasar.Quill.Database.Provider.OleDb">
+            <summary>
+            OleDb用データプロバイダ設定クラス
+            </summary>
+        </member>
+        <member name="T:Seasar.Quill.Exception.QuillConfigNotFoundException">
+            <summary>
+            Quill関係の必須設定が見つからない場合に投げられる例外
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Exception.QuillConfigNotFoundException.#ctor(System.String)">
+            <summary>
+            設定ファイル参照先を指定してQuillApplicationExceptionを初期化する
+            </summary>
+            <param name="configPath">メッセージコード</param>
+        </member>
+        <member name="M:Seasar.Quill.Exception.QuillConfigNotFoundException.#ctor(System.String,System.String)">
+            <summary>
+            メッセージコードとメッセージを指定してQuillConfigNotFoundExceptionを初期化する
+            </summary>
+            <param name="messageCode">メッセージコード</param>
+            <param name="message">メッセージ</param>
+        </member>
+        <member name="M:Seasar.Quill.Exception.QuillConfigNotFoundException.#ctor(System.String,System.Object[])">
+            <summary>
+            メッセージコード・メッセージ中に埋め込む文字列の配列を指定して
+            QuillConfigNotFoundExceptionを初期化する
+            </summary>
+            <param name="messageCode">メッセージコード</param>
+            <param name="args">メッセージ中に埋め込む文字列の配列</param>
+        </member>
+        <member name="M:Seasar.Quill.Exception.QuillConfigNotFoundException.#ctor(System.String,System.Object[],System.Exception)">
+            <summary>
+            メッセージコード・メッセージ中に埋め込む文字列の配列・元となった例外
+            を指定してQuillConfigNotFoundExceptionを初期化する
+            </summary>
+            <param name="messageCode">メッセージコード</param>
+            <param name="args">メッセージ中に埋め込む値の配列</param>
+            <param name="cause">元となった例外</param>
+        </member>
+        <member name="T:Seasar.Quill.Database.DataSource.Selector.IDataSourceSelector">
+            <summary>
+            複数のDataSourceから使用するものを選択する
+            ロジックを記述するためのインターフェース
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Database.DataSource.Selector.IDataSourceSelector.SelectDataSourceName(System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            使用するデータソース名を返します
+            </summary>
+            <param name="dataSourceNames"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Seasar.Quill.Xml.QuillSectionLoader">
+            <summary>
+            Quill設定の読込・取得を行う
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Xml.QuillSectionLoader.LoadFromOuterConfig(System.String)">
+            <summary>
+            外部設定ファイルからQuill設定情報を取得
+            </summary>
+            <param name="path">設定ファイルのパス</param>
+            <returns>Quill設定</returns>
+        </member>
+        <member name="M:Seasar.Quill.Xml.QuillSectionLoader.CreateQuillSection(System.Xml.XmlNode)">
+            <summary>
+            外部設定ファイルからQuill設定情報を取得
+            </summary>
+            <param name="section">XML形式の設定情報</param>
+            <returns>Quill設定</returns>
+        </member>
+        <member name="M:Seasar.Quill.Xml.QuillSectionLoader.GetDataSourceConfig(System.Xml.XmlNode)">
+            <summary>
+            データソース設定情報の取得
+            </summary>
+            <param name="quillElement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Quill.Xml.QuillSectionLoader.GetAssemblyConfig(System.Xml.XmlNode)">
+            <summary>
+            アセンブリ設定情報の取得
+            </summary>
+            <param name="quillElement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Quill.Xml.QuillSectionLoader.Invoke_GetDataSourceConfig(System.Collections.IList,System.Xml.XmlNode)">
+            <summary>
+            データソース設定取得処理デリゲート
+            </summary>
+            <param name="list"></param>
+            <param name="node"></param>
+        </member>
+        <member name="M:Seasar.Quill.Xml.QuillSectionLoader.Invoke_GetAssemblyConfig(System.Collections.IList,System.Xml.XmlNode)">
+            <summary>
+            アセンブリ設定取得処理デリゲート
+            </summary>
+            <param name="list"></param>
+            <param name="node"></param>
+        </member>
+        <member name="T:Seasar.Quill.Xml.QuillSectionHandler">
+            <summary>
+            Quillの構成セクションハンドラクラスです。
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Xml.QuillSectionHandler.GetQuillSection">
+            <summary>
+            Quill設定情報を取得
+            </summary>
+            <returns>Quill設定情報(設定ファイルがなければnull)</returns>
+        </member>
+        <member name="T:Seasar.Quill.QuillControl">
+            <summary>
+            親コンテナにDIを有効にする為のコントロールクラス
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.QuillControl.#ctor">
+            <summary>
+            QuillControlを初期化するコンストラクタ
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.QuillControl.BeginInit">
+            <summary>
+            コントロールの初期化が開始されると呼び出されるメソッド
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.QuillControl.EndInit">
+            <summary>
+            コントロールの初期化が終了すると呼び出されるメソッド
+            </summary>
+            <remarks>
+            QuillInjectorを使用してDIを行う。
+            </remarks>
+        </member>
+        <member name="F:Seasar.Quill.QuillControl.components">
+            <summary> 
+            必要なデザイナ変数です。
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.QuillControl.Dispose(System.Boolean)">
+            <summary> 
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージ リソースが破棄される場合 true、破棄されない場合は false です。</param>
+        </member>
+        <member name="M:Seasar.Quill.QuillControl.InitializeComponent">
+            <summary> 
+            デザイナ サポートに必要なメソッドです。このメソッドの内容を 
+            コード エディタで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:Seasar.Quill.QuillConfig">
+            <summary>
+            Quill設定情報取得クラス
+            </summary>
+        </member>
+        <member name="F:Seasar.Quill.QuillConfig._configPath">
+            <summary>
+            Quill設定ファイルパス
+            </summary>
+        </member>
+        <member name="F:Seasar.Quill.QuillConfig._instance">
+            <summary>
+            Quill設定インスタンス
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.QuillConfig.InitializeQuillConfig(Seasar.Quill.QuillContainer)">
+            <summary>
+            Quill設定情報の生成（呼ばれる度にインスタンスを作り直します）
+            </summary>
+            <param name="container">Quillコンテナ</param>
+        </member>
+        <member name="M:Seasar.Quill.QuillConfig.GetInstance">
+            <summary>
+            Quill設定情報インスタンスの取得
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Seasar.Quill.QuillConfig._regexIsString">
+            <summary>
+            文字列("で囲まれているか)判定するための正規表現
+            </summary>
+        </member>
+        <member name="F:Seasar.Quill.QuillConfig._section">
+            <summary>
+            Quill設定情報
+            </summary>
+        </member>
+        <member name="F:Seasar.Quill.QuillConfig._container">
+            <summary>
+            DIコンテナ
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.QuillConfig.#ctor(Seasar.Quill.QuillContainer,System.String)">
+            <summary>
+            コンストラクタ
+            :コンテナの設定とQuill設定ファイルの読み込み
+            </summary>
+            <param name="container"></param>
+            <param name="configPath"></param>
+        </member>
+        <member name="M:Seasar.Quill.QuillConfig.HasQuillConfig">
+            <summary>
+            Quill設定情報の有無
+            </summary>
+            <returns>存在する場合はtrue,存在しない場合はfalse</returns>
+        </member>
+        <member name="M:Seasar.Quill.QuillConfig.HasAssemblyConfig">
+            <summary>
+            Quill設定ファイル内のアセンブリ設定の有無
+            </summary>
+            <returns>存在する場合はtrue,存在しない場合はfalse</returns>
+        </member>
+        <member name="M:Seasar.Quill.QuillConfig.HasDaoSetting">
+            <summary>
+            Quill設定ファイル内のDao設定の有無
+            </summary>
+            <returns>存在する場合はtrue,存在しない場合はfalse</returns>
+        </member>
+        <member name="M:Seasar.Quill.QuillConfig.HasTransactionSetting">
+            <summary>
+            Quill設定ファイル内のトランザクション設定の有無
+            </summary>
+            <returns>存在する場合はtrue,存在しない場合はfalse</returns>
+        </member>
+        <member name="M:Seasar.Quill.QuillConfig.HasDataSourceConfig">
+            <summary>
+            Quill設定ファイル内のデータソース設定の有無
+            </summary>
+            <returns>存在する場合はtrue,存在しない場合はfalse</returns>
+        </member>
+        <member name="M:Seasar.Quill.QuillConfig.GetDaoSettingType">
+            <summary>
+            Dao設定クラスの型を取得する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Quill.QuillConfig.GetTransationSettingType">
+            <summary>
+            Transaction設定クラスの型を取得する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Quill.QuillConfig.RegisterAssembly">
+            <summary>
+            アセンブリをロードする
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.QuillConfig.CreateDataSources">
+            <summary>
+            設定情報からIDataSourceのCollectionを生成
+            </summary>
+            <returns>DataSourceコレクション</returns>
+        </member>
+        <member name="M:Seasar.Quill.QuillConfig.SetupByConnectionStringSection(System.Collections.Generic.IDictionary{System.String,Seasar.Extension.ADO.IDataSource})">
+            <summary>
+            app.configのconnectionStringセクション情報からデータソースを生成する
+            </summary>
+            <param name="dataSources"></param>
+        </member>
+        <member name="M:Seasar.Quill.QuillConfig.SetupDataSourceByQuillSection(System.Collections.Generic.IDictionary{System.String,Seasar.Extension.ADO.IDataSource})">
+            <summary>
+            app.configのQuillセクション情報からデータソースを生成する
+            </summary>
+            <param name="dataSources"></param>
+        </member>
+        <member name="M:Seasar.Quill.QuillConfig.SetupDataSourceByQuillSection(System.Collections.Generic.IDictionary{System.String,Seasar.Extension.ADO.IDataSource},System.Object)">
+            <summary>
+            app.configのQuillセクション情報からデータソースを生成する
+            </summary>
+            <param name="dataSources"></param>
+            <param name="dataSourceItem"></param>
+        </member>
+        <member name="M:Seasar.Quill.QuillConfig.GetProviderName(Seasar.Quill.Xml.DataSourceSection)">
+            <summary>
+            プロバイダ名の取得
+            </summary>
+            <param name="dataSourceSection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Quill.QuillConfig.GetDataSourceClassName(Seasar.Quill.Xml.DataSourceSection)">
+            <summary>
+            データソースクラス名の取得
+            </summary>
+            <param name="dataSourceSection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Quill.QuillConfig.GetConnectionString(Seasar.Quill.Xml.DataSourceSection)">
+            <summary>
+            接続文字列の取得
+            </summary>
+            <param name="dataSourceSection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Quill.QuillConfig.LoadQuillSection(System.String)">
+            <summary>
+            Quill設定情報のロード
+            </summary>
+            <param name="configPath">設定ファイルパス(Nullable)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Quill.QuillConfig.ToString">
+            <summary>
+            Quill設定情報を文字列の形で出力
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Seasar.Quill.QuillConfig.ConfigPath">
+            <summary>
+            Quill設定ファイルパス
+            （QuillContainerインスタンス生成、
+            QuillConfig.InitializeQuillConfig呼び出し前に設定して下さい）
+            </summary>
+        </member>
+        <member name="T:Seasar.Quill.Database.Tx.Impl.AbstractTransactionSetting">
+            <summary>
+            トランザクション設定抽象クラス
+            </summary>
+        </member>
+        <member name="T:Seasar.Quill.Database.Tx.ITransactionSetting">
+            <summary>
+            トランザクションの設定用インターフェース
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Database.Tx.ITransactionSetting.Setup(Seasar.Extension.ADO.IDataSource)">
+            <summary>
+            トランザクション関係の設定を行います
+            </summary>
+            <param name="dataSource"></param>
+        </member>
+        <member name="M:Seasar.Quill.Database.Tx.ITransactionSetting.IsNeedSetup">
+            <summary>
+            Setupメソッドの実行が必要かどうか判定
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Quill.Database.Tx.Impl.AbstractTransactionSetting.SetupTransaction(Seasar.Extension.ADO.IDataSource)">
+            <summary>
+            トランザクションクラスの設定を行う
+            </summary>
+            <param name="dataSource"></param>
+        </member>
+        <member name="T:Seasar.Quill.Database.Provider.Firebird">
+            <summary>
+            Firebird用データプロバイダ設定クラス
+            </summary>
+        </member>
+        <member name="T:Seasar.Quill.Database.Provider.MySQL">
+            <summary>
+            MySQL用データプロバイダ設定クラス
+            </summary>
+        </member>
+        <member name="T:Seasar.Quill.Util.ComponentUtil">
+            <summary>
+            QuillComponentに関するユーティリティクラス
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Util.ComponentUtil.GetComponent(Seasar.Quill.QuillContainer,System.Type)">
+            <summary>
+            QuillContainerから指定した型のコンポーネントを取り出す(NotNull)
+            </summary>
+            <param name="container"></param>
+            <param name="componentType"></param>
+            <returns></returns>
+            <exception cref="!:Seasar.Quill.Exception.QuillComponentInvalidCastException">
+            コンポーネントが取得できなかった場合
+            </exception>
+        </member>
+        <member name="M:Seasar.Quill.Util.ComponentUtil.GetComponent(Seasar.Quill.QuillContainer,System.Type,System.Type)">
+            <summary>
+            QuillContainerから指定した型のコンポーネントを取り出す(NotNull)
+            </summary>
+            <param name="container"></param>
+            <param name="interfaceType"></param>
+            <param name="implType"></param>
+            <returns></returns>
+            <exception cref="T:Seasar.Quill.Exception.QuillInvalidClassException">
+            コンポーネントが取得できなかった場合
+            </exception>
+        </member>
+        <member name="T:Seasar.Quill.Attrs.ImplementationAttribute">
+            <summary>
+            実装クラスを指定する属性クラス
+            </summary>
+            <remarks>
+            クラス・インターフェースに設定することができる。
+            (複数設定することはできない)
+            </remarks>
+        </member>
+        <member name="M:Seasar.Quill.Attrs.ImplementationAttribute.#ctor">
+            <summary>
+            属性が指定されているクラス自身を実装クラスとして
+            ImplementationAttributeを初期化するコンストラクタ
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Attrs.ImplementationAttribute.#ctor(System.Type)">
+            <summary>
+            実装クラスのTypeを指定してImplementationAttributeを
+            初期化するコンストラクタ
+            </summary>
+            <param name="implementationType">実装クラスのType</param>
+        </member>
+        <member name="P:Seasar.Quill.Attrs.ImplementationAttribute.ImplementationType">
+            <summary>
+            実装クラスのTypeを返す
+            </summary>
+            <value>実装クラスのType</value>
+        </member>
+        <member name="T:Seasar.Quill.Util.SettingUtil">
+            <summary>
+            Transaction/Dao設定クラスの決定を行うユーティリティ
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Util.SettingUtil.GetAssemblyDirectoryPath">
+            <summary>
+            実行中のSeasar.Quill.dllが置いてあるディレクトリのパスを取得する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Quill.Util.SettingUtil.GetQuillConfigPath(System.String)">
+            <summary>
+            出力ディレクトリを含むQuill設定ファイルのパスを返す
+            </summary>
+            <param name="configFileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Quill.Util.SettingUtil.GetDefaultQuillConfigPath">
+            <summary>
+            既定のQuill設定ファイルパスを取得する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Quill.Util.SettingUtil.ValidateDaoSettingType(System.Type)">
+            <summary>
+            Dao設定クラスかどうか検証
+            </summary>
+            <param name="type"></param>
+            <exception cref="T:Seasar.Quill.Exception.QuillApplicationException">IDaoSetting実装クラスでないとき</exception>
+        </member>
+        <member name="M:Seasar.Quill.Util.SettingUtil.ValidateTransactionSettingType(System.Type)">
+            <summary>
+            Transaction設定クラスかどうか検証
+            </summary>
+            <param name="type"></param>
+            <exception cref="T:Seasar.Quill.Exception.QuillApplicationException">ITransactionSetting実装クラスでないとき</exception>
+        </member>
+        <member name="M:Seasar.Quill.Util.SettingUtil.GetDefaultTransactionType">
+            <summary>
+            標準で使うトランザクション設定クラスの型を返す
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Quill.Util.SettingUtil.GetDefaultDaoSettingType">
+            <summary>
+            標準で使うDao設定クラスの型を返す
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Seasar.Quill.Util.EnvironmentalUtils">
+            <summary>
+            実行環境まわりの共通処理クラス
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Util.EnvironmentalUtils.IsDesignMode">
+            <summary>
+            デザイナ上で呼び出されているか判定
+            VisualStudioデザイナ上で稼動しているプロセス
+            </summary>
+            <remarks>
+            ・VisualStudioデザイナ上：devenv
+            ・VisualStudioから実行：vshost
+            ・exeダブルクリック：（exe名）
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="T:Seasar.Quill.Attrs.MockAttribute">
+            <summary>
+            Mockを指定する属性クラス
+            </summary>
+            <remarks>
+            インターフェースに設定することができる。（複数設定することはできない）
+            </remarks>
+        </member>
+        <member name="M:Seasar.Quill.Attrs.MockAttribute.#ctor(System.Type)">
+            <summary>
+            MockクラスのTypeを指定してMockAttributeを
+            初期化するコンストラクタ
+            </summary>
+            <param name="mockType">MockクラスのType</param>
+        </member>
+        <member name="P:Seasar.Quill.Attrs.MockAttribute.MockType">
+            <summary>
+            MockクラスのTypeを返す
+            </summary>
+            <value>MockクラスのType</value>
+        </member>
+        <member name="T:Seasar.Quill.QuillConstants">
+            <summary>
+            Quill上で使用する定数を定義
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Exception.QuillInvalidClassException.#ctor(System.Type,System.Type)">
+            <summary>
+            Quillアプリケーションとして無効なクラスが指定された場合の例外
+            </summary>
+            <param name="componentType">指定された型(not null)</param>
+            <param name="needType">実際に必要な型(not null)</param>
+        </member>
+        <member name="M:Seasar.Quill.Exception.QuillInvalidClassException.#ctor(System.Type)">
+            <summary>
+            Quillアプリケーションとして無効なクラスが指定された場合の例外
+            </summary>
+            <param name="needType">実際に必要な型(not null)</param>
+        </member>
+        <member name="M:Seasar.Quill.Exception.QuillInvalidClassException.#ctor(System.String,System.String)">
+            <summary>
+            メッセージコードとメッセージを指定してQuillComponentInvalidCastExceptionを初期化する
+            </summary>
+            <param name="messageCode">メッセージコード</param>
+            <param name="message">メッセージ</param>
+        </member>
+        <member name="M:Seasar.Quill.Exception.QuillInvalidClassException.#ctor(System.String,System.Object[])">
+            <summary>
+            メッセージコード・メッセージ中に埋め込む文字列の配列を指定して
+            QuillComponentInvalidCastExceptionを初期化する
+            </summary>
+            <param name="messageCode">メッセージコード</param>
+            <param name="args">メッセージ中に埋め込む文字列の配列</param>
+        </member>
+        <member name="M:Seasar.Quill.Exception.QuillInvalidClassException.#ctor(System.String,System.Object[],System.Exception)">
+            <summary>
+            メッセージコード・メッセージ中に埋め込む文字列の配列・元となった例外
+            を指定してQuillComponentInvalidCastExceptionを初期化する
+            </summary>
+            <param name="messageCode">メッセージコード</param>
+            <param name="args">メッセージ中に埋め込む値の配列</param>
+            <param name="cause">元となった例外</param>
+        </member>
+        <member name="T:Seasar.Quill.Attrs.BindingAttribute">
+            <summary>
+            S2Containerのコンポーネントをバインディングするための属性クラス
+            </summary>
+        </member>
+        <member name="F:Seasar.Quill.Attrs.BindingAttribute.componentName">
+            <summary>
+            S2Containerにおけるコンポーネント名
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Attrs.BindingAttribute.#ctor(System.String)">
+            <summary>
+            S2Containerにおけるコンポーネント名を指定して
+            BindingAttributeを初期化するコンストラクタ
+            </summary>
+            <param name="componentName">S2Containerにおけるコンポーネント名</param>
+        </member>
+        <member name="P:Seasar.Quill.Attrs.BindingAttribute.ComponentName">
+            <summary>
+            S2Containerにおけるコンポーネント名を取得する
+            </summary>
+            <value>S2Containerにおけるコンポーネント名</value>
+        </member>
+        <member name="T:Seasar.Quill.Attrs.AspectAttribute">
+            <summary>
+            Aspectを指定する属性クラス
+            </summary>
+            <remarks>
+            クラス・インターフェース・メソッドに設定することができる。
+            (複数設定することができる)
+            </remarks>
+        </member>
+        <member name="F:Seasar.Quill.Attrs.AspectAttribute.interceptorType">
+            <summary>
+            InterceptorのType
+            </summary>
+        </member>
+        <member name="F:Seasar.Quill.Attrs.AspectAttribute.ordinal">
+            <summary>
+            Aspectを適用する順番(数が小さいほうが先に適用される)
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Attrs.AspectAttribute.#ctor(System.Type)">
+            <summary>
+            InterceptorのTypeを指定してAspectAttributeを初期化するコンストラクタ
+            </summary>
+            <param name="interceptorType">InterceptorのType</param>
+        </member>
+        <member name="M:Seasar.Quill.Attrs.AspectAttribute.#ctor(System.Type,System.Int32)">
+            <summary>
+            InterceptorのTypeを指定してAspectAttributeを初期化するコンストラクタ
+            </summary>
+            <param name="interceptorType">InterceptorのType</param>
+            <param name="ordinal">Aspectを適用する順番</param>
+        </member>
+        <member name="P:Seasar.Quill.Attrs.AspectAttribute.InterceptorType">
+            <summary>
+            InterceptorのTypeを取得する
+            </summary>
+            <value>InterceptorのType</value>
+        </member>
+        <member name="P:Seasar.Quill.Attrs.AspectAttribute.Ordinal">
+            <summary>
+            Aspectを適用する順番を取得する
+            (数が小さいほうが先に適用される)
+            </summary>
+            <value>Aspectを適用する順番(数が小さいほうが先に適用される)</value>
+        </member>
+        <member name="T:Seasar.Quill.Util.MessageUtil">
+            <summary>
+            Quillで作成されるメッセージを扱うクラス
+            </summary>
+        </member>
+        <member name="F:Seasar.Quill.Util.MessageUtil.MESSAGES_RESOURCE_MANAGER">
+            <summary>
+            Quillで使用するメッセージを格納しているResourceManager
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Util.MessageUtil.GetSimpleMessage(System.String,System.Object[])">
+            <summary>
+            メッセージコードを含まないメッセージを取得する
+            </summary>
+            <param name="messageCode">メッセージコード</param>
+            <param name="arguments">メッセージ中に埋め込む値の配列</param>
+            <returns>メッセージコードを含まないメッセージ</returns>
+        </member>
+        <member name="M:Seasar.Quill.Util.MessageUtil.GetMessage(System.String,System.Object[])">
+            <summary>
+            メッセージコードを含むメッセージを取得する
+            </summary>
+            <param name="messageCode">メッセージコード</param>
+            <param name="arguments">メッセージ中に埋め込む値の配列</param>
+            <returns>メッセージコードを含まないメッセージ</returns>
+        </member>
+        <member name="T:Seasar.Quill.Database.Tx.Impl.TypicalTransactionSetting">
+            <summary>
+            標準的なトランザクションの設定クラス
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Database.Tx.Impl.TypicalTransactionSetting.SetupTransaction(Seasar.Extension.ADO.IDataSource)">
+            <summary>
+            トランザクション設定のセットアップ
+            </summary>
+            <param name="dataSource"></param>
+        </member>
+        <member name="M:Seasar.Quill.Database.Tx.Impl.TypicalTransactionSetting.CreateTransactionContext">
+            <summary>
+            TransactionContextインスタンスの生成
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Quill.Database.Tx.Impl.TypicalTransactionSetting.CreateTransactionHandler">
+            <summary>
+            Transactionハンドラ生成
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Seasar.Quill.Database.Tx.Impl.TypicalTransactionSetting.CreateTransactionInterceptor(Seasar.Extension.Tx.ITransactionHandler)">
+            <summary>
+            TransactionInterceptorインスタンスの生成
+            </summary>
+            <param name="handler"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Seasar.Quill.Database.Tx.Impl.TypicalTransactionSetting.IsolationLevel">
+            <summary>
+            トランザクション分離レベル
+            </summary>
+        </member>
+        <member name="T:Seasar.Quill.Dao.Interceptor.DataSourceSelectInterceptor">
+            <summary>
+            データソース選択用Intarceptor
+            （一つのMemberで複数のデータソース切り替えが設定されている
+            可能性があるのでこのInterceptorはQuillContainerで管理せずに
+            データソース名ごとにインスタンスを生成します）
+            </summary>
+        </member>
+        <member name="F:Seasar.Quill.Dao.Interceptor.DataSourceSelectInterceptor._interceptorMap">
+            <summary>
+            データソース名ごとにインスタンスを生成するためのHashMap
+            [Key=データソース名, Value=Interceptorインスタンス]
+            </summary>
+        </member>
+        <member name="M:Seasar.Quill.Dao.Interceptor.DataSourceSelectInterceptor.#ctor(System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="dataSourceName">(Not Null or Empty</param>
+        </member>
+        <member name="M:Seasar.Quill.Dao.Interceptor.DataSourceSelectInterceptor.GetInstance(System.String)">
+            <summary>
+            １データソース名＝１インスタンスを生成する
+            </summary>
+            <param name="dataSourceName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Seasar.Quill.Dao.Interceptor.DataSourceSelectInterceptor.DaoDataSourceMap">
+            <summary>
+            データソース名を指定するメンバとデータソース名のマッピング
+            </summary>
+        </member>
+        <member name="P:Seasar.Quill.Dao.Interceptor.DataSourceSelectInterceptor.DataSourceName">
+            <summary>
+            切り替え後のデータソース名
+            </summary>
+        </member>
+        <member name="P:Seasar.Quill.Dao.Interceptor.DataSourceSelectInterceptor.DataSourceProxy">
+            <summary>
+            データソース
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,475 @@
+﻿<Window x:Class="Qc4Launcher.Forms.DP_Main.MTOS"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Qc4Launcher.Forms.DP_Main"
+        xmlns:res="clr-namespace:Qc4Launcher"
+        xmlns:uc="clr-namespace:Qc4Launcher.Forms.UserControls"
+         DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        mc:Ignorable="d"
+        Title="{x:Static res:LocalResource.TITLE_CREATE_NEW_VARIABLE}" Height="615" Width="810" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"  Background="#FFF0F0F0" 
+            Loaded="Window_Loaded" Closed="Window_Closed" PreviewMouseRightButtonDown="DisableRightMenu" PreviewMouseRightButtonUp="DisableRightMenu" BorderBrush="#ADADAD" BorderThickness="1">
+    <Window.Resources>
+
+        <DataTemplate x:Key="QuestionVariable">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"  Text="{Binding Question}"></TextBlock>
+            </Grid>
+        </DataTemplate>
+
+    </Window.Resources>
+    <Grid Margin="8" Background="#FFFFFFFF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".95*"/>
+            <RowDefinition Height="6.5*"/>
+            <RowDefinition Height=".6*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" BorderBrush="#FFE1E1E1" BorderThickness="1,1,1,0">
+            <Grid  Background="#FFFFFFFF">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="365*"/>
+                    <ColumnDefinition Width="347*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0"  Background="#FFFFFFFF" Margin="0,6,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Background="#FFFFFFFF">
+                        <TextBlock  Margin="10,0,0,0" Padding="0,0,0,0" Text="{x:Static res:LocalResource.LBL_GROUP_PROCESSING_METHOD}" Style="{StaticResource TextBlockNormalWithCenterAligned}" VerticalAlignment="Center" Height="27" TextWrapping="Wrap" Background="#FFFFFFFF"  HorizontalAlignment="Left" Width="62"  />
+                    </Grid>
+                    <Grid Grid.Row="1" Background="#FFFFFFFF">
+                        <TextBlock Margin="10,0,0,0" Text="{x:Static res:LocalResource.LBL_GROUP_COMMAND}" Style="{StaticResource TextBlockNormalWithCenterAligned}" Background="#FFFFFFFF" Padding="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="22" Width="60" />
+                    </Grid>
+
+
+                </Grid>
+                <Grid Grid.Column="1" Margin="0,0,0,0"  Background="#FFFFFFFF">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Background="#FFFFFFFF">
+                        <TextBox Name="Textbox_ProcessMethod"  HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Left" Text="{x:Static res:LocalResource.TEXT_MTOS_PROCESSING_METHOD}" Style="{StaticResource NormalTextBox}" IsReadOnly="True"
+                              Width="343" Height="25" TextWrapping="Wrap" Background="#FFFFFFFF"  Margin="0,2,0,0" Grid.Column="1" IsTabStop="False" />
+                    </Grid>
+                    <Grid Grid.Row="1" Background="#FFFFFFFF">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="122*"/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox Name="Textbox_MTOS" Style="{StaticResource NormalTextBox_READONLY_Command}"  Height="25" Width="342" Grid.ColumnSpan="3" Margin="0,0,0,0"  HorizontalAlignment="Center" VerticalAlignment="Center" Text="{x:Static res:LocalResource.TEXT_MTOS}" IsTabStop="False" />
+
+                    </Grid>
+                </Grid>
+                <Grid Grid.Column="2">
+                    <TextBlock x:Name="Text_Command_Desc" Style="{StaticResource TextBlockNormal}" Background="#FFFFFFFF" HorizontalAlignment="Left" VerticalAlignment="Center" Height="33" Width="332" TextWrapping="Wrap" Margin="2,0,0,20"  Text="{x:Static res:LocalResource.MTOS_MA_TO_SA}"  />
+                </Grid>
+
+
+            </Grid>
+        </Border>
+        <Grid Grid.Row="1" Background="#FFFFFFFF">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="357*"/>
+                <ColumnDefinition Width="437*"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0"  Margin="8,8,2,8" BorderThickness="1" BorderBrush="#FFE1E1E1">
+                <Grid Grid.Column="0" Margin="0,0,-22,2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="23*"/>
+                        <RowDefinition Height="26*"/>
+                        <RowDefinition Height="37*"/>
+                        <RowDefinition Height="160*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Height="40" VerticalAlignment="Bottom" Margin="4,0,-4,2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="61"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Margin="9,12,0,1" TextWrapping="Wrap" Style="{StaticResource TxtblockformatWithoutBg}" Text="{x:Static res:LocalResource.LABEL_SOURCE_VARIABLE}" />
+                            <ComboBox Name="Combo_sourceVariable" ItemsSource="{Binding Path=SourceVariableListView}" Grid.Column="1"  Margin="6.2,12,0,3" IsEditable="True" 
+                                  IsTextSearchEnabled="True" DropDownClosed="Combo_sourceVariable_DropDownClosed" SelectionChanged="Combo_sourceVariable_DropDownClosed"
+                                HorizontalAlignment="Left" IsEnabled="True" TextSearch.TextPath="Variable"            
+                                IsSynchronizedWithCurrentItem="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" 
+                                Width="150" PreviewKeyDown="Combo_sourceVariable_PreviewKeyDown" PreviewKeyUp="Combo_sourceVariable_PreviewKeyUp"  
+                                  GotKeyboardFocus="Combo_sourceVariable_GotKeyboardFocus"
+                                  GotFocus="Combo_sourceVariable_GotFocus" Style="{StaticResource NormalComboBox_Editable}">
+                            <ComboBox.Resources>
+                                <Style TargetType="Popup">
+                                    <Setter Property="MaxWidth" Value="508" />
+                                </Style>
+                            </ComboBox.Resources>
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Margin="2" TextWrapping="NoWrap" />
+
+
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                            <ComboBox.ItemContainerStyle >
+                                <Style TargetType="{x:Type ComboBoxItem}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <Grid x:Name="gd" TextElement.Foreground="Black">
+                                                    <Grid.ColumnDefinitions >
+                                                        <ColumnDefinition Width="150"/>
+                                                        <ColumnDefinition Width="80"/>
+                                                        <ColumnDefinition />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Width="150" Margin="5" Grid.Column="0" Text="{Binding Variable}"/>
+                                                    <TextBlock Width="80" Margin="5" Grid.Column="1" Text="{Binding AnswerTypeWithNoOfChoices}" />
+                                                    <TextBlock Width="Auto" Margin="5" Grid.Column="2" Text="{Binding Question}"  />
+                                                </Grid>
+
+                                                <ControlTemplate.Triggers >
+                                                    <Trigger Property="ComboBoxItem.IsSelected" Value="True">
+                                                        <Setter TargetName="gd"  Property="Background" Value="#F6F6F6"></Setter>
+                                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="#FF333333"></Setter>
+                                                    </Trigger>
+                                                    <Trigger Property="ComboBoxItem.IsMouseOver" Value="True">
+                                                        <Setter TargetName="gd"  Property="Background" Value="#e5f3fb"></Setter>
+                                                        <Setter TargetName="gd"  Property="TextElement.Foreground" Value="#FF333333"></Setter>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+
+                                            </ControlTemplate>
+
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ComboBox.ItemContainerStyle>
+                            </ComboBox>
+
+
+                        </Grid>
+                        <Grid Grid.Row="1"  Height="60" VerticalAlignment="Bottom" Margin="4,0,-4,67" Grid.RowSpan="2">
+                            <Grid.RowDefinitions>
+                            <RowDefinition Height="17*"/>
+                        </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="33*"/>
+                                <ColumnDefinition Width="51*"/>
+
+                                <ColumnDefinition Width="43*"/>
+                                <ColumnDefinition Width="113"/>
+
+
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Margin="8,26,1,0" TextWrapping="Wrap" Style="{StaticResource TxtblockformatWithoutBg}" Text="{x:Static res:LocalResource.LABEL_ANSWER_TYPE}"   />
+                            <TextBox Name="txt_answerType" VerticalAlignment="Center" Height="25" Style="{StaticResource NormalTextBox_READONLY}"  Margin="3,16,15,0" RenderTransformOrigin="0.471,1.25"  Grid.Column="1" IsTabStop="False">
+                                <TextBox.ContextMenu>
+                                    <ContextMenu Visibility="Collapsed">
+                                    </ContextMenu>
+                                </TextBox.ContextMenu>
+                            </TextBox>
+                            <TextBlock Grid.Column="2" Margin="0,26,3,6" HorizontalAlignment="Right"  TextWrapping="Wrap" Style="{StaticResource TxtblockformatWithoutBg}" Text="{x:Static res:LocalResource.LBL_NO_OF_CHOICES}" Width="56"   />
+                            <TextBox Name="txtSourceChoiceCount"  Grid.Column="3" VerticalAlignment="Bottom"  Height="25" Width="75" Style="{StaticResource NormalTextBox_READONLY}"  Margin="0,16,0,8" RenderTransformOrigin="0.471,1.25" HorizontalAlignment="Left" IsTabStop="False">
+                                <TextBox.ContextMenu>
+                                    <ContextMenu Visibility="Collapsed">
+                                    </ContextMenu>
+                                </TextBox.ContextMenu>
+                            </TextBox>
+                        </Grid>
+                    <Grid Grid.Row="2" Margin="0,6,0,285" RenderTransformOrigin="0.428,0.493" Grid.RowSpan="2">
+                        <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70*"/>
+                                <ColumnDefinition Width="297*"/>
+
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Margin="12,4,4,31" TextWrapping="Wrap" Style="{StaticResource TxtblockformatWithoutBg}" Text="{x:Static res:LocalResource.LABEL_QUESTION}"/>
+
+                        <TextBox Name="txt_source_question" Style="{StaticResource NormalTextBoxMultiLine_READONLY}" AcceptsReturn="True"  VerticalScrollBarVisibility="Auto"  HorizontalContentAlignment="Left"  Margin="0,0,34,0"  TextWrapping="Wrap" Height="50" Grid.Column="1" IsTabStop="False">
+                            <TextBox.ContextMenu>
+                                <ContextMenu Visibility="Collapsed">
+                                </ContextMenu>
+                            </TextBox.ContextMenu>
+                        </TextBox>
+
+                        </Grid>
+                        <Grid Grid.Row="3">
+                        <DataGrid  Name="choices_grid" Margin="12,2,35,3" Style="{StaticResource Datagrid_GT_Font_Style2}" 
+                                           ItemsSource="{Binding}" HeadersVisibility="None" IsEnabled="True" CurrentCellChanged="Choices_grid_CurrentCellChanged" IsTabStop="False"
+                                           AutoGenerateColumns="False" CanUserReorderColumns="False" FontFamily="Arial" Background="#FFF0F0F0" 
+                                           CanUserDeleteRows="False"  CanUserSortColumns="False" CanUserAddRows="False" HorizontalScrollBarVisibility="Disabled" 
+                                           SelectionUnit="FullRow" SelectionMode="Extended" CopyingRowClipboardContent="Choices_grid_CopyingRowClipboardContent" PreviewKeyDown="Choices_grid_PreviewKeyDown_1"  >
+                            <DataGrid.CellStyle>
+                                <Style TargetType="DataGridCell" >
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="true" >
+                                            <Setter Property="Foreground" Value="Black" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                    <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
+                                </Style>
+                            </DataGrid.CellStyle>
+                            <DataGrid.Resources>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#F6F6F6"/>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#CBE8F6"/>
+                            </DataGrid.Resources>
+
+                            <DataGrid.RowStyle>
+                                <Style TargetType="DataGridRow">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=Selectable}" Value="False">
+                                            <DataTrigger.Setters>
+                                                <Setter Property="Background" Value="#F6F6F6" />
+                                                <Setter Property="BorderBrush" Value="#F1F1F1"/>
+                                            </DataTrigger.Setters>
+                                        </DataTrigger>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#e5f3fb" />
+                                            <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                        </Trigger>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+
+                                </Style>
+                            </DataGrid.RowStyle>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn  Width="32" Binding="{Binding No, Mode=OneWay}" CanUserResize="False" CanUserSort="False"  IsReadOnly="True">
+                                    <DataGridTextColumn.CellStyle>
+                                        <Style TargetType="DataGridCell" BasedOn="{StaticResource Datagrid_GT_Cell_Style_qs}">
+                                            <Setter Property="BorderThickness" Value="0,0,1,0"/>
+                                            <Setter Property="BorderBrush" Value="#FFE1E1E1"/>
+                                            <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsSelected" Value="true" >
+                                                    <Setter Property="Foreground" Value="Black" />
+                                                    <Setter Property="BorderBrush" Value="Transparent"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </DataGridTextColumn.CellStyle>
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="HorizontalAlignment" Value="Center" />
+                                            <Setter Property="Foreground" Value="#FF333333" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn  Width="*" Binding="{Binding Choice, Mode=OneWay}" CanUserResize="False" CanUserSort="False"  IsReadOnly="True">
+                                    <DataGridTextColumn.CellStyle>
+                                        <Style TargetType="DataGridCell" BasedOn="{StaticResource Datagrid_GT_Cell_Style_qs}">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsSelected" Value="true" >
+                                                    <Setter Property="Foreground" Value="Black" />
+                                                    <Setter Property="BorderBrush" Value="Transparent"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                            <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
+                                        </Style>
+                                    </DataGridTextColumn.CellStyle>
+                                </DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+
+                </Grid>
+            </Border>
+            <Border Grid.Column="1"  Margin="14,8,6,8" BorderThickness="1" BorderBrush="#FFE1E1E1">
+                <Grid Grid.Column="1" Margin="0,0,3,2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*"/>
+                        <RowDefinition Height="63*"/>
+                        <RowDefinition Height="78*"/>
+                        <RowDefinition Height="360*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="87*"/>
+                            <ColumnDefinition Width="141*"/>
+                            <ColumnDefinition Width="184*"/>
+                        </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0"  Margin="9,10,6,7" TextWrapping="Wrap" Text="{x:Static res:LocalResource.LABEL_NEW_VARIABLE}" Style="{StaticResource TxtblockformatWithoutBg}"></TextBlock>
+                            <TextBox Name="txt_new_variable" Grid.Column="1" Margin="10,8,0,0" Height="25" IsEnabled="False" Style="{StaticResource NormalTxtBox2}" MaxLength="25" TextChanged="Txt_new_variable_TextChanged">
+                                <TextBox.ContextMenu>
+                                    <ContextMenu Visibility="Collapsed">
+                                    </ContextMenu>
+                                </TextBox.ContextMenu>
+                            </TextBox>
+                            <Button x:Name="Button_Search" Style="{StaticResource SmallButton}" BorderThickness="0"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="2"  Margin="5,8,0,0" Click="NewItemSearchbutton_Click">
+                                <uc:MagnifyingGlassButton x:Name="MagnifyingGlassButton" Title="MTOS" RenderTransformOrigin="0.4,0.857" Loaded="MagnifyingGlassButton_Loaded" ></uc:MagnifyingGlassButton>
+                            </Button>
+                        </Grid>
+                        <Grid Grid.Row="1" Margin="0,8,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="76*"/>
+                                <ColumnDefinition Width="122*"/>
+                                <ColumnDefinition Width="81*"/>
+                                <ColumnDefinition Width="99*"/>
+                                <ColumnDefinition Width="34*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{x:Static res:LocalResource.LBL_GROUP_ANSWER_TYPE}" Style="{StaticResource TextBlockNormalWithCenterAligned}" Background="#FFFFFFFF"  Margin="9,4,0,11" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="69" Grid.ColumnSpan="2" />
+                            <TextBox Name="Text_New_Item"  Grid.Column="1" Text="{x:Static res:LocalResource.TEXT_SA}" VerticalAlignment="Bottom" Height="25" Style="{StaticResource NormalTextBox_READONLY}" IsEnabled="False" Margin="22,0,15,11" RenderTransformOrigin="0.471,1.25" IsTabStop="False">
+                                <TextBox.ContextMenu>
+                                    <ContextMenu Visibility="Collapsed">
+                                    </ContextMenu>
+                                </TextBox.ContextMenu>
+                            </TextBox>
+                            <TextBlock Grid.Column="2" Margin="0,4,0,9"  HorizontalAlignment="Right" TextWrapping="Wrap" Style="{StaticResource TxtblockformatWithoutBg}" Text="{x:Static res:LocalResource.LBL_NO_OF_CHOICES}" Width="66"  />
+                            <ComboBox x:Name="choicesCount" Height="25" SelectedIndex="0" Grid.Column="3" Margin="1,0,0,8" HorizontalAlignment="Left"  Style="{StaticResource NormalComboBox_Editable}" PreviewKeyUp="ChoicesCount_PreviewKeyUp"
+                                 SelectionChanged="ChoicesCount_SelectionChanged" Width="80"/>
+                    </Grid>
+                    <Grid Grid.Row="2" Margin="0,0,0,0" RenderTransformOrigin="0.428,0.493">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="9.5*"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="95"/>
+                            <ColumnDefinition Width="269*"/>
+                            <ColumnDefinition Width="48*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Margin="9,4,29,22" TextWrapping="Wrap" Style="{StaticResource TxtblockformatWithoutBg}" Text="{x:Static res:LocalResource.LABEL_QUESTION}"/>
+                        <TextBox Name="Text_New_Question" Style="{StaticResource NormalTextBoxMultiLine}"  VerticalScrollBarVisibility="Auto"  TextChanged="Text_New_Question_TextChanged" Height="50"
+                                 HorizontalAlignment="Left" HorizontalContentAlignment="Left" AcceptsReturn="True"  Margin="0,0,2,0" Width="258" TextWrapping="Wrap" IsEnabled="False" Grid.Column="1" Padding="3" PreviewKeyDown="Text_New_Question_PreviewKeyDown">
+                            <TextBox.ContextMenu>
+                                <ContextMenu Visibility="Collapsed">
+                                </ContextMenu>
+                            </TextBox.ContextMenu>
+                        </TextBox>
+
+                        </Grid>
+                        <Grid Grid.Row="3">
+                        <DataGrid  x:Name="data_grid" ItemsSource="{Binding}" BorderBrush="#FFE1E1E1" RowHeight="25" HeadersVisibility="All"  Style="{StaticResource Datagrid_normal_NoPadding}"  RowHeaderWidth="0" IsEnabled="True" AutoGenerateColumns="False"
+                                   CanUserReorderColumns="False" CanUserDeleteRows="False" CanUserSortColumns="False" CanUserAddRows="False" HorizontalGridLinesBrush="#FFADADAD" 
+                                   VerticalGridLinesBrush="#FFADADAD" Margin="10,2,8,2" CurrentCellChanged="data_grid_CurrentCellChanged" ColumnHeaderStyle="{StaticResource Datagrid_Header_Style}" PreviewKeyDown="HandleCopyPaste" PreviewKeyUp="Data_grid_PreviewKeyUp_1"
+                                   IsMouseCaptureWithinChanged="Data_grid_IsMouseCaptureWithinChanged" CopyingRowClipboardContent="Choices_grid_CopyingRowClipboardContent">
+                            <DataGrid.Resources>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#F6F6F6"/>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#CBE8F6"/>
+                            </DataGrid.Resources>
+
+                            <DataGrid.RowStyle>
+                                <Style TargetType="DataGridRow">
+                                    <Style.Triggers>
+
+                                        <DataTrigger Binding="{Binding Path=Selectable}" Value="False">
+                                            <DataTrigger.Setters>
+                                                <Setter Property="Background" Value="#F6F6F6" />
+                                                <Setter Property="BorderBrush" Value="#F1F1F1"/>
+                                            </DataTrigger.Setters>
+                                        </DataTrigger>
+
+                                        <Trigger Property="IsMouseOver"
+                           Value="True">
+                                            <Setter Property="Background"
+                               Value="#e5f3fb" />
+                                            <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                        </Trigger>
+                                        <Trigger Property="IsSelected" Value="True">
+
+                                            <Setter Property="Background" Value="#CBE8F6"/>
+                                            <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+
+                                </Style>
+                            </DataGrid.RowStyle>
+                            <DataGrid.Columns >
+                                <DataGridTextColumn Width="32" IsReadOnly="True" Selector.IsSelected="False" Binding="{Binding No}"  x:Name="Choice" CanUserResize="False">
+                                    <DataGridTextColumn.CellStyle>
+                                        <Style TargetType="DataGridCell" >
+                                            <Setter Property="Background" Value="#FFF0F0F0"/>
+                                            <Setter Property="IsEnabled" Value="False" />
+                                            <Style.Triggers>
+                                                <Trigger Property="IsSelected" Value="true" >
+                                                    <Setter Property="Foreground" Value="Black" />
+                                                    <Setter Property="BorderBrush" Value="#d9f3fe" />
+                                                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                                                    <Setter Property="BorderThickness" Value="0"/>
+                                                    <Setter Property="IsTabStop" Value="False"/>
+                                                    <Setter Property="Focusable" Value="True"/>
+                                                    <Setter Property="Background" Value="#FFF0F0F0"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </DataGridTextColumn.CellStyle>
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="HorizontalAlignment" Value="Center" />
+                                            <Setter Property="VerticalAlignment" Value="Center" />
+                                            <Setter Property="Foreground" Value="#FF333333" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                    <DataGridTextColumn.EditingElementStyle>
+                                        <Style TargetType="TextBox" >
+                                            <Setter Property="TextWrapping" Value="Wrap" />
+                                            <Setter Property="AcceptsReturn" Value="true" />
+                                            <Setter Property="IsEnabled" Value="False" />
+                                            <Setter Property="IsReadOnly" Value="True" />
+                                            <Setter Property="BorderBrush" Value="#d9f3fe" />
+                                        </Style>
+                                    </DataGridTextColumn.EditingElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="*" Header="{x:Static res:LocalResource.LABEL_CHOICE}" Binding="{Binding Choice}" x:Name="No">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Padding" Value="6,0,0,0" />
+                                            <Setter Property="VerticalAlignment" Value="Center" />
+                                            <Setter Property="Foreground" Value="#FF333333" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                    <DataGridTextColumn.EditingElementStyle>
+                                        <Style TargetType="TextBox" >
+                                        </Style>
+                                    </DataGridTextColumn.EditingElementStyle>
+                                    <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell" >
+                                        <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsBlank}" Value="True">
+                                                    <Setter Property="BorderBrush" Value="Red" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                                </DataGridTextColumn>
+
+
+                                </DataGrid.Columns>
+
+                            </DataGrid>
+                        </Grid>
+
+                    </Grid>
+                </Border>
+
+        </Grid>
+        <Border BorderBrush="#FFE1E1E1" BorderThickness="1,0,1,1" Grid.Row="1"/>
+
+        <Grid Grid.Row="2" Background="#FFF0F0F0" Height="48" Margin="0,0,0,0" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="157"/>
+                <ColumnDefinition Width="121"/>
+                <ColumnDefinition Width="396"/>
+                <ColumnDefinition Width="118"/>
+
+            </Grid.ColumnDefinitions>
+            <TextBlock  Margin="0,18,0,0" Grid.Column="0" Text="{x:Static res:LocalResource.LBL_GROUP_PROCESSING_METHOD}" Style="{StaticResource TextBlockNormalWithCenterAligned}" HorizontalAlignment="Right" VerticalAlignment="Center" Height="34" Width="120" TextWrapping="Wrap" Background="#FFF0F0F0" TextAlignment="Center" Padding="5"/>
+            <ComboBox x:Name="Cmb_Processing_Method"  SelectedIndex="0" Grid.Column="1" Margin="5,11,4,0" Height="25" IsEditable="True" IsReadOnly="True" IsTextSearchEnabled="True">
+                <ComboBoxItem Name="top" Content="{x:Static res:LocalResource.LBL_MTOS_TOP_FIRST}"></ComboBoxItem>
+                <ComboBoxItem Name="bottom" Content="{x:Static res:LocalResource.LBL_MTOS_BOTTOM_FIRST}"></ComboBoxItem>
+            </ComboBox>
+
+
+            <Button Name="SaveBtn" Grid.Column="2" Style="{StaticResource NormalButton}" Content="{x:Static res:LocalResource.BTN_SAVE}" HorizontalAlignment="Right" Width="100" Height="25"  Margin="0,0,15,6" VerticalAlignment="Bottom" IsEnabled="False" Click="SaveBtn_Click"/>
+            <Button Name="CloseBtn" Grid.Column="3" Style="{StaticResource NormalButton}" Content="{x:Static res:LocalResource.BTN_CLOSE}" HorizontalAlignment="Left" Width="100" Height="25" Click="CloseBtn_Click" Margin="0,0,0,6" VerticalAlignment="Bottom" PreviewKeyDown="CloseBtn_PreviewKeyDown" />
+
+
+        </Grid>
+
+    </Grid>
+</Window>

@@ -1,0 +1,209 @@
+﻿
+    <Window x:Class="Qc4Launcher.Forms.QuestionSetting.QuestionSettingMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Qc4Launcher.Forms.QuestionSetting"
+        xmlns:res="clr-namespace:Qc4Launcher"
+        Title="{x:Static res:LocalResource.QUESTION_SETTING_FORM_TITLE}"  Height="700" Width="1024" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Activated="window_Open" Closed="Window_Closed" PreviewMouseRightButtonDown="DisableRightMenu" PreviewMouseRightButtonUp="DisableRightMenu">
+    <Window.Resources>
+        
+    </Window.Resources>
+    <Grid Background="#FFF0F0F0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            
+        </Grid.RowDefinitions>
+      
+        <Grid Grid.Row="0" Background="#FFFFFFFF" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".2*"></RowDefinition>
+                <RowDefinition Height=".04*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".15*"></ColumnDefinition>
+                    <ColumnDefinition Width=".8*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Label Content="{x:Static res:LocalResource.QSUI_TITLE}" Style="{StaticResource Labelformat_white}" HorizontalAlignment="left" VerticalAlignment="Center" Margin="16,0,16,0"></Label>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <TextBox Name="qstitle" Style="{StaticResource NormalTextBox}" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="400" Height="40" TextWrapping="Wrap" AcceptsReturn="True"
+HorizontalScrollBarVisibility="Disabled"
+VerticalScrollBarVisibility="Hidden" TextChanged="Headingchange" Padding="6"  ></TextBox>
+                </Grid>
+                <Grid Grid.Column="2">
+                    <Button  Name="refresh_btn" Style="{StaticResource SmallButton}"  HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="5,14,0,0" ToolTip="{x:Static res:LocalResource.QS_REFRESH_TOOLTIP}" Click="ResetTitle" >
+
+                        <Image Source="/QuickCross4;component/Resources/uturn.png"  Stretch="Fill" Opacity=".7"/>
+
+                    </Button>
+
+                </Grid>
+
+            </Grid>
+            <Separator Grid.Row="1" Margin="16,0,16,0"/>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="800"></ColumnDefinition>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Margin="0">
+                        <ListView Name="MyListView"  SelectionMode="Single" Width="779"  Height="450"  SelectionChanged="Listview_selected" KeyUp="HandleCtrldownup" Foreground="#FF333333" MouseDoubleClick="Move_edit_form" FontSize="12"  FontFamily="Arial"  >
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Style.Resources>
+                                        <SolidColorBrush x:Key="ListItemHoverFill" Color="#FFE5F3FB"/>
+                                        <SolidColorBrush x:Key="ListItemSelectionFill" Color="#FFCBE8F6"/>
+                                        <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#F6F6F6"/>
+                                        
+                                    </Style.Resources>
+                             
+                                    
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                <Border CornerRadius="0" SnapsToDevicePixels="True"  
+                              BorderThickness="1"   
+                              BorderBrush="Transparent"   
+                              Background="{TemplateBinding Background}">
+                                                    <Border Name="InnerBorder" CornerRadius="0" BorderThickness="1" BorderBrush="Transparent">
+                                                        <Grid>
+                                                            <Rectangle Name="UpperHighlight" Visibility="Collapsed" Fill="Transparent" Stroke="Transparent" Height="18"  />
+                                                            <GridViewRowPresenter Grid.RowSpan="0"   
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"   
+                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                                        </Grid>
+                                                    </Border>
+                                                </Border>
+
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="#FFE5F3FB" />
+                                                        <Setter TargetName="UpperHighlight" Property="Visibility" Value="Visible" />
+                                                        <Setter Property="FontFamily" Value="Arial"></Setter>
+                                                        <Setter Property="FontSize" Value="12"></Setter>
+                                                    </Trigger>
+                                                    <Trigger Property="IsSelected" Value="True">
+                                                        <Setter Property="Background" Value="#FFCBE8F6"/>
+                                                        <Setter TargetName="UpperHighlight" Property="Visibility" Value="Visible" />
+                                                       
+                                                        <Setter Property="FontSize" Value="12"></Setter>
+                                                        <Setter Property="FontFamily" Value="Arial"></Setter>
+                                                    </Trigger>
+                                                    <MultiTrigger>
+                                                        <MultiTrigger.Conditions>
+                                                            <Condition Property="IsSelected" Value="true"/>
+                                                            <Condition Property="Selector.IsSelectionActive" Value="false"/>
+                                                        </MultiTrigger.Conditions>
+                                                        <Setter Property="Background" Value="#FFF6F6F6"/>
+                                                        <Setter TargetName="UpperHighlight" Property="Visibility" Value="Visible" />
+                                                        <Setter TargetName="UpperHighlight" Property="Stroke" Value="Transparent"></Setter>
+                                                    </MultiTrigger>
+                                                    <Trigger Property="IsEnabled" Value="True">
+                                                        <Setter TargetName="UpperHighlight" Property="Visibility" Value="Visible" />
+                                                        <Setter Property="FontSize" Value="12"></Setter>
+                                                        <Setter Property="FontFamily" Value="Arial"></Setter>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                           
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.View>
+                                <GridView x:Name="MyListViewGridview"  AllowsColumnReorder="False"   >
+
+                                    <GridView.ColumnHeaderContainerStyle>
+                                        <Style TargetType="{x:Type GridViewColumnHeader}">
+                                            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                            <Setter Property="Padding" Value="6,0,0,0"/>
+                                            <Setter Property="Margin" Value="0"></Setter>
+                                            
+                                        </Style>
+                                    </GridView.ColumnHeaderContainerStyle>
+
+                                    <GridViewColumn  Width="50"  Header=" " DisplayMemberBinding="{Binding Column1}"  />
+                                    <GridViewColumn Width="50" Header=" " DisplayMemberBinding="{Binding Column2}"/>
+                                    <GridViewColumn Width="50" Header=" " DisplayMemberBinding="{Binding Column3}"/>
+                                    <GridViewColumn Width="100" Header="{x:Static res:LocalResource.QUSI_VARIABLE}" DisplayMemberBinding="{Binding Column4}"/>
+                                    <GridViewColumn Width="160" Header="{x:Static res:LocalResource.QSUI_ANSWR_TYPE_NO_CHOICE}" DisplayMemberBinding="{Binding Column5}"/>
+                                    <GridViewColumn Width="auto" Header="{x:Static res:LocalResource.QS_TXT_LABEL_QUESTION}"  DisplayMemberBinding="{Binding Column6}" ></GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="1">
+                        <Button Content="{x:Static res:LocalResource.QSUI_ADD_QUESTION_BTN}" Style="{StaticResource NormalButton}" Click="AddQuestion_btn_Click"  Margin="16,10,84,15" ToolTip="{x:Static res:LocalResource.QS_ADDQS_TOOLTIP}" ></Button>
+
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Button Name="editButton" Content="{x:Static res:LocalResource.QUSI_EDIT}" Style="{StaticResource NormalButton}" Margin="16,10,84,15" Click="Edit_btn_Click" ToolTip="{x:Static res:LocalResource.QS_EDIT_TOOLTIP}" ></Button>
+                    </Grid>
+                    <Grid Grid.Row="3">
+                        <Button Name="copyButton" Content="{x:Static res:LocalResource.QUSI_COPY}" Style="{StaticResource NormalButton}" Margin="16,10,84,15" ToolTip="{x:Static res:LocalResource.QS_COPY_TOOLTIP}" Click="Copy_btn_Click" Background="#FFE1E1E1"/>
+                    </Grid>
+                    <Grid Grid.Row="4">
+                        <Button Name="delButton" Content="{x:Static res:LocalResource.QUSI_DELETE}" Style="{StaticResource NormalButton}" Margin="17,10,83,15" ToolTip="{x:Static res:LocalResource.QS_DEL_TOOLTIP}" Click="DeleteQuestion"></Button>
+                    </Grid>
+                    <Grid Grid.Row="5">
+                        <TextBlock TextAlignment="Left" TextWrapping="Wrap" Margin="16,50,15,50" VerticalAlignment="Center" Style="{StaticResource TextBlockNormal}">
+								<Run Text="{x:Static res:LocalResource.QSUI_SETTING_STATUS}" FontWeight="Bold" />
+								<LineBreak/>
+								<Run Text="W = "/> <Run Text="{x:Static res:LocalResource.QSUI_WEIGHT_VALUE}"/>
+								<LineBreak/>
+								<Run Text="C = "/><Run Text="{x:Static res:LocalResource.QSUI_NO_ANSWER}"/>
+								<LineBreak/>
+								<Run Text="S = "/><Run Text="{x:Static res:LocalResource.QSUI_SUBTOTAL}"/>
+								<LineBreak/>
+								<Run Text="Org = "/><Run Text="{x:Static res:LocalResource.QSUI_ORG}"/>
+								<LineBreak/>
+								<Run Text="New = "/><Run Text="{x:Static res:LocalResource.QSUI_NEW}"/>
+								<LineBreak/>
+								<Run Text="Imp = "/><Run Text="{x:Static res:LocalResource.QSUI_IMP}"/>
+								<LineBreak/>
+								<Run Text="An = "/><Run Text="{x:Static res:LocalResource.QSUI_AN}"/>
+                        </TextBlock>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Border Grid.Row="0" BorderBrush="#FFADADAD" BorderThickness="1" Margin="10"></Border>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Button Content="{x:Static res:LocalResource.QSUI_EXPORT_QUS_EXCEL}" Style="{StaticResource NormalButton}" Width="200" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,0,0,0"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  ToolTip="{x:Static res:LocalResource.QS_EXCEL_EXPORT_TOOLTIP}" Click="Export_questionnair" ></Button>
+                </Grid>
+            <Grid Grid.Column="2">
+                <Button Content="{x:Static res:LocalResource.QSUI_CLOSE}" Style="{StaticResource NormalButton}" HorizontalAlignment="Right"  VerticalAlignment="Top"  Margin="0,0,16,0" ToolTip="{x:Static res:LocalResource.QS_CLOSE_TOOLTIP}" Click="Close_btn_Click" ></Button>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>

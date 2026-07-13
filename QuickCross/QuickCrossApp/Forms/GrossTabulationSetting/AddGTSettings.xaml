@@ -1,0 +1,500 @@
+﻿<Window x:Class="Qc4Launcher.Forms.GrossTabulationSetting.AddGTSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Qc4Launcher.Forms.GrossTabulationSetting"
+        xmlns:res="clr-namespace:Qc4Launcher"
+        mc:Ignorable="d"
+        Title="{x:Static res:LocalResource.GT_ADD_TABULATION_TITLE}" PreviewMouseRightButtonUp="Window_PreviewMouseRightButtonDown" 
+        PreviewMouseRightButtonDown="Window_PreviewMouseRightButtonDown" Background="#FFF0F0F0" Closing="Window_Closing" Height="654" ResizeMode="NoResize" Closed="Window_Closed" 
+        Width="700" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" BorderBrush="#ADADAD" BorderThickness="1">
+    <Window.Resources>
+        <Style x:Key="myHeaderStyle" TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="Visibility" Value="Collapsed" />
+        </Style>
+    </Window.Resources>
+    <Grid Margin="10 10 10 0" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="116"/>
+            <RowDefinition Height="443"/>
+            <RowDefinition Height="63"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="380"/>
+                <ColumnDefinition Width="312"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="61"/>
+                    <RowDefinition Height="144"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="105"/>
+                        <ColumnDefinition Width="295"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource TextBlockNormalWithCenterAligned}" Text="{x:Static res:LocalResource.GT_TABLE_TYPE}" Name="Label_Summary_Variety" HorizontalAlignment="Left" Grid.Column="0" Margin="15,26,0,2"/>
+                    <TextBox Style="{StaticResource NormalTextBox}" Grid.Column="1" IsReadOnly="True" Text=""  Name="Combo_Summary_Variety" Margin="0,31,100,6"/>
+                </Grid>
+                <Grid Grid.Row="1" Margin="0,0,0,95">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="105"/>
+                        <ColumnDefinition Width="295"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource TextBlockNormalWithCenterAligned}" Text="{x:Static res:LocalResource.GT_GRAPH_TYPE}" HorizontalAlignment="Left" Grid.Column="0" Margin="15,5,0,10" Name="Label_Graph_Variety" />
+                    <ComboBox Style="{StaticResource NormalComboBox}" Grid.Column="1" Text="" ItemsSource="{Binding}" Height="25" Name="Combo_Graph_Variety" Margin="0,9,100,15" />
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="26"/>
+                    <RowDefinition Height="4"/>
+                </Grid.RowDefinitions>
+                <TextBlock Style="{StaticResource TxtblockformatWithoutBg}" Text="{x:Static res:LocalResource.GT_TABLE_TITLE}" Name="Table_Title" Grid.Column="0" Margin="18,10,205,0"/>
+                <TextBox Style="{StaticResource NormalTextBoxMultiLine}" Name="Label_Title" TextWrapping="Wrap" Margin="18,3,35,-78" Grid.Row="1"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <TabControl Margin="12,26,12,22.2" BorderBrush="#FFE1E1E1">
+                <TabItem Name="Page_GT_Summary">
+                    <TabItem.Resources>
+                        <Style x:Key="FocusVisual">
+                            <Setter Property="Control.Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                        <LinearGradientBrush x:Key="TabItem.Static.Background" EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#F0F0F0" Offset="0.0"/>
+                            <GradientStop Color="#E5E5E5" Offset="1.0"/>
+                        </LinearGradientBrush>
+                        <SolidColorBrush x:Key="TabItem.Static.Border" Color="#ACACAC"/>
+                        <LinearGradientBrush x:Key="TabItem.MouseOver.Background" EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#ECF4FC" Offset="0.0"/>
+                            <GradientStop Color="#DCECFC" Offset="1.0"/>
+                        </LinearGradientBrush>
+                        <SolidColorBrush x:Key="TabItem.MouseOver.Border" Color="#7EB4EA"/>
+                        <SolidColorBrush x:Key="TabItem.Disabled.Background" Color="#F0F0F0"/>
+                        <SolidColorBrush x:Key="TabItem.Disabled.Border" Color="#D9D9D9"/>
+                        <SolidColorBrush x:Key="TabItem.Selected.Border" Color="#ACACAC"/>
+                        <SolidColorBrush x:Key="TabItem.Selected.Background" Color="#FFFFFF"/>
+                        <Style TargetType="{x:Type TabItem}">
+                            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="Background" Value="{StaticResource TabItem.Static.Background}"/>
+                            <Setter Property="BorderBrush" Value="{StaticResource TabItem.Static.Border}"/>
+                            <Setter Property="Margin" Value="0"/>
+                            <Setter Property="Padding" Value="6,2,6,2"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type TabItem}">
+                                        <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
+                                            <Border x:Name="mainBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" Background="{TemplateBinding Background}" Margin="0">
+                                                <Border x:Name="innerBorder" BorderBrush="#FFE1E1E1" BorderThickness="1,1,1,0" Background="{StaticResource TabItem.Selected.Background}" Margin="-1" Opacity="0"/>
+                                            </Border>
+                                            <ContentPresenter x:Name="contentPresenter" ContentSource="Header" Focusable="False" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Left"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Background}"/>
+                                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Border}"/>
+                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                                            </MultiDataTrigger>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Background}"/>
+                                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Border}"/>
+                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+                                            </MultiDataTrigger>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Right"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Background}"/>
+                                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Border}"/>
+                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+                                            </MultiDataTrigger>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Background}"/>
+                                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Border}"/>
+                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
+                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+                                            </MultiDataTrigger>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Left"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+                                                <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Background}"/>
+                                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Border}"/>
+                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                                            </MultiDataTrigger>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+                                                <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Background}"/>
+                                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Border}"/>
+                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+                                            </MultiDataTrigger>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Right"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+                                                <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Background}"/>
+                                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Border}"/>
+                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+                                            </MultiDataTrigger>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+                                                <Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Background}"/>
+                                                <Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Border}"/>
+                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
+                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+                                            </MultiDataTrigger>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Left"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                                            </MultiDataTrigger>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Left"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="Panel.ZIndex" Value="1"/>
+                                                <Setter Property="Margin" Value="-2,-2,0,-2"/>
+                                                <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+                                            </MultiDataTrigger>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+                                            </MultiDataTrigger>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="Panel.ZIndex" Value="1"/>
+                                                <Setter Property="Margin" Value="-2,0,-2,-2"/>
+                                                <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+                                            </MultiDataTrigger>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Right"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+                                            </MultiDataTrigger>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Right"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="Panel.ZIndex" Value="1"/>
+                                                <Setter Property="Margin" Value="0,-2,-2,-2"/>
+                                                <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+                                            </MultiDataTrigger>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
+                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+                                            </MultiDataTrigger>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+                                                    <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="Panel.ZIndex" Value="1"/>
+                                                <Setter Property="Margin" Value="-2,-2,-2,0"/>
+                                                <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+                                                <Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
+                                                <Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+                                            </MultiDataTrigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TabItem.Resources>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{x:Static res:LocalResource.GT_TABULATION_VARIABLE}" Style="{StaticResource TextBlockNormalWithCenterAligned}"  Width="auto" Margin="0,0,0,1"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="276"/>
+                            <ColumnDefinition Width="77"/>
+                            <ColumnDefinition Width="276"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" Margin="0,0,76,0" Grid.ColumnSpan="2">
+                            <DataGrid  x:Name="List_Item_Left" Margin="0,13,7.4,13"  Style="{StaticResource Datagrid_GT_Font_Style}" Background="#F0F0F0"
+                                       CurrentCellChanged="List_Item_Left_CurrentCellChanged"  SelectionMode="Extended" SelectionUnit="FullRow" ItemsSource="{Binding}" 
+                                       HeadersVisibility="None" IsEnabled="True"  AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserDeleteRows="False"
+                                       CanUserSortColumns="False" CanUserAddRows="False" HorizontalScrollBarVisibility="Hidden" HorizontalAlignment="Right" Width="258"
+                                       PreviewKeyDown="List_Item_Left_PreviewKeyDown" >
+                                <DataGrid.CellStyle>
+                                    <Style TargetType="DataGridCell" >
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="true" >
+                                                <Setter Property="Foreground" Value="Black" />
+                                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
+                                    </Style>
+                                </DataGrid.CellStyle>
+                                <DataGrid.Resources>
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#F6F6F6"/>
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#CBE8F6"/>
+                                </DataGrid.Resources>
+
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="DataGridRow">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=Selectable}" Value="False">
+                                                <DataTrigger.Setters>
+                                                    <Setter Property="Background" Value="#F6F6F6" />
+                                                    <Setter Property="BorderBrush" Value="#F1F1F1"/>
+                                                </DataTrigger.Setters>
+                                            </DataTrigger>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#e5f3fb" />
+                                                <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                            </Trigger>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.RowStyle>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Width="85"  Binding="{Binding Variable}" CanUserResize="False" CanUserSort="False" IsReadOnly="True">
+                                        <DataGridTextColumn.CellStyle>
+                                            <Style TargetType="DataGridCell" BasedOn="{StaticResource Datagrid_GT_Cell_Style_qs}">
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsSelected" Value="true" >
+                                                        <Setter Property="Foreground" Value="Black" />
+                                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                                <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
+                                            </Style>
+                                        </DataGridTextColumn.CellStyle>
+                                    </DataGridTextColumn>
+                                    <DataGridTextColumn Width="55"  Binding="{Binding QsTypePlusCatCount}" CanUserResize="False" CanUserSort="False" IsReadOnly="True">
+                                        <DataGridTextColumn.CellStyle>
+                                            <Style TargetType="DataGridCell" BasedOn="{StaticResource Datagrid_GT_Cell_Style_qs}">
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsSelected" Value="true" >
+                                                        <Setter Property="Foreground" Value="Black" />
+                                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                                <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
+                                            </Style>
+                                        </DataGridTextColumn.CellStyle>
+                                    </DataGridTextColumn>
+                                    <DataGridTemplateColumn Width="*">
+                                        <DataGridTemplateColumn.CellStyle>
+                                            <Style TargetType="DataGridCell" BasedOn="{StaticResource Datagrid_GT_Cell_Style_qs}">
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsSelected" Value="true" >
+                                                        <Setter Property="Foreground" Value="Black" />
+                                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                                <Setter Property="ToolTip" Value="{Binding Question}" />
+                                                <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
+                                            </Style>
+                                        </DataGridTemplateColumn.CellStyle>
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Question}" TextTrimming="CharacterEllipsis"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                        <Grid Name="Grid_Button_ForMultiple" Visibility="Visible" Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="87"/>
+                                <RowDefinition Height="204"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Button Style="{StaticResource SmallButton}" Grid.Row="0" Content="{x:Static res:LocalResource.LABEL_SINGLE_RIGHT_ARROW}" Margin="15.5,56,13.5,0" x:Name="ButtonSingleRightArrow" HorizontalAlignment="Center" VerticalAlignment="Bottom"   Click="ButtonSingleRightArrow_Click"  />
+                            <Button Style="{StaticResource SmallButton}" Grid.Row="1" Content="{x:Static res:LocalResource.LABEL_SINGLE_LEFT_ARROW}" Margin="15.5,56,13.5,0" x:Name="ButtonSingleLefttArrow" HorizontalAlignment="Center" VerticalAlignment="Bottom"   Click="ButtonSingleLefttArrow_Click" />
+                        </Grid>
+                        <Grid Name="Grid_Button_ForSingle" Margin="0,0,14,0" Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="204"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Button Style="{StaticResource SmallButton}" Grid.Row="0" Content="{x:Static res:LocalResource.LABEL_SINGLE_RIGHT_ARROW}" Margin="26,13,11.6,0" x:Name="ButtonSingleRightArrow2" HorizontalAlignment="Center" VerticalAlignment="Top"   Click="ButtonSingleRightArrow2_Click" Width="25"  />
+                            <Button Style="{StaticResource SmallButton}" Grid.Row="1" Content="{x:Static res:LocalResource.LABEL_SINGLE_LEFT_ARROW}" Margin="26,5.2,11.6,0" x:Name="ButtonSingleLefttArrow2" HorizontalAlignment="Center" VerticalAlignment="Top"   Click="ButtonSingleLefttArrow2_Click" Width="25" />
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <TextBox Style="{StaticResource NormalTxtBox2}" Name="List_SingleItem_Right" IsReadOnly="True" VerticalAlignment="Top" Height="20" Margin="22,15,40.8,0"/>
+                        </Grid>
+                        <Grid Grid.Column="1" Margin="77.2,0,-22.8,-0.2" Grid.ColumnSpan="2">
+                            <DataGrid  x:Name="List_Item_Right" Margin="0,13,31.5,13" CurrentCellChanged="List_Item_Right_CurrentCellChanged"  SelectionMode="Extended" Background="#F0F0F0"
+                                       SelectionUnit="FullRow" Style="{StaticResource Datagrid_GT_Font_Style}" ItemsSource="{Binding}" HeadersVisibility="None" IsEnabled="True" 
+                                       AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserDeleteRows="False" CanUserSortColumns="False" CanUserAddRows="False"
+                                       HorizontalScrollBarVisibility="Hidden" HorizontalAlignment="Right" Width="263">
+                                <DataGrid.CellStyle>
+                                    <Style TargetType="DataGridCell" >
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="true" >
+                                                <Setter Property="Foreground" Value="Black" />
+                                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                        <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
+                                    </Style>
+                                </DataGrid.CellStyle>
+                                <DataGrid.Resources>
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="#F6F6F6"/>
+                                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#CBE8F6"/>
+                                </DataGrid.Resources>
+
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="DataGridRow">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=Selectable}" Value="False">
+                                                <DataTrigger.Setters>
+                                                    <Setter Property="Background" Value="#F6F6F6" />
+                                                    <Setter Property="BorderBrush" Value="#F1F1F1"/>
+                                                </DataTrigger.Setters>
+                                            </DataTrigger>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#e5f3fb" />
+                                                <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                            </Trigger>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="BorderBrush" Value="#70c0e7"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.RowStyle>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Width="80" Header="" Binding="{Binding Variable}" CanUserResize="False" CanUserSort="False" IsReadOnly="True">
+                                        <DataGridTextColumn.CellStyle>
+                                            <Style TargetType="DataGridCell" BasedOn="{StaticResource Datagrid_GT_Cell_Style_qs}">
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsSelected" Value="true" >
+                                                        <Setter Property="Foreground" Value="Black" />
+                                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                                <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
+                                            </Style>
+                                        </DataGridTextColumn.CellStyle>
+                                    </DataGridTextColumn>
+                                    <DataGridTextColumn Width="55" Header=""  Binding="{Binding QsTypePlusCatCount}" CanUserResize="False" CanUserSort="False" IsReadOnly="True">
+                                        <DataGridTextColumn.CellStyle>
+                                            <Style TargetType="DataGridCell" BasedOn="{StaticResource Datagrid_GT_Cell_Style_qs}">
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsSelected" Value="true" >
+                                                        <Setter Property="Foreground" Value="Black" />
+                                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                                <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
+                                            </Style>
+                                        </DataGridTextColumn.CellStyle>
+                                    </DataGridTextColumn>
+                                    <DataGridTemplateColumn Width="*">
+                                        <DataGridTemplateColumn.CellStyle>
+                                            <Style TargetType="DataGridCell" BasedOn="{StaticResource Datagrid_GT_Cell_Style_qs}">
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsSelected" Value="true" >
+                                                        <Setter Property="Foreground" Value="Black" />
+                                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                                <Setter Property="ToolTip" Value="{Binding Question}" />
+                                                <EventSetter Event="PreviewMouseDown" Handler="b1SetColor"/>
+                                            </Style>
+                                        </DataGridTemplateColumn.CellStyle>
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Question}" TextTrimming="CharacterEllipsis"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+        <Grid Grid.Row="2" Background="#FFF0F0F0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="175"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="239"/>
+            </Grid.ColumnDefinitions>
+            <Button Style="{StaticResource NormalButton}" Name="Command_Back" Grid.Column="0" Content="{x:Static res:LocalResource.BTN_BACK}" HorizontalAlignment="Right" VerticalAlignment="Center"  Margin="0,0,0,20" Click="Command_Back_Click"/>
+            <Button Style="{StaticResource NormalButton}" Name="Command_Next" Content="{x:Static res:LocalResource.BTN_NEXT}" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,20" Click="Command_Next_Click"/>
+            <Button Style="{StaticResource NormalButton}" Name="Command_Entry" Grid.Column="3" IsEnabled="False" Content="{x:Static res:LocalResource.BTN_SAVE}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,19,20" Click="Command_Entry_Click"/>
+            <Button Style="{StaticResource NormalButton}" Name="Command_Cancel" Content="{x:Static res:LocalResource.BTN_CLOSE}" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="0,0,19,20" Click="Command_Cancel_Click"/>
+        </Grid>
+    </Grid>
+</Window>
