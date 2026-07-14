@@ -48,7 +48,7 @@
     </Reference>
     <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\QCWeb-master\QCWeb-master\Sources\Module\Ionic.Zip.dll</HintPath>
+      <HintPath>dll\Ionic.Zip.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=2.0.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.14\lib\net45\log4net.dll</HintPath>
@@ -90,21 +90,21 @@
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Seasar, Version=1.4.0.0, Culture=neutral, PublicKeyToken=1d0d0c484d50ca62, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\QCWeb-master\QCWeb-master\Sources\Module\Seasar.dll</HintPath>
+      <HintPath>dll\Seasar.dll</HintPath>
     </Reference>
     <Reference Include="Seasar.Dao, Version=1.4.0.0, Culture=neutral, PublicKeyToken=73a7c921d802e17e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\QCWeb-master\QCWeb-master\Sources\Module\Seasar.Dao.dll</HintPath>
+      <HintPath>dll\Seasar.Dao.dll</HintPath>
     </Reference>
     <Reference Include="Seasar.Dxo">
-      <HintPath>..\..\..\..\QCWeb-master\QCWeb-master\Sources\Module\Seasar.Dxo.dll</HintPath>
+      <HintPath>dll\Seasar.Dxo.dll</HintPath>
     </Reference>
     <Reference Include="Seasar.DynamicProxy">
-      <HintPath>..\..\..\..\QCWeb-master\QCWeb-master\Sources\Module\Seasar.DynamicProxy.dll</HintPath>
+      <HintPath>dll\Seasar.DynamicProxy.dll</HintPath>
     </Reference>
     <Reference Include="Seasar.Quill, Version=1.4.0.0, Culture=neutral, PublicKeyToken=1d0d0c484d50ca62, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\QCWeb-master\QCWeb-master\Sources\Module\Seasar.Quill.dll</HintPath>
+      <HintPath>dll\Seasar.Quill.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
