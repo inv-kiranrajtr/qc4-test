@@ -51,7 +51,7 @@
     </Reference>
     <Reference Include="Oracle.DataAccess, Version=4.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>E:\app\client\innovature\product\18.0.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll</HintPath>
+      <HintPath>..\Quick-CROSS4\InstallFiles\Oracle.DataAccess.dll</HintPath>
     </Reference>
     <Reference Include="Seasar">
       <HintPath>DLL\Seasar.dll</HintPath>
