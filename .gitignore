@@ -113,8 +113,16 @@ artifacts/
 # QuickCross build / installer outputs
 ##############################
 QuickCross/BuildOutput/
-# NPOI build output (DLLs/PDBs/XML) — produced from main/, ooxml/, etc.
-QuickCross/solution/
+# Track NPOI Lib DLLs (required by QuickCross4); ignore rebuild junk only
+QuickCross/solution/**
+!QuickCross/solution/Lib/
+!QuickCross/solution/Lib/**
+QuickCross/solution/Lib/*.pdb
+QuickCross/solution/Lib/*.XML
+QuickCross/solution/Lib/*.xml
+QuickCross/solution/Lib/*~*
+QuickCross/solution/Lib/System.dll
+QuickCross/solution/Lib/System.*.dll
 QuickCross/Installer/*.msi
 QuickCross/Installer/*.exe
 QuickCross/Installer/*.dll
