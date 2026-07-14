@@ -221,7 +221,8 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                         C.DataLabel dataLabel = new C.DataLabel();
                         C.Index index = new C.Index() { Val = (uint)indexer };
                         dataLabel.Append(index);
-                        bool showCategoryName = true, showLeaderLines = true; bool showValue = true;
+                        // Leader lines are unsupported / cause open errors in Google Sheets
+                        bool showCategoryName = true, showLeaderLines = false; bool showValue = true;
                         double pasrsedValue = 0;
                         bool isDouble = Double.TryParse(value, out pasrsedValue);
                         if (isDouble && (pasrsedValue <= HideChartDescriptionMaxPercent))
@@ -236,7 +237,7 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                     fCol++;
                 }
                 if (flag == 0) { dataLabels = null; }
-                //bool showCategoryName = true, showLeaderLines = true;
+                //bool showCategoryName = true, showLeaderLines = false;
                 //pieChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines, NumberFormat));//Apply Labels
                 pieChartSeries1.Append(dataLabels);
                 pieChartSeries1.Append(SetStringDataLink(worksheetPart, perSheetName, perStartRow + 1, perStartRow + 1, lCol, perFirstCol));
@@ -274,7 +275,8 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                         C.DataLabel dataLabel = new C.DataLabel();
                         C.Index index = new C.Index() { Val = (uint)indexer };
                         dataLabel.Append(index);
-                        bool showCategoryName = true, showLeaderLines = true; bool showValue = true;
+                        // Leader lines are unsupported / cause open errors in Google Sheets
+                        bool showCategoryName = true, showLeaderLines = false; bool showValue = true;
                         double parsedValue = 0;
                         bool isDouble = Double.TryParse(value, out parsedValue);
                         if (isDouble && (parsedValue <= HideChartDescriptionMaxPercent))
@@ -289,7 +291,7 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                     rowCount++;
                 }
                 if (flag == 0) { dataLabels = null; }
-                // bool showCategoryName = true, showLeaderLines = true;
+                // bool showCategoryName = true, showLeaderLines = false;
                 // pieChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines, NumberFormat, dataLabels));//Apply Labels
                 pieChartSeries1.Append(dataLabels);
                 pieChartSeries1.Append(SetStringDataLink(worksheetPart, perSheetName, sRow, endRow, perFirstCol + 1, perFirstCol + 1));
@@ -666,7 +668,7 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
             C.AutoTitleDeleted autoTitleDeleted1 = new C.AutoTitleDeleted() { Val = false };
 
             C.PlotArea plotArea1 = new C.PlotArea();
-            C.Layout layout2 = new C.Layout();
+            C.Layout layout2 = CreateAlignedPlotAreaLayout(0.16, 0.78);
 
             C.BarChart barChart1 = new C.BarChart();
             C.BarDirection barDirection1 = new C.BarDirection() { Val = C.BarDirectionValues.Column };
@@ -1455,7 +1457,7 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
             C.AutoTitleDeleted autoTitleDeleted1 = new C.AutoTitleDeleted() { Val = false };
 
             C.PlotArea plotArea1 = new C.PlotArea();
-            C.Layout layout2 = new C.Layout();
+            C.Layout layout2 = CreateAlignedPlotAreaLayout(0.10, 0.82);
 
             C.BarChart barChart1 = new C.BarChart();
             C.BarDirection barDirection1 = new C.BarDirection() { Val = C.BarDirectionValues.Column };
@@ -1479,13 +1481,12 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                 C.Order order1 = new C.Order() { Val = (uint)indexer };
 
                 C.InvertIfNegative invertIfNegative1 = new C.InvertIfNegative() { Val = false };
-                bool showCategoryName = false, showLeaderLines = false;
                 barChartSeries1.Append(index1);
                 barChartSeries1.Append(order1);
                 barChartSeries1.Append(SetSeriesText(perSheetName, fRow, 3));
                 barChartSeries1.Append(ApplyFillColour(lineColour, rgb));
                 barChartSeries1.Append(invertIfNegative1);
-                barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines, "0.0;;"));
+                barChartSeries1.Append(ApplyStackedBarDataLabels("0.0;;"));
                 barChartSeries1.Append(SetStringDataLink(worksheetPart, perSheetName, perStartRow + 1, perStartRow + 1, lCol, perFirstCol));
                 barChartSeries1.Append(SetNumericDataLink(worksheetPart, perSheetName, lCol, fRow, fRow, perFirstCol));
                 barChart1.Append(barChartSeries1);
@@ -1649,7 +1650,7 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
             C.AutoTitleDeleted autoTitleDeleted1 = new C.AutoTitleDeleted() { Val = false };
 
             C.PlotArea plotArea1 = new C.PlotArea();
-            C.Layout layout2 = new C.Layout();
+            C.Layout layout2 = CreateAlignedPlotAreaLayout(0.10, 0.84, PlotPercentStackedWidth);
 
             C.BarChart barChart1 = new C.BarChart();
             C.BarDirection barDirection1 = new C.BarDirection() { Val = C.BarDirectionValues.Column };
@@ -1676,13 +1677,12 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                     C.Order order1 = new C.Order() { Val = (uint)indexer };
 
                     C.InvertIfNegative invertIfNegative1 = new C.InvertIfNegative() { Val = false };
-                    bool showCategoryName = false, showLeaderLines = false;
                     barChartSeries1.Append(index1);
                     barChartSeries1.Append(order1);
                     barChartSeries1.Append(SetSeriesText(perSheetName, (perStartRow + 1), col));
                     barChartSeries1.Append(ApplyFillColour(lineColour, rgb));
                     barChartSeries1.Append(invertIfNegative1);
-                    barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines, "0.0;;"));
+                    barChartSeries1.Append(ApplyStackedBarDataLabels("0.0;;"));
                     barChartSeries1.Append(SetStringDataLink(worksheetPart, perSheetName, fRow, endRow, 3, 3));
                     barChartSeries1.Append(SetNumericDataLink(worksheetPart, perSheetName, col, fRow, endRow, col));
                     barChart1.Append(barChartSeries1);
@@ -1703,13 +1703,12 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                     C.Order order1 = new C.Order() { Val = (uint)indexer };
 
                     C.InvertIfNegative invertIfNegative1 = new C.InvertIfNegative() { Val = false };
-                    bool showCategoryName = false, showLeaderLines = false;
                     barChartSeries1.Append(index1);
                     barChartSeries1.Append(order1);
                     barChartSeries1.Append(SetSeriesText(perSheetName, fRow, 3));
                     barChartSeries1.Append(ApplyFillColour(lineColour, rgb));
                     barChartSeries1.Append(invertIfNegative1);
-                    barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines, "0.0;;"));
+                    barChartSeries1.Append(ApplyStackedBarDataLabels("0.0;;"));
                     barChartSeries1.Append(SetNumericDataLink(worksheetPart, perSheetName, PerLastCol, fRow, fRow, PerLastCol));
                     barChart1.Append(barChartSeries1);
                     fRow++; indexer++; i++;

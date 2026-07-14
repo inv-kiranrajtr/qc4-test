@@ -5258,7 +5258,8 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                         chartPartObject = drawing.GeneratePieChart(worksheetPerPart, chartPart, HideChartDescriptionMaxPercentValue, perStartRow, PerEndRow, perFirstCol, PerLastCol, lineColour, perSheetName,
                                                  ChartCaption, SubTitle, num, NumberFormat, Table, GapWidth, isMatrix, isQCM);
 
-                        HasLeaderLines = (Table.Chart.ChartType & XlChartType.RAT) == 0;
+                        // Leader lines break Google Sheets import; keep disabled for GWS compatibility
+                        HasLeaderLines = false;
                         break;
                     }
 
