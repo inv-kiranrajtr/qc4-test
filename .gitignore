@@ -93,14 +93,21 @@ nCrunchTemp_*
 ##############################
 # NuGet
 ##############################
-**/packages/*
-!**/packages/build/
+# packages/ is tracked so machines can build without NuGet restore.
+# (packages.config solutions; avoid re-downloading SQLite native bits, etc.)
 *.nupkg
 *.nuget.props
 *.nuget.targets
 project.lock.json
 project.fragment.lock.json
 artifacts/
+
+# Blanket x64/ / x86/ rules above also match native folders under packages —
+# un-ignore them so System.Data.SQLite (and similar) interop DLLs are tracked.
+!**/packages/**/x64/
+!**/packages/**/x86/
+!**/packages/**/x64/**
+!**/packages/**/x86/**
 
 ##############################
 # QuickCross build / installer outputs
@@ -166,7 +173,7 @@ $RECYCLE.BIN/
 QuickCrossAdmintool/**/bin/
 QuickCrossAdmintool/**/obj/
 QuickCrossAdmintool/.vs/
-QuickCrossAdmintool/packages/
+# QuickCrossAdmintool/packages/ is tracked (same as QuickCross/packages)
 
 ##############################
 # Local / environment
