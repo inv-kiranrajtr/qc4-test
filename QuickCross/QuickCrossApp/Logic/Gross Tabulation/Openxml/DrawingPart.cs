@@ -28,7 +28,8 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
         {
             Xdr.WorksheetDrawing worksheetDrawing = null;
 
-            Xdr.TwoCellAnchor twoCellAnchor = new Xdr.TwoCellAnchor() { EditAs = Xdr.EditAsValues.Absolute };
+            // Google Sheets expects default editAs="twoCell" (Absolute fails import)
+            Xdr.TwoCellAnchor twoCellAnchor = new Xdr.TwoCellAnchor();
 
             Xdr.FromMarker fromMarker2 = new Xdr.FromMarker();
             Xdr.ColumnId columnId3 = new Xdr.ColumnId();
@@ -60,7 +61,7 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
             toMarker2.Append(rowId4);
             toMarker2.Append(rowOffset4);
 
-            Xdr.GraphicFrame graphicFrame1 = new Xdr.GraphicFrame() { Macro = "" };
+            Xdr.GraphicFrame graphicFrame1 = new Xdr.GraphicFrame();
 
             Xdr.NonVisualGraphicFrameProperties nonVisualGraphicFrameProperties1 = new Xdr.NonVisualGraphicFrameProperties();
 
@@ -79,8 +80,9 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
             nonVisualGraphicFrameProperties1.Append(nonVisualGraphicFrameDrawingProperties1);
 
             Xdr.Transform transform1 = new Xdr.Transform();
-            A.Offset offset2 = new A.Offset() { X = 0L, Y = 0L };
-            A.Extents extents2 = new A.Extents() { Cx = 0L, Cy = 0L };
+            // Non-zero extents required for Google Sheets chart import (0x0 frames fail open)
+            A.Offset offset2 = new A.Offset() { X = 100L, Y = 100L };
+            A.Extents extents2 = new A.Extents() { Cx = 8534400L, Cy = 4572000L };
 
             transform1.Append(offset2);
             transform1.Append(extents2);
@@ -400,7 +402,7 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                     var clr = System.Drawing.Color.FromArgb(ColorPallet.colorIndex[Table.Chart.SeriesColorIndex((i - 1) % Table.Chart.SeriesCount)]);
                     rgb = clr.B.ToString("X2") + clr.G.ToString("X2") + clr.R.ToString("X2");
                     barChartSeries1.Append(ApplyFillColour(lineColour, rgb));
-                    barChartSeries1.Append(SetSeriesText(perSheetName, perStartRow + 1, col));
+                    barChartSeries1.Append(SetSeriesText(worksheetPart, perSheetName, perStartRow + 1, col));
                     C.InvertIfNegative invertIfNegative1 = new C.InvertIfNegative() { Val = false };
                     bool showCategoryName = false, showLeaderLines = false;
                     barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines));
@@ -712,7 +714,7 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                     var clr = System.Drawing.Color.FromArgb(ColorPallet.colorIndex[Table.Chart.SeriesColorIndex((i - 1) % Table.Chart.SeriesCount)]);
                     rgb = clr.B.ToString("X2") + clr.G.ToString("X2") + clr.R.ToString("X2");
                     barChartSeries1.Append(ApplyFillColour(lineColour, rgb));
-                    barChartSeries1.Append(SetSeriesText(perSheetName, perStartRow + 1, col));
+                    barChartSeries1.Append(SetSeriesText(worksheetPart, perSheetName, perStartRow + 1, col));
                     C.InvertIfNegative invertIfNegative1 = new C.InvertIfNegative() { Val = false };
                     bool showCategoryName = false, showLeaderLines = false;
                     barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines));
@@ -1035,7 +1037,7 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                 bool showCategoryName = false, showLeaderLines = false;
                 barChartSeries1.Append(index1);
                 barChartSeries1.Append(order1);
-                barChartSeries1.Append(SetSeriesText(perSheetName, fRow, 3));
+                barChartSeries1.Append(SetSeriesText(worksheetPart, perSheetName, fRow, 3));
                 strArray[indexer] = GetSeriesTextValue(worksheetPart, fRow, 3);
                 barChartSeries1.Append(ApplyFillColour(lineColour, rgb));
                 barChartSeries1.Append(invertIfNegative1);
@@ -1246,7 +1248,7 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                     bool showCategoryName = false, showLeaderLines = false;
                     barChartSeries1.Append(index1);
                     barChartSeries1.Append(order1);
-                    barChartSeries1.Append(SetSeriesText(perSheetName, (perStartRow + 1), col));
+                    barChartSeries1.Append(SetSeriesText(worksheetPart, perSheetName, (perStartRow + 1), col));
                     strArray[indexer] = GetSeriesTextValue(worksheetPart, (perStartRow + 1), col);
                     //LegendSeriesText += GetSeriesTextValue(worksheetPart, (perStartRow + 1), col);
                     barChartSeries1.Append(ApplyFillColour(lineColour, rgb));
@@ -1276,7 +1278,7 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                     bool showCategoryName = false, showLeaderLines = false;
                     barChartSeries1.Append(index1);
                     barChartSeries1.Append(order1);
-                    barChartSeries1.Append(SetSeriesText(perSheetName, fRow, 3));
+                    barChartSeries1.Append(SetSeriesText(worksheetPart, perSheetName, fRow, 3));
                     strArray[indexer] = GetSeriesTextValue(worksheetPart, fRow, 3);
                     barChartSeries1.Append(ApplyFillColour(lineColour, rgb));
                     barChartSeries1.Append(invertIfNegative1);
@@ -1483,7 +1485,7 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                 C.InvertIfNegative invertIfNegative1 = new C.InvertIfNegative() { Val = false };
                 barChartSeries1.Append(index1);
                 barChartSeries1.Append(order1);
-                barChartSeries1.Append(SetSeriesText(perSheetName, fRow, 3));
+                barChartSeries1.Append(SetSeriesText(worksheetPart, perSheetName, fRow, 3));
                 barChartSeries1.Append(ApplyFillColour(lineColour, rgb));
                 barChartSeries1.Append(invertIfNegative1);
                 barChartSeries1.Append(ApplyStackedBarDataLabels("0.0;;"));
@@ -1679,7 +1681,7 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                     C.InvertIfNegative invertIfNegative1 = new C.InvertIfNegative() { Val = false };
                     barChartSeries1.Append(index1);
                     barChartSeries1.Append(order1);
-                    barChartSeries1.Append(SetSeriesText(perSheetName, (perStartRow + 1), col));
+                    barChartSeries1.Append(SetSeriesText(worksheetPart, perSheetName, (perStartRow + 1), col));
                     barChartSeries1.Append(ApplyFillColour(lineColour, rgb));
                     barChartSeries1.Append(invertIfNegative1);
                     barChartSeries1.Append(ApplyStackedBarDataLabels("0.0;;"));
@@ -1705,7 +1707,7 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                     C.InvertIfNegative invertIfNegative1 = new C.InvertIfNegative() { Val = false };
                     barChartSeries1.Append(index1);
                     barChartSeries1.Append(order1);
-                    barChartSeries1.Append(SetSeriesText(perSheetName, fRow, 3));
+                    barChartSeries1.Append(SetSeriesText(worksheetPart, perSheetName, fRow, 3));
                     barChartSeries1.Append(ApplyFillColour(lineColour, rgb));
                     barChartSeries1.Append(invertIfNegative1);
                     barChartSeries1.Append(ApplyStackedBarDataLabels("0.0;;"));
@@ -1893,8 +1895,42 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
             C.StringReference stringReference1 = new C.StringReference();
             C.Formula formula1 = new C.Formula();
             formula1.Text = "\'" + sheetName + "\'!$" + OpenXmlHelper.ColumnIndexToColumnLetter(col) + "$" + row;
-
             stringReference1.Append(formula1);
+
+            // Cache required for Google Sheets chart import
+            C.StringCache stringCache = new C.StringCache();
+            C.PointCount pointCount = new C.PointCount() { Val = 1U };
+            stringCache.Append(pointCount);
+            C.StringPoint stringPoint = new C.StringPoint() { Index = 0U };
+            C.NumericValue numericValue = new C.NumericValue();
+            numericValue.Text = string.Empty;
+            stringPoint.Append(numericValue);
+            stringCache.Append(stringPoint);
+            stringReference1.Append(stringCache);
+
+            seriesText.Append(stringReference1);
+            return seriesText;
+        }
+
+        public C.SeriesText SetSeriesText(WorksheetPart worksheetPart, string sheetName, int row, int col)
+        {
+            C.SeriesText seriesText = new C.SeriesText();
+
+            C.StringReference stringReference1 = new C.StringReference();
+            C.Formula formula1 = new C.Formula();
+            formula1.Text = "\'" + sheetName + "\'!$" + OpenXmlHelper.ColumnIndexToColumnLetter(col) + "$" + row;
+            stringReference1.Append(formula1);
+
+            C.StringCache stringCache = new C.StringCache();
+            C.PointCount pointCount = new C.PointCount() { Val = 1U };
+            stringCache.Append(pointCount);
+            C.StringPoint stringPoint = new C.StringPoint() { Index = 0U };
+            C.NumericValue numericValue = new C.NumericValue();
+            numericValue.Text = GetChartCellText(worksheetPart, row, col);
+            stringPoint.Append(numericValue);
+            stringCache.Append(stringPoint);
+            stringReference1.Append(stringCache);
+
             seriesText.Append(stringReference1);
             return seriesText;
         }
@@ -2229,6 +2265,7 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
             formula1.Text = "\'" + perSheetName + "\'!$" + OpenXmlHelper.ColumnIndexToColumnLetter(perFirstCol) + "$" + perStartRow + ":$" + OpenXmlHelper.ColumnIndexToColumnLetter(perLastCol) + "$" + endRow;
 
             stringReference1.Append(formula1);
+            stringReference1.Append(BuildStringCache(worksheetPart, perStartRow, endRow, perFirstCol, perLastCol));
             categoryAxisData1.Append(stringReference1);
             return categoryAxisData1;
         }
@@ -2288,10 +2325,117 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
             C.NumberReference numberReference = new C.NumberReference();
             C.Formula formula2 = new C.Formula();
             formula2.Text = "\'" + perSheetName + "\'!$" + OpenXmlHelper.ColumnIndexToColumnLetter(perFirstCol) + "$" + perStartRow + ":$" + OpenXmlHelper.ColumnIndexToColumnLetter(PerLastCol) + "$" + endRow;
-            C.NumberingCache numberingCache1 = new C.NumberingCache();
             numberReference.Append(formula2);
+            numberReference.Append(BuildNumberingCache(worksheetPart, perStartRow, endRow, perFirstCol, PerLastCol));
             values.Append(numberReference);
             return values;
+        }
+
+        /// <summary>
+        /// Builds cached category/series string values. Google Sheets requires strCache on chart refs.
+        /// </summary>
+        private static C.StringCache BuildStringCache(WorksheetPart worksheetPart, int startRow, int endRow, int startCol, int endCol)
+        {
+            C.StringCache stringCache = new C.StringCache();
+            List<string> values = CollectRangeValues(worksheetPart, startRow, endRow, startCol, endCol);
+            C.PointCount pointCount = new C.PointCount() { Val = (UInt32Value)(uint)values.Count };
+            stringCache.Append(pointCount);
+            for (int i = 0; i < values.Count; i++)
+            {
+                C.StringPoint stringPoint = new C.StringPoint() { Index = (UInt32Value)(uint)i };
+                C.NumericValue numericValue = new C.NumericValue();
+                numericValue.Text = values[i] ?? string.Empty;
+                stringPoint.Append(numericValue);
+                stringCache.Append(stringPoint);
+            }
+            return stringCache;
+        }
+
+        /// <summary>
+        /// Builds cached numeric series values. Google Sheets requires numCache on chart refs.
+        /// </summary>
+        private static C.NumberingCache BuildNumberingCache(WorksheetPart worksheetPart, int startRow, int endRow, int startCol, int endCol)
+        {
+            C.NumberingCache numberingCache = new C.NumberingCache();
+            C.FormatCode formatCode = new C.FormatCode();
+            formatCode.Text = "General";
+            numberingCache.Append(formatCode);
+
+            List<string> values = CollectRangeValues(worksheetPart, startRow, endRow, startCol, endCol);
+            C.PointCount pointCount = new C.PointCount() { Val = (UInt32Value)(uint)values.Count };
+            numberingCache.Append(pointCount);
+            for (int i = 0; i < values.Count; i++)
+            {
+                C.NumericPoint numericPoint = new C.NumericPoint() { Index = (UInt32Value)(uint)i };
+                C.NumericValue numericValue = new C.NumericValue();
+                string raw = values[i];
+                if (string.IsNullOrEmpty(raw) || !double.TryParse(raw, out _))
+                    numericValue.Text = "0";
+                else
+                    numericValue.Text = raw;
+                numericPoint.Append(numericValue);
+                numberingCache.Append(numericPoint);
+            }
+            return numberingCache;
+        }
+
+        private static List<string> CollectRangeValues(WorksheetPart worksheetPart, int startRow, int endRow, int startCol, int endCol)
+        {
+            List<string> values = new List<string>();
+            if (worksheetPart == null)
+                return values;
+
+            int rowFrom = Math.Min(startRow, endRow);
+            int rowTo = Math.Max(startRow, endRow);
+            int colFrom = Math.Min(startCol, endCol);
+            int colTo = Math.Max(startCol, endCol);
+
+            for (int r = rowFrom; r <= rowTo; r++)
+            {
+                for (int c = colFrom; c <= colTo; c++)
+                {
+                    values.Add(GetChartCellText(worksheetPart, r, c));
+                }
+            }
+            return values;
+        }
+
+        private static string GetChartCellText(WorksheetPart worksheetPart, int rowIdx, int colIdx)
+        {
+            try
+            {
+                Row row = OpenXmlHelper.GetRow(worksheetPart.Worksheet, (uint)rowIdx);
+                if (row == null)
+                    return string.Empty;
+                Cell cell = OpenXmlHelper.GetCell(row, rowIdx, colIdx);
+                if (cell == null || cell.CellValue == null)
+                    return string.Empty;
+
+                string text = cell.CellValue.InnerText ?? string.Empty;
+                if (cell.DataType != null && cell.DataType.Value == CellValues.SharedString)
+                {
+                    try
+                    {
+                        WorkbookPart workbookPart = ((SpreadsheetDocument)worksheetPart.OpenXmlPackage).WorkbookPart;
+                        SharedStringTablePart sstPart = workbookPart?.SharedStringTablePart;
+                        if (sstPart?.SharedStringTable != null && int.TryParse(text, out int sstIndex))
+                        {
+                            SharedStringItem item = sstPart.SharedStringTable.Elements<SharedStringItem>().ElementAtOrDefault(sstIndex);
+                            if (item != null)
+                                return item.InnerText ?? string.Empty;
+                        }
+                    }
+                    catch
+                    {
+                        // fall through to raw text
+                    }
+                }
+                return text;
+            }
+            catch
+            {
+                return string.Empty;
+            }
         }
         public C.Layout SetPlotAreaLayout(int rowCount)
         {
