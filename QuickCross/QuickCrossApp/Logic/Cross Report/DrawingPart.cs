@@ -1743,7 +1743,8 @@ namespace Qc4Launcher.Logic.Cross_Report
 
                     barChartSeries1.Append(index1);
                     barChartSeries1.Append(order1);
-                    barChartSeries1.Append(SetSeriesText(tempTable, firstRow, fCol));
+                    string seriesCached = GetChartCellText(worksheetPart, firstRow, fCol);
+                    barChartSeries1.Append(SetSeriesText(tempTable, firstRow, fCol, seriesCached));
                     strArray[indexer] = GetSeriesTextValue(worksheetPart, firstRow, fCol);
                     barChartSeries1.Append(ApplyFillColour(lineColour, rgb));
                     barChartSeries1.Append(invertIfNegative1);
@@ -3038,6 +3039,13 @@ namespace Qc4Launcher.Logic.Cross_Report
 
             barChartSeries1.Append(index1);
             barChartSeries1.Append(order1);
+            // Series title helps Google Sheets keep combo series instead of collapsing to column-only
+            C.SeriesText barSeriesText = new C.SeriesText();
+            C.NumericValue barSeriesName = new C.NumericValue();
+            barSeriesName.Text = "全体";
+            barSeriesText.Append(barSeriesName);
+            barChartSeries1.Append(barSeriesText);
+
             int col = firstCol;
             int subTotalCnt = lastCol - tmpTable.Question.SubTotalCnt;
             int indexer = 0;
@@ -3119,8 +3127,49 @@ namespace Qc4Launcher.Logic.Cross_Report
                     marker1.Append(SetMarkerProperty(rgb));
                     C.Smooth smooth1 = new C.Smooth() { Val = false };
 
+                    // Build series title the same way as the legend chart (required by GWS)
+                    string[] tmpBuf;
+                    x = Convert.ToInt32(LinesIndexList[j]) + 1 + 1;
+                    if (v != null && MaxAxesCountArray != null && i < MaxAxesCountArray.Length && MaxAxesCountArray[i] == 2)
+                    {
+                        if ((v.GetValue(x, 3)) != null)
+                        {
+                            tmpBuf = new string[1];
+                            tmpBuf[0] = Convert.ToString(v.GetValue(x, 2));
+                        }
+                        else
+                        {
+                            tmpBuf = new string[2];
+                            tmpBuf[1] = Convert.ToString(v.GetValue(x, 3));
+                            for (int xx = x; xx >= 1 + 1 + 1; xx--)
+                            {
+                                if (v.GetValue(xx, 2) != null)
+                                {
+                                    tmpBuf[0] = Convert.ToString(v.GetValue(xx, 2));
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    else if (v != null)
+                    {
+                        tmpBuf = new string[1];
+                        tmpBuf[0] = Convert.ToString(v.GetValue(x, 2));
+                    }
+                    else
+                    {
+                        tmpBuf = new string[1];
+                        tmpBuf[0] = string.Empty;
+                    }
+
+                    C.SeriesText seriesText2 = new C.SeriesText();
+                    C.NumericValue numericValue4 = new C.NumericValue();
+                    numericValue4.Text = OutputUtil.RemoveLeadingSpclChar(String.Join(" - ", tmpBuf));
+                    seriesText2.Append(numericValue4);
+
                     lineChartSeries1.Append(index2);
                     lineChartSeries1.Append(order2);
+                    lineChartSeries1.Append(seriesText2);
                     lineChartSeries1.Append(SetLineChartProperty(rgb));
                     lineChartSeries1.Append(marker1);
                     lineChartSeries1.Append(SetNumericDataLinkValues(worksheetPart, tempTable, fRow, fRow, lastCol, firstCol));
@@ -3635,56 +3684,35 @@ namespace Qc4Launcher.Logic.Cross_Report
             barChart1.Append(axisId1);
             barChart1.Append(axisId2);
 
-            //scatter chart start
-            C.ScatterChart scatterChart1 = new C.ScatterChart();
+            // Line chart overlay (bar+line combo). Prefer lineChart over scatterChart so Google Sheets
+            // imports a real combo chart instead of falling back to a single column/bar chart.
+            C.LineChart lineChart1 = new C.LineChart();
 
             if (HasLines)
             {
-                C.ScatterStyle scatterStyle1 = new C.ScatterStyle() { Val = C.ScatterStyleValues.LineMarker };
+                C.Grouping grouping1 = new C.Grouping() { Val = C.GroupingValues.Standard };
                 C.VaryColors varyColors2 = new C.VaryColors() { Val = false };
-                int sideTableChoiceRow = 28;
-                List<String> values = new List<string>();
+                lineChart1.Append(grouping1);
+                lineChart1.Append(varyColors2);
 
+                int sideTableChoiceRow = 28;
 
                 for (int j = 0; j < LinesIndexList.Count; j++)
                 {
-                    int sideTableFirstCol = 16;
-                    C.ScatterChartSeries scatterChartSeries1 = new C.ScatterChartSeries();
+                    int sideTableFirstCol = 16 + LinesIndexList[j];
+                    C.LineChartSeries lineChartSeries1 = new C.LineChartSeries();
                     C.Index index2 = new C.Index() { Val = (UInt32Value)(j + 2U) };
                     C.Order order2 = new C.Order() { Val = (UInt32Value)(j + 1U) };
-                    sideTableFirstCol += LinesIndexList[j];
-                    scatterChartSeries1.Append(index2);
-                    scatterChartSeries1.Append(order2);
+                    lineChartSeries1.Append(index2);
+                    lineChartSeries1.Append(order2);
 
-                    C.SeriesText seriesText2 = new C.SeriesText();
-                    C.StringReference stringReference3 = new C.StringReference();
-                    C.Formula formula8 = new C.Formula();
-                    formula8.Text = "\'" + tempTable + "\'!$" + OpenXmlHelper.ColumnIndexToColumnLetter(sideTableFirstCol) + "$" + sideTableChoiceRow;
-                    C.StringCache stringCache2 = new C.StringCache();
-                    C.PointCount pointCount4 = new C.PointCount() { Val = (UInt32Value)1U };
-                    C.StringPoint stringPoint2 = new C.StringPoint() { Index = (UInt32Value)0U };
-                    C.NumericValue numericValue2 = new C.NumericValue();
-                    numericValue2.Text = "";
-                    stringPoint2.Append(numericValue2);
-                    stringCache2.Append(pointCount4);
-                    stringCache2.Append(stringPoint2);
-                    stringReference3.Append(formula8);
-                    stringReference3.Append(stringCache2);
-                    seriesText2.Append(stringReference3);
-                    scatterChartSeries1.Append(seriesText2);
+                    string seriesLabel = GetChartCellText(worksheetPart, sideTableChoiceRow, sideTableFirstCol);
+                    lineChartSeries1.Append(SetSeriesText(tempTable, sideTableChoiceRow, sideTableFirstCol, seriesLabel));
 
                     var clr = System.Drawing.Color.FromArgb(ColorPallet.colorIndex[ColorPallet.colorLineIndex[(j) % ColorPallet.colorLineIndex.Length]]);
                     var rgb = clr.B.ToString("X2") + clr.G.ToString("X2") + clr.R.ToString("X2");
 
-                    //scatterChartSeries1.Append(SetLineChartProperty(rgb));
-                    C.ChartShapeProperties chartShapeProperties3 = new C.ChartShapeProperties();
-                    A.Outline outline14 = new A.Outline() { Width = 3175 };
-                    A.SolidFill solidFill24 = new A.SolidFill();
-                    A.RgbColorModelHex rgbColorModelHex30 = new A.RgbColorModelHex() { Val = rgb };
-                    solidFill24.Append(rgbColorModelHex30);
-                    outline14.Append(solidFill24);
-                    chartShapeProperties3.Append(outline14);
-                    scatterChartSeries1.Append(chartShapeProperties3);
+                    lineChartSeries1.Append(SetLineChartProperty(rgb));
 
                     C.Marker marker1 = new C.Marker();
                     C.Symbol symbol1 = new C.Symbol() { Val = C.MarkerStyleValues.Square };
@@ -3705,63 +3733,26 @@ namespace Qc4Launcher.Logic.Cross_Report
                     marker1.Append(symbol1);
                     marker1.Append(size1);
                     marker1.Append(chartShapeProperties4);
-                    //marker1.Append(SetMarkerProperty(rgb));
-
-                    UInt32Value numberOfPoints = Convert.ToUInt32(lastRow - firstRow + 1);
-                    scatterChartSeries1.Append(SetNumericXDataLinkValues(worksheetPart, tempTable, firstRow, lastRow, sideTableFirstCol, sideTableFirstCol, numberOfPoints));
-                    C.YValues yValues1 = new C.YValues();
-                    C.NumberLiteral numberLiteral1 = new C.NumberLiteral();
-                    C.FormatCode formatCode3 = new C.FormatCode();
-                    formatCode3.Text = "General";
-                    C.PointCount pointCount6 = new C.PointCount() { Val = (UInt32Value)(numberOfPoints) };
-                    numberLiteral1.Append(formatCode3);
-                    numberLiteral1.Append(pointCount6);
-
-                    double pointValue = 0.5;
-                    UInt32Value index = 0;
-                    for (int i = firstRow; i <= lastRow; i++, pointValue += 1)
-                    {
-                        C.NumericPoint numericPoint = new C.NumericPoint() { Index = index };
-                        C.NumericValue numericValue = new C.NumericValue();
-                        numericValue.Text = pointValue.ToString();
-                        numericPoint.Append(numericValue);
-                        numberLiteral1.Append(numericPoint);
-                        index++;
-                    }
-
-                    yValues1.Append(numberLiteral1);
 
                     C.Smooth smooth1 = new C.Smooth() { Val = false };
-                    scatterChartSeries1.Append(marker1);
-                    scatterChartSeries1.Append(yValues1);
-                    scatterChartSeries1.Append(smooth1);
-                    scatterChart1.Append(scatterChartSeries1);
-                    sideTableFirstCol++;
+                    lineChartSeries1.Append(marker1);
+                    // Shared category/value axes with the bar chart — required for GWS combo import
+                    lineChartSeries1.Append(SetStringDataLinkValues(worksheetPart, tempTable, firstRow, lastRow, 2, 2));
+                    lineChartSeries1.Append(SetNumericDataLinkValues(worksheetPart, tempTable, firstRow, lastRow, sideTableFirstCol, sideTableFirstCol));
+                    lineChartSeries1.Append(smooth1);
+                    lineChart1.Append(lineChartSeries1);
                 }
 
-                C.DataLabels dataLabels3 = new C.DataLabels();
-                C.ShowLegendKey showLegendKey3 = new C.ShowLegendKey() { Val = false };
-                C.ShowValue showValue3 = new C.ShowValue() { Val = false };
-                C.ShowCategoryName showCategoryName3 = new C.ShowCategoryName() { Val = false };
-                C.ShowSeriesName showSeriesName3 = new C.ShowSeriesName() { Val = false };
-                C.ShowPercent showPercent3 = new C.ShowPercent() { Val = false };
-                C.ShowBubbleSize showBubbleSize3 = new C.ShowBubbleSize() { Val = false };
+                C.ShowMarker showMarker1 = new C.ShowMarker() { Val = true };
+                C.Smooth smooth3 = new C.Smooth() { Val = false };
+                // Same axis ids as barChart so Sheets treats this as one combo chart
+                C.AxisId axisId3 = new C.AxisId() { Val = (UInt32Value)184588544U };
+                C.AxisId axisId4 = new C.AxisId() { Val = (UInt32Value)184598912U };
 
-                dataLabels3.Append(showLegendKey3);
-                dataLabels3.Append(showValue3);
-                dataLabels3.Append(showCategoryName3);
-                dataLabels3.Append(showSeriesName3);
-                dataLabels3.Append(showPercent3);
-                dataLabels3.Append(showBubbleSize3);
-
-                C.AxisId axisId3 = new C.AxisId() { Val = (UInt32Value)184601984U };
-                C.AxisId axisId4 = new C.AxisId() { Val = (UInt32Value)184600448U };
-
-                scatterChart1.Append(scatterStyle1);
-                scatterChart1.Append(varyColors2);
-                scatterChart1.Append(dataLabels3);
-                scatterChart1.Append(axisId3);
-                scatterChart1.Append(axisId4);
+                lineChart1.Append(showMarker1);
+                lineChart1.Append(smooth3);
+                lineChart1.Append(axisId3);
+                lineChart1.Append(axisId4);
             }
 
             C.CategoryAxis categoryAxis1 = new C.CategoryAxis();
@@ -3834,68 +3825,6 @@ namespace Qc4Launcher.Logic.Cross_Report
             valueAxis1.Append(crossBetween1);
             valueAxis1.Append(majorUnit1);
 
-            C.ValueAxis valueAxis2 = new C.ValueAxis();
-            C.AxisId axisId7 = new C.AxisId() { Val = (UInt32Value)184600448U };
-
-            C.Scaling scaling3 = new C.Scaling();
-            C.Orientation orientation3 = new C.Orientation() { Val = C.OrientationValues.MaxMin };
-            C.MaxAxisValue maxAxisValue2 = new C.MaxAxisValue() { Val = (lastRow - firstRow + 1) };
-            C.MinAxisValue minAxisValue2 = new C.MinAxisValue() { Val = 0D };
-
-            scaling3.Append(orientation3);
-            scaling3.Append(maxAxisValue2);
-            scaling3.Append(minAxisValue2);
-            C.Delete delete3 = new C.Delete() { Val = true };
-            C.AxisPosition axisPosition3 = new C.AxisPosition() { Val = C.AxisPositionValues.Right };
-            C.NumberingFormat numberingFormat13 = new C.NumberingFormat() { FormatCode = "General", SourceLinked = true };
-            C.MajorTickMark majorTickMark3 = new C.MajorTickMark() { Val = C.TickMarkValues.Outside };
-            C.MinorTickMark minorTickMark3 = new C.MinorTickMark() { Val = C.TickMarkValues.None };
-            C.TickLabelPosition tickLabelPosition3 = new C.TickLabelPosition() { Val = C.TickLabelPositionValues.NextTo };
-            C.CrossingAxis crossingAxis3 = new C.CrossingAxis() { Val = (UInt32Value)184601984U };
-            C.Crosses crosses3 = new C.Crosses() { Val = C.CrossesValues.Maximum };
-            C.CrossBetween crossBetween2 = new C.CrossBetween() { Val = C.CrossBetweenValues.MidpointCategory };
-
-            valueAxis2.Append(axisId7);
-            valueAxis2.Append(scaling3);
-            valueAxis2.Append(delete3);
-            valueAxis2.Append(axisPosition3);
-            valueAxis2.Append(numberingFormat13);
-            valueAxis2.Append(majorTickMark3);
-            valueAxis2.Append(minorTickMark3);
-            valueAxis2.Append(tickLabelPosition3);
-            valueAxis2.Append(crossingAxis3);
-            valueAxis2.Append(crosses3);
-            valueAxis2.Append(crossBetween2);
-
-            C.ValueAxis valueAxis3 = new C.ValueAxis();
-            C.AxisId axisId8 = new C.AxisId() { Val = (UInt32Value)184601984U };
-
-            C.Scaling scaling4 = new C.Scaling();
-            C.Orientation orientation4 = new C.Orientation() { Val = C.OrientationValues.MinMax };
-
-            scaling4.Append(orientation4);
-            C.Delete delete4 = new C.Delete() { Val = true };
-            C.AxisPosition axisPosition4 = new C.AxisPosition() { Val = C.AxisPositionValues.Top };
-            C.NumberingFormat numberingFormat14 = new C.NumberingFormat() { FormatCode = "\"▲\"0.0", SourceLinked = true };
-            C.MajorTickMark majorTickMark4 = new C.MajorTickMark() { Val = C.TickMarkValues.Outside };
-            C.MinorTickMark minorTickMark4 = new C.MinorTickMark() { Val = C.TickMarkValues.None };
-            C.TickLabelPosition tickLabelPosition4 = new C.TickLabelPosition() { Val = C.TickLabelPositionValues.NextTo };
-            C.CrossingAxis crossingAxis4 = new C.CrossingAxis() { Val = (UInt32Value)184600448U };
-            C.Crosses crosses4 = new C.Crosses() { Val = C.CrossesValues.AutoZero };
-            C.CrossBetween crossBetween3 = new C.CrossBetween() { Val = C.CrossBetweenValues.MidpointCategory };
-
-            valueAxis3.Append(axisId8);
-            valueAxis3.Append(scaling4);
-            valueAxis3.Append(delete4);
-            valueAxis3.Append(axisPosition4);
-            valueAxis3.Append(numberingFormat14);
-            valueAxis3.Append(majorTickMark4);
-            valueAxis3.Append(minorTickMark4);
-            valueAxis3.Append(tickLabelPosition4);
-            valueAxis3.Append(crossingAxis4);
-            valueAxis3.Append(crosses4);
-            valueAxis3.Append(crossBetween3);
-
             C.ShapeProperties shapeProperties3 = new C.ShapeProperties();
             A.NoFill noFill3 = new A.NoFill();
 
@@ -3908,14 +3837,9 @@ namespace Qc4Launcher.Logic.Cross_Report
             shapeProperties3.Append(outline12);
 
             plotArea1.Append(barChart1);
-            if (HasLines) plotArea1.Append(scatterChart1);
+            if (HasLines) plotArea1.Append(lineChart1);
             plotArea1.Append(categoryAxis1);
             plotArea1.Append(valueAxis1);
-            if (HasLines)
-            {
-                plotArea1.Append(valueAxis2);
-                plotArea1.Append(valueAxis3);
-            }
             plotArea1.Append(shapeProperties3);
             C.PlotVisibleOnly plotVisibleOnly1 = new C.PlotVisibleOnly() { Val = true };
             C.DisplayBlanksAs displayBlanksAs1 = new C.DisplayBlanksAs() { Val = C.DisplayBlanksAsValues.Gap };
@@ -4064,7 +3988,7 @@ namespace Qc4Launcher.Logic.Cross_Report
             textProperties.Append(paragraph3);
             return textProperties;
         }
-        public static C.SeriesText SetSeriesText(string sheetName, int row, int col)
+        public static C.SeriesText SetSeriesText(string sheetName, int row, int col, string cachedText = null)
         {          
             C.SeriesText seriesText = new C.SeriesText();
 
@@ -4073,6 +3997,17 @@ namespace Qc4Launcher.Logic.Cross_Report
             formula1.Text = "\'" + sheetName + "\'!$" + OpenXmlHelper.ColumnIndexToColumnLetter(col) + "$" + row;
 
             stringReference1.Append(formula1);
+            // Cache required for Google Sheets chart import
+            C.StringCache stringCache = new C.StringCache();
+            C.PointCount pointCount = new C.PointCount() { Val = 1U };
+            stringCache.Append(pointCount);
+            C.StringPoint stringPoint = new C.StringPoint() { Index = 0U };
+            C.NumericValue numericValue = new C.NumericValue();
+            numericValue.Text = cachedText ?? string.Empty;
+            stringPoint.Append(numericValue);
+            stringCache.Append(stringPoint);
+            stringReference1.Append(stringCache);
+
             seriesText.Append(stringReference1);
             return seriesText;
         }
@@ -4384,6 +4319,8 @@ namespace Qc4Launcher.Logic.Cross_Report
             formula1.Text = "\'" + perSheetName + "\'!$" + OpenXmlHelper.ColumnIndexToColumnLetter(perFirstCol) + "$" + perStartRow + ":$" + OpenXmlHelper.ColumnIndexToColumnLetter(perLastCol) + "$" + endRow;
 
             stringReference1.Append(formula1);
+            // Google Sheets requires strCache on chart refs
+            stringReference1.Append(BuildStringCache(worksheetPart, perStartRow, endRow, perFirstCol, perLastCol));
             categoryAxisData.Append(stringReference1);
             return categoryAxisData;
         }
@@ -4394,8 +4331,9 @@ namespace Qc4Launcher.Logic.Cross_Report
             C.NumberReference numberReference = new C.NumberReference();
             C.Formula formula2 = new C.Formula();
             formula2.Text = "\'" + sheetName + "\'!$" + OpenXmlHelper.ColumnIndexToColumnLetter(firstCol) + "$" + firstRow + ":$" + OpenXmlHelper.ColumnIndexToColumnLetter(lastCol) + "$" + lastRow;
-            C.NumberingCache numberingCache1 = new C.NumberingCache();
             numberReference.Append(formula2);
+            // Google Sheets requires numCache on chart refs
+            numberReference.Append(BuildNumberingCache(worksheetPart, firstRow, lastRow, firstCol, lastCol));
             values.Append(numberReference);
             return values;
         }
@@ -4407,17 +4345,118 @@ namespace Qc4Launcher.Logic.Cross_Report
             C.NumberReference numberReference = new C.NumberReference();
             C.Formula formula2 = new C.Formula();
             formula2.Text = "\'" + sheetName + "\'!$" + OpenXmlHelper.ColumnIndexToColumnLetter(firstCol) + "$" + firstRow + ":$" + OpenXmlHelper.ColumnIndexToColumnLetter(lastCol) + "$" + lastRow;
-            C.NumberingCache numberingCache3 = new C.NumberingCache();
-            C.FormatCode formatCode3 = new C.FormatCode();
-            formatCode3.Text = "0.0";
-            C.PointCount pointCount5 = new C.PointCount() { Val = (UInt32Value)numberOfPoints };
-            numberingCache3.Append(formatCode3);
-            numberingCache3.Append(pointCount5);
             numberReference.Append(formula2);
-            numberReference.Append(numberingCache3);
+            numberReference.Append(BuildNumberingCache(worksheetPart, firstRow, lastRow, firstCol, lastCol, "0.0"));
             values.Append(numberReference);
 
             return values;
+        }
+
+        /// <summary>
+        /// Builds cached category/series string values. Google Sheets requires strCache on chart refs.
+        /// </summary>
+        private static C.StringCache BuildStringCache(WorksheetPart worksheetPart, int startRow, int endRow, int startCol, int endCol)
+        {
+            C.StringCache stringCache = new C.StringCache();
+            List<string> values = CollectRangeValues(worksheetPart, startRow, endRow, startCol, endCol);
+            C.PointCount pointCount = new C.PointCount() { Val = (UInt32Value)(uint)values.Count };
+            stringCache.Append(pointCount);
+            for (int i = 0; i < values.Count; i++)
+            {
+                C.StringPoint stringPoint = new C.StringPoint() { Index = (UInt32Value)(uint)i };
+                C.NumericValue numericValue = new C.NumericValue();
+                numericValue.Text = values[i] ?? string.Empty;
+                stringPoint.Append(numericValue);
+                stringCache.Append(stringPoint);
+            }
+            return stringCache;
+        }
+
+        /// <summary>
+        /// Builds cached numeric series values. Google Sheets requires numCache on chart refs.
+        /// </summary>
+        private static C.NumberingCache BuildNumberingCache(WorksheetPart worksheetPart, int startRow, int endRow, int startCol, int endCol, string formatCodeText = "General")
+        {
+            C.NumberingCache numberingCache = new C.NumberingCache();
+            C.FormatCode formatCode = new C.FormatCode();
+            formatCode.Text = formatCodeText;
+            numberingCache.Append(formatCode);
+
+            List<string> values = CollectRangeValues(worksheetPart, startRow, endRow, startCol, endCol);
+            C.PointCount pointCount = new C.PointCount() { Val = (UInt32Value)(uint)values.Count };
+            numberingCache.Append(pointCount);
+            for (int i = 0; i < values.Count; i++)
+            {
+                C.NumericPoint numericPoint = new C.NumericPoint() { Index = (UInt32Value)(uint)i };
+                C.NumericValue numericValue = new C.NumericValue();
+                string raw = values[i];
+                if (string.IsNullOrEmpty(raw) || !double.TryParse(raw, out _))
+                    numericValue.Text = "0";
+                else
+                    numericValue.Text = raw;
+                numericPoint.Append(numericValue);
+                numberingCache.Append(numericPoint);
+            }
+            return numberingCache;
+        }
+
+        private static List<string> CollectRangeValues(WorksheetPart worksheetPart, int startRow, int endRow, int startCol, int endCol)
+        {
+            List<string> values = new List<string>();
+            if (worksheetPart == null)
+                return values;
+
+            int rowFrom = Math.Min(startRow, endRow);
+            int rowTo = Math.Max(startRow, endRow);
+            int colFrom = Math.Min(startCol, endCol);
+            int colTo = Math.Max(startCol, endCol);
+
+            for (int r = rowFrom; r <= rowTo; r++)
+            {
+                for (int c = colFrom; c <= colTo; c++)
+                {
+                    values.Add(GetChartCellText(worksheetPart, r, c));
+                }
+            }
+            return values;
+        }
+
+        private static string GetChartCellText(WorksheetPart worksheetPart, int rowIdx, int colIdx)
+        {
+            try
+            {
+                Row row = OpenXmlHelper.GetRow(worksheetPart.Worksheet, (uint)rowIdx);
+                if (row == null)
+                    return string.Empty;
+                Cell cell = OpenXmlHelper.GetCell(row, rowIdx, colIdx);
+                if (cell == null || cell.CellValue == null)
+                    return string.Empty;
+
+                string text = cell.CellValue.InnerText ?? string.Empty;
+                if (cell.DataType != null && cell.DataType.Value == CellValues.SharedString)
+                {
+                    try
+                    {
+                        WorkbookPart workbookPart = ((SpreadsheetDocument)worksheetPart.OpenXmlPackage).WorkbookPart;
+                        SharedStringTablePart sstPart = workbookPart?.SharedStringTablePart;
+                        if (sstPart?.SharedStringTable != null && int.TryParse(text, out int sstIndex))
+                        {
+                            SharedStringItem item = sstPart.SharedStringTable.Elements<SharedStringItem>().ElementAtOrDefault(sstIndex);
+                            if (item != null)
+                                return item.InnerText ?? string.Empty;
+                        }
+                    }
+                    catch
+                    {
+                        // fall through to raw text
+                    }
+                }
+                return text;
+            }
+            catch
+            {
+                return string.Empty;
+            }
         }
 
         private static string Space(int count = 1)
