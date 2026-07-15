@@ -343,6 +343,15 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                         GraphStartCell = reportKeyWord;
                         WorksheetPart worksheetPart = OpenXmlHelper.GetWorksheetPartByName(package, GraphStartCell);
                         GraphDrawingsPart = worksheetPart.AddNewPart<DrawingsPart>("rId2");
+                        // Keep worksheet <drawing r:id=...> in sync with the drawings relationship Id
+                        Drawing drawingElement = worksheetPart.Worksheet.Descendants<Drawing>().FirstOrDefault();
+                        if (drawingElement != null)
+                            drawingElement.Id = worksheetPart.GetIdOfPart(GraphDrawingsPart);
+                        else
+                        {
+                            drawingElement = new Drawing() { Id = worksheetPart.GetIdOfPart(GraphDrawingsPart) };
+                            worksheetPart.Worksheet.Append(drawingElement);
+                        }
                         ChartCount = 1;
                     }
 

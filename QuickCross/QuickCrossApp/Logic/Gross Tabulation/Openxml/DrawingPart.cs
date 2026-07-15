@@ -28,8 +28,8 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
         {
             Xdr.WorksheetDrawing worksheetDrawing = null;
 
-            // Google Sheets expects default editAs="twoCell" (Absolute fails import)
-            Xdr.TwoCellAnchor twoCellAnchor = new Xdr.TwoCellAnchor();
+            // Google Sheets requires editAs="twoCell" with non-zero frame extents (Absolute + 0x0 fails open)
+            Xdr.TwoCellAnchor twoCellAnchor = new Xdr.TwoCellAnchor() { EditAs = Xdr.EditAsValues.TwoCell };
 
             Xdr.FromMarker fromMarker2 = new Xdr.FromMarker();
             Xdr.ColumnId columnId3 = new Xdr.ColumnId();
@@ -61,6 +61,7 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
             toMarker2.Append(rowId4);
             toMarker2.Append(rowOffset4);
 
+            // Do not set Macro="" — empty macro + a16:creationId both appear in failing QC4 draws; QCSV omits them
             Xdr.GraphicFrame graphicFrame1 = new Xdr.GraphicFrame();
 
             Xdr.NonVisualGraphicFrameProperties nonVisualGraphicFrameProperties1 = new Xdr.NonVisualGraphicFrameProperties();
@@ -80,7 +81,6 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
             nonVisualGraphicFrameProperties1.Append(nonVisualGraphicFrameDrawingProperties1);
 
             Xdr.Transform transform1 = new Xdr.Transform();
-            // Non-zero extents required for Google Sheets chart import (0x0 frames fail open)
             A.Offset offset2 = new A.Offset() { X = 100L, Y = 100L };
             A.Extents extents2 = new A.Extents() { Cx = 8534400L, Cy = 4572000L };
 
@@ -241,7 +241,8 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                 if (flag == 0) { dataLabels = null; }
                 //bool showCategoryName = true, showLeaderLines = false;
                 //pieChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines, NumberFormat));//Apply Labels
-                pieChartSeries1.Append(dataLabels);
+                if (dataLabels != null)
+                    pieChartSeries1.Append(dataLabels);
                 pieChartSeries1.Append(SetStringDataLink(worksheetPart, perSheetName, perStartRow + 1, perStartRow + 1, lCol, perFirstCol));
                 pieChartSeries1.Append(SetNumericDataLink(worksheetPart, perSheetName, lCol, endRow, endRow, perFirstCol));
             }
@@ -295,7 +296,8 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                 if (flag == 0) { dataLabels = null; }
                 // bool showCategoryName = true, showLeaderLines = false;
                 // pieChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines, NumberFormat, dataLabels));//Apply Labels
-                pieChartSeries1.Append(dataLabels);
+                if (dataLabels != null)
+                    pieChartSeries1.Append(dataLabels);
                 pieChartSeries1.Append(SetStringDataLink(worksheetPart, perSheetName, sRow, endRow, perFirstCol + 1, perFirstCol + 1));
                 pieChartSeries1.Append(SetNumericDataLink(worksheetPart, perSheetName, PerLastCol, sRow, endRow, PerLastCol));
             }
@@ -401,12 +403,13 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
 
                     var clr = System.Drawing.Color.FromArgb(ColorPallet.colorIndex[Table.Chart.SeriesColorIndex((i - 1) % Table.Chart.SeriesCount)]);
                     rgb = clr.B.ToString("X2") + clr.G.ToString("X2") + clr.R.ToString("X2");
-                    barChartSeries1.Append(ApplyFillColour(lineColour, rgb));
+                    // OOXML series order: idx, order, tx, spPr, invertIfNegative, dLbls, cat, val
                     barChartSeries1.Append(SetSeriesText(worksheetPart, perSheetName, perStartRow + 1, col));
+                    barChartSeries1.Append(ApplyFillColour(lineColour, rgb));
                     C.InvertIfNegative invertIfNegative1 = new C.InvertIfNegative() { Val = false };
                     bool showCategoryName = false, showLeaderLines = false;
-                    barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines));
                     barChartSeries1.Append(invertIfNegative1);
+                    barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines));
                     barChartSeries1.Append(SetStringDataLink(worksheetPart, perSheetName, row, endRow, 3, 3));
                     barChartSeries1.Append(SetNumericDataLink(worksheetPart, perSheetName, col, row, endRow, col));
                     barChart1.Append(barChartSeries1);
@@ -423,11 +426,13 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
 
                 var clr = System.Drawing.Color.FromArgb(ColorPallet.colorIndex[Table.Chart.SeriesColorIndex((1 - 1) % Table.Chart.SeriesCount)]);
                 rgb = clr.B.ToString("X2") + clr.G.ToString("X2") + clr.R.ToString("X2");
+                // OOXML series order: idx, order, tx, spPr, invertIfNegative, dLbls, cat, val
+                barChartSeries1.Append(SetSeriesText(worksheetPart, perSheetName, perStartRow + 1, PerLastCol));
                 barChartSeries1.Append(ApplyFillColour(lineColour, rgb));
                 C.InvertIfNegative invertIfNegative1 = new C.InvertIfNegative() { Val = false };
                 bool showCategoryName = false, showLeaderLines = false;
-                barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines));
                 barChartSeries1.Append(invertIfNegative1);
+                barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines));
                 barChartSeries1.Append(SetStringDataLink(worksheetPart, perSheetName, perStartRow + 2, endRow, perFirstCol + 1, perFirstCol + 1));
                 barChartSeries1.Append(SetNumericDataLink(worksheetPart, perSheetName, PerLastCol, perStartRow + 2, endRow, PerLastCol));
                 barChart1.Append(barChartSeries1);
@@ -437,13 +442,11 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                 barChartSeries1 = new C.BarChartSeries();
                 index1 = new C.Index() { Val = (UInt32Value)0U };
                 order1 = new C.Order() { Val = (UInt32Value)0U };
-                C.SeriesText seriesText1 = new C.SeriesText();
-                C.NumericValue numericValue1 = new C.NumericValue();
-                numericValue1.Text = "";
 
                 barChartSeries1.Append(index1);
                 barChartSeries1.Append(order1);
-                seriesText1.Append(numericValue1);
+                // Series title required by Google Sheets (matches QCSV chart XML)
+                barChartSeries1.Append(SetSeriesText(worksheetPart, perSheetName, perStartRow + 1, PerLastCol));
 
                 int clusterChartColor = Convert.ToInt32(Util.Constants.GTGraphColorIndex.WIDTH_STICK_M);
                 if (Table.Chart.SeriesColorIndex((1 - 1) % Table.Chart.SeriesCount) == clusterChartColor &&
@@ -495,8 +498,8 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                 C.InvertIfNegative invertIfNegative1 = new C.InvertIfNegative() { Val = false };
 
                 bool showCategoryName = false, showLeaderLines = false;
-                barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines));
                 barChartSeries1.Append(invertIfNegative1);
+                barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines));
 
                 if (isQCM)
                 {
@@ -713,12 +716,13 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
 
                     var clr = System.Drawing.Color.FromArgb(ColorPallet.colorIndex[Table.Chart.SeriesColorIndex((i - 1) % Table.Chart.SeriesCount)]);
                     rgb = clr.B.ToString("X2") + clr.G.ToString("X2") + clr.R.ToString("X2");
-                    barChartSeries1.Append(ApplyFillColour(lineColour, rgb));
+                    // OOXML series order: idx, order, tx, spPr, invertIfNegative, dLbls, cat, val
                     barChartSeries1.Append(SetSeriesText(worksheetPart, perSheetName, perStartRow + 1, col));
+                    barChartSeries1.Append(ApplyFillColour(lineColour, rgb));
                     C.InvertIfNegative invertIfNegative1 = new C.InvertIfNegative() { Val = false };
                     bool showCategoryName = false, showLeaderLines = false;
-                    barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines));
                     barChartSeries1.Append(invertIfNegative1);
+                    barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines));
                     barChartSeries1.Append(SetStringDataLink(worksheetPart, perSheetName, row, endRow, 3, 3));
                     barChartSeries1.Append(SetNumericDataLink(worksheetPart, perSheetName, col, row, endRow, col));
                     barChart1.Append(barChartSeries1);
@@ -735,17 +739,20 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
 
                 var clr = System.Drawing.Color.FromArgb(ColorPallet.colorIndex[Table.Chart.SeriesColorIndex((1 - 1) % Table.Chart.SeriesCount)]);
                 rgb = clr.B.ToString("X2") + clr.G.ToString("X2") + clr.R.ToString("X2");
+                barChartSeries1.Append(SetSeriesText(worksheetPart, perSheetName, perStartRow + 1, PerLastCol));
                 barChartSeries1.Append(ApplyFillColour(lineColour, rgb));
                 C.InvertIfNegative invertIfNegative1 = new C.InvertIfNegative() { Val = false };
                 bool showCategoryName = false, showLeaderLines = false;
-                barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines));
                 barChartSeries1.Append(invertIfNegative1);
+                barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines));
                 barChartSeries1.Append(SetStringDataLink(worksheetPart, perSheetName, perStartRow + 2, endRow, perFirstCol + 1, perFirstCol + 1));
                 barChartSeries1.Append(SetNumericDataLink(worksheetPart, perSheetName, PerLastCol, perStartRow + 2, endRow, PerLastCol));
                 barChart1.Append(barChartSeries1);
             }
             else
             {
+                // Series title required by Google Sheets (matches QCSV chart XML)
+                barChartSeries1.Append(SetSeriesText(worksheetPart, perSheetName, perStartRow + 1, PerLastCol));
                 int clusterChartColor = Convert.ToInt32(Util.Constants.GTGraphColorIndex.WIDTH_STICK_M);
                 if (Table.Chart.SeriesColorIndex((1 - 1) % Table.Chart.SeriesCount) == clusterChartColor &&
                                           (ChartType == "xlBarClustered" || ChartType == "xlColumnClustered") &&
@@ -796,8 +803,8 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                 C.InvertIfNegative invertIfNegative1 = new C.InvertIfNegative() { Val = false };
 
                 bool showCategoryName = false, showLeaderLines = false;
-                barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines));
                 barChartSeries1.Append(invertIfNegative1);
+                barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines));
 
                 if (isQCM)
                 {
@@ -2173,6 +2180,7 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
             manualLayout1.Append(leftMode1);
             manualLayout1.Append(topMode1);
             manualLayout1.Append(left1);
+            manualLayout1.Append(top1);
 
             layout.Append(manualLayout1);
             return layout;
@@ -2474,7 +2482,7 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
         {
             Xdr.WorksheetDrawing worksheetDrawing1 = new Xdr.WorksheetDrawing();
 
-            Xdr.TwoCellAnchor twoCellAnchor1 = new Xdr.TwoCellAnchor() { EditAs = Xdr.EditAsValues.Absolute };
+            Xdr.TwoCellAnchor twoCellAnchor1 = new Xdr.TwoCellAnchor() { EditAs = Xdr.EditAsValues.TwoCell };
 
             Xdr.FromMarker fromMarker1 = new Xdr.FromMarker();
             Xdr.ColumnId columnId1 = new Xdr.ColumnId();
@@ -2638,7 +2646,7 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
         }
         public void GenerateSignificanceTestLegend(DrawingsPart drawingsPart, string value,int rowNum)
         {
-            Xdr.TwoCellAnchor twoCellAnchor2 = new Xdr.TwoCellAnchor() { EditAs = Xdr.EditAsValues.Absolute };
+            Xdr.TwoCellAnchor twoCellAnchor2 = new Xdr.TwoCellAnchor() { EditAs = Xdr.EditAsValues.TwoCell };
 
             Xdr.FromMarker fromMarker2 = new Xdr.FromMarker();
             Xdr.ColumnId columnId3 = new Xdr.ColumnId();
@@ -2764,7 +2772,7 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
         public void GenerateRankingMarkingLegend(DrawingsPart drawingsPart, int rowNum)
         {
             CrossCreator crossCreator = new CrossCreator();
-            Xdr.TwoCellAnchor twoCellAnchor3 = new Xdr.TwoCellAnchor() { EditAs = Xdr.EditAsValues.Absolute };
+            Xdr.TwoCellAnchor twoCellAnchor3 = new Xdr.TwoCellAnchor() { EditAs = Xdr.EditAsValues.TwoCell };
 
             Xdr.FromMarker fromMarker3 = new Xdr.FromMarker();
             Xdr.ColumnId columnId5 = new Xdr.ColumnId();
