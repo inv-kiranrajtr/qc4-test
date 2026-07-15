@@ -3635,25 +3635,24 @@ namespace Qc4Launcher.Logic.Cross_Report
             barChart1.Append(axisId1);
             barChart1.Append(axisId2);
 
-            //scatter chart start — keep secondary-axis LineMarker overlay (Excel visual).
-            // GWS cannot resolve chart formulas on sheet names like 1(Q1S2); embed real caches below.
+            //scatter chart start
             C.ScatterChart scatterChart1 = new C.ScatterChart();
 
             if (HasLines)
             {
                 C.ScatterStyle scatterStyle1 = new C.ScatterStyle() { Val = C.ScatterStyleValues.LineMarker };
                 C.VaryColors varyColors2 = new C.VaryColors() { Val = false };
-                scatterChart1.Append(scatterStyle1);
-                scatterChart1.Append(varyColors2);
-
                 int sideTableChoiceRow = 28;
+                List<String> values = new List<string>();
+
 
                 for (int j = 0; j < LinesIndexList.Count; j++)
                 {
-                    int sideTableFirstCol = 16 + LinesIndexList[j];
+                    int sideTableFirstCol = 16;
                     C.ScatterChartSeries scatterChartSeries1 = new C.ScatterChartSeries();
                     C.Index index2 = new C.Index() { Val = (UInt32Value)(j + 2U) };
                     C.Order order2 = new C.Order() { Val = (UInt32Value)(j + 1U) };
+                    sideTableFirstCol += LinesIndexList[j];
                     scatterChartSeries1.Append(index2);
                     scatterChartSeries1.Append(order2);
 
@@ -3665,7 +3664,7 @@ namespace Qc4Launcher.Logic.Cross_Report
                     C.PointCount pointCount4 = new C.PointCount() { Val = (UInt32Value)1U };
                     C.StringPoint stringPoint2 = new C.StringPoint() { Index = (UInt32Value)0U };
                     C.NumericValue numericValue2 = new C.NumericValue();
-                    numericValue2.Text = GetChartCellText(worksheetPart, sideTableChoiceRow, sideTableFirstCol);
+                    numericValue2.Text = "";
                     stringPoint2.Append(numericValue2);
                     stringCache2.Append(pointCount4);
                     stringCache2.Append(stringPoint2);
@@ -3737,6 +3736,7 @@ namespace Qc4Launcher.Logic.Cross_Report
                     scatterChartSeries1.Append(yValues1);
                     scatterChartSeries1.Append(smooth1);
                     scatterChart1.Append(scatterChartSeries1);
+                    sideTableFirstCol++;
                 }
 
                 C.DataLabels dataLabels3 = new C.DataLabels();
@@ -3757,6 +3757,8 @@ namespace Qc4Launcher.Logic.Cross_Report
                 C.AxisId axisId3 = new C.AxisId() { Val = (UInt32Value)184601984U };
                 C.AxisId axisId4 = new C.AxisId() { Val = (UInt32Value)184600448U };
 
+                scatterChart1.Append(scatterStyle1);
+                scatterChart1.Append(varyColors2);
                 scatterChart1.Append(dataLabels3);
                 scatterChart1.Append(axisId3);
                 scatterChart1.Append(axisId4);
@@ -4382,9 +4384,6 @@ namespace Qc4Launcher.Logic.Cross_Report
             formula1.Text = "\'" + perSheetName + "\'!$" + OpenXmlHelper.ColumnIndexToColumnLetter(perFirstCol) + "$" + perStartRow + ":$" + OpenXmlHelper.ColumnIndexToColumnLetter(perLastCol) + "$" + endRow;
 
             stringReference1.Append(formula1);
-            C.StringCache stringCache = BuildStringCacheIfPresent(worksheetPart, perStartRow, endRow, perFirstCol, perLastCol);
-            if (stringCache != null)
-                stringReference1.Append(stringCache);
             categoryAxisData.Append(stringReference1);
             return categoryAxisData;
         }
@@ -4395,12 +4394,8 @@ namespace Qc4Launcher.Logic.Cross_Report
             C.NumberReference numberReference = new C.NumberReference();
             C.Formula formula2 = new C.Formula();
             formula2.Text = "\'" + sheetName + "\'!$" + OpenXmlHelper.ColumnIndexToColumnLetter(firstCol) + "$" + firstRow + ":$" + OpenXmlHelper.ColumnIndexToColumnLetter(lastCol) + "$" + lastRow;
+            C.NumberingCache numberingCache1 = new C.NumberingCache();
             numberReference.Append(formula2);
-            // Embed real points so GWS can plot without resolving sheet formulas (names like 1(Q1S2)).
-            // Skip cache if nothing readable — never ship an empty/zero stub (that collapses Excel charts).
-            C.NumberingCache numberingCache = BuildNumberingCacheIfPresent(worksheetPart, firstRow, lastRow, firstCol, lastCol, "General");
-            if (numberingCache != null)
-                numberReference.Append(numberingCache);
             values.Append(numberReference);
             return values;
         }
@@ -4412,144 +4407,17 @@ namespace Qc4Launcher.Logic.Cross_Report
             C.NumberReference numberReference = new C.NumberReference();
             C.Formula formula2 = new C.Formula();
             formula2.Text = "\'" + sheetName + "\'!$" + OpenXmlHelper.ColumnIndexToColumnLetter(firstCol) + "$" + firstRow + ":$" + OpenXmlHelper.ColumnIndexToColumnLetter(lastCol) + "$" + lastRow;
+            C.NumberingCache numberingCache3 = new C.NumberingCache();
+            C.FormatCode formatCode3 = new C.FormatCode();
+            formatCode3.Text = "0.0";
+            C.PointCount pointCount5 = new C.PointCount() { Val = (UInt32Value)numberOfPoints };
+            numberingCache3.Append(formatCode3);
+            numberingCache3.Append(pointCount5);
             numberReference.Append(formula2);
-            // Previous stub had ptCount but no points — GWS drops the series. Fill real points or omit cache.
-            C.NumberingCache numberingCache = BuildNumberingCacheIfPresent(worksheetPart, firstRow, lastRow, firstCol, lastCol, "0.0");
-            if (numberingCache != null)
-                numberReference.Append(numberingCache);
+            numberReference.Append(numberingCache3);
             values.Append(numberReference);
 
             return values;
-        }
-
-        /// <summary>
-        /// Builds strCache only when at least one cell has text. Google Sheets uses the cache when formulas fail.
-        /// </summary>
-        private static C.StringCache BuildStringCacheIfPresent(WorksheetPart worksheetPart, int startRow, int endRow, int startCol, int endCol)
-        {
-            List<string> values = CollectRangeValues(worksheetPart, startRow, endRow, startCol, endCol);
-            if (values.Count == 0 || values.All(string.IsNullOrEmpty))
-                return null;
-
-            C.StringCache stringCache = new C.StringCache();
-            C.PointCount pointCount = new C.PointCount() { Val = (UInt32Value)(uint)values.Count };
-            stringCache.Append(pointCount);
-            for (int i = 0; i < values.Count; i++)
-            {
-                C.StringPoint stringPoint = new C.StringPoint() { Index = (UInt32Value)(uint)i };
-                C.NumericValue numericValue = new C.NumericValue();
-                numericValue.Text = values[i] ?? string.Empty;
-                stringPoint.Append(numericValue);
-                stringCache.Append(stringPoint);
-            }
-            return stringCache;
-        }
-
-        /// <summary>
-        /// Builds numCache only when at least one readable numeric cell exists.
-        /// Avoids writing all-zero caches that make Excel render collapsed 0.0 charts.
-        /// </summary>
-        private static C.NumberingCache BuildNumberingCacheIfPresent(WorksheetPart worksheetPart, int startRow, int endRow, int startCol, int endCol, string formatCodeText)
-        {
-            List<string> values = CollectRangeValues(worksheetPart, startRow, endRow, startCol, endCol);
-            if (values.Count == 0)
-                return null;
-
-            bool anyNumber = false;
-            List<string> normalized = new List<string>(values.Count);
-            foreach (string raw in values)
-            {
-                double d;
-                if (!string.IsNullOrEmpty(raw) &&
-                    (double.TryParse(raw, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out d)
-                     || double.TryParse(raw, out d)))
-                {
-                    anyNumber = true;
-                    normalized.Add(d.ToString(System.Globalization.CultureInfo.InvariantCulture));
-                }
-                else
-                {
-                    // Preserve index alignment; only used when the series has at least one real number.
-                    normalized.Add("0");
-                }
-            }
-            if (!anyNumber)
-                return null;
-
-            C.NumberingCache numberingCache = new C.NumberingCache();
-            C.FormatCode formatCode = new C.FormatCode();
-            formatCode.Text = formatCodeText;
-            numberingCache.Append(formatCode);
-            C.PointCount pointCount = new C.PointCount() { Val = (UInt32Value)(uint)normalized.Count };
-            numberingCache.Append(pointCount);
-            for (int i = 0; i < normalized.Count; i++)
-            {
-                C.NumericPoint numericPoint = new C.NumericPoint() { Index = (UInt32Value)(uint)i };
-                C.NumericValue numericValue = new C.NumericValue();
-                numericValue.Text = normalized[i];
-                numericPoint.Append(numericValue);
-                numberingCache.Append(numericPoint);
-            }
-            return numberingCache;
-        }
-
-        private static List<string> CollectRangeValues(WorksheetPart worksheetPart, int startRow, int endRow, int startCol, int endCol)
-        {
-            List<string> values = new List<string>();
-            if (worksheetPart == null)
-                return values;
-
-            int rowFrom = Math.Min(startRow, endRow);
-            int rowTo = Math.Max(startRow, endRow);
-            int colFrom = Math.Min(startCol, endCol);
-            int colTo = Math.Max(startCol, endCol);
-
-            for (int r = rowFrom; r <= rowTo; r++)
-            {
-                for (int c = colFrom; c <= colTo; c++)
-                {
-                    values.Add(GetChartCellText(worksheetPart, r, c));
-                }
-            }
-            return values;
-        }
-
-        private static string GetChartCellText(WorksheetPart worksheetPart, int rowIdx, int colIdx)
-        {
-            try
-            {
-                Row row = OpenXmlHelper.GetRow(worksheetPart.Worksheet, (uint)rowIdx);
-                if (row == null)
-                    return string.Empty;
-                Cell cell = OpenXmlHelper.GetCell(row, rowIdx, colIdx);
-                if (cell == null || cell.CellValue == null)
-                    return string.Empty;
-
-                string text = cell.CellValue.InnerText ?? string.Empty;
-                if (cell.DataType != null && cell.DataType.Value == CellValues.SharedString)
-                {
-                    try
-                    {
-                        WorkbookPart workbookPart = ((SpreadsheetDocument)worksheetPart.OpenXmlPackage).WorkbookPart;
-                        SharedStringTablePart sstPart = workbookPart?.SharedStringTablePart;
-                        if (sstPart?.SharedStringTable != null && int.TryParse(text, out int sstIndex))
-                        {
-                            SharedStringItem item = sstPart.SharedStringTable.Elements<SharedStringItem>().ElementAtOrDefault(sstIndex);
-                            if (item != null)
-                                return item.InnerText ?? string.Empty;
-                        }
-                    }
-                    catch
-                    {
-                        // fall through to raw text
-                    }
-                }
-                return text;
-            }
-            catch
-            {
-                return string.Empty;
-            }
         }
 
         private static string Space(int count = 1)
