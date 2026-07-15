@@ -48,11 +48,6 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
         private const string SignificanceTest = "SignificanceTest";
         private const string Hybrid = "Hybrid";
         private const long AVERAGE_COLUMN_INDEX = 6;
-        /// <summary>
-        /// TEMP: skip Graph sheet and all chart/drawing generation to diagnose Google Sheets open failures.
-        /// Set to false to restore graphs.
-        /// </summary>
-        private const bool DisableGraphsForGwsDiagnostics = true;
         public static int LegendWidthDef = 119;
         public static int DataLabelHeightDef = 3;
         public static double NumericLabelRowHt = 0;
@@ -2057,8 +2052,7 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                             ChartObjectCol = new Collection();
                             tmpChartObject = null;
                             WorksheetPart worksheetGraphPart = null;
-                            // TEMP GWS diagnostics: skip all graph generation
-                            if (!DisableGraphsForGwsDiagnostics && !(GraphStartCell == null || withBlock1.Chart == null || withBlock1.Chart.ChartType == 0))
+                            if (!(GraphStartCell == null || withBlock1.Chart == null || withBlock1.Chart.ChartType == 0))
                             {
                                 chartObj = 0;
                                 int qcmNum = 1;
@@ -5147,13 +5141,6 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
                     }
                 }
 
-                // TEMP GWS diagnostics: do not create Graph sheet / drawings / charts
-                if (DisableGraphsForGwsDiagnostics)
-                {
-                    CreateGraph = false;
-                    GraphSheet = null;
-                }
-
                 if (CreateGraph) GraphSheet = "Graph";
 
                 // 不要シートを削除
@@ -5198,10 +5185,6 @@ namespace Qc4Launcher.Logic.Gross_Tabulation.Openxml
        , double HideChartDescriptionMaxPercent = -1
        )
         {
-            // TEMP GWS diagnostics: skip creating any chart/drawing objects
-            if (DisableGraphsForGwsDiagnostics)
-                return;
-
             int chartAreaHeight;
             int rowCount = 0;
 
