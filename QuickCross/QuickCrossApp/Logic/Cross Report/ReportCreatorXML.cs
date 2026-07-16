@@ -1088,7 +1088,18 @@ namespace Qc4Launcher.Logic.Cross_Report
                         string lineColour = null;
                         DrawingPart.GenerateGraphDrawingsPart(drawingPart, (ReportPortraitHelper.BarClusterGraph.Bar_Cluster_Start_Row == 31 ? "29" : "30"), ReportPortraitHelper.BarClusterGraph.Bar_Cluster_End_Row.ToString(), "3", "12", "rId1", "BarClusterPotrait");
                         ChartPart chartPart = drawingPart.AddNewPart<ChartPart>("rId1");
-                        DrawingPart.GenerateBarClusterLineGraphPotrait(worksheetPart, tmpTable, tmpFormatSheet, lineColour, "12", chartPart, ReportPortraitHelper.BarClusterGraph.Bar_Cluster_Start_Row, ReportPortraitHelper.BarClusterGraph.Bar_Cluster_End_Row, 4, 13, false, tempTable, HasLines, LinesIndexList);
+                        // GWS combo support test: Column + Line shared-axis combo (not bar+scatter).
+                        // Revert to GenerateBarClusterLineGraphPotrait after validating Sheets import.
+                        DrawingPart.GenerateGwsCompatibleColumnLineCombo(
+                            worksheetPart,
+                            tmpTable,
+                            chartPart,
+                            ReportPortraitHelper.BarClusterGraph.Bar_Cluster_Start_Row,
+                            ReportPortraitHelper.BarClusterGraph.Bar_Cluster_End_Row,
+                            4,
+                            tempTable,
+                            HasLines,
+                            LinesIndexList);
 
                         if (HasLines)
                         {

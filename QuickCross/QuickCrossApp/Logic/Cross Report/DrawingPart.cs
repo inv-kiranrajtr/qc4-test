@@ -3308,6 +3308,218 @@ namespace Qc4Launcher.Logic.Cross_Report
             chartPart.ChartSpace = chartSpace1;
         }
 
+        /// <summary>
+        /// GWS-compatible combo chart sample: clustered COLUMN (全体) + LINE series sharing the same axes.
+        /// Use this from portrait CrossChart to verify Google Sheets imports combo (line) series.
+        /// Unlike GenerateBarClusterLineGraphPotrait (bar + scatter secondary axes), this matches Sheets' supported combo form.
+        /// </summary>
+        public static void GenerateGwsCompatibleColumnLineCombo(
+            WorksheetPart worksheetPart,
+            CrossTable tmpTable,
+            ChartPart chartPart,
+            int firstRow,
+            int lastRow,
+            int firstCol,
+            string tempTable,
+            bool HasLines,
+            List<int> LinesIndexList)
+        {
+            C.ChartSpace chartSpace1 = new C.ChartSpace();
+            chartSpace1.AddNamespaceDeclaration("c16r2", "http://schemas.microsoft.com/office/drawing/2015/06/chart");
+            C.Date1904 date19041 = new C.Date1904() { Val = false };
+            C.EditingLanguage editingLanguage1 = new C.EditingLanguage() { Val = "en-US" };
+            C.RoundedCorners roundedCorners1 = new C.RoundedCorners() { Val = false };
+
+            AlternateContent alternateContent2 = new AlternateContent();
+            alternateContent2.AddNamespaceDeclaration("mc", "http://schemas.openxmlformats.org/markup-compatibility/2006");
+            AlternateContentChoice alternateContentChoice2 = new AlternateContentChoice() { Requires = "c14" };
+            alternateContentChoice2.AddNamespaceDeclaration("c14", "http://schemas.microsoft.com/office/drawing/2007/8/2/chart");
+            alternateContentChoice2.Append(new C14.Style() { Val = 102 });
+            AlternateContentFallback alternateContentFallback1 = new AlternateContentFallback();
+            alternateContentFallback1.Append(new C.Style() { Val = 2 });
+            alternateContent2.Append(alternateContentChoice2);
+            alternateContent2.Append(alternateContentFallback1);
+
+            C.Chart chart1 = new C.Chart();
+            chart1.Append(new C.AutoTitleDeleted() { Val = false });
+
+            C.Title title1 = new C.Title();
+            C.ChartText chartText1 = new C.ChartText();
+            C.RichText richText1 = new C.RichText();
+            richText1.Append(new A.BodyProperties());
+            richText1.Append(new A.ListStyle());
+            A.Paragraph paragraph1 = new A.Paragraph();
+            A.ParagraphProperties paragraphProperties1 = new A.ParagraphProperties();
+            paragraphProperties1.Append(new A.DefaultRunProperties() { FontSize = 1100 });
+            paragraph1.Append(paragraphProperties1);
+            A.Run run1 = new A.Run();
+            run1.Append(new A.RunProperties() { Language = "en-US", FontSize = 1100 });
+            A.Text text1 = new A.Text();
+            text1.Text = "GWS Combo Test (Column + Line)";
+            run1.Append(text1);
+            paragraph1.Append(run1);
+            richText1.Append(paragraph1);
+            chartText1.Append(richText1);
+            title1.Append(chartText1);
+            title1.Append(new C.Overlay() { Val = false });
+            chart1.Append(title1);
+
+            C.PlotArea plotArea1 = new C.PlotArea();
+            plotArea1.Append(new C.Layout());
+
+            const uint catAxId = 100U;
+            const uint valAxId = 200U;
+
+            // --- Column series (全体) ---
+            C.BarChart barChart1 = new C.BarChart();
+            barChart1.Append(new C.BarDirection() { Val = C.BarDirectionValues.Column });
+            barChart1.Append(new C.BarGrouping() { Val = C.BarGroupingValues.Clustered });
+            barChart1.Append(new C.VaryColors() { Val = false });
+
+            C.BarChartSeries barChartSeries1 = new C.BarChartSeries();
+            barChartSeries1.Append(new C.Index() { Val = 0U });
+            barChartSeries1.Append(new C.Order() { Val = 0U });
+
+            C.SeriesText barSeriesText = new C.SeriesText();
+            C.NumericValue barSeriesName = new C.NumericValue();
+            barSeriesName.Text = "全体";
+            barSeriesText.Append(barSeriesName);
+            barChartSeries1.Append(barSeriesText);
+
+            barChartSeries1.Append(ApplyFillColour("BFBFBF", "D9D9D9"));
+            barChartSeries1.Append(new C.InvertIfNegative() { Val = false });
+            barChartSeries1.Append(SetStringDataLinkValues(worksheetPart, tempTable, firstRow, lastRow, 2, 2));
+            barChartSeries1.Append(SetNumericDataLinkValues(worksheetPart, tempTable, firstRow, lastRow, firstCol, firstCol));
+            barChart1.Append(barChartSeries1);
+
+            C.DataLabels barLabels = new C.DataLabels();
+            barLabels.Append(new C.ShowLegendKey() { Val = false });
+            barLabels.Append(new C.ShowValue() { Val = true });
+            barLabels.Append(new C.ShowCategoryName() { Val = false });
+            barLabels.Append(new C.ShowSeriesName() { Val = false });
+            barLabels.Append(new C.ShowPercent() { Val = false });
+            barLabels.Append(new C.ShowBubbleSize() { Val = false });
+            barChart1.Append(barLabels);
+            barChart1.Append(new C.GapWidth() { Val = (UInt16Value)80U });
+            barChart1.Append(new C.AxisId() { Val = catAxId });
+            barChart1.Append(new C.AxisId() { Val = valAxId });
+            plotArea1.Append(barChart1);
+
+            // --- Line series (shared axes = GWS combo form) ---
+            if (HasLines && LinesIndexList != null && LinesIndexList.Count > 0)
+            {
+                C.LineChart lineChart1 = new C.LineChart();
+                lineChart1.Append(new C.Grouping() { Val = C.GroupingValues.Standard });
+                lineChart1.Append(new C.VaryColors() { Val = false });
+
+                int sideTableChoiceRow = 28;
+                for (int j = 0; j < LinesIndexList.Count; j++)
+                {
+                    int sideTableCol = 16 + LinesIndexList[j];
+                    var clr = System.Drawing.Color.FromArgb(ColorPallet.colorIndex[ColorPallet.colorLineIndex[j % ColorPallet.colorLineIndex.Length]]);
+                    var rgb = clr.B.ToString("X2") + clr.G.ToString("X2") + clr.R.ToString("X2");
+                    string seriesLabel = GetChartCellText(worksheetPart, sideTableChoiceRow, sideTableCol);
+                    if (string.IsNullOrEmpty(seriesLabel))
+                        seriesLabel = "系列" + (j + 1);
+
+                    C.LineChartSeries lineSer = new C.LineChartSeries();
+                    lineSer.Append(new C.Index() { Val = (UInt32Value)(uint)(j + 1) });
+                    lineSer.Append(new C.Order() { Val = (UInt32Value)(uint)(j + 1) });
+
+                    C.SeriesText lineTx = new C.SeriesText();
+                    C.StringReference lineTxRef = new C.StringReference();
+                    C.Formula lineTxFormula = new C.Formula();
+                    lineTxFormula.Text = "\'" + tempTable + "\'!$" + OpenXmlHelper.ColumnIndexToColumnLetter(sideTableCol) + "$" + sideTableChoiceRow;
+                    lineTxRef.Append(lineTxFormula);
+                    C.StringCache lineTxCache = new C.StringCache();
+                    lineTxCache.Append(new C.PointCount() { Val = 1U });
+                    C.StringPoint lineTxPt = new C.StringPoint() { Index = 0U };
+                    C.NumericValue lineTxVal = new C.NumericValue();
+                    lineTxVal.Text = seriesLabel;
+                    lineTxPt.Append(lineTxVal);
+                    lineTxCache.Append(lineTxPt);
+                    lineTxRef.Append(lineTxCache);
+                    lineTx.Append(lineTxRef);
+                    lineSer.Append(lineTx);
+
+                    lineSer.Append(SetLineChartProperty(rgb));
+                    C.Marker marker1 = new C.Marker();
+                    marker1.Append(new C.Symbol() { Val = C.MarkerStyleValues.Square });
+                    marker1.Append(new C.Size() { Val = 7 });
+                    marker1.Append(SetMarkerProperty(rgb));
+                    lineSer.Append(marker1);
+                    lineSer.Append(SetStringDataLinkValues(worksheetPart, tempTable, firstRow, lastRow, 2, 2));
+                    lineSer.Append(SetNumericDataLinkValues(worksheetPart, tempTable, firstRow, lastRow, sideTableCol, sideTableCol));
+                    lineSer.Append(new C.Smooth() { Val = false });
+                    lineChart1.Append(lineSer);
+                }
+
+                lineChart1.Append(new C.ShowMarker() { Val = true });
+                lineChart1.Append(new C.Smooth() { Val = false });
+                lineChart1.Append(new C.AxisId() { Val = catAxId });
+                lineChart1.Append(new C.AxisId() { Val = valAxId });
+                plotArea1.Append(lineChart1);
+            }
+
+            // Category axis (bottom)
+            C.CategoryAxis categoryAxis1 = new C.CategoryAxis();
+            categoryAxis1.Append(new C.AxisId() { Val = catAxId });
+            C.Scaling catScaling = new C.Scaling();
+            catScaling.Append(new C.Orientation() { Val = C.OrientationValues.MinMax });
+            categoryAxis1.Append(catScaling);
+            categoryAxis1.Append(new C.Delete() { Val = false });
+            categoryAxis1.Append(new C.AxisPosition() { Val = C.AxisPositionValues.Bottom });
+            categoryAxis1.Append(new C.MajorTickMark() { Val = C.TickMarkValues.Outside });
+            categoryAxis1.Append(new C.MinorTickMark() { Val = C.TickMarkValues.None });
+            categoryAxis1.Append(new C.TickLabelPosition() { Val = C.TickLabelPositionValues.NextTo });
+            categoryAxis1.Append(new C.CrossingAxis() { Val = valAxId });
+            categoryAxis1.Append(new C.Crosses() { Val = C.CrossesValues.AutoZero });
+            categoryAxis1.Append(new C.AutoLabeled() { Val = true });
+            categoryAxis1.Append(new C.LabelAlignment() { Val = C.LabelAlignmentValues.Center });
+            categoryAxis1.Append(new C.LabelOffset() { Val = (UInt16Value)100U });
+            plotArea1.Append(categoryAxis1);
+
+            // Value axis (left)
+            C.ValueAxis valueAxis1 = new C.ValueAxis();
+            valueAxis1.Append(new C.AxisId() { Val = valAxId });
+            C.Scaling valScaling = new C.Scaling();
+            valScaling.Append(new C.Orientation() { Val = C.OrientationValues.MinMax });
+            valScaling.Append(new C.MaxAxisValue() { Val = 100D });
+            valScaling.Append(new C.MinAxisValue() { Val = 0D });
+            valueAxis1.Append(valScaling);
+            valueAxis1.Append(new C.Delete() { Val = false });
+            valueAxis1.Append(new C.AxisPosition() { Val = C.AxisPositionValues.Left });
+            valueAxis1.Append(new C.MajorGridlines());
+            valueAxis1.Append(new C.NumberingFormat() { FormatCode = "0", SourceLinked = false });
+            valueAxis1.Append(new C.MajorTickMark() { Val = C.TickMarkValues.Outside });
+            valueAxis1.Append(new C.MinorTickMark() { Val = C.TickMarkValues.None });
+            valueAxis1.Append(new C.TickLabelPosition() { Val = C.TickLabelPositionValues.NextTo });
+            valueAxis1.Append(new C.CrossingAxis() { Val = catAxId });
+            valueAxis1.Append(new C.Crosses() { Val = C.CrossesValues.AutoZero });
+            valueAxis1.Append(new C.CrossBetween() { Val = C.CrossBetweenValues.Between });
+            valueAxis1.Append(new C.MajorUnit() { Val = 20D });
+            plotArea1.Append(valueAxis1);
+
+            chart1.Append(plotArea1);
+
+            C.Legend legend1 = new C.Legend();
+            legend1.Append(new C.LegendPosition() { Val = C.LegendPositionValues.Bottom });
+            legend1.Append(new C.Overlay() { Val = false });
+            chart1.Append(legend1);
+
+            chart1.Append(new C.PlotVisibleOnly() { Val = true });
+            chart1.Append(new C.DisplayBlanksAs() { Val = C.DisplayBlanksAsValues.Gap });
+            chart1.Append(new C.ShowDataLabelsOverMaximum() { Val = false });
+
+            chartSpace1.Append(date19041);
+            chartSpace1.Append(editingLanguage1);
+            chartSpace1.Append(roundedCorners1);
+            chartSpace1.Append(alternateContent2);
+            chartSpace1.Append(chart1);
+            chartSpace1.Append(SetTextPrperty(800));
+            chartPart.ChartSpace = chartSpace1;
+        }
+
         //PotraintChart
         public static void GenerateBarClusterGraphPotrait(WorksheetPart worksheetPart, CrossTable tmpTable, string sheetName, string lineColour, string seriesText,
                                                   ChartPart chartPart, int firstRow, int lastRow, int firstCol, int lastCol, bool isN, string tempTable)
@@ -4384,6 +4596,9 @@ namespace Qc4Launcher.Logic.Cross_Report
             formula1.Text = "\'" + perSheetName + "\'!$" + OpenXmlHelper.ColumnIndexToColumnLetter(perFirstCol) + "$" + perStartRow + ":$" + OpenXmlHelper.ColumnIndexToColumnLetter(perLastCol) + "$" + endRow;
 
             stringReference1.Append(formula1);
+            C.StringCache stringCache = BuildStringCacheIfPresent(worksheetPart, perStartRow, endRow, perFirstCol, perLastCol);
+            if (stringCache != null)
+                stringReference1.Append(stringCache);
             categoryAxisData.Append(stringReference1);
             return categoryAxisData;
         }
@@ -4394,8 +4609,11 @@ namespace Qc4Launcher.Logic.Cross_Report
             C.NumberReference numberReference = new C.NumberReference();
             C.Formula formula2 = new C.Formula();
             formula2.Text = "\'" + sheetName + "\'!$" + OpenXmlHelper.ColumnIndexToColumnLetter(firstCol) + "$" + firstRow + ":$" + OpenXmlHelper.ColumnIndexToColumnLetter(lastCol) + "$" + lastRow;
-            C.NumberingCache numberingCache1 = new C.NumberingCache();
             numberReference.Append(formula2);
+            // Embed points when readable — GWS often needs numCache (formulas alone can fail).
+            C.NumberingCache numberingCache = BuildNumberingCacheIfPresent(worksheetPart, firstRow, lastRow, firstCol, lastCol, "0.0");
+            if (numberingCache != null)
+                numberReference.Append(numberingCache);
             values.Append(numberReference);
             return values;
         }
@@ -4407,17 +4625,130 @@ namespace Qc4Launcher.Logic.Cross_Report
             C.NumberReference numberReference = new C.NumberReference();
             C.Formula formula2 = new C.Formula();
             formula2.Text = "\'" + sheetName + "\'!$" + OpenXmlHelper.ColumnIndexToColumnLetter(firstCol) + "$" + firstRow + ":$" + OpenXmlHelper.ColumnIndexToColumnLetter(lastCol) + "$" + lastRow;
-            C.NumberingCache numberingCache3 = new C.NumberingCache();
-            C.FormatCode formatCode3 = new C.FormatCode();
-            formatCode3.Text = "0.0";
-            C.PointCount pointCount5 = new C.PointCount() { Val = (UInt32Value)numberOfPoints };
-            numberingCache3.Append(formatCode3);
-            numberingCache3.Append(pointCount5);
             numberReference.Append(formula2);
-            numberReference.Append(numberingCache3);
+            C.NumberingCache numberingCache = BuildNumberingCacheIfPresent(worksheetPart, firstRow, lastRow, firstCol, lastCol, "0.0");
+            if (numberingCache != null)
+                numberReference.Append(numberingCache);
             values.Append(numberReference);
 
             return values;
+        }
+
+        private static C.StringCache BuildStringCacheIfPresent(WorksheetPart worksheetPart, int startRow, int endRow, int startCol, int endCol)
+        {
+            List<string> values = CollectRangeValues(worksheetPart, startRow, endRow, startCol, endCol);
+            if (values.Count == 0 || values.All(string.IsNullOrEmpty))
+                return null;
+
+            C.StringCache stringCache = new C.StringCache();
+            stringCache.Append(new C.PointCount() { Val = (UInt32Value)(uint)values.Count });
+            for (int i = 0; i < values.Count; i++)
+            {
+                C.StringPoint stringPoint = new C.StringPoint() { Index = (UInt32Value)(uint)i };
+                C.NumericValue numericValue = new C.NumericValue();
+                numericValue.Text = values[i] ?? string.Empty;
+                stringPoint.Append(numericValue);
+                stringCache.Append(stringPoint);
+            }
+            return stringCache;
+        }
+
+        private static C.NumberingCache BuildNumberingCacheIfPresent(WorksheetPart worksheetPart, int startRow, int endRow, int startCol, int endCol, string formatCodeText)
+        {
+            List<string> values = CollectRangeValues(worksheetPart, startRow, endRow, startCol, endCol);
+            if (values.Count == 0)
+                return null;
+
+            bool anyNumber = false;
+            List<string> normalized = new List<string>(values.Count);
+            foreach (string raw in values)
+            {
+                double d;
+                if (!string.IsNullOrEmpty(raw) &&
+                    (double.TryParse(raw, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out d)
+                     || double.TryParse(raw, out d)))
+                {
+                    anyNumber = true;
+                    normalized.Add(d.ToString(System.Globalization.CultureInfo.InvariantCulture));
+                }
+                else
+                {
+                    normalized.Add("0");
+                }
+            }
+            if (!anyNumber)
+                return null;
+
+            C.NumberingCache numberingCache = new C.NumberingCache();
+            C.FormatCode formatCode = new C.FormatCode();
+            formatCode.Text = formatCodeText;
+            numberingCache.Append(formatCode);
+            numberingCache.Append(new C.PointCount() { Val = (UInt32Value)(uint)normalized.Count });
+            for (int i = 0; i < normalized.Count; i++)
+            {
+                C.NumericPoint numericPoint = new C.NumericPoint() { Index = (UInt32Value)(uint)i };
+                C.NumericValue numericValue = new C.NumericValue();
+                numericValue.Text = normalized[i];
+                numericPoint.Append(numericValue);
+                numberingCache.Append(numericPoint);
+            }
+            return numberingCache;
+        }
+
+        private static List<string> CollectRangeValues(WorksheetPart worksheetPart, int startRow, int endRow, int startCol, int endCol)
+        {
+            List<string> values = new List<string>();
+            if (worksheetPart == null)
+                return values;
+
+            int rowFrom = Math.Min(startRow, endRow);
+            int rowTo = Math.Max(startRow, endRow);
+            int colFrom = Math.Min(startCol, endCol);
+            int colTo = Math.Max(startCol, endCol);
+
+            for (int r = rowFrom; r <= rowTo; r++)
+            {
+                for (int c = colFrom; c <= colTo; c++)
+                    values.Add(GetChartCellText(worksheetPart, r, c));
+            }
+            return values;
+        }
+
+        private static string GetChartCellText(WorksheetPart worksheetPart, int rowIdx, int colIdx)
+        {
+            try
+            {
+                Row row = OpenXmlHelper.GetRow(worksheetPart.Worksheet, (uint)rowIdx);
+                if (row == null)
+                    return string.Empty;
+                Cell cell = OpenXmlHelper.GetCell(row, rowIdx, colIdx);
+                if (cell == null || cell.CellValue == null)
+                    return string.Empty;
+
+                string text = cell.CellValue.InnerText ?? string.Empty;
+                if (cell.DataType != null && cell.DataType.Value == CellValues.SharedString)
+                {
+                    try
+                    {
+                        WorkbookPart workbookPart = ((SpreadsheetDocument)worksheetPart.OpenXmlPackage).WorkbookPart;
+                        SharedStringTablePart sstPart = workbookPart?.SharedStringTablePart;
+                        if (sstPart?.SharedStringTable != null && int.TryParse(text, out int sstIndex))
+                        {
+                            SharedStringItem item = sstPart.SharedStringTable.Elements<SharedStringItem>().ElementAtOrDefault(sstIndex);
+                            if (item != null)
+                                return item.InnerText ?? string.Empty;
+                        }
+                    }
+                    catch
+                    {
+                    }
+                }
+                return text;
+            }
+            catch
+            {
+                return string.Empty;
+            }
         }
 
         private static string Space(int count = 1)
