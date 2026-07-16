@@ -804,7 +804,10 @@ namespace Qc4Launcher.Logic.Cross_Report
                                 if (HasLines)
                                 {
                                     chartPart = drawingPart.AddNewPart<ChartPart>("rId2");
-                                    DrawingPart.GenerateGraphDrawingsPart(drawingPart, graphFRow, graphLRow, "2", isThreeWay ? "4" : "3", "rId2"
+                                    // Place legend above the combo chart, spanning the same columns.
+                                    string legendFromRow = Math.Max(1, int.Parse(graphFRow) - 2).ToString();
+                                    string legendToRow = graphFRow;
+                                    DrawingPart.GenerateGraphDrawingsPart(drawingPart, legendFromRow, legendToRow, graphFCol, graphLCol, "rId2"
                                                                            , "LegendLine");
                                     DrawingPart.GenerateLegendLineGraph(worksheetPart, tmpTable, tmpFormatSheet, lineColour, LinesIndexList, ref v, HasLines,
                                                                         chartPart, firstRow, lastRow, firstCol, lastCol, isN, tempTable, i, MaxAxesCountArray);

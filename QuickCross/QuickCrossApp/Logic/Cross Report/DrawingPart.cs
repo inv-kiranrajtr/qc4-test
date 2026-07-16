@@ -1614,7 +1614,8 @@ namespace Qc4Launcher.Logic.Cross_Report
             }
             else if(graphType == "LegendLine")
             {
-                srcColOfst = "423849"; srcRowOfst = "0"; dstColOfst = "185750"; dstRowOfst = "0";
+                // Thin band above the combo chart (legend at top).
+                srcColOfst = "0"; srcRowOfst = "0"; dstColOfst = "0"; dstRowOfst = "0";
             }
             else if (graphType == "BarClusterPotrait")
             {
@@ -2175,10 +2176,11 @@ namespace Qc4Launcher.Logic.Cross_Report
             C.LayoutTarget layoutTarget1 = new C.LayoutTarget() { Val = C.LayoutTargetValues.Inner };
             C.LeftMode leftMode1 = new C.LeftMode() { Val = C.LayoutModeValues.Edge };
             C.TopMode topMode1 = new C.TopMode() { Val = C.LayoutModeValues.Edge };
-            C.Left left1 = new C.Left() { Val = 0.90927786780147446D };
-            C.Top top1 = new C.Top() { Val = 0D };
-            C.Width width1 = new C.Width() { Val = 3.2204973986935587E-2D };
-            C.Height height1 = new C.Height() { Val = 0.89215686274509809D };
+            // Push plot area off-screen so only the top legend is visible (GWS / Excel).
+            C.Left left1 = new C.Left() { Val = 0D };
+            C.Top top1 = new C.Top() { Val = 0.95D };
+            C.Width width1 = new C.Width() { Val = 0.05D };
+            C.Height height1 = new C.Height() { Val = 0.05D };
 
             manualLayout1.Append(layoutTarget1);
             manualLayout1.Append(leftMode1);
@@ -2426,17 +2428,17 @@ namespace Qc4Launcher.Logic.Cross_Report
             plotArea1.Append(shapeProperties1);
 
             C.Legend legend1 = new C.Legend();
-            C.LegendPosition legendPosition1 = new C.LegendPosition() { Val = C.LegendPositionValues.Left };
+            C.LegendPosition legendPosition1 = new C.LegendPosition() { Val = C.LegendPositionValues.Top };
 
             C.Layout layout2 = new C.Layout();
 
             C.ManualLayout manualLayout2 = new C.ManualLayout();
             C.LeftMode leftMode2 = new C.LeftMode() { Val = C.LayoutModeValues.Edge };
             C.TopMode topMode2 = new C.TopMode() { Val = C.LayoutModeValues.Edge };
-            C.Left left2 = new C.Left() { Val = 4.3478260869565216E-2D };
-             C.Top top2 = new C.Top() { Val = 0.39764705882352941D };
-            C.Width width2 = new C.Width() { Val = 0.9126172900262467D };
-            C.Height height2 = new C.Height() { Val = 0.70470588235294118D };
+            C.Left left2 = new C.Left() { Val = 0.02D };
+            C.Top top2 = new C.Top() { Val = 0.02D };
+            C.Width width2 = new C.Width() { Val = 0.96D };
+            C.Height height2 = new C.Height() { Val = 0.90D };
 
             manualLayout2.Append(leftMode2);
             manualLayout2.Append(topMode2);
