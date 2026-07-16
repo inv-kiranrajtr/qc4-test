@@ -800,8 +800,6 @@ namespace Qc4Launcher.Logic.Cross_Report
 
                                 DrawingPart.GenerateColumClusterAndLineGraph(worksheetPart, tmpTable, tmpFormatSheet, lineColour, LinesIndexList, ref v, HasLines,
                                                                             chartPart, firstRow, lastRow, firstCol, lastCol, isN, tempTable, i, MaxAxesCountArray);
-                                // Legend is now on the main combo chart (Excel-style). Separate LegendLine chart is not used —
-                                // Google Sheets ignores it and Excel already shows the integrated legend.
                             }
 
                             if (!isMA)  // side chart
