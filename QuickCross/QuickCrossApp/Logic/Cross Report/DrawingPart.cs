@@ -20,6 +20,35 @@ namespace Qc4Launcher.Logic.Cross_Report
 {
     public class DrawingPart
     {
+        private const double PlotLeftX = 0.08;
+        private const double PlotFullWidth = 0.90;
+
+        /// <summary>
+        /// Left-aligned plot area layout for Google Sheets compatibility (mirrors QCSV GraphGenerator).
+        /// </summary>
+        private static C.Layout CreateAlignedPlotAreaLayout(double y, double height, double width = PlotFullWidth)
+        {
+            C.Layout layout = new C.Layout();
+            C.ManualLayout manualLayout = new C.ManualLayout();
+            C.LayoutTarget layoutTarget = new C.LayoutTarget() { Val = C.LayoutTargetValues.Inner };
+            C.LeftMode leftMode = new C.LeftMode() { Val = C.LayoutModeValues.Edge };
+            C.TopMode topMode = new C.TopMode() { Val = C.LayoutModeValues.Edge };
+            C.Left left = new C.Left() { Val = PlotLeftX };
+            C.Top top = new C.Top() { Val = y };
+            C.Width plotWidth = new C.Width() { Val = width };
+            C.Height plotHeight = new C.Height() { Val = height };
+
+            manualLayout.Append(layoutTarget);
+            manualLayout.Append(leftMode);
+            manualLayout.Append(topMode);
+            manualLayout.Append(left);
+            manualLayout.Append(top);
+            manualLayout.Append(plotWidth);
+            manualLayout.Append(plotHeight);
+            layout.Append(manualLayout);
+            return layout;
+        }
+
         public static void GenerateTitleBox(DrawingsPart drawingsPart, string title)
         {
             Xdr.WorksheetDrawing worksheetDrawing1 = new Xdr.WorksheetDrawing();
@@ -3022,7 +3051,7 @@ namespace Qc4Launcher.Logic.Cross_Report
 
             C.PlotArea plotArea1 = new C.PlotArea();
 
-            C.Layout layout1 = new C.Layout();
+            C.Layout layout1 = CreateAlignedPlotAreaLayout(0.10, 0.84);
 
             C.BarChart barChart1 = new C.BarChart();
             C.BarDirection barDirection1 = new C.BarDirection() { Val = C.BarDirectionValues.Column };
@@ -3035,9 +3064,14 @@ namespace Qc4Launcher.Logic.Cross_Report
 
             C.InvertIfNegative invertIfNegative1 = new C.InvertIfNegative() { Val = false };
             bool showCategoryName = false, showLeaderLines = false;
+            int categoryRow = firstRow - 1;
 
             barChartSeries1.Append(index1);
             barChartSeries1.Append(order1);
+            if (HasLines)
+            {
+                barChartSeries1.Append(SetSeriesText(tempTable, firstRow, 1));
+            }
             int col = firstCol;
             int subTotalCnt = lastCol - tmpTable.Question.SubTotalCnt;
             int indexer = 0;
@@ -3057,6 +3091,7 @@ namespace Qc4Launcher.Logic.Cross_Report
             //barChartSeries1.Append(ApplyFillColour("BFBFBF", "F2F2F2"));
             barChartSeries1.Append(invertIfNegative1);
             barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines, "0.0;;"));
+            barChartSeries1.Append(SetStringDataLinkValues(worksheetPart, tempTable, categoryRow, categoryRow, lastCol, firstCol));
             barChartSeries1.Append(SetNumericDataLinkValues(worksheetPart, tempTable, firstRow, lastRow, lastCol, firstCol));
 
             C.DataLabels dataLabels2 = new C.DataLabels();
@@ -3090,7 +3125,7 @@ namespace Qc4Launcher.Logic.Cross_Report
 
             if (HasLines)
             {
-               
+                string[] tmpBuf;
                 C.Grouping grouping1 = new C.Grouping() { Val = C.GroupingValues.Standard };
                 C.VaryColors varyColors2 = new C.VaryColors() { Val = false };
 
@@ -3101,32 +3136,70 @@ namespace Qc4Launcher.Logic.Cross_Report
                 int lineCount = LinesIndexList.Count;
                 for (int j = 0; j < LinesIndexList.Count; j++)
                 {
-                    fRow = firstRow - 1;
-                    fRow += LinesIndexList[j];
-                    C.LineChartSeries lineChartSeries1 = new C.LineChartSeries();
-                    C.Index index2 = new C.Index() { Val = (uint)j + 1U };
-                    C.Order order2 = new C.Order() { Val = (uint)j + 1U };
+                    if (Convert.ToInt32(LinesIndexList[j]) >= 2 || Convert.ToInt32(LinesIndexList[j]) <= v.GetUpperBound(0) - (1 + 1))
+                    {
+                        fRow = firstRow - 1;
+                        fRow += LinesIndexList[j];
+                        x = Convert.ToInt32(LinesIndexList[j]) + 1 + 1;
+                        if (MaxAxesCountArray[i] == 2)
+                        {
+                            if ((v.GetValue(x, 3)) != null)
+                            {
+                                tmpBuf = new string[1];
+                                tmpBuf[0] = Convert.ToString(v.GetValue(x, 2));
+                            }
+                            else
+                            {
+                                tmpBuf = new string[2];
+                                tmpBuf[1] = Convert.ToString(v.GetValue(x, 3));
+                                for (x = x; x >= 1 + 1 + 1; x--)
+                                {
+                                    if (v.GetValue(x, 2) != null)
+                                    {
+                                        tmpBuf[0] = Convert.ToString(v.GetValue(x, 2));
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            tmpBuf = new string[1];
+                            tmpBuf[0] = Convert.ToString(v.GetValue(x, 2));
+                        }
 
-                    var clr = System.Drawing.Color.FromArgb(ColorPallet.colorIndex[ColorPallet.colorLineIndex[(j) % ColorPallet.colorLineIndex.Length]]);
-                    var rgb = clr.B.ToString("X2") + clr.G.ToString("X2") + clr.R.ToString("X2");
+                        C.LineChartSeries lineChartSeries1 = new C.LineChartSeries();
+                        C.Index index2 = new C.Index() { Val = (uint)j + 1U };
+                        C.Order order2 = new C.Order() { Val = (uint)j + 1U };
 
-                    C.Marker marker1 = new C.Marker();
-                    C.Symbol symbol1 = new C.Symbol() { Val = C.MarkerStyleValues.Square };
-                    C.Size size1 = new C.Size() { Val = 6 };
+                        C.SeriesText seriesText2 = new C.SeriesText();
+                        C.NumericValue numericValue4 = new C.NumericValue();
+                        numericValue4.Text = OutputUtil.RemoveLeadingSpclChar(String.Join(" - ", tmpBuf));
+                        seriesText2.Append(numericValue4);
 
-                    marker1.Append(symbol1);
-                    marker1.Append(size1);
-                    marker1.Append(SetMarkerProperty(rgb));
-                    C.Smooth smooth1 = new C.Smooth() { Val = false };
+                        var clr = System.Drawing.Color.FromArgb(ColorPallet.colorIndex[ColorPallet.colorLineIndex[(j) % ColorPallet.colorLineIndex.Length]]);
+                        var rgb = clr.B.ToString("X2") + clr.G.ToString("X2") + clr.R.ToString("X2");
 
-                    lineChartSeries1.Append(index2);
-                    lineChartSeries1.Append(order2);
-                    lineChartSeries1.Append(SetLineChartProperty(rgb));
-                    lineChartSeries1.Append(marker1);
-                    lineChartSeries1.Append(SetNumericDataLinkValues(worksheetPart, tempTable, fRow, fRow, lastCol, firstCol));
-                    lineChartSeries1.Append(smooth1);
+                        C.Marker marker1 = new C.Marker();
+                        C.Symbol symbol1 = new C.Symbol() { Val = C.MarkerStyleValues.Square };
+                        C.Size size1 = new C.Size() { Val = 6 };
 
-                    lineChart1.Append(lineChartSeries1);
+                        marker1.Append(symbol1);
+                        marker1.Append(size1);
+                        marker1.Append(SetMarkerProperty(rgb));
+                        C.Smooth smooth1 = new C.Smooth() { Val = false };
+
+                        lineChartSeries1.Append(index2);
+                        lineChartSeries1.Append(order2);
+                        lineChartSeries1.Append(seriesText2);
+                        lineChartSeries1.Append(SetLineChartProperty(rgb));
+                        lineChartSeries1.Append(marker1);
+                        lineChartSeries1.Append(SetStringDataLinkValues(worksheetPart, tempTable, categoryRow, categoryRow, lastCol, firstCol));
+                        lineChartSeries1.Append(SetNumericDataLinkValues(worksheetPart, tempTable, fRow, fRow, lastCol, firstCol));
+                        lineChartSeries1.Append(smooth1);
+
+                        lineChart1.Append(lineChartSeries1);
+                    }
                     fRow++;
                 }
 
@@ -3270,6 +3343,7 @@ namespace Qc4Launcher.Logic.Cross_Report
 
             shapeProperties1.Append(outline13);
 
+            plotArea1.Append(layout1);
             plotArea1.Append(barChart1);
             if(HasLines) plotArea1.Append(lineChart1);
             plotArea1.Append(categoryAxis1);
