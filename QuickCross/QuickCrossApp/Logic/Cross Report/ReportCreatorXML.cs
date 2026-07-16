@@ -800,18 +800,8 @@ namespace Qc4Launcher.Logic.Cross_Report
 
                                 DrawingPart.GenerateColumClusterAndLineGraph(worksheetPart, tmpTable, tmpFormatSheet, lineColour, LinesIndexList, ref v, HasLines,
                                                                             chartPart, firstRow, lastRow, firstCol, lastCol, isN, tempTable, i, MaxAxesCountArray);
-
-                                if (HasLines)
-                                {
-                                    chartPart = drawingPart.AddNewPart<ChartPart>("rId2");
-                                    // Place legend above the combo chart, spanning the same columns.
-                                    string legendFromRow = Math.Max(1, int.Parse(graphFRow) - 2).ToString();
-                                    string legendToRow = graphFRow;
-                                    DrawingPart.GenerateGraphDrawingsPart(drawingPart, legendFromRow, legendToRow, graphFCol, graphLCol, "rId2"
-                                                                           , "LegendLine");
-                                    DrawingPart.GenerateLegendLineGraph(worksheetPart, tmpTable, tmpFormatSheet, lineColour, LinesIndexList, ref v, HasLines,
-                                                                        chartPart, firstRow, lastRow, firstCol, lastCol, isN, tempTable, i, MaxAxesCountArray);
-                                }
+                                // Legend is now on the main combo chart (Excel-style). Separate LegendLine chart is not used —
+                                // Google Sheets ignores it and Excel already shows the integrated legend.
                             }
 
                             if (!isMA)  // side chart

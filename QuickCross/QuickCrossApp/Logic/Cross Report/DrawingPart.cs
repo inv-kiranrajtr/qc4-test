@@ -3053,7 +3053,10 @@ namespace Qc4Launcher.Logic.Cross_Report
 
             C.PlotArea plotArea1 = new C.PlotArea();
 
-            C.Layout layout1 = CreateAlignedPlotAreaLayout(0.10, 0.84);
+            // Leave room at top for the legend when line series are present (Excel-style integrated legend).
+            C.Layout layout1 = HasLines
+                ? CreateAlignedPlotAreaLayout(0.18, 0.76)
+                : CreateAlignedPlotAreaLayout(0.10, 0.84);
 
             C.BarChart barChart1 = new C.BarChart();
             C.BarDirection barDirection1 = new C.BarDirection() { Val = C.BarDirectionValues.Column };
@@ -3072,7 +3075,13 @@ namespace Qc4Launcher.Logic.Cross_Report
             barChartSeries1.Append(order1);
             if (HasLines)
             {
-                barChartSeries1.Append(SetSeriesText(tempTable, firstRow, 1));
+                // Literal series name (same as Excel) — GWS needs this for legend keys.
+                C.SeriesText barSeriesText = new C.SeriesText();
+                C.NumericValue barSeriesName = new C.NumericValue();
+                object barNameObj = v.GetValue(2 + 1, 1);
+                barSeriesName.Text = barNameObj == null ? "" : Convert.ToString(barNameObj);
+                barSeriesText.Append(barSeriesName);
+                barChartSeries1.Append(barSeriesText);
             }
             int col = firstCol;
             int subTotalCnt = lastCol - tmpTable.Question.SubTotalCnt;
@@ -3447,6 +3456,24 @@ namespace Qc4Launcher.Logic.Cross_Report
 
             chart1.Append(autoTitleDeleted1);
             chart1.Append(plotArea1);
+            // Excel puts the legend on the main combo chart; GWS also requires this (separate legend charts are ignored).
+            if (HasLines)
+            {
+                C.Legend legend1 = new C.Legend();
+                C.LegendPosition legendPosition1 = new C.LegendPosition() { Val = C.LegendPositionValues.Top };
+                C.Overlay overlay1 = new C.Overlay() { Val = false };
+
+                C.ChartShapeProperties legendShapeProps = new C.ChartShapeProperties();
+                A.Outline legendOutline = new A.Outline() { Width = 25400 };
+                A.NoFill legendNoFill = new A.NoFill();
+                legendOutline.Append(legendNoFill);
+                legendShapeProps.Append(legendOutline);
+
+                legend1.Append(legendPosition1);
+                legend1.Append(overlay1);
+                legend1.Append(legendShapeProps);
+                chart1.Append(legend1);
+            }
             chart1.Append(plotVisibleOnly1);
             chart1.Append(displayBlanksAs1);
             chart1.Append(showDataLabelsOverMaximum1);
