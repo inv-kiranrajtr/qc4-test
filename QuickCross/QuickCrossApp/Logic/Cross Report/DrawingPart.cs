@@ -3057,7 +3057,7 @@ namespace Qc4Launcher.Logic.Cross_Report
             }
             //barChartSeries1.Append(ApplyFillColour("BFBFBF", "F2F2F2"));
             barChartSeries1.Append(invertIfNegative1);
-            barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines, "0.0;;"));
+            barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines, "0.0;;", false, false));
             barChartSeries1.Append(SetStringDataLinkValues(worksheetPart, tempTable, categoryRow, categoryRow, lastCol, firstCol));
             barChartSeries1.Append(SetNumericDataLinkValues(worksheetPart, tempTable, firstRow, lastRow, lastCol, firstCol));
 
@@ -3306,7 +3306,7 @@ namespace Qc4Launcher.Logic.Cross_Report
             barChartSeries1.Append(order1);
             barChartSeries1.Append(ApplyFillColour("BFBFBF", "F2F2F2"));
             barChartSeries1.Append(invertIfNegative1);
-            barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines, "0.0;;"));
+            barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines, "0.0;;", false, false));
             barChartSeries1.Append(SetStringDataLinkValues(worksheetPart, tempTable, firstRow, lastRow, 2, 2));
             barChartSeries1.Append(SetNumericDataLinkValues(worksheetPart, tempTable, firstRow, lastRow, firstCol, firstCol));
 
@@ -3568,7 +3568,7 @@ namespace Qc4Launcher.Logic.Cross_Report
             }
             //barChartSeries1.Append(ApplyFillColour("BFBFBF", "F2F2F2"));
             barChartSeries1.Append(invertIfNegative1);
-            barChartSeries1.Append(ApplyDataLabels_Portrait(showCategoryName, showLeaderLines, firstRow, lastRow, firstCol, lastCol, "0.0;;", sheetName: tempTable));
+            barChartSeries1.Append(ApplyDataLabels_Portrait(showCategoryName, showLeaderLines, firstRow, lastRow, firstCol, lastCol, "0.0;;", sheetName: tempTable, showValue: false));
             barChartSeries1.Append(SetStringDataLinkValues(worksheetPart, tempTable, firstRow, lastRow, 2, 2));
             barChartSeries1.Append(SetNumericDataLinkValues(worksheetPart, tempTable, firstRow, lastRow, firstCol, firstCol));
 
@@ -3896,7 +3896,7 @@ namespace Qc4Launcher.Logic.Cross_Report
             return dataPoint1;
         }
 
-        public static C.DataLabels ApplyDataLabels(bool showCategoryName, bool showLeaderLines, string NumberFormat = null,bool showPercent = true)
+        public static C.DataLabels ApplyDataLabels(bool showCategoryName, bool showLeaderLines, string NumberFormat = null,bool showPercent = true, bool showValue = true)
         {
             C.DataLabels dataLabels = new C.DataLabels();
 
@@ -3934,7 +3934,7 @@ namespace Qc4Launcher.Logic.Cross_Report
             chartShapeProperties2.Append(outline5);
             chartShapeProperties2.Append(effectList4);
             C.ShowLegendKey showLegendKey1 = new C.ShowLegendKey() { Val = false };
-            C.ShowValue showValue1 = new C.ShowValue() { Val = true };
+            C.ShowValue showValue1 = new C.ShowValue() { Val = showValue };
             C.ShowCategoryName showCategoryName1 = new C.ShowCategoryName() { Val = showCategoryName };
             C.ShowSeriesName showSeriesName1 = new C.ShowSeriesName() { Val = false };
             C.ShowPercent showPercent1 = new C.ShowPercent() { Val = showPercent };
@@ -3957,7 +3957,7 @@ namespace Qc4Launcher.Logic.Cross_Report
             return dataLabels;
         }
 
-        public static C.DataLabels ApplyDataLabels_Portrait(bool showCategoryName, bool showLeaderLines, int firstRow, int lastRow, int firstCol, int lastCol, string NumberFormat = null, string sheetName = null)
+        public static C.DataLabels ApplyDataLabels_Portrait(bool showCategoryName, bool showLeaderLines, int firstRow, int lastRow, int firstCol, int lastCol, string NumberFormat = null, string sheetName = null, bool showValue = true)
         {
             C.DataLabels dataLabels = new C.DataLabels();
 
@@ -3977,7 +3977,7 @@ namespace Qc4Launcher.Logic.Cross_Report
 
                 layout2.Append(manualLayout1);
                 C.ShowLegendKey showLegendKey2 = new C.ShowLegendKey() { Val = false };
-                C.ShowValue showValue2 = new C.ShowValue() { Val = true };
+                C.ShowValue showValue2 = new C.ShowValue() { Val = showValue };
                 C.ShowCategoryName showCategoryName2 = new C.ShowCategoryName() { Val = false };
                 C.ShowSeriesName showSeriesName2 = new C.ShowSeriesName() { Val = false };
                 C.ShowPercent showPercent2 = new C.ShowPercent() { Val = true };
@@ -4032,7 +4032,7 @@ namespace Qc4Launcher.Logic.Cross_Report
             chartShapeProperties2.Append(outline5);
             chartShapeProperties2.Append(effectList4);
             C.ShowLegendKey showLegendKey1 = new C.ShowLegendKey() { Val = false };
-            C.ShowValue showValue1 = new C.ShowValue() { Val = true };
+            C.ShowValue showValue1 = new C.ShowValue() { Val = showValue };
             C.ShowCategoryName showCategoryName1 = new C.ShowCategoryName() { Val = showCategoryName };
             C.ShowSeriesName showSeriesName1 = new C.ShowSeriesName() { Val = false };
             C.ShowPercent showPercent1 = new C.ShowPercent() { Val = false };
