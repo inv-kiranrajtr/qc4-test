@@ -89,10 +89,6 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-    <!-- Avoid local "Key not valid for use in specified state" when PFX key isn't in cert store. -->
-    <SignManifests>false</SignManifests>
-  </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>2294006ADFDEB76A1BAB2A952DD6D9E60DE0E689</ManifestCertificateThumbprint>
   </PropertyGroup>
