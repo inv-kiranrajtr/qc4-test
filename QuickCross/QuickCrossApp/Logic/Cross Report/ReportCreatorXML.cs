@@ -801,7 +801,6 @@ namespace Qc4Launcher.Logic.Cross_Report
                                 DrawingPart.GenerateColumClusterAndLineGraph(worksheetPart, tmpTable, tmpFormatSheet, lineColour, LinesIndexList, ref v, HasLines,
                                                                             chartPart, firstRow, lastRow, firstCol, lastCol, isN, tempTable, i, MaxAxesCountArray);
 
-                                // Legend is on the main combo chart (Top). Keep separate LegendLine for Excel left-side labels when useful.
                                 if (HasLines)
                                 {
                                     chartPart = drawingPart.AddNewPart<ChartPart>("rId2");
