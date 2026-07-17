@@ -413,7 +413,6 @@
     </Compile>
     <Compile Include="Logic\Cross Report\CrossReportHelper.cs" />
     <Compile Include="Logic\Cross Report\DrawingPart.cs" />
-    <Compile Include="Logic\Cross Report\GwsComboChartBuilder.cs" />
     <Compile Include="Logic\Cross Report\ReportCreatorXML.cs" />
     <Compile Include="Logic\Cross Report\ReportPerSigTable.cs" />
     <Compile Include="Logic\Cross Report\ReportPerTable.cs" />
