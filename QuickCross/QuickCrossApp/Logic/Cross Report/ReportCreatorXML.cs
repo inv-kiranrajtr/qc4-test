@@ -800,15 +800,7 @@ namespace Qc4Launcher.Logic.Cross_Report
 
                                 DrawingPart.GenerateColumClusterAndLineGraph(worksheetPart, tmpTable, tmpFormatSheet, lineColour, LinesIndexList, ref v, HasLines,
                                                                             chartPart, firstRow, lastRow, firstCol, lastCol, isN, tempTable, i, MaxAxesCountArray);
-
-                                if (HasLines)
-                                {
-                                    chartPart = drawingPart.AddNewPart<ChartPart>("rId2");
-                                    DrawingPart.GenerateGraphDrawingsPart(drawingPart, graphFRow, graphLRow, "2", isThreeWay ? "4" : "3", "rId2"
-                                                                           , "LegendLine");
-                                    DrawingPart.GenerateLegendLineGraph(worksheetPart, tmpTable, tmpFormatSheet, lineColour, LinesIndexList, ref v, HasLines,
-                                                                        chartPart, firstRow, lastRow, firstCol, lastCol, isN, tempTable, i, MaxAxesCountArray);
-                                }
+                                // Combo line series / LegendLine chart removed — plain horizontal bar only (GWS).
                             }
 
                             if (!isMA)  // side chart
@@ -1088,15 +1080,8 @@ namespace Qc4Launcher.Logic.Cross_Report
                         string lineColour = null;
                         DrawingPart.GenerateGraphDrawingsPart(drawingPart, (ReportPortraitHelper.BarClusterGraph.Bar_Cluster_Start_Row == 31 ? "29" : "30"), ReportPortraitHelper.BarClusterGraph.Bar_Cluster_End_Row.ToString(), "3", "12", "rId1", "BarClusterPotrait");
                         ChartPart chartPart = drawingPart.AddNewPart<ChartPart>("rId1");
-                        DrawingPart.GenerateBarClusterLineGraphPotrait(worksheetPart, tmpTable, tmpFormatSheet, lineColour, "12", chartPart, ReportPortraitHelper.BarClusterGraph.Bar_Cluster_Start_Row, ReportPortraitHelper.BarClusterGraph.Bar_Cluster_End_Row, 4, 13, false, tempTable, HasLines, LinesIndexList);
-
-                        if (HasLines)
-                        {
-                            chartPart = drawingPart.AddNewPart<ChartPart>("rId2");
-                            DrawingPart.GenerateGraphDrawingsPart(drawingPart, "25", "29", "3", "12", "rId2", "LegendLine");
-                            DrawingPart.GenerateLegendLineGraphPortrait(worksheetPart, tmpTable, tmpFormatSheet, lineColour, LinesIndexList, ref v, HasLines,
-                                                                chartPart, 27, 29, 3, 11, isN, tempTable, i, MaxAxesCountArray);
-                        }
+                        // Plain horizontal bar only — combo scatter/line overlay removed for GWS.
+                        DrawingPart.GenerateBarClusterGraphPotrait(worksheetPart, tmpTable, tmpFormatSheet, lineColour, "12", chartPart, ReportPortraitHelper.BarClusterGraph.Bar_Cluster_Start_Row, ReportPortraitHelper.BarClusterGraph.Bar_Cluster_End_Row, 4, 13, false, tempTable);
                     }
 
 
