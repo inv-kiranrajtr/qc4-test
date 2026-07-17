@@ -20,6 +20,27 @@ namespace Qc4Launcher.Logic.Cross_Report
 {
     public class DrawingPart
     {
+        private const double PlotLeftX = 0.08;
+        private const double PlotFullWidth = 0.90;
+
+        /// <summary>
+        /// Left-aligned plot area layout for Google Sheets compatibility.
+        /// </summary>
+        private static C.Layout CreateAlignedPlotAreaLayout(double y, double height, double width = PlotFullWidth)
+        {
+            C.Layout layout = new C.Layout();
+            C.ManualLayout manualLayout = new C.ManualLayout();
+            manualLayout.Append(new C.LayoutTarget() { Val = C.LayoutTargetValues.Inner });
+            manualLayout.Append(new C.LeftMode() { Val = C.LayoutModeValues.Edge });
+            manualLayout.Append(new C.TopMode() { Val = C.LayoutModeValues.Edge });
+            manualLayout.Append(new C.Left() { Val = PlotLeftX });
+            manualLayout.Append(new C.Top() { Val = y });
+            manualLayout.Append(new C.Width() { Val = width });
+            manualLayout.Append(new C.Height() { Val = height });
+            layout.Append(manualLayout);
+            return layout;
+        }
+
         public static void GenerateTitleBox(DrawingsPart drawingsPart, string title)
         {
             Xdr.WorksheetDrawing worksheetDrawing1 = new Xdr.WorksheetDrawing();
@@ -2991,9 +3012,9 @@ namespace Qc4Launcher.Logic.Cross_Report
 
             chartPart.ChartSpace = chartSpace1;
         }
-        //Top bar cluster and Line Chart
-        public static void GenerateColumClusterAndLineGraph(WorksheetPart worksheetPart, CrossTable tmpTable, string sheetName, string lineColour, List<int> LinesIndexList, ref Array v,bool HasLines,
-                                             ChartPart chartPart, int firstRow, int lastRow, int firstCol, int lastCol, bool isN, string tempTable,int i, int[] MaxAxesCountArray)
+        // Top GWS combo chart: clustered columns + Scatter LineMarker overlay (Excel LineChart combos are not used).
+        public static void GenerateColumClusterAndLineGraph(WorksheetPart worksheetPart, CrossTable tmpTable, string sheetName, string lineColour, List<int> LinesIndexList, ref Array v, bool HasLines,
+                                             ChartPart chartPart, int firstRow, int lastRow, int firstCol, int lastCol, bool isN, string tempTable, int i, int[] MaxAxesCountArray)
         {
             C.ChartSpace chartSpace1 = new C.ChartSpace();
             C.Date1904 date19041 = new C.Date1904() { Val = false };
@@ -3021,8 +3042,9 @@ namespace Qc4Launcher.Logic.Cross_Report
             C.AutoTitleDeleted autoTitleDeleted1 = new C.AutoTitleDeleted() { Val = false };
 
             C.PlotArea plotArea1 = new C.PlotArea();
-
-            C.Layout layout1 = new C.Layout();
+            C.Layout layout1 = HasLines
+                ? CreateAlignedPlotAreaLayout(0.18, 0.76)
+                : CreateAlignedPlotAreaLayout(0.10, 0.84);
 
             C.BarChart barChart1 = new C.BarChart();
             C.BarDirection barDirection1 = new C.BarDirection() { Val = C.BarDirectionValues.Column };
@@ -3035,9 +3057,21 @@ namespace Qc4Launcher.Logic.Cross_Report
 
             C.InvertIfNegative invertIfNegative1 = new C.InvertIfNegative() { Val = false };
             bool showCategoryName = false, showLeaderLines = false;
+            int columnPointCount = lastCol - firstCol + 1;
+            int categoryRow = Math.Max(1, firstRow - 1);
 
             barChartSeries1.Append(index1);
             barChartSeries1.Append(order1);
+
+            if (HasLines)
+            {
+                C.SeriesText barSeriesText = new C.SeriesText();
+                C.NumericValue barSeriesName = new C.NumericValue();
+                barSeriesName.Text = GetSeriesTextValue(worksheetPart, categoryRow, firstCol) ?? "";
+                barSeriesText.Append(barSeriesName);
+                barChartSeries1.Append(barSeriesText);
+            }
+
             int col = firstCol;
             int subTotalCnt = lastCol - tmpTable.Question.SubTotalCnt;
             int indexer = 0;
@@ -3054,25 +3088,18 @@ namespace Qc4Launcher.Logic.Cross_Report
                 indexer++;
                 col++;
             }
-            //barChartSeries1.Append(ApplyFillColour("BFBFBF", "F2F2F2"));
             barChartSeries1.Append(invertIfNegative1);
-            barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines, "0.0;;"));
+            barChartSeries1.Append(ApplyDataLabels(showCategoryName, showLeaderLines, "0.0;;", false, false));
+            barChartSeries1.Append(SetStringDataLinkValues(worksheetPart, tempTable, categoryRow, categoryRow, lastCol, firstCol));
             barChartSeries1.Append(SetNumericDataLinkValues(worksheetPart, tempTable, firstRow, lastRow, lastCol, firstCol));
 
             C.DataLabels dataLabels2 = new C.DataLabels();
-            C.ShowLegendKey showLegendKey2 = new C.ShowLegendKey() { Val = false };
-            C.ShowValue showValue2 = new C.ShowValue() { Val = false };
-            C.ShowCategoryName showCategoryName2 = new C.ShowCategoryName() { Val = false };
-            C.ShowSeriesName showSeriesName2 = new C.ShowSeriesName() { Val = false };
-            C.ShowPercent showPercent2 = new C.ShowPercent() { Val = false };
-            C.ShowBubbleSize showBubbleSize2 = new C.ShowBubbleSize() { Val = false };
-
-            dataLabels2.Append(showLegendKey2);
-            dataLabels2.Append(showValue2);
-            dataLabels2.Append(showCategoryName2);
-            dataLabels2.Append(showSeriesName2);
-            dataLabels2.Append(showPercent2);
-            dataLabels2.Append(showBubbleSize2);
+            dataLabels2.Append(new C.ShowLegendKey() { Val = false });
+            dataLabels2.Append(new C.ShowValue() { Val = false });
+            dataLabels2.Append(new C.ShowCategoryName() { Val = false });
+            dataLabels2.Append(new C.ShowSeriesName() { Val = false });
+            dataLabels2.Append(new C.ShowPercent() { Val = false });
+            dataLabels2.Append(new C.ShowBubbleSize() { Val = false });
             C.GapWidth gapWidth1 = new C.GapWidth() { Val = (UInt16Value)60U };
             C.AxisId axisId1 = new C.AxisId() { Val = (UInt32Value)2145344767U };
             C.AxisId axisId2 = new C.AxisId() { Val = (UInt32Value)2145223903U };
@@ -3086,217 +3113,262 @@ namespace Qc4Launcher.Logic.Cross_Report
             barChart1.Append(axisId1);
             barChart1.Append(axisId2);
 
-            C.LineChart lineChart1 = new C.LineChart();
+            // GWS does not render Excel LineChart overlays; use Scatter LineMarker instead.
+            C.ScatterChart scatterChart1 = new C.ScatterChart();
+            const uint scatterAxisXId = 2145111101U;
+            const uint scatterAxisYId = 2145111102U;
 
             if (HasLines)
             {
-               
-                C.Grouping grouping1 = new C.Grouping() { Val = C.GroupingValues.Standard };
+                string[] tmpBuf;
+                C.ScatterStyle scatterStyle1 = new C.ScatterStyle() { Val = C.ScatterStyleValues.LineMarker };
                 C.VaryColors varyColors2 = new C.VaryColors() { Val = false };
 
-                lineChart1.Append(grouping1);
-                lineChart1.Append(varyColors2);
-
-                int x, fRow = firstRow + 1;
-                int lineCount = LinesIndexList.Count;
+                int x, fRow;
                 for (int j = 0; j < LinesIndexList.Count; j++)
                 {
-                    fRow = firstRow - 1;
-                    fRow += LinesIndexList[j];
-                    C.LineChartSeries lineChartSeries1 = new C.LineChartSeries();
-                    C.Index index2 = new C.Index() { Val = (uint)j + 1U };
-                    C.Order order2 = new C.Order() { Val = (uint)j + 1U };
+                    if (Convert.ToInt32(LinesIndexList[j]) >= 2 || Convert.ToInt32(LinesIndexList[j]) <= v.GetUpperBound(0) - (1 + 1))
+                    {
+                        fRow = firstRow - 1;
+                        fRow += LinesIndexList[j];
+                        x = Convert.ToInt32(LinesIndexList[j]) + 1 + 1;
+                        if (MaxAxesCountArray[i] == 2)
+                        {
+                            if ((v.GetValue(x, 3)) != null)
+                            {
+                                tmpBuf = new string[1];
+                                tmpBuf[0] = Convert.ToString(v.GetValue(x, 2));
+                            }
+                            else
+                            {
+                                tmpBuf = new string[2];
+                                tmpBuf[1] = Convert.ToString(v.GetValue(x, 3));
+                                for (; x >= 1 + 1 + 1; x--)
+                                {
+                                    if (v.GetValue(x, 2) != null)
+                                    {
+                                        tmpBuf[0] = Convert.ToString(v.GetValue(x, 2));
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            tmpBuf = new string[1];
+                            tmpBuf[0] = Convert.ToString(v.GetValue(x, 2));
+                        }
 
-                    var clr = System.Drawing.Color.FromArgb(ColorPallet.colorIndex[ColorPallet.colorLineIndex[(j) % ColorPallet.colorLineIndex.Length]]);
-                    var rgb = clr.B.ToString("X2") + clr.G.ToString("X2") + clr.R.ToString("X2");
+                        C.ScatterChartSeries scatterChartSeries1 = new C.ScatterChartSeries();
+                        C.Index index2 = new C.Index() { Val = (UInt32Value)(j + 1U) };
+                        C.Order order2 = new C.Order() { Val = (UInt32Value)(j + 1U) };
 
-                    C.Marker marker1 = new C.Marker();
-                    C.Symbol symbol1 = new C.Symbol() { Val = C.MarkerStyleValues.Square };
-                    C.Size size1 = new C.Size() { Val = 6 };
+                        C.SeriesText seriesText2 = new C.SeriesText();
+                        C.NumericValue numericValue4 = new C.NumericValue();
+                        numericValue4.Text = OutputUtil.RemoveLeadingSpclChar(String.Join(" - ", tmpBuf));
+                        seriesText2.Append(numericValue4);
+                        scatterChartSeries1.Append(index2);
+                        scatterChartSeries1.Append(order2);
+                        scatterChartSeries1.Append(seriesText2);
 
-                    marker1.Append(symbol1);
-                    marker1.Append(size1);
-                    marker1.Append(SetMarkerProperty(rgb));
-                    C.Smooth smooth1 = new C.Smooth() { Val = false };
+                        var clr = System.Drawing.Color.FromArgb(ColorPallet.colorIndex[ColorPallet.colorLineIndex[(j) % ColorPallet.colorLineIndex.Length]]);
+                        var rgb = clr.B.ToString("X2") + clr.G.ToString("X2") + clr.R.ToString("X2");
 
-                    lineChartSeries1.Append(index2);
-                    lineChartSeries1.Append(order2);
-                    lineChartSeries1.Append(SetLineChartProperty(rgb));
-                    lineChartSeries1.Append(marker1);
-                    lineChartSeries1.Append(SetNumericDataLinkValues(worksheetPart, tempTable, fRow, fRow, lastCol, firstCol));
-                    lineChartSeries1.Append(smooth1);
+                        C.ChartShapeProperties chartShapeProperties3 = new C.ChartShapeProperties();
+                        A.Outline outlineScatterLine = new A.Outline() { Width = 3175 };
+                        A.SolidFill solidFillScatterLine = new A.SolidFill();
+                        solidFillScatterLine.Append(new A.RgbColorModelHex() { Val = rgb });
+                        outlineScatterLine.Append(solidFillScatterLine);
+                        chartShapeProperties3.Append(outlineScatterLine);
+                        scatterChartSeries1.Append(chartShapeProperties3);
 
-                    lineChart1.Append(lineChartSeries1);
-                    fRow++;
+                        C.Marker marker1 = new C.Marker();
+                        marker1.Append(new C.Symbol() { Val = C.MarkerStyleValues.Square });
+                        marker1.Append(new C.Size() { Val = 6 });
+                        C.ChartShapeProperties markerShape = new C.ChartShapeProperties();
+                        A.SolidFill solidFillMarker = new A.SolidFill();
+                        solidFillMarker.Append(new A.RgbColorModelHex() { Val = rgb });
+                        A.Outline outlineMarker = new A.Outline();
+                        A.SolidFill solidFillMarkerOutline = new A.SolidFill();
+                        solidFillMarkerOutline.Append(new A.SchemeColor() { Val = A.SchemeColorValues.Background1 });
+                        outlineMarker.Append(solidFillMarkerOutline);
+                        markerShape.Append(solidFillMarker);
+                        markerShape.Append(outlineMarker);
+                        marker1.Append(markerShape);
+
+                        C.Smooth smooth1 = new C.Smooth() { Val = false };
+                        scatterChartSeries1.Append(CreateScatterColumnPositionXValues(columnPointCount));
+                        scatterChartSeries1.Append(marker1);
+                        scatterChartSeries1.Append(SetNumericYDataLinkValues(worksheetPart, tempTable, fRow, fRow, lastCol, firstCol));
+                        scatterChartSeries1.Append(smooth1);
+                        scatterChart1.Append(scatterChartSeries1);
+                    }
                 }
 
-                C.ShowMarker showMarker1 = new C.ShowMarker() { Val = true };
-                C.Smooth smooth3 = new C.Smooth() { Val = false };
-                C.AxisId axisId3 = new C.AxisId() { Val = (UInt32Value)2145344767U };
-                C.AxisId axisId4 = new C.AxisId() { Val = (UInt32Value)2145223903U };
+                C.DataLabels scatterDataLabels = new C.DataLabels();
+                scatterDataLabels.Append(new C.ShowLegendKey() { Val = false });
+                scatterDataLabels.Append(new C.ShowValue() { Val = false });
+                scatterDataLabels.Append(new C.ShowCategoryName() { Val = false });
+                scatterDataLabels.Append(new C.ShowSeriesName() { Val = false });
+                scatterDataLabels.Append(new C.ShowPercent() { Val = false });
+                scatterDataLabels.Append(new C.ShowBubbleSize() { Val = false });
 
-                lineChart1.Append(showMarker1);
-                lineChart1.Append(smooth3);
-                lineChart1.Append(axisId3);
-                lineChart1.Append(axisId4);
+                scatterChart1.Append(scatterStyle1);
+                scatterChart1.Append(varyColors2);
+                scatterChart1.Append(scatterDataLabels);
+                scatterChart1.Append(new C.AxisId() { Val = (UInt32Value)scatterAxisXId });
+                scatterChart1.Append(new C.AxisId() { Val = (UInt32Value)scatterAxisYId });
             }
 
             C.CategoryAxis categoryAxis1 = new C.CategoryAxis();
             C.AxisId axisId5 = new C.AxisId() { Val = (UInt32Value)2145344767U };
 
             C.Scaling scaling1 = new C.Scaling();
-            C.Orientation orientation1 = new C.Orientation() { Val = C.OrientationValues.MinMax };
-
-            scaling1.Append(orientation1);
-            C.Delete delete1 = new C.Delete() { Val = false };
-            C.AxisPosition axisPosition1 = new C.AxisPosition() { Val = C.AxisPositionValues.Bottom };
-            C.MajorTickMark majorTickMark1 = new C.MajorTickMark() { Val = C.TickMarkValues.None };
-            C.MinorTickMark minorTickMark1 = new C.MinorTickMark() { Val = C.TickMarkValues.None };
-            C.TickLabelPosition tickLabelPosition1 = new C.TickLabelPosition() { Val = C.TickLabelPositionValues.None };
-
+            scaling1.Append(new C.Orientation() { Val = C.OrientationValues.MinMax });
             C.ChartShapeProperties chartShapeProperties7 = new C.ChartShapeProperties();
-
             A.Outline outline10 = new A.Outline();
-
             A.SolidFill solidFill14 = new A.SolidFill();
-            A.RgbColorModelHex rgbColorModelHex22 = new A.RgbColorModelHex() { Val = "BFBFBF" };
-
-            solidFill14.Append(rgbColorModelHex22);
-            A.PresetDash presetDash8 = new A.PresetDash() { Val = A.PresetLineDashValues.Solid };
-
+            solidFill14.Append(new A.RgbColorModelHex() { Val = "BFBFBF" });
             outline10.Append(solidFill14);
-            outline10.Append(presetDash8);
-
+            outline10.Append(new A.PresetDash() { Val = A.PresetLineDashValues.Solid });
             chartShapeProperties7.Append(outline10);
-            C.CrossingAxis crossingAxis1 = new C.CrossingAxis() { Val = (UInt32Value)2145223903U };
-            C.Crosses crosses1 = new C.Crosses() { Val = C.CrossesValues.AutoZero };
-            C.AutoLabeled autoLabeled1 = new C.AutoLabeled() { Val = true };
-            C.LabelAlignment labelAlignment1 = new C.LabelAlignment() { Val = C.LabelAlignmentValues.Center };
-            C.LabelOffset labelOffset1 = new C.LabelOffset() { Val = (UInt16Value)100U };
-            C.NoMultiLevelLabels noMultiLevelLabels1 = new C.NoMultiLevelLabels() { Val = false };
 
             categoryAxis1.Append(axisId5);
             categoryAxis1.Append(scaling1);
-            categoryAxis1.Append(delete1);
-            categoryAxis1.Append(axisPosition1);
-            categoryAxis1.Append(majorTickMark1);
-            categoryAxis1.Append(minorTickMark1);
-            categoryAxis1.Append(tickLabelPosition1);
+            categoryAxis1.Append(new C.Delete() { Val = false });
+            categoryAxis1.Append(new C.AxisPosition() { Val = C.AxisPositionValues.Bottom });
+            categoryAxis1.Append(new C.MajorTickMark() { Val = C.TickMarkValues.None });
+            categoryAxis1.Append(new C.MinorTickMark() { Val = C.TickMarkValues.None });
+            categoryAxis1.Append(new C.TickLabelPosition() { Val = C.TickLabelPositionValues.None });
             categoryAxis1.Append(chartShapeProperties7);
-            categoryAxis1.Append(crossingAxis1);
-            categoryAxis1.Append(crosses1);
-            categoryAxis1.Append(autoLabeled1);
-            categoryAxis1.Append(labelAlignment1);
-            categoryAxis1.Append(labelOffset1);
-            categoryAxis1.Append(noMultiLevelLabels1);
+            categoryAxis1.Append(new C.CrossingAxis() { Val = (UInt32Value)2145223903U });
+            categoryAxis1.Append(new C.Crosses() { Val = C.CrossesValues.AutoZero });
+            categoryAxis1.Append(new C.AutoLabeled() { Val = true });
+            categoryAxis1.Append(new C.LabelAlignment() { Val = C.LabelAlignmentValues.Center });
+            categoryAxis1.Append(new C.LabelOffset() { Val = (UInt16Value)100U });
+            categoryAxis1.Append(new C.NoMultiLevelLabels() { Val = false });
 
             C.ValueAxis valueAxis1 = new C.ValueAxis();
             C.AxisId axisId6 = new C.AxisId() { Val = (UInt32Value)2145223903U };
 
             C.Scaling scaling2 = new C.Scaling();
-            C.Orientation orientation2 = new C.Orientation() { Val = C.OrientationValues.MinMax };
-            C.MaxAxisValue maxAxisValue1 = new C.MaxAxisValue() { Val = 100D };
-            C.MinAxisValue minAxisValue1 = new C.MinAxisValue() { Val = 0D };
-
-            scaling2.Append(orientation2);
-            scaling2.Append(maxAxisValue1);
-            scaling2.Append(minAxisValue1);
-            C.Delete delete2 = new C.Delete() { Val = false };
-            C.AxisPosition axisPosition2 = new C.AxisPosition() { Val = C.AxisPositionValues.Left };
+            scaling2.Append(new C.Orientation() { Val = C.OrientationValues.MinMax });
+            scaling2.Append(new C.MaxAxisValue() { Val = 100D });
+            scaling2.Append(new C.MinAxisValue() { Val = 0D });
 
             C.MajorGridlines majorGridlines1 = new C.MajorGridlines();
-
             C.ChartShapeProperties chartShapeProperties8 = new C.ChartShapeProperties();
-
             A.Outline outline11 = new A.Outline() { Width = 3175 };
-
             A.SolidFill solidFill15 = new A.SolidFill();
-            A.RgbColorModelHex rgbColorModelHex23 = new A.RgbColorModelHex() { Val = "C0C0C0" };
-
-            solidFill15.Append(rgbColorModelHex23);
-            A.PresetDash presetDash9 = new A.PresetDash() { Val = A.PresetLineDashValues.SystemDash };
-
+            solidFill15.Append(new A.RgbColorModelHex() { Val = "C0C0C0" });
             outline11.Append(solidFill15);
-            outline11.Append(presetDash9);
-
+            outline11.Append(new A.PresetDash() { Val = A.PresetLineDashValues.SystemDash });
             chartShapeProperties8.Append(outline11);
-
             majorGridlines1.Append(chartShapeProperties8);
-            C.NumberingFormat numberingFormat6 = new C.NumberingFormat() { FormatCode = "0\"%\"", SourceLinked = false };
-            C.MajorTickMark majorTickMark2 = new C.MajorTickMark() { Val = C.TickMarkValues.Inside };
-            C.MinorTickMark minorTickMark2 = new C.MinorTickMark() { Val = C.TickMarkValues.None };
-            C.TickLabelPosition tickLabelPosition2 = new C.TickLabelPosition() { Val = C.TickLabelPositionValues.NextTo };
 
             C.ChartShapeProperties chartShapeProperties9 = new C.ChartShapeProperties();
-
             A.Outline outline12 = new A.Outline();
-
             A.SolidFill solidFill16 = new A.SolidFill();
-            A.RgbColorModelHex rgbColorModelHex24 = new A.RgbColorModelHex() { Val = "BFBFBF" };
-
-            solidFill16.Append(rgbColorModelHex24);
-            A.PresetDash presetDash10 = new A.PresetDash() { Val = A.PresetLineDashValues.Solid };
-
+            solidFill16.Append(new A.RgbColorModelHex() { Val = "BFBFBF" });
             outline12.Append(solidFill16);
-            outline12.Append(presetDash10);
-
+            outline12.Append(new A.PresetDash() { Val = A.PresetLineDashValues.Solid });
             chartShapeProperties9.Append(outline12);
-            C.CrossingAxis crossingAxis2 = new C.CrossingAxis() { Val = (UInt32Value)2145344767U };
-            C.Crosses crosses2 = new C.Crosses() { Val = C.CrossesValues.AutoZero };
-            C.CrossBetween crossBetween1 = new C.CrossBetween() { Val = C.CrossBetweenValues.Between };
-            C.MajorUnit majorUnit1 = new C.MajorUnit() { Val = 20D };
 
             valueAxis1.Append(axisId6);
             valueAxis1.Append(scaling2);
-            valueAxis1.Append(delete2);
-            valueAxis1.Append(axisPosition2);
+            valueAxis1.Append(new C.Delete() { Val = false });
+            valueAxis1.Append(new C.AxisPosition() { Val = C.AxisPositionValues.Left });
             valueAxis1.Append(majorGridlines1);
-            valueAxis1.Append(numberingFormat6);
-            valueAxis1.Append(majorTickMark2);
-            valueAxis1.Append(minorTickMark2);
-            valueAxis1.Append(tickLabelPosition2);
+            valueAxis1.Append(new C.NumberingFormat() { FormatCode = "0\"%\"", SourceLinked = false });
+            valueAxis1.Append(new C.MajorTickMark() { Val = C.TickMarkValues.Inside });
+            valueAxis1.Append(new C.MinorTickMark() { Val = C.TickMarkValues.None });
+            valueAxis1.Append(new C.TickLabelPosition() { Val = C.TickLabelPositionValues.NextTo });
             valueAxis1.Append(chartShapeProperties9);
-            valueAxis1.Append(crossingAxis2);
-            valueAxis1.Append(crosses2);
-            valueAxis1.Append(crossBetween1);
-            valueAxis1.Append(majorUnit1);
+            valueAxis1.Append(new C.CrossingAxis() { Val = (UInt32Value)2145344767U });
+            valueAxis1.Append(new C.Crosses() { Val = C.CrossesValues.AutoZero });
+            valueAxis1.Append(new C.CrossBetween() { Val = C.CrossBetweenValues.Between });
+            valueAxis1.Append(new C.MajorUnit() { Val = 20D });
+
+            C.ValueAxis scatterValueAxisY = null;
+            C.ValueAxis scatterValueAxisX = null;
+            if (HasLines)
+            {
+                scatterValueAxisY = new C.ValueAxis();
+                C.Scaling scatterScalingY = new C.Scaling();
+                scatterScalingY.Append(new C.Orientation() { Val = C.OrientationValues.MinMax });
+                scatterScalingY.Append(new C.MaxAxisValue() { Val = 100D });
+                scatterScalingY.Append(new C.MinAxisValue() { Val = 0D });
+                scatterValueAxisY.Append(new C.AxisId() { Val = (UInt32Value)scatterAxisYId });
+                scatterValueAxisY.Append(scatterScalingY);
+                scatterValueAxisY.Append(new C.Delete() { Val = true });
+                scatterValueAxisY.Append(new C.AxisPosition() { Val = C.AxisPositionValues.Right });
+                scatterValueAxisY.Append(new C.NumberingFormat() { FormatCode = "0\"%\"", SourceLinked = false });
+                scatterValueAxisY.Append(new C.MajorTickMark() { Val = C.TickMarkValues.None });
+                scatterValueAxisY.Append(new C.MinorTickMark() { Val = C.TickMarkValues.None });
+                scatterValueAxisY.Append(new C.TickLabelPosition() { Val = C.TickLabelPositionValues.None });
+                scatterValueAxisY.Append(new C.CrossingAxis() { Val = (UInt32Value)scatterAxisXId });
+                scatterValueAxisY.Append(new C.Crosses() { Val = C.CrossesValues.AutoZero });
+                scatterValueAxisY.Append(new C.CrossBetween() { Val = C.CrossBetweenValues.MidpointCategory });
+
+                scatterValueAxisX = new C.ValueAxis();
+                C.Scaling scatterScalingX = new C.Scaling();
+                scatterScalingX.Append(new C.Orientation() { Val = C.OrientationValues.MinMax });
+                scatterScalingX.Append(new C.MaxAxisValue() { Val = columnPointCount });
+                scatterScalingX.Append(new C.MinAxisValue() { Val = 0D });
+                scatterValueAxisX.Append(new C.AxisId() { Val = (UInt32Value)scatterAxisXId });
+                scatterValueAxisX.Append(scatterScalingX);
+                scatterValueAxisX.Append(new C.Delete() { Val = true });
+                scatterValueAxisX.Append(new C.AxisPosition() { Val = C.AxisPositionValues.Top });
+                scatterValueAxisX.Append(new C.NumberingFormat() { FormatCode = "General", SourceLinked = true });
+                scatterValueAxisX.Append(new C.MajorTickMark() { Val = C.TickMarkValues.None });
+                scatterValueAxisX.Append(new C.MinorTickMark() { Val = C.TickMarkValues.None });
+                scatterValueAxisX.Append(new C.TickLabelPosition() { Val = C.TickLabelPositionValues.None });
+                scatterValueAxisX.Append(new C.CrossingAxis() { Val = (UInt32Value)scatterAxisYId });
+                scatterValueAxisX.Append(new C.Crosses() { Val = C.CrossesValues.Maximum });
+                scatterValueAxisX.Append(new C.CrossBetween() { Val = C.CrossBetweenValues.MidpointCategory });
+            }
 
             C.ShapeProperties shapeProperties1 = new C.ShapeProperties();
-
             A.Outline outline13 = new A.Outline() { Width = 25400 };
-            A.NoFill noFill3 = new A.NoFill();
-
-            outline13.Append(noFill3);
-
+            outline13.Append(new A.NoFill());
             shapeProperties1.Append(outline13);
 
+            plotArea1.Append(layout1);
             plotArea1.Append(barChart1);
-            if(HasLines) plotArea1.Append(lineChart1);
+            if (HasLines) plotArea1.Append(scatterChart1);
             plotArea1.Append(categoryAxis1);
             plotArea1.Append(valueAxis1);
+            if (HasLines)
+            {
+                plotArea1.Append(scatterValueAxisY);
+                plotArea1.Append(scatterValueAxisX);
+            }
             plotArea1.Append(shapeProperties1);
-            C.PlotVisibleOnly plotVisibleOnly1 = new C.PlotVisibleOnly() { Val = true };
-            C.DisplayBlanksAs displayBlanksAs1 = new C.DisplayBlanksAs() { Val = C.DisplayBlanksAsValues.Gap };
-
-            C.ShowDataLabelsOverMaximum showDataLabelsOverMaximum1 = new C.ShowDataLabelsOverMaximum() { Val = false };
 
             chart1.Append(autoTitleDeleted1);
             chart1.Append(plotArea1);
-            chart1.Append(plotVisibleOnly1);
-            chart1.Append(displayBlanksAs1);
-            chart1.Append(showDataLabelsOverMaximum1);
+            if (HasLines)
+            {
+                C.Legend legend1 = new C.Legend();
+                legend1.Append(new C.LegendPosition() { Val = C.LegendPositionValues.Top });
+                legend1.Append(new C.Overlay() { Val = false });
+                C.ChartShapeProperties legendShapeProps = new C.ChartShapeProperties();
+                A.Outline legendOutline = new A.Outline() { Width = 25400 };
+                legendOutline.Append(new A.NoFill());
+                legendShapeProps.Append(legendOutline);
+                legend1.Append(legendShapeProps);
+                chart1.Append(legend1);
+            }
+            chart1.Append(new C.PlotVisibleOnly() { Val = true });
+            chart1.Append(new C.DisplayBlanksAs() { Val = C.DisplayBlanksAsValues.Gap });
+            chart1.Append(new C.ShowDataLabelsOverMaximum() { Val = false });
 
             C.ShapeProperties shapeProperties2 = new C.ShapeProperties();
-            A.NoFill noFill4 = new A.NoFill();
-
+            shapeProperties2.Append(new A.NoFill());
             A.Outline outline14 = new A.Outline() { Width = 9525 };
-            A.NoFill noFill5 = new A.NoFill();
-
-            outline14.Append(noFill5);
-
-            shapeProperties2.Append(noFill4);
+            outline14.Append(new A.NoFill());
             shapeProperties2.Append(outline14);
-                   
+
             chartSpace1.Append(date19041);
             chartSpace1.Append(editingLanguage1);
             chartSpace1.Append(roundedCorners1);
@@ -4145,7 +4217,7 @@ namespace Qc4Launcher.Logic.Cross_Report
             return dataPoint1;
         }
 
-        public static C.DataLabels ApplyDataLabels(bool showCategoryName, bool showLeaderLines, string NumberFormat = null,bool showPercent = true)
+        public static C.DataLabels ApplyDataLabels(bool showCategoryName, bool showLeaderLines, string NumberFormat = null, bool showPercent = true, bool showValue = true)
         {
             C.DataLabels dataLabels = new C.DataLabels();
 
@@ -4183,7 +4255,7 @@ namespace Qc4Launcher.Logic.Cross_Report
             chartShapeProperties2.Append(outline5);
             chartShapeProperties2.Append(effectList4);
             C.ShowLegendKey showLegendKey1 = new C.ShowLegendKey() { Val = false };
-            C.ShowValue showValue1 = new C.ShowValue() { Val = true };
+            C.ShowValue showValue1 = new C.ShowValue() { Val = showValue };
             C.ShowCategoryName showCategoryName1 = new C.ShowCategoryName() { Val = showCategoryName };
             C.ShowSeriesName showSeriesName1 = new C.ShowSeriesName() { Val = false };
             C.ShowPercent showPercent1 = new C.ShowPercent() { Val = showPercent };
@@ -4398,6 +4470,40 @@ namespace Qc4Launcher.Logic.Cross_Report
             numberReference.Append(formula2);
             values.Append(numberReference);
             return values;
+        }
+
+        private static C.XValues CreateScatterColumnPositionXValues(int pointCount)
+        {
+            C.XValues xValues = new C.XValues();
+            C.NumberLiteral numberLiteral = new C.NumberLiteral();
+            numberLiteral.Append(new C.FormatCode() { Text = "General" });
+            numberLiteral.Append(new C.PointCount() { Val = (UInt32Value)(uint)pointCount });
+
+            double pointValue = 0.5;
+            UInt32Value index = 0;
+            for (int i = 0; i < pointCount; i++, pointValue += 1)
+            {
+                C.NumericPoint numericPoint = new C.NumericPoint() { Index = index };
+                C.NumericValue numericValue = new C.NumericValue();
+                numericValue.Text = pointValue.ToString();
+                numericPoint.Append(numericValue);
+                numberLiteral.Append(numericPoint);
+                index++;
+            }
+
+            xValues.Append(numberLiteral);
+            return xValues;
+        }
+
+        public static C.YValues SetNumericYDataLinkValues(WorksheetPart worksheetPart, string sheetName, int firstRow, int lastRow, int lastCol, int firstCol = 0)
+        {
+            C.YValues yValues = new C.YValues();
+            C.NumberReference numberReference = new C.NumberReference();
+            C.Formula formula = new C.Formula();
+            formula.Text = "\'" + sheetName + "\'!$" + OpenXmlHelper.ColumnIndexToColumnLetter(firstCol) + "$" + firstRow + ":$" + OpenXmlHelper.ColumnIndexToColumnLetter(lastCol) + "$" + lastRow;
+            numberReference.Append(formula);
+            yValues.Append(numberReference);
+            return yValues;
         }
 
         public static C.XValues SetNumericXDataLinkValues(WorksheetPart worksheetPart, string sheetName, int firstRow, int lastRow, int lastCol, int firstCol = 0, UInt32 numberOfPoints = 0)

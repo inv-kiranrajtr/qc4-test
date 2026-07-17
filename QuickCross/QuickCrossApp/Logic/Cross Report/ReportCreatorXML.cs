@@ -792,7 +792,12 @@ namespace Qc4Launcher.Logic.Cross_Report
                             {
                                 firstRow = Information.LBound(v, 1) + tableStartRow + 2;
                                 lastRow = firstRow;
-                                graphFCol = (firstCol - 2).ToString(); graphLCol = (lastCol).ToString();
+                                // Chart width grows with bar/category count so GWS does not squeeze columns.
+                                int barCount = lastCol - firstCol + 1;
+                                int graphStartCol = Math.Max(1, firstCol - 2);
+                                int graphEndCol = Math.Max(lastCol, graphStartCol + Math.Max(barCount + 1, 6) - 1);
+                                graphFCol = graphStartCol.ToString();
+                                graphLCol = graphEndCol.ToString();
                                 graphFRow = "11"; graphLRow = (firstRow - 3).ToString();
                                 ChartPart chartPart = drawingPart.AddNewPart<ChartPart>("rId0");
                                 DrawingPart.GenerateGraphDrawingsPart(drawingPart, graphFRow, graphLRow, graphFCol, graphLCol, "rId0"
@@ -800,15 +805,6 @@ namespace Qc4Launcher.Logic.Cross_Report
 
                                 DrawingPart.GenerateColumClusterAndLineGraph(worksheetPart, tmpTable, tmpFormatSheet, lineColour, LinesIndexList, ref v, HasLines,
                                                                             chartPart, firstRow, lastRow, firstCol, lastCol, isN, tempTable, i, MaxAxesCountArray);
-
-                                if (HasLines)
-                                {
-                                    chartPart = drawingPart.AddNewPart<ChartPart>("rId2");
-                                    DrawingPart.GenerateGraphDrawingsPart(drawingPart, graphFRow, graphLRow, "2", isThreeWay ? "4" : "3", "rId2"
-                                                                           , "LegendLine");
-                                    DrawingPart.GenerateLegendLineGraph(worksheetPart, tmpTable, tmpFormatSheet, lineColour, LinesIndexList, ref v, HasLines,
-                                                                        chartPart, firstRow, lastRow, firstCol, lastCol, isN, tempTable, i, MaxAxesCountArray);
-                                }
                             }
 
                             if (!isMA)  // side chart
