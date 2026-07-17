@@ -3479,7 +3479,8 @@ namespace Qc4Launcher.Logic.Cross_Report
             categoryAxis1.Append(new C.LabelOffset() { Val = (UInt16Value)100U });
             plotArea1.Append(categoryAxis1);
 
-            // Value axis (left)
+            // Value axis (left). Use literal %" (0"%") — NOT Excel % format.
+            // Cell values are already 0–100; format 0% would scale the axis to 10000% and hide columns.
             C.ValueAxis valueAxis1 = new C.ValueAxis();
             valueAxis1.Append(new C.AxisId() { Val = valAxId });
             C.Scaling valScaling = new C.Scaling();
@@ -3490,7 +3491,7 @@ namespace Qc4Launcher.Logic.Cross_Report
             valueAxis1.Append(new C.Delete() { Val = false });
             valueAxis1.Append(new C.AxisPosition() { Val = C.AxisPositionValues.Left });
             valueAxis1.Append(new C.MajorGridlines());
-            valueAxis1.Append(new C.NumberingFormat() { FormatCode = "0", SourceLinked = false });
+            valueAxis1.Append(new C.NumberingFormat() { FormatCode = "0\"%\"", SourceLinked = false });
             valueAxis1.Append(new C.MajorTickMark() { Val = C.TickMarkValues.Outside });
             valueAxis1.Append(new C.MinorTickMark() { Val = C.TickMarkValues.None });
             valueAxis1.Append(new C.TickLabelPosition() { Val = C.TickLabelPositionValues.NextTo });
