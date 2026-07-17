@@ -3442,16 +3442,7 @@ namespace Qc4Launcher.Logic.Cross_Report
                     lineTx.Append(lineTxRef);
                     lineSer.Append(lineTx);
 
-                    // Thicker stroke so connecting lines are visible (3175 EMUs ≈ 0.25pt is easy to miss)
-                    C.ChartShapeProperties lineSpPr = new C.ChartShapeProperties();
-                    A.Outline lineOutline = new A.Outline() { Width = 25400 };
-                    A.SolidFill lineFill = new A.SolidFill();
-                    lineFill.Append(new A.RgbColorModelHex() { Val = rgb });
-                    lineOutline.Append(lineFill);
-                    lineOutline.Append(new A.PresetDash() { Val = A.PresetLineDashValues.Solid });
-                    lineSpPr.Append(lineOutline);
-                    lineSer.Append(lineSpPr);
-
+                    lineSer.Append(SetLineChartProperty(rgb));
                     C.Marker marker1 = new C.Marker();
                     marker1.Append(new C.Symbol() { Val = C.MarkerStyleValues.Square });
                     marker1.Append(new C.Size() { Val = 7 });
@@ -3518,8 +3509,7 @@ namespace Qc4Launcher.Logic.Cross_Report
             chart1.Append(legend1);
 
             chart1.Append(new C.PlotVisibleOnly() { Val = true });
-            // Connect through zeros so line series draw between categories (Gap can hide strokes)
-            chart1.Append(new C.DisplayBlanksAs() { Val = C.DisplayBlanksAsValues.Zero });
+            chart1.Append(new C.DisplayBlanksAs() { Val = C.DisplayBlanksAsValues.Gap });
             chart1.Append(new C.ShowDataLabelsOverMaximum() { Val = false });
 
             chartSpace1.Append(date19041);
