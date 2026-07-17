@@ -87,16 +87,29 @@ namespace Qc4Launcher.Logic.Cross_Report
 
                     var clr = System.Drawing.Color.FromArgb(
                         ColorPallet.colorIndex[ColorPallet.colorLineIndex[j % ColorPallet.colorLineIndex.Length]]);
-                    string rgb = clr.B.ToString("X2") + clr.G.ToString("X2") + clr.R.ToString("X2");
-                    lineSeries.Add(new LineSeriesPayload { Label = label, Values = values, Rgb = rgb });
+                    // TEMP VERIFY: force neon line colors so overlay is unmistakable in GWS.
+                    string rgb = (j == 0) ? "00E5FF" : (j == 1) ? "39FF14" : (j == 2) ? "FFD600" :
+                        clr.B.ToString("X2") + clr.G.ToString("X2") + clr.R.ToString("X2");
+                    lineSeries.Add(new LineSeriesPayload { Label = "[GWS]" + label, Values = values, Rgb = rgb });
                 }
             }
 
             WriteHiddenChartData(worksheetPart, categories, barLabel, barValues, lineSeries, categoryCol, HiddenDataStartRow);
 
+            // TEMP VERIFY markers — remove after GWS confirms this is the correct top chart.
+            const string verifyTag = "GWS-COMBO-BUILDER-v3";
+            string verifyTitle = verifyTag + " bars=" + pointCount + " lines=" + lineSeries.Count
+                + " hasLines=" + hasLines
+                + (linesIndexList == null ? " idx=null" : " idx=" + linesIndexList.Count);
+            int markerRow = Math.Max(1, firstRow - 4);
+            int markerCol = Math.Max(1, firstCol - 1);
+            CrossReportHelper.InserStringValue(worksheetPart, verifyTitle, markerRow, markerCol);
+            System.Diagnostics.Debug.WriteLine("[GwsComboChartBuilder] " + verifyTitle + " sheet=" + sheetName);
+
             C.ChartSpace chartSpace = CreateChartSpaceShell();
             C.Chart chart = new C.Chart();
-            chart.Append(new C.AutoTitleDeleted() { Val = true });
+            chart.Append(CreateVerifyChartTitle(verifyTitle));
+            chart.Append(new C.AutoTitleDeleted() { Val = false });
 
             C.PlotArea plotArea = new C.PlotArea();
             plotArea.Append(new C.Layout());
@@ -109,8 +122,9 @@ namespace Qc4Launcher.Logic.Cross_Report
             C.BarChartSeries barSeries = new C.BarChartSeries();
             barSeries.Append(new C.Index() { Val = 0U });
             barSeries.Append(new C.Order() { Val = 0U });
-            barSeries.Append(CreateCachedSeriesText(sheetName, HiddenDataStartRow, barCol, barLabel));
-            barSeries.Append(ApplyBarFill("D9D9D9", "BFBFBF"));
+            // Bright magenta bars = unmistakable proof this builder ran (revert after verify).
+            barSeries.Append(CreateCachedSeriesText(sheetName, HiddenDataStartRow, barCol, "★" + barLabel + "★"));
+            barSeries.Append(ApplyBarFill("FF00AA", "000000"));
             barSeries.Append(new C.InvertIfNegative() { Val = false });
             barSeries.Append(DrawingPart.SetStringDataLinkValues(worksheetPart, sheetName, dataStartRow, dataEndRow, categoryCol, categoryCol));
             barSeries.Append(DrawingPart.SetNumericDataLinkValues(worksheetPart, sheetName, dataStartRow, dataEndRow, barCol, barCol));
@@ -118,7 +132,7 @@ namespace Qc4Launcher.Logic.Cross_Report
 
             C.DataLabels barLabels = new C.DataLabels();
             barLabels.Append(new C.ShowLegendKey() { Val = false });
-            barLabels.Append(new C.ShowValue() { Val = false });
+            barLabels.Append(new C.ShowValue() { Val = true });
             barLabels.Append(new C.ShowCategoryName() { Val = false });
             barLabels.Append(new C.ShowSeriesName() { Val = false });
             barLabels.Append(new C.ShowPercent() { Val = false });
@@ -183,6 +197,28 @@ namespace Qc4Launcher.Logic.Cross_Report
             chartSpace.Append(CreateChartAreaShape());
             chartSpace.Append(DrawingPart.SetTextPrperty(800));
             chartPart.ChartSpace = chartSpace;
+        }
+
+        private static C.Title CreateVerifyChartTitle(string text)
+        {
+            C.Title title = new C.Title();
+            C.ChartText chartText = new C.ChartText();
+            C.RichText richText = new C.RichText();
+            richText.Append(new A.BodyProperties());
+            richText.Append(new A.ListStyle());
+            A.Paragraph paragraph = new A.Paragraph();
+            A.ParagraphProperties paragraphProperties = new A.ParagraphProperties();
+            paragraphProperties.Append(new A.DefaultRunProperties() { FontSize = 1400 });
+            paragraph.Append(paragraphProperties);
+            A.Run run = new A.Run();
+            run.Append(new A.RunProperties() { Language = "en-US", FontSize = 1400, Bold = true });
+            run.Append(new A.Text(text));
+            paragraph.Append(run);
+            richText.Append(paragraph);
+            chartText.Append(richText);
+            title.Append(chartText);
+            title.Append(new C.Overlay() { Val = false });
+            return title;
         }
 
         private static C.ChartSpace CreateChartSpaceShell()
