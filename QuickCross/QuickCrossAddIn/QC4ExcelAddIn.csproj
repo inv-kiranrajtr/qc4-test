@@ -433,12 +433,8 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
-  <!-- VSTO requires SignManifests=true. Company PFX often fails locally ("Key not valid...");
-       use the project temporary key for Debug so builds still succeed. -->
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-    <ManifestKeyFile>QC4ExcelAddIn_TemporaryKey.pfx</ManifestKeyFile>
-    <ManifestCertificateThumbprint></ManifestCertificateThumbprint>
-    <ManifestTimestampUrl></ManifestTimestampUrl>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
